@@ -77,6 +77,7 @@ function echo_nav_array($arr)
 
       </ul>
 
+<<<<<<< HEAD
       <!-- SEARCH -->
       <form class="d-flex ms-auto">
 
@@ -91,6 +92,24 @@ function echo_nav_array($arr)
         </div>
       </form>
 
+=======
+      <div class="ms-auto">
+        <!-- LANGUAGE -->
+        <select class="selectpicker d-flex ms-auto" data-width="fit">
+          <option><span class="flag-icon flag-icon-gr"></span>Greek</option>
+          <option><span class="flag-icon flag-icon-mx"></span>English</option>
+        </select>
+
+        <!-- SEARCH -->
+        <form class="d-flex">
+          <div class="input-group">
+            <input class="form-control border-0 mr-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-secondary border-0" type="submit">Search</button>
+          </div>
+        </form>
+        
+      </div>
+>>>>>>> 6afca6f0e2da4430c35595dc1019fd8f39c03edf
     </div>
   </div>
 </nav>
