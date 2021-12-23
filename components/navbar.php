@@ -102,12 +102,23 @@
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li>
       </ul>
-      <form class="d-flex ms-auto">
-        <div class="input-group">
-          <input class="form-control border-0 mr-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-secondary border-0" type="submit">Search</button>
-        </div>
-      </form>
+
+      <div class="ms-auto">
+        <!-- LANGUAGE -->
+        <select class="selectpicker d-flex ms-auto" data-width="fit">
+          <option><span class="flag-icon flag-icon-gr"></span>Greek</option>
+          <option><span class="flag-icon flag-icon-mx"></span>English</option>
+        </select>
+
+        <!-- SEARCH -->
+        <form class="d-flex">
+          <div class="input-group">
+            <input class="form-control border-0 mr-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-secondary border-0" type="submit">Search</button>
+          </div>
+        </form>
+        
+      </div>
     </div>
   </div>
 </nav>
