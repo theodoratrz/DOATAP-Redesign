@@ -38,11 +38,7 @@ function echo_nav_array($arr)
 
     <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content">
       <div class="hamburger-toggle">
-        <div class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+        <i class="fas fa-bars"></i> 
       </div>
     </button>
 
@@ -91,7 +87,7 @@ function echo_nav_array($arr)
             <button class="btn btn-secondary border-0" type="submit">Search</button>
           </div>
         </form>
-        
+
       </div>
     </div>
   </div>
