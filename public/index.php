@@ -6,7 +6,7 @@
 
 <div class="page-container container">
 
-    Hello
+<?php require_once("../components/home_page_content.php"); ?>
 
 </div>
 
