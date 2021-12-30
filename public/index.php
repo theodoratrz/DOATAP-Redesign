@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="css/home_page.css">
+<link rel="stylesheet" href="css/index.css">
 
 <?php require_once("../components/template.php"); ?>
 
