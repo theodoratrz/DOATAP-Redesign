@@ -3,7 +3,7 @@
 <?php
 $nav_links = array(
   "Αιτήσεις" => array(
-    "Διαδικασία Υποβολής" => "aa.php",
+    "Διαδικασία Υποβολής" => "index.php",
     "Η Πορεία μίας Αίτησης" => array(
       "Αξιολόγηση Αίτησης" => "cc.php",
       "Χρόνοι Διεκπεραίωσης" => "cc.php",
@@ -60,15 +60,14 @@ function echo_nav_array($arr)
 
     <a class="navbar-brand" href="#"> <img src="images/doatap-logo.png" alt="" width="250px"><!--  <span class="badge bg-primary">Mega Menu</span> --> </a>
 
-    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content">
+    <!--button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content">
       <div class="hamburger-toggle">
         <i class="fas fa-bars"></i> 
       </div>
-    </button>
+    </button-->
 
     <div class="collapse navbar-collapse" id="navbar-content">
-      <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
-
+      <ul class="nav nav-pills nav-fill">
 
         <!-- Dynamic Navbar -->
         <?php
@@ -87,7 +86,7 @@ function echo_nav_array($arr)
           } else {
             echo '
             <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="' . $href . '">' . $name . '</a>
+            <a class="nav-link" aria-current="page" href="' . $href . '">' . $name . '</a>
             </li>
             ';
           }
@@ -96,26 +95,26 @@ function echo_nav_array($arr)
         ?>
 
       </ul>
-
-      
-      <div class="ms-auto">
-        <!-- LANGUAGE -->
-        <a class="search_button"><i class="fas fa-globe-americas"></i></a>
-        <select class="language_picker" data-width="fit">
-          <option><span class="flag-icon flag-icon-gr"></span>Greek</option>
-          <option><span class="flag-icon flag-icon-mx"></span>English</option>
-        </select>
-
-        <!-- SEARCH -->
-        <form class="navbar_search">
-          <div class="input-group">
-            <a class="search_button"><i class="fas fa-search"></i></a>
-            <input class="search_form" type="search" placeholder="Αναζήτηση" aria-label="Search">
-          </div>
-        </form>
-
-      </div>
     </div>
+
+    <div class="ms-auto">
+      <!-- LANGUAGE -->
+      <a class="search_button"><i class="fas fa-globe-americas"></i></a>
+      <select class="language_picker" data-width="fit">
+        <option><span class="flag-icon flag-icon-gr"></span>Greek</option>
+        <option><span class="flag-icon flag-icon-mx"></span>English</option>
+      </select>
+
+      <!-- SEARCH -->
+      <form class="navbar_search">
+        <div class="input-group">
+          <a class="search_button"><i class="fas fa-search"></i></a>
+          <input class="search_form" type="search" placeholder="Αναζήτηση" aria-label="Search">
+        </div>
+      </form>
+
+    </div>
+    
   </div>
 </nav>
 
