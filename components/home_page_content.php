@@ -1,3 +1,3 @@
-
-<a class="navbar-brand" href="#"><img src="images/hp.png" alt="" class = "background_image"></a>
-
+<a class = fluid-container>
+<img src="images/hp.png" alt="">
+</a>
