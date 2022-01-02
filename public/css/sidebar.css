@@ -33,6 +33,22 @@
     transition: transform .35s ease;
 }
 
+.sidebar-subitem[active="true"] {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: .35rem;
+    color: #002E69;
+}
+
+.sidebar-subitem[active="false"] {
+    color: rgba(0, 0, 0, .65);
+}
+
+.sidebar-subitem:hover {
+    color: #002E69;
+}
+
 .btn-toggle[aria-expanded="true"] {
     color: #002E69;
 }
@@ -46,7 +62,6 @@
 
 .btn-toggle-nav a {
     position: relative;
-    color: rgba(0, 0, 0, .65);
     display: inline-flex;
     padding-top: 0rem;
     padding-right: 0.5rem;
