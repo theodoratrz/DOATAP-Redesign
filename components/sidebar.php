@@ -44,9 +44,9 @@ function echoSidebar(string $path)
 
 		} else if ($type == 'array') {
 			if (count($pathArray) > 2) {
-				echoSidebarSubmenu($subpage, $value[0], $value[1], $pathArray[2]);
+				echoSidebarSubmenu($subpage, $value[0], $value[1], $pathArray[2], $pathArray[0]);
 			} else {
-				echoSidebarSubmenu($subpage, $value[0], $value[1], "");
+				echoSidebarSubmenu($subpage, $value[0], $value[1], "", $pathArray[0]);
 			}
 			
 			
@@ -61,7 +61,7 @@ function echoSidebar(string $path)
 	";
 }
 
-function echoSidebarSubmenu(string $topPage, string $topPageTitle, array $subpages, string $selectedSubpage)
+function echoSidebarSubmenu(string $topPage, string $topPageTitle, array $subpages, string $selectedSubpage, string $rootPage)
 {
 	echo "
 	<button class='btn-toggle align-items-center collapsed' data-bs-target='#$topPage-collapse' aria-expanded='true'>
@@ -77,18 +77,9 @@ function echoSidebarSubmenu(string $topPage, string $topPageTitle, array $subpag
 	";
 	foreach ($subpages as $page => $pageTitle) {
 		if ($page == $selectedSubpage) {
-			/* echo "
-			<li><a href='$topPage/$page' class='sidebar-subitem' active='true'>
-				$pageTitle
-				<div class='sidebar-active-arrow'>
-					<i class='fas fa-chevron-right fa-xs'></i>
-				</div>
-			</a></li>
-			"; */
-			echoSidebarItem($pageTitle, "$topPage/$page", true);
+			echoSidebarItem($pageTitle, "$rootPage/$topPage/$page", true);
 		} else {
-			# echo "<li><a href='$topPage/$page' class='sidebar-subitem' active='false'>$pageTitle</a></li>";
-			echoSidebarItem($pageTitle, "$topPage/$page", false);
+			echoSidebarItem($pageTitle, "$rootPage/$topPage/$page", false);
 		}
 	}
 	echo "
@@ -118,33 +109,3 @@ function echoSidebarItem(string $pageTitle, string $href, bool $active)
 echoSidebar("profile/my_applications/declined");
 
 ?>
-
-<!-- <div class="flex-shrink-0 p-3 bg-white" style="width: 15rem;">
-	<ul class="list-group ps-0">
-		<a href="#" class="sidebar-subitem" active="true">
-			Updates
-			<div class="sidebar-active-arrow">
-				<i class="fas fa-chevron-right fa-xs"></i>
-			</div>
-		</a>
-		<button class="btn-toggle align-items-center collapsed " data-bs-target="#home-collapse" aria-expanded="true">
-			Home
-			<div class="sidebar-active-arrow">
-				<i class="fas fa-chevron-right fa-xs"></i>
-			</div>
-		</button>
-		<div class="collapse show" id="home-collapse">
-			<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-				<li><a href="#" class="sidebar-subitem" active="true">
-					Overview
-					<div class="sidebar-active-arrow">
-						<i class="fas fa-chevron-right fa-xs"></i>
-					</div>
-				</a></li>
-				<li><a href="#" class="sidebar-subitem" active="false">Updates</a></li>
-				<li><a href="#" class="sidebar-subitem" active="false">Reports</a></li>
-			</ul>
-		</div>
-		<a href="#" class="sidebar-subitem" active="false">Updates</a>
-	</ul>
-</div> -->
