@@ -129,6 +129,7 @@ function echo_nav_array($arr)
     
   </div>
 </nav>
+
 <script>
   document.addEventListener('click', function(e) {
     // Hamburger menu
