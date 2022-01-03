@@ -9,9 +9,8 @@
 
 </div>
 <div class="page-container fluid-container">
-
         <div class="parallax"></div>
-
+        hello
     </div>
 
 

@@ -29,7 +29,8 @@ $nav_links = array(
     "Ετήσιος Απολογισμός ΔΣ" => "aa.php",
     "Στατιστικά Στοιχεία" => "aa.php"
   ),
-  "Επικοινωνία" => "contact.php"
+  "Επικοινωνία" => "contact.php",
+  "Σύνδεση" => "login.php"
 
 );
 
@@ -84,6 +85,9 @@ function echo_nav_array($arr)
 
             echo '</ul></li>';
           } else {
+            if(strcmp($name,"Σύνδεση") == 0){
+              break;
+            }
             echo '
             <li class="nav-item">
             <a class="nav-link" aria-current="page" href="' . $href . '">' . $name . '</a>
@@ -92,12 +96,27 @@ function echo_nav_array($arr)
           }
         }
 
+        if(isset(($_SESSION['user'])) && ($_SESSION['user']) == true){
+          if($_SESSION['role'] == 'admin'){
+            echo '<li class ="nav-item">
+            </li>';
+          }else{
+            echo '<li class ="nav-item">
+            </li>';
+          }
+        }else{
+          echo '<li class="nav-item=">
+          <a class="nav-link login-icons" aria-current="page" href="' . $href . '">' . $name . '<i class="fas fa-sign-in-alt"></i></a>
+          </li>';
+          
+        }
+        
         ?>
 
       </ul>
     </div>
 
-    <div class="ms-auto">
+    <div class="navbar_language">
       <!-- LANGUAGE -->
       <a class="search_button"><i class="fas fa-globe-americas"></i></a>
       <select class="language_picker" data-width="fit">

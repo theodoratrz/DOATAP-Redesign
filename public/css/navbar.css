@@ -4,7 +4,12 @@
     padding-right: 0px;
   }
 
- 
+  .login-icons{
+    white-space: nowrap;
+    margin-left: 0.2rem;
+  }
+
+
   .nav {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -34,6 +39,14 @@
     background-color: none;
   }
 
+  .navbar_language{
+    margin-right: 0px;
+    padding-right: 0px;
+    text-align: right;
+    height: 80px;
+    bottom: 14px;
+    background-color: none;
+  }
 .nav-pills{
     color: white;
     background-color:transparent;
