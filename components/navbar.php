@@ -29,8 +29,7 @@ $nav_links = array(
     "Ετήσιος Απολογισμός ΔΣ" => "aa.php",
     "Στατιστικά Στοιχεία" => "aa.php"
   ),
-  "Επικοινωνία" => "contact.php",
-  "Σύνδεση" => "login.php"
+  "Επικοινωνία" => "contact.php"
 
 );
 
@@ -56,39 +55,20 @@ function echo_nav_array($arr)
 }
 ?>
 
-<nav class="navbar navbar-expand-lg bg-primary navbar-dark">
-  <div class="container-fluid">
+<nav class="primary-navbar navbar-expand-lg bg-primary navbar-dark">
+  <div class="container d-flex">
 
     <a class="navbar-brand" href="#"> <img src="images/doatap-logo.png" alt="" width="250px"> </a>
 
-    <div class="collapse navbar-collapse" id="navbar-content">
-      <ul class="nav nav-pills nav-fill">
+    <!-- LANGUAGE -->
+      <!--a class="search_button"><i class="fas fa-globe-americas"></i></a>
+      <select class="language_picker" data-width="fit">
+        <option><span class="flag-icon flag-icon-gr"></span>Greek</option>
+        <option><span class="flag-icon flag-icon-mx"></span>English</option>
+      </select-->
 
-        <!-- Dynamic Navbar -->
-        <?php
-
-        foreach ($nav_links as $name => $href) {
-          if (gettype($href) === "array") {
-            echo '
-            <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="' . $href . '" data-bs-toggle="dropdown" data-bs-auto-close="outside">' . $name . '</a>
-            <ul class="dropdown-menu shadow">
-            ';
-
-            echo_nav_array($href);
-
-            echo '</ul></li>';
-          } else {
-            if(strcmp($name,"Σύνδεση") == 0){
-              break;
-            }
-            echo '
-            <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="' . $href . '">' . $name . '</a>
-            </li>
-            ';
-          }
-        }
+      <!-- login--> 
+      <?php
 
         if(isset(($_SESSION['user'])) && ($_SESSION['user']) == true){
           if($_SESSION['role'] == 'admin'){
@@ -99,38 +79,56 @@ function echo_nav_array($arr)
             </li>';
           }
         }else{
-          echo '<li class="nav-item=">
-          <a class="nav-link login-icons" aria-current="page" href="' . $href . '">' . $name . '<i class="fas fa-sign-in-alt"></i></a>
-          </li>';
-          
+          echo '
+          <div class="login-signup-container d-flex justify-content-end">
+              
+              <a href="login.php" class="navbar-button nav-fill nav-pills">Σύνδεση</a>
+              <span style="color:white">|</span>
+              <a href="register.php" class="navbar-button nav-fill nav-pills">Εγγραφή</a>
+             
+          </div>';
         }
-        
-        ?>
 
-      </ul>
-    </div>
-
-    <div class="navbar_language">
-      <!-- LANGUAGE -->
-      <a class="search_button"><i class="fas fa-globe-americas"></i></a>
-      <select class="language_picker" data-width="fit">
-        <option><span class="flag-icon flag-icon-gr"></span>Greek</option>
-        <option><span class="flag-icon flag-icon-mx"></span>English</option>
-      </select>
-
-      <!-- SEARCH -->
-      <form class="navbar_search">
-        <div class="input-group">
-          <a class="search_button"><i class="fas fa-search"></i></a>
-          <input class="search_form" type="search" placeholder="Αναζήτηση" aria-label="Search">
-        </div>
-      </form>
-
-    </div>
+    ?>
     
   </div>
 </nav>
 
+<nav class=" navbar navbar-expand-lg bg-primary navbar-dark">
+  <div class="container-fluid">
+
+    <div class="collapse navbar-collapse" id="navbar-content">
+    <ul class="nav">
+
+      <!-- Dynamic Navbar -->
+      <?php
+
+        foreach ($nav_links as $name => $href) {
+          if (gettype($href) === "array") {
+            echo '
+            <li class="nav-item dropdown nav-pills ">
+            <a class="nav-link dropdown-toggle" href="' . $href . '" data-bs-toggle="dropdown" data-bs-auto-close="outside">' . $name . '</a>
+            <ul class="dropdown-menu shadow">
+            ';
+
+            echo_nav_array($href);
+
+            echo '</ul></li>';
+          } else {
+            echo '
+            <li class="nav-item">
+            <a class="nav-link nav-pills" aria-current="page" href="' . $href . '">' . $name . '</a>
+            </li>
+            ';
+          }
+        }
+
+      ?>
+    </ul> 
+    </div>
+    
+  </div>
+</nav>
 <script>
   document.addEventListener('click', function(e) {
     // Hamburger menu
