@@ -1,0 +1,41 @@
+.form-control {
+    padding: 0em 0.5em;
+    font-size: inherit;
+}
+
+.form-label {
+    margin: 0%;
+    font-weight: 600;
+}
+
+.form-select {
+    padding: 0em 0.25em;
+    font-size: inherit;
+    width: 7em;
+}
+
+.input-description {
+    font-weight: bold;
+}
+
+.input-group-text {
+    padding: 0em 0.5em
+}
+
+.form-fields-container {
+    padding: 1rem;
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5em;
+}
+
+.field-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0em;
+}
+
+.form-submit-button {
+    width: max-content;
+}

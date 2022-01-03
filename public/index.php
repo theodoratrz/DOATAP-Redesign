@@ -19,6 +19,8 @@
 
 <?php require_once("../components/content_accordion.php"); ?>
 
+<?php require_once("../components/profile-info.php"); ?>
+
 <?php require_once("../components/footer.php"); ?>
 
 </body>
