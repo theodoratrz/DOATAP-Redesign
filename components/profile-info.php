@@ -1,24 +1,3 @@
-<!-- <link rel="stylesheet" href="css/profile_info.css">
-
-<div class="input-group-container">
-    <label for="" class="input-description">Όνομα:</label>
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="" aria-label="Example text with two button addons"
-        value="Name">
-    </div>
-    <label class="input-description">Επίθετο:</label>
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="" aria-label="Example text with two button addons"
-        value="Surname">
-    </div>
-    <label class="input-description">Πατρώνυμο:</label>
-    <div class="input-group mb-3">
-        <span class="input-group-text">Πατρώνυμο:</span>
-        <input type="text" class="form-control" placeholder="" aria-label="Example text with two button addons"
-        value="Info">
-    </div>
-</div> -->
-
 <?php
 
     function echoTextField(string $fieldID, string $description, string $invalidInputMsg, string $value = '')
@@ -75,6 +54,31 @@
         </div>
         ";
     }
+
+    function echoRadioField(string $fieldID, string $description, $invalidInputMsg, array $options, string $value)
+    {
+        foreach ($options as $index => $option) {
+            if ($value == $option) {
+                echo "
+                <div class='form-check'>
+                    <input class='form-check-input' type='radio' name='$fieldID' id='$fieldID$index' checked>
+                    <label class='form-check-label' for='$fieldID$index'>
+                        $option
+                    </label>
+                </div>
+                ";
+            } else {
+                echo "
+                <div class='form-check'>
+                    <input class='form-check-input' type='radio' name='$fieldID' id='$fieldID$index'>
+                    <label class='form-check-label' for='$fieldID$index'>
+                        $option
+                    </label>
+                </div>
+                ";
+            }
+        }
+    }
 ?>
 
 <link rel="stylesheet" href="css/profile_info.css">
@@ -108,6 +112,7 @@
         <?php echoTextField('fathersname', 'Πατρώνυμο', "Παρακαλώ, επιλέξτε πατρώνυμο.", "Πέτρος") ?>
         <?php echoCheckboxField('sample-checkbox', 'Αποδοχή Όρων', 'Παρακαλώ, αποδεχθείτε τους όρους.') ?>
         <?php echoSelectionsField('options-list', 'Επιλογές', 'Παρακαλώ, επιλέξτε.', array('1', '2', '3')) ?>
+        <?php echoRadioField('options-list', 'Επιλογές', 'Παρακαλώ, επιλέξτε.', array('1', '2', '3'), '3') ?>
 
         <div class="form-submit-button">
             <button class="btn btn-primary" type="submit">Submit form</button>
