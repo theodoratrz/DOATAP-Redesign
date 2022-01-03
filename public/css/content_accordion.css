@@ -1,3 +1,12 @@
 .accordion-body {
     background-color: white;
 }
+
+.accordion-button {
+    padding: 0.5em 1em;
+}
+
+.accordion-flush {
+    margin: 5%;
+    max-width: 850px;
+}

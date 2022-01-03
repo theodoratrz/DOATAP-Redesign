@@ -5,11 +5,19 @@
     const sampleContent = array(
         array(
             "<b>header1</b>",
-            "<p3>content1</p3>"
+            "<div style='display: flex; flex-direction: row; column-gap:0.5em;'>
+                <span style='font-size: 0.75em'>Hi</span>
+                <i>Hi</i>
+                <b>Hi</b>
+            </div>"
         ),
         array(
             "<i>header2</i>",
-            "<b>content2</b>"
+            "<div style='display: flex; flex-direction: column; row-gap:0.5em;'>
+                <span style='font-size: 0.75em'>Hi</span>
+                <i>Hi</i>
+                <b>Hi</b>
+            </div>"
         ),
         array(
             "<span>header3</span>",
