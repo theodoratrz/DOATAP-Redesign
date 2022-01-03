@@ -685,8 +685,8 @@ progress {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin-top: calc(-1 * var(--bs-gutter-y));
-  margin-right: calc(-.5 * var(--bs-gutter-x));
-  margin-left: calc(-.5 * var(--bs-gutter-x));
+  margin-right: calc(-1.0 * var(--bs-gutter-x));
+  margin-left: calc(-1.0 * var(--bs-gutter-x));
 }
 
 .row > * {
@@ -694,8 +694,8 @@ progress {
       flex-shrink: 0;
   width: 100%;
   max-width: 100%;
-  padding-right: calc(var(--bs-gutter-x) * .5);
-  padding-left: calc(var(--bs-gutter-x) * .5);
+  padding-right: calc(var(--bs-gutter-x) * 1.0);
+  padding-left: calc(var(--bs-gutter-x) * 1.0);
   margin-top: var(--bs-gutter-y);
 }
 
