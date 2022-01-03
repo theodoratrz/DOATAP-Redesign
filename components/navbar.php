@@ -80,10 +80,11 @@ function echo_nav_array($arr)
           }
         }else{
           echo '
-          <div class="d-flex justify-content-end">
+          <div class="login-signup-container d-flex justify-content-end">
               
-              <a href="login.php" class="navbar-button nav-fill">Σύνδεση</a>
-              <a href="register.php" class="navbar-button nav-fill">Εγγραφή</a>
+              <a href="login.php" class="navbar-button nav-fill nav-pills">Σύνδεση</a>
+              <span style="color:white">|</span>
+              <a href="register.php" class="navbar-button nav-fill nav-pills">Εγγραφή</a>
              
           </div>';
         }
