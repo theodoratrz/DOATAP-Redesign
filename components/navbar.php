@@ -117,7 +117,7 @@ function echo_nav_array($arr)
           } else {
             echo '
             <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="' . $href . '">' . $name . '</a>
+            <a class="nav-link nav-pills" aria-current="page" href="' . $href . '">' . $name . '</a>
             </li>
             ';
           }

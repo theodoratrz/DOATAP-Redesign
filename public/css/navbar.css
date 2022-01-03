@@ -53,7 +53,7 @@
 
 .login-signup-container{
   column-gap: 0.5rem;
-  align-items: centerfu;
+  align-items: center;
 }
 
 
@@ -160,13 +160,14 @@ text-align: center;
 }
 
 .nav-link:hover{
-  text-decoration: underline;
   color: white;
+  border-radius: 0%;
 }
 
 .nav-link:focus{
   background-color: blue;
     color: white;
+    border-radius: 0%;
 }
   
 .navbar_search{
