@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="css/navbar.css">
+
 <?php
 $nav_links = array(
   "Αιτήσεις" => array(
@@ -53,28 +55,58 @@ function echo_nav_array($arr)
 }
 ?>
 
-<nav class="navbar navbar-expand-lg bg-primary navbar-dark">
+<nav class="primary-navbar navbar-expand-lg bg-primary navbar-dark">
+  <div class="container d-flex">
+
+    <a class="navbar-brand" href="#"> <img src="images/doatap-logo.png" alt="" width="250px"> </a>
+
+    <!-- LANGUAGE -->
+      <!--a class="search_button"><i class="fas fa-globe-americas"></i></a>
+      <select class="language_picker" data-width="fit">
+        <option><span class="flag-icon flag-icon-gr"></span>Greek</option>
+        <option><span class="flag-icon flag-icon-mx"></span>English</option>
+      </select-->
+
+      <!-- login--> 
+      <?php
+
+        if(isset(($_SESSION['user'])) && ($_SESSION['user']) == true){
+          if($_SESSION['role'] == 'admin'){
+            echo '<li class ="nav-item">
+            </li>';
+          }else{
+            echo '<li class ="nav-item">
+            </li>';
+          }
+        }else{
+          echo '
+          <div class="login-signup-container d-flex justify-content-end">
+              
+              <a href="login.php" class="navbar-button nav-fill nav-pills">Σύνδεση</a>
+              <span style="color:white">|</span>
+              <a href="register.php" class="navbar-button nav-fill nav-pills">Εγγραφή</a>
+             
+          </div>';
+        }
+
+    ?>
+    
+  </div>
+</nav>
+
+<nav class=" navbar navbar-expand-lg bg-primary navbar-dark">
   <div class="container-fluid">
 
-    <a class="navbar-brand" href="#"> <img src="images/doatap-logo.png" alt="" width="250px"><!--  <span class="badge bg-primary">Mega Menu</span> --> </a>
-
-    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content">
-      <div class="hamburger-toggle">
-        <i class="fas fa-bars"></i> 
-      </div>
-    </button>
-
     <div class="collapse navbar-collapse" id="navbar-content">
-      <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+    <ul class="nav">
 
-
-        <!-- Dynamic Navbar -->
-        <?php
+      <!-- Dynamic Navbar -->
+      <?php
 
         foreach ($nav_links as $name => $href) {
           if (gettype($href) === "array") {
             echo '
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown nav-pills ">
             <a class="nav-link dropdown-toggle" href="' . $href . '" data-bs-toggle="dropdown" data-bs-auto-close="outside">' . $name . '</a>
             <ul class="dropdown-menu shadow">
             ';
@@ -85,36 +117,18 @@ function echo_nav_array($arr)
           } else {
             echo '
             <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="' . $href . '">' . $name . '</a>
+            <a class="nav-link nav-pills" aria-current="page" href="' . $href . '">' . $name . '</a>
             </li>
             ';
           }
         }
 
-        ?>
-
-      </ul>
-
-      <div class="ms-auto">
-        <!-- LANGUAGE -->
-        <select class="selectpicker d-flex ms-auto" data-width="fit">
-          <option><span class="flag-icon flag-icon-gr"></span>Greek</option>
-          <option><span class="flag-icon flag-icon-mx"></span>English</option>
-        </select>
-
-        <!-- SEARCH -->
-        <form class="d-flex">
-          <div class="input-group">
-            <input class="form-control border-0 mr-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-secondary border-0" type="submit">Search</button>
-          </div>
-        </form>
-
-      </div>
+      ?>
+    </ul> 
     </div>
+    
   </div>
 </nav>
-
 <script>
   document.addEventListener('click', function(e) {
     // Hamburger menu
