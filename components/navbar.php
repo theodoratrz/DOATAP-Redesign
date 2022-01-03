@@ -1,12 +1,34 @@
 <?php
 $nav_links = array(
-  "Home" => array(
-    "One" => "aa.php",
-    "Two" => "bb.php",
-    "Three" => array(
-      "Sub" => "cc.php"
-    )
-  )
+  "Αιτήσεις" => array(
+    "Διαδικασία Υποβολής" => "aa.php",
+    "Η Πορεία μίας Αίτησης" => array(
+      "Αξιολόγηση Αίτησης" => "cc.php",
+      "Χρόνοι Διεκπεραίωσης" => "cc.php",
+      "Υπέρβαση Ουράς Προτεραιότητας" => "cc.php"
+    ),
+    "Φόρμες Αιτήσεων" => "bb.php"
+  ),
+  "Ανακοινώσεις" => array(
+    "Γενικές Πληροφορίες" => "aa.php",
+    "Αποφάσεις Δ.Σ" => "aa.php",
+    "Προϋπολογισμοί-Προκηρύξεις" => "aa.php",
+    "Εξετάσεις Οδοντιατρικής" => "aa.php",
+    "Εξετάσεις Ιατρικής" => "aa.php"
+  ),
+  "Ενημέρωση" => array(
+    "Ανώτατα Εκπαιδευτικά Ιδρύματα" => "aa.php",
+    "Εκπαιδευτικά Ιδρύματα Αλλοδαπής" => "aa.php",
+    "Το Ελληνικό Σύστημα Εκπαίδευσης" => "aa.php",
+    "Δι@υγεια" => "aa.php"
+  ),
+  "Οργανισμός" => array(
+    "Σύσταση του ΔΟΑΤΑΠ" => "aa.php",
+    "Ετήσιος Απολογισμός ΔΣ" => "aa.php",
+    "Στατιστικά Στοιχεία" => "aa.php"
+  ),
+  "Επικοινωνία" => "contact.php"
+
 );
 
 function echo_nav_array($arr)
@@ -34,7 +56,7 @@ function echo_nav_array($arr)
 <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
   <div class="container-fluid">
 
-    <a class="navbar-brand" href="#"> <img src="/images/doatap-logo.png" alt="" width="250px"> <span class="badge bg-primary">Mega Menu</span></a>
+    <a class="navbar-brand" href="#"> <img src="images/doatap-logo.png" alt="" width="250px"><!--  <span class="badge bg-primary">Mega Menu</span> --> </a>
 
     <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content">
       <div class="hamburger-toggle">
