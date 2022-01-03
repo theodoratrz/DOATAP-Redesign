@@ -4,5 +4,24 @@ $theme-colors: (
   "secondary": #77B6EA
 );
 
-// Bootstrap
+// Accordion
+$accordion-padding-y:                     1rem;
+$accordion-padding-x:                     1.25rem;
+$accordion-color:                         #000000;
+$accordion-bg:                            #cacaca;
+$accordion-border-width:                  1px;
+$accordion-border-color:                  #000000;
+// $accordion-inner-border-radius:           subtract($accordion-border-radius, $accordion-border-width);
+
+$accordion-body-padding-y:                $accordion-padding-y;
+$accordion-body-padding-x:                $accordion-padding-x;
+
+$accordion-button-padding-y:              $accordion-padding-y;
+$accordion-button-padding-x:              $accordion-padding-x;
+$accordion-button-color:                  $accordion-color;
+$accordion-button-bg:                     $accordion-bg;
+// $accordion-transition:                    $btn-transition, border-radius .15s ease;
+$accordion-button-active-bg:              #cacaca;
+$accordion-button-active-color:           #000000;
+
 @import "../node_modules/bootstrap/scss/bootstrap";
