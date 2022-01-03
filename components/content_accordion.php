@@ -17,7 +17,7 @@
         )
     );
 
-    function echoAccordion(array $contents) {
+    function echoAccordion(array $contents, bool $stayOpen) {
         echo "<div class='accordion accordion-flush' id='contentAccordionFlush'>";
 
         foreach ($contents as $index => $pair) {
@@ -25,7 +25,7 @@
             
             echoAccordionHeader($pair[0], $index);
             
-            echoAccordionContent($pair[1], $index);
+            echoAccordionContent($pair[1], $index, $stayOpen);
 
             echo "</div>";
         }
@@ -45,16 +45,23 @@
         echo "</h2>";
     }
 
-    function echoAccordionContent(string $contentInnerHTML, int $index)
+    function echoAccordionContent(string $contentInnerHTML, int $index, bool $stayOpen)
     {
         echo "<div id='flush-collapse$index' class='accordion-collapse collapse' 
-        aria-labelledby='flush-heading$index' data-bs-parent='#contentAccordionFlush'>
+        aria-labelledby='flush-heading$index'";
+
+        if (!$stayOpen) {
+            echo "data-bs-parent='#contentAccordionFlush'";
+        }
+
+        echo "
+        >
             <div class='accordion-body'>$contentInnerHTML</div>
         </div>
         ";
     }
 
-    echoAccordion(sampleContent);
+    echoAccordion(sampleContent, true);
 ?>
 
 <!-- <div class="accordion accordion-flush" id="accordionFlushExample">
