@@ -59,13 +59,7 @@ function echo_nav_array($arr)
 <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
   <div class="container-fluid">
 
-    <a class="navbar-brand" href="#"> <img src="images/doatap-logo.png" alt="" width="250px"><!--  <span class="badge bg-primary">Mega Menu</span> --> </a>
-
-    <!--button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content">
-      <div class="hamburger-toggle">
-        <i class="fas fa-bars"></i> 
-      </div>
-    </button-->
+    <a class="navbar-brand" href="#"> <img src="images/doatap-logo.png" alt="" width="250px"> </a>
 
     <div class="collapse navbar-collapse" id="navbar-content">
       <ul class="nav nav-pills nav-fill">
