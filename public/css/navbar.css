@@ -82,6 +82,9 @@
   background-color: rgba(var(--bs-secondary-rgb), var(--bs-bg-opacity)) !important;
 }
 
+/* navbar */
+
+
 /* horizontal */
 .nav {
   display: -webkit-box;

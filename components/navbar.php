@@ -3,7 +3,7 @@
 <?php
 $nav_links = array(
   "Αιτήσεις" => array(
-    "Διαδικασία Υποβολής" => "aa.php",
+    "Διαδικασία Υποβολής" => "procedure_submission.php",
     "Η Πορεία μίας Αίτησης" => array(
       "Αξιολόγηση Αίτησης" => "cc.php",
       "Χρόνοι Διεκπεραίωσης" => "cc.php",
@@ -129,6 +129,7 @@ function echo_nav_array($arr)
     
   </div>
 </nav>
+
 <script>
   document.addEventListener('click', function(e) {
     // Hamburger menu
