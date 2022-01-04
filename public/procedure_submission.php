@@ -6,7 +6,11 @@
 <body>
 <div class="page-container fluid-container">
     <?php require_once("../components/navbar.php"); ?>
-    <?php require_once("../components/navbar.php"); ?>
+    <nav class="gray-box">
+    <div class="container d-flex">
+        Σύνδεση
+    </div>
+</nav>
     <div>
 
         <h6 style="font-weight:bold">1. Σύνδεση ή Δημιουργία Λογαριασμού</h6>

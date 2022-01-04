@@ -9,10 +9,10 @@
 <div class="page-container fluid-container">
     <?php require_once("../components/navbar.php"); ?>
 
-    <nav class="below-navbar navbar-expand-lg bg-primary navbar-dark">
+    <nav class="gray-box navbar-expand-lg bg-primary navbar-dark">
     <div class="container d-flex">
         Σύνδεση
-        </div>
+    </div>
     </nav>
     <div class="login-container-wrapper">
         <div class="login-container">
