@@ -170,11 +170,16 @@
 
         // Submit Button
         echo '
-        <div class="form-submit-button">
-            <button class="btn btn-primary" type="submit">Υποβολή</button>
-        </div>
+        <div class="form-fields-group-horizontal">
         ';
 
+            echo '
+            <div class="form-submit-button">
+                <button class="btn btn-primary" type="submit">Υποβολή</button>
+            </div>
+            ';
+
+            echo '</div>';
         echo '</div>';
     }
 ?>

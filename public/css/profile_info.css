@@ -1,5 +1,6 @@
 .form-control {
     padding: 0em 0.5em;
+    width: 12em;
     font-size: inherit;
 }
 
@@ -26,9 +27,13 @@
     padding: 0em 0.5em
 }
 
+.invalid-feedback {
+    overflow-wrap: normal;
+}
+
 .form-fields-container {
     padding: 1rem;
-    width: 20rem;
+    width: auto;
     display: flex;
     flex-direction: column;
     row-gap: 0.5em;
@@ -37,6 +42,7 @@
 .field-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     row-gap: 0em;
 }
 
@@ -46,6 +52,7 @@
 
 .form-fields-group-vertical, .form-fields-group-horizontal {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .form-fields-group-vertical {
@@ -57,4 +64,6 @@
 .form-fields-group-horizontal {
     flex-direction: row;
     column-gap: 3rem;
+    justify-content: center;
+    align-items: left;
 }
