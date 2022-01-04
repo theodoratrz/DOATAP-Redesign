@@ -5,8 +5,12 @@
         "surname" => "Χρήστου",
         "fathersName" => "Χρήστος",
         "mothersName" => "Μαρία",
+        "gender" => "Άνδρας",
         "docSelection" => "Ταυτότητα",
         "docID" => "14572",
+
+        "mobilePhone" => "6969696969",
+        "homePhone" => "2106969696",
     );
 
     function echoTextField(string $fieldID, string $description, string $invalidInputMsg, string $value = '')
@@ -105,25 +109,61 @@
         <div class="form-fields-container">
         ';
 
-        // Names group
+        // Top Group
         echo '
-        <div class="form-fields-group">
+        <div class="form-fields-group-horizontal">
         ';
-        echoTextField('name', 'Όνομα', "Παρακαλώ, επιλέξτε όνομα.", $values['name']);
-        echoTextField('surname', 'Επίθετο', "Παρακαλώ, επιλέξτε επίθετο.", $values['surname']);
-        echoTextField('fathersName', 'Πατρώνυμο', "Παρακαλώ, επιλέξτε πατρώνυμο.", $values['fathersName']);
-        echoTextField('mothersName', 'Πατρώνυμο', "Παρακαλώ, επιλέξτε πατρώνυμο.", $values['mothersName']);
 
+            // Names group
+            echo '
+            <div class="form-fields-group-vertical">
+            ';
+            echoTextField('name', 'Όνομα', "Παρακαλώ, επιλέξτε όνομα.", $values['name']);
+            echoTextField('surname', 'Επίθετο', "Παρακαλώ, επιλέξτε επίθετο.", $values['surname']);
+            echoTextField('fathersName', 'Πατρώνυμο', "Παρακαλώ, επιλέξτε πατρώνυμο.", $values['fathersName']);
+            echoTextField('mothersName', 'Πατρώνυμο', "Παρακαλώ, επιλέξτε πατρώνυμο.", $values['mothersName']);
+
+            echo '
+            </div>';
+
+            // Document group
+            echo '
+            <div class="form-fields-group-vertical">
+            ';
+            echoRadioField('docSelection', 'Έγγραφο Ταυτοποίησης', "Παρακαλώ, επιλέξτε έγγραφο ταυτοποίησης.",
+                            array("Ταυτότητα", "Διαβατήριο"), $values['docSelection']);
+            echoTextField('docID', 'Αριθμός Εγγράφου', "Παρακαλώ, επιλέξτε αριθμό εγγράφου.", $values['docID']);
+
+            echo '
+            </div>';
         echo '
         </div>';
 
-        // Document group
+        // Bottom Group
+
         echo '
-        <div class="form-fields-group">
+        <div class="form-fields-group-horizontal">
         ';
-        echoRadioField('docSelection', 'Έγγραφο Ταυτοποίησης', "Παρακαλώ, επιλέξτε έγγραφο ταυτοποίησης.",
-                        array("Ταυτότητα", "Διαβατήριο"), $values['docSelection']);
-        echoTextField('docID', 'Αριθμός Εγγράφου', "Παρακαλώ, επιλέξτε αριθμό εγγράφου.", $values['docID']);
+
+            // Phone Numbers group
+            echo '
+            <div class="form-fields-group-vertical">
+            ';
+            echoTextField('mobilePhone', 'Κινητό Τηλέφωνο', "Παρακαλώ, επιλέξτε αριθμό κινητού.", $values['mobilePhone']);
+            echoTextField('homePhome', 'Σταθερό Τηλέφωνο', "Παρακαλώ, επιλέξτε αριθμό σταθερού.", $values['homePhone']);
+
+            echo '
+            </div>';
+
+            // Gender group
+            echo '
+            <div class="form-fields-group-vertical">
+            ';
+            echoRadioField('gender', 'Έγγραφο Ταυτοποίησης', "Παρακαλώ, επιλέξτε φύλο.",
+                            array("Άνδρας", "Γυναίκα", "Άλλο"), $values['gender']);
+
+            echo '
+            </div>';
 
         echo '
         </div>';

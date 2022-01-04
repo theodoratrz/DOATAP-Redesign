@@ -44,9 +44,17 @@
     width: max-content;
 }
 
-.form-fields-group {
-    margin-top: 1rem;
+.form-fields-group-vertical, .form-fields-group-horizontal {
     display: flex;
+}
+
+.form-fields-group-vertical {
     flex-direction: column;
     row-gap: 0%;
+    margin-top: 1rem;
+}
+
+.form-fields-group-horizontal {
+    flex-direction: row;
+    column-gap: 3rem;
 }
