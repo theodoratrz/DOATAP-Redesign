@@ -8,6 +8,7 @@
 <?php require_once("../components/navbar.php"); ?>
 
 </div>
+
 <!-- <div class="page-container fluid-container">
     <div class="parallax"></div>
 </div> -->
