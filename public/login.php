@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="css/navbar.css">
 <link rel="stylesheet" href="css/forms.css">
 
+
 <?php require_once("../components/template.php"); ?>
 
 <body>
@@ -51,3 +52,4 @@
 </body>
 
 <?php require_once("../components/footer.php"); ?>
+
