@@ -9,11 +9,11 @@
 
 </div>
 <div class="page-container fluid-container">
-
         <div class="parallax"></div>
 
     </div>
 
+    <?php require_once("../components/sidebar.php"); ?>
 
     <?php require_once("../components/footer.php"); ?>
 </body>
