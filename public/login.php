@@ -9,7 +9,7 @@
 <div class="page-container fluid-container">
     <?php require_once("../components/navbar.php"); ?>
 
-    <nav class="gray-box navbar-expand-lg bg-primary navbar-dark">
+    <nav class="gray-box">
     <div class="container d-flex">
         Σύνδεση
     </div>
