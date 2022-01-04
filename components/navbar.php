@@ -70,6 +70,7 @@ function echo_nav_array($arr)
       <!-- login--> 
       <?php
 
+
         if(isset(($_SESSION['user'])) && ($_SESSION['user']) == true){
           if($_SESSION['role'] == 'admin'){
             echo '<li class ="nav-item">
@@ -129,7 +130,6 @@ function echo_nav_array($arr)
     
   </div>
 </nav>
-
 <script>
   document.addEventListener('click', function(e) {
     // Hamburger menu
