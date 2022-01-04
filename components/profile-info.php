@@ -1,5 +1,14 @@
 <?php
 
+    const sampleFormValues = array(
+        "name" => "Κώστας",
+        "surname" => "Χρήστου",
+        "fathersName" => "Χρήστος",
+        "mothersName" => "Μαρία",
+        "docSelection" => "Ταυτότητα",
+        "docID" => "14572",
+    );
+
     function echoTextField(string $fieldID, string $description, string $invalidInputMsg, string $value = '')
     {
         echo "
@@ -55,8 +64,12 @@
         ";
     }
 
-    function echoRadioField(string $fieldID, string $description, $invalidInputMsg, array $options, string $value)
+    function echoRadioField(string $fieldID, string $description, string $invalidInputMsg, array $options, string $value)
     {
+        echo "
+        <div class='field-container'>
+            <label class='form-label'>$description</label>
+        ";
         foreach ($options as $index => $option) {
             if ($value == $option) {
                 echo "
@@ -78,6 +91,51 @@
                 ";
             }
         }
+        echo "
+            <div class='invalid-feedback'>
+            $invalidInputMsg
+            </div>
+        </div>
+        ";
+    }
+
+    function echoProfileInfoForm(array $values)
+    {
+        echo '
+        <div class="form-fields-container">
+        ';
+
+        // Names group
+        echo '
+        <div class="form-fields-group">
+        ';
+        echoTextField('name', 'Όνομα', "Παρακαλώ, επιλέξτε όνομα.", $values['name']);
+        echoTextField('surname', 'Επίθετο', "Παρακαλώ, επιλέξτε επίθετο.", $values['surname']);
+        echoTextField('fathersName', 'Πατρώνυμο', "Παρακαλώ, επιλέξτε πατρώνυμο.", $values['fathersName']);
+        echoTextField('mothersName', 'Πατρώνυμο', "Παρακαλώ, επιλέξτε πατρώνυμο.", $values['mothersName']);
+
+        echo '
+        </div>';
+
+        // Document group
+        echo '
+        <div class="form-fields-group">
+        ';
+        echoRadioField('docSelection', 'Έγγραφο Ταυτοποίησης', "Παρακαλώ, επιλέξτε έγγραφο ταυτοποίησης.",
+                        array("Ταυτότητα", "Διαβατήριο"), $values['docSelection']);
+        echoTextField('docID', 'Αριθμός Εγγράφου', "Παρακαλώ, επιλέξτε αριθμό εγγράφου.", $values['docID']);
+
+        echo '
+        </div>';
+
+        // Submit Button
+        echo '
+        <div class="form-submit-button">
+            <button class="btn btn-primary" type="submit">Υποβολή</button>
+        </div>
+        ';
+
+        echo '</div>';
     }
 ?>
 
@@ -106,16 +164,5 @@
             })
         })()
     </script>
-    <div class="form-fields-container">
-        <?php echoTextField('name', 'Όνομα', "Παρακαλώ, επιλέξτε όνομα.", "Κώστας") ?>
-        <?php echoTextField('surname', 'Επίθετο', "Παρακαλώ, επιλέξτε επίθετο.", "Χρήστου") ?>
-        <?php echoTextField('fathersname', 'Πατρώνυμο', "Παρακαλώ, επιλέξτε πατρώνυμο.", "Πέτρος") ?>
-        <?php echoCheckboxField('sample-checkbox', 'Αποδοχή Όρων', 'Παρακαλώ, αποδεχθείτε τους όρους.') ?>
-        <?php echoSelectionsField('options-list', 'Επιλογές', 'Παρακαλώ, επιλέξτε.', array('1', '2', '3')) ?>
-        <?php echoRadioField('options-list', 'Επιλογές', 'Παρακαλώ, επιλέξτε.', array('1', '2', '3'), '3') ?>
-
-        <div class="form-submit-button">
-            <button class="btn btn-primary" type="submit">Submit form</button>
-        </div>
-    </div>
+    <?php echoProfileInfoForm(sampleFormValues); ?>
 </form>
