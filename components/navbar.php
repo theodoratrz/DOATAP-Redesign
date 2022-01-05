@@ -9,7 +9,7 @@ $nav_links = array(
       "Χρόνοι Διεκπεραίωσης" => "cc.php",
       "Υπέρβαση Ουράς Προτεραιότητας" => "cc.php"
     ),
-    "Φόρμες Αιτήσεων" => "applications.php",
+    "Φόρμες Αιτήσεων" => "applications-forms.php",
     "Παράβολα" => "applications.php"
   ),
   "Ανακοινώσεις" => array(

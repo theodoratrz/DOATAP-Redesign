@@ -69,5 +69,5 @@
         ";
     }
 
-    echoAccordion(sampleContent, true);
+    # echoAccordion(sampleContent, true);
 ?>

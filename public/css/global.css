@@ -33,3 +33,12 @@
 .page-container {
     min-height: 70vh;
 }
+
+.page-content-container {
+    display: flex;
+    flex-direction: row;
+    column-gap: 2rem;
+
+    align-items: flex-start;
+    justify-content: center;
+}

@@ -32,6 +32,7 @@ const pageNames = array(
 	)
 );
 
+
 function echoSidebar(string $path)
 {
 	$mainPath = $path;
