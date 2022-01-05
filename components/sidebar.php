@@ -38,7 +38,7 @@ function echoSidebar(string $path)
 	$pathArray = explode("/", $mainPath);
 
 	echo "
-	<div class='flex-shrink-0 p-3 bg-white' style='width: 15rem;'>
+	<div class='flex-shrink-0 bg-white' style='width: auto; padding: 0%'>
 	<ul class='list-group ps-0'>
 	";
 
