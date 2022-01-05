@@ -72,8 +72,8 @@
 
 .navbar {
   box-shadow: none;
-  height: 2.5rem;
-  padding-right: 0px;
+  height: auto;
+  padding: 0px;
   display: none !important;
   display: -webkit-box !important;
   display: -ms-flexbox !important;
