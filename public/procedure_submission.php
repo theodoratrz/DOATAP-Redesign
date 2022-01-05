@@ -11,8 +11,11 @@
         Σύνδεση
     </div>
 </nav>
-    <div>
-
+    <div class="page-content-container">
+        <?php 
+            require_once("../components/sidebar.php"); 
+        ?>
+        <div class="fluid-container" style="width:30rem; margin-top:1%;">
         <h6 style="font-weight:bold">1. Σύνδεση ή Δημιουργία Λογαριασμού</h6>
         <hr style="color:blue; width:30%; height:0.5%; background-color:blue; margin=0px;">
         <p>Για τη δημιουργία και την υποβολή αιτήσεων στον ΔΟΑΤΑΠ απαιτείται η 
@@ -29,7 +32,7 @@
             και να την υποβάλετε οριστικά όταν το επιθυμείτε.
         </p>
 
-        <h6 style="font-weight:bold">3. ΥποβολήΑίτησης</h6>
+        <h6 style="font-weight:bold">3. Υποβολή Αίτησης</h6>
         <hr style="color:blue; width:30%; height:0.5%; background-color:blue; margin=0px;">
         <p>Πριν την Οριστική Υποβολή βεβαιωθείτε ότι όλα τα στοιχεία σας είναι
             σωστά συμπληρωμένα και τα αρχεία επιτυχώς ανεβασμένα.
@@ -37,6 +40,7 @@
             <span style="font-weight:bold">Προσοχή:</span> Μετά την Οριστική
             Υποβολή δεν υπάρχει δυνατότητα αναίρεσης ή διαγραφής της αίτησης.
         </p>
+    </div>
     </div>
 </div>
 
