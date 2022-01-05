@@ -17,7 +17,7 @@
         ?>
         <div class="fluid-container" style="width:30rem; margin-top:1%;">
         <h6 style="font-weight:bold">1. Σύνδεση ή Δημιουργία Λογαριασμού</h6>
-        <hr style="color:blue; width:30%; height:0.5%; background-color:blue; margin=0px;">
+        <!--hr style="color:blue; width:30%; height:0.5%; background-color:blue; margin=0px;"-->
         <p>Για τη δημιουργία και την υποβολή αιτήσεων στον ΔΟΑΤΑΠ απαιτείται η 
             <a href="register.php">Δημιουργία Λογαριασμού</a> στο doatap.gr. 
             Αν διαθέτετε ήδη λογαριασμό, πραγματοποιήστε
@@ -25,7 +25,7 @@
         </p>
 
         <h6 style="font-weight:bold">2. Δημιουργία Νέας Αίτησης</h6>
-        <hr style="color:blue; width:30%; height:0.5%; background-color:blue; margin=0px;">
+        <!--hr style="color:blue; width:30%; height:0.5%; background-color:blue; margin=0px;"-->
         <p>Στην ενότητα Προφίλ > <span style="font-weight:bold">Νέα Αίτηση</span>
             μπορείτε να δημιοργήσετε μία νέα αίτηση. Μέσω του λογαριασμού σας έχετε τη
             δυνατότητα να αποθηκεύσετε προσωρινά την αίτησή σας, να την επεξεργαστείτε
@@ -33,7 +33,7 @@
         </p>
 
         <h6 style="font-weight:bold">3. Υποβολή Αίτησης</h6>
-        <hr style="color:blue; width:30%; height:0.5%; background-color:blue; margin=0px;">
+        <!--hr style="color:blue; width:30%; height:0.5%; background-color:blue; margin=0px;"-->
         <p>Πριν την Οριστική Υποβολή βεβαιωθείτε ότι όλα τα στοιχεία σας είναι
             σωστά συμπληρωμένα και τα αρχεία επιτυχώς ανεβασμένα.
             <br>
