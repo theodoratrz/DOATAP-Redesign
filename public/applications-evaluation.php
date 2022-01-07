@@ -11,6 +11,7 @@
         Σύνδεση
     </div>
     </nav>
+    
     <div class="page-content-container">
         <?php 
             require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php" 
