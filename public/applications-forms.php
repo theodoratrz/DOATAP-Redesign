@@ -20,7 +20,7 @@
         <?php 
             require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
 
-            echoSidebar();
+            #echoSidebar();
         ?>
         <?php
 
@@ -28,7 +28,11 @@
 
             const accordionContent = array(
                 array(
-                    "<b>Αναγνώριση Ομοταγούς</b>",
+                    "<b><div style:'justify-content:center'>
+                        Αναγνώριση Ομοταγούς 
+                        <a href='#' style='font-size:medium; margin-left:3rem; text-decoration:none;' class='fas fa-eye'> Προβολή σε νέα σελίδα </a>
+                        <a href='#' style='font-size:medium; margin-left:1rem; text-decoration:none;' class='fas fa-download'> Λήψη </a> 
+                        </div></b>",
                     "<div style='display: flex; flex-direction: row; column-gap:0.5em;'>
                         <span style='font-size: 0.75em'>Η αίτηση που πρέπει να υποβάλετε εφόσον 
                         επιθυμείτε να κριθεί εάν ένα Ίδρυμα πληροί τα κριτήρια του Ομοταγούς, 
@@ -37,7 +41,11 @@
                     </div>"
                 ),
                 array(
-                    "<b>Αντιστοιχίας Βαθμού</b>",
+                    "<b><div style:'justify-content:center'>
+                        Αντιστοιχίας Βαθμού
+                        <a href='#' style='font-size:medium; margin-left:3rem; text-decoration:none;' class='fas fa-eye'> Προβολή σε νέα σελίδα </a>
+                        <a href='#' style='font-size:medium; margin-left:1rem; text-decoration:none;' class='fas fa-download'> Λήψη </a> 
+                        </div></b>",
                     "<div style='display: flex; flex-direction: column; row-gap:0.5em;'>
                         <span style='font-size: 0.75em'>Η αίτηση που πρέπει να υποβάλετε εφόσον 
                         επιθυμείτε την αντιστοιχία βαθμού στην Ελληνική δεκάβαθμη κλίμακα. 
@@ -47,7 +55,11 @@
                     </div>"
                 ),
                 array(
-                    "<b>Έκδοση Ακριβούς Αντιγράφου</b>",
+                    "<b><div style:'justify-content:center'>
+                        Έκδοση Ακριβούς Αντιγράφου
+                        <a href='#' style='font-size:medium; margin-left:3rem; text-decoration:none;' class='fas fa-eye'> Προβολή σε νέα σελίδα </a>
+                        <a href='#' style='font-size:medium; margin-left:1rem; text-decoration:none;' class='fas fa-download'> Λήψη </a> 
+                        </div></b>",
                     "<div style='display: flex; flex-direction: column; row-gap:0.5em;'>
                         <span style='font-size: 0.75em'>Η αίτηση που πρέπει να υποβάλετε εφόσον 
                         επιθυμείτε την έκδοση ακριβούς αντιγράφου εγγράφων και αποφάσεων του Δ.Ο.Α.Τ.Α.Π. 
@@ -56,7 +68,11 @@
                     </div>"
                 ),
                 array(
-                    "<b>Έκδοση Αποσπάσματος Πρακτικών Δ.Σ</b>",
+                    "<b><div style:'justify-content:center'>
+                    Έκδοση Αποσπάσματος Πρακτικών Δ.Σ 
+                    <a href='#' style='font-size:medium; margin-left:3rem; text-decoration:none;' class='fas fa-eye'> Προβολή σε νέα σελίδα </a>
+                    <a href='#' style='font-size:medium; margin-left:1rem; text-decoration:none;' class='fas fa-download'> Λήψη </a> 
+                    </div></b>",
                     "<div style='display: flex; flex-direction: column; row-gap:0.5em;'>
                         <span style='font-size: 0.75em'>Η αίτηση που πρέπει να υποβάλετε εφόσον 
                         επιθυμείτε την έκδοση αποσπάσματος από πρακτικά του Δ.Σ. του Δ.Ο.Α.Τ.Α.Π.
@@ -64,7 +80,11 @@
                     </div>"
                 ),
                 array(
-                    "<b>Επανεξέτασης</b>",
+                    "<b><div style:'justify-content:center'>
+                    Επανεξέτασης 
+                    <a href='#' style='font-size:medium; margin-left:3rem; text-decoration:none;' class='fas fa-eye'> Προβολή σε νέα σελίδα </a>
+                    <a href='#' style='font-size:medium; margin-left:1rem; text-decoration:none;' class='fas fa-download'> Λήψη </a> 
+                    </div></b>",
                     "<div style='display: flex; flex-direction: column; row-gap:0.5em;'>
                         <span style='font-size: 0.75em'>Η αίτηση που πρέπει να υποβάλετε εφόσον 
                         επιθυμείτε την επανεξέταση της κρίσης του τίτλου σπουδών. 
@@ -74,7 +94,11 @@
                     </div>"
                 ),
                 array(
-                    "<b>Επιστροφής Παραβόλου</b>",
+                    "<b><div style:'justify-content:center'>
+                    Επιστροφής Παραβόλου 
+                    <a href='#' style='font-size:medium; margin-left:3rem; text-decoration:none;' class='fas fa-eye'> Προβολή σε νέα σελίδα </a>
+                    <a href='#' style='font-size:medium; margin-left:1rem; text-decoration:none;' class='fas fa-download'> Λήψη </a> 
+                    </div></b>",
                     "<div style='display: flex; flex-direction: column; row-gap:0.5em;'>
                         <span style='font-size: 0.75em'>Η αίτηση που πρέπει να υποβάλετε εφόσον 
                         επιθυμείτε την επιστροφή του παραβόλου. ΠΡΟΣΟΧΗ: Αίτηση επιστροφής παραβόλου 
