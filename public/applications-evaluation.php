@@ -10,7 +10,7 @@
     <div class="container d-flex">
         Σύνδεση
     </div>
-</nav>
+    </nav>
     <div class="page-content-container">
         <?php 
             require_once("../components/sidebar.php"); 
