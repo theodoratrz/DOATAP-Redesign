@@ -28,7 +28,7 @@
 
             const accordionContent = array(
                 array(
-                    "<b><div style:'justify-content:center'>
+                    "<b><div>
                         Αναγνώριση Ομοταγούς 
                         <a href='#' style='font-size:medium; margin-left:3rem; text-decoration:none;' class='fas fa-eye'> Προβολή σε νέα σελίδα </a>
                         <a href='#' style='font-size:medium; margin-left:1rem; text-decoration:none;' class='fas fa-download'> Λήψη </a> 
@@ -41,7 +41,7 @@
                     </div>"
                 ),
                 array(
-                    "<b><div style:'justify-content:center'>
+                    "<b><div>
                         Αντιστοιχίας Βαθμού
                         <a href='#' style='font-size:medium; margin-left:3rem; text-decoration:none;' class='fas fa-eye'> Προβολή σε νέα σελίδα </a>
                         <a href='#' style='font-size:medium; margin-left:1rem; text-decoration:none;' class='fas fa-download'> Λήψη </a> 
@@ -55,7 +55,7 @@
                     </div>"
                 ),
                 array(
-                    "<b><div style:'justify-content:center'>
+                    "<b><div>
                         Έκδοση Ακριβούς Αντιγράφου
                         <a href='#' style='font-size:medium; margin-left:3rem; text-decoration:none;' class='fas fa-eye'> Προβολή σε νέα σελίδα </a>
                         <a href='#' style='font-size:medium; margin-left:1rem; text-decoration:none;' class='fas fa-download'> Λήψη </a> 
@@ -68,7 +68,7 @@
                     </div>"
                 ),
                 array(
-                    "<b><div style:'justify-content:center'>
+                    "<b><div>
                     Έκδοση Αποσπάσματος Πρακτικών Δ.Σ 
                     <a href='#' style='font-size:medium; margin-left:3rem; text-decoration:none;' class='fas fa-eye'> Προβολή σε νέα σελίδα </a>
                     <a href='#' style='font-size:medium; margin-left:1rem; text-decoration:none;' class='fas fa-download'> Λήψη </a> 
@@ -80,7 +80,7 @@
                     </div>"
                 ),
                 array(
-                    "<b><div style:'justify-content:center'>
+                    "<b><div>
                     Επανεξέτασης 
                     <a href='#' style='font-size:medium; margin-left:3rem; text-decoration:none;' class='fas fa-eye'> Προβολή σε νέα σελίδα </a>
                     <a href='#' style='font-size:medium; margin-left:1rem; text-decoration:none;' class='fas fa-download'> Λήψη </a> 
@@ -94,7 +94,7 @@
                     </div>"
                 ),
                 array(
-                    "<b><div style:'justify-content:center'>
+                    "<b><div>
                     Επιστροφής Παραβόλου 
                     <a href='#' style='font-size:medium; margin-left:3rem; text-decoration:none;' class='fas fa-eye'> Προβολή σε νέα σελίδα </a>
                     <a href='#' style='font-size:medium; margin-left:1rem; text-decoration:none;' class='fas fa-download'> Λήψη </a> 
