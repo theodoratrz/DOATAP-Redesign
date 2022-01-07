@@ -95,10 +95,8 @@ function echo_nav_array($arr)
   </div>
 </nav>
 
-<nav class=" navbar navbar-expand-lg bg-primary navbar-dark">
-  <div class="container-fluid">
-
-    <div class="collapse navbar-collapse" id="navbar-content">
+<nav class="navbar navbar-expand-lg bg-primary navbar-dark">
+  <div class="container-fluid" style="flex-wrap: wrap; justify-content: center;">
     <ul class="nav">
 
       <!-- Dynamic Navbar -->
@@ -125,9 +123,7 @@ function echo_nav_array($arr)
         }
 
       ?>
-    </ul> 
-    </div>
-    
+    </ul>
   </div>
 </nav>
 <script>
