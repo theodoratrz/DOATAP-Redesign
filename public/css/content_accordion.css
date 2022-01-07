@@ -7,6 +7,9 @@
 }
 
 .accordion-flush {
-    margin: 1%;
-    max-width: 850px;
+    padding: 0%;
+    width: 100%;
+    max-width: 30rem;
+    /* min-width: 20rem; */
+    flex: auto;
 }
