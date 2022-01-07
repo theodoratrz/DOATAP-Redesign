@@ -3,12 +3,12 @@
 <link rel="stylesheet" href="/public/css/content_accordion.css">
 
 
-<?php require_once("../components/template.php"); ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php" ?>
 
 <body>
 
 <div class="fluid-container">
-<?php require_once("../components/navbar.php"); ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/navbar.php" ?>
 <nav class="gray-box">
     <div class="container d-flex">
         Σύνδεση
@@ -18,13 +18,13 @@
 </div>
     <div class="page-content-container">
         <?php 
-            require_once("../components/sidebar.php"); 
+            require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
 
             echoSidebar();
         ?>
         <?php
 
-            require_once("../components/content_accordion.php");
+            require_once $_SERVER['DOCUMENT_ROOT'] . "/components/content_accordion.php";
 
             const accordionContent = array(
                 array(
@@ -87,7 +87,7 @@
         ?>
     </div>
 </div>
-<?php require_once("../components/footer.php"); ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/footer.php" ?>
 
 
 </body>

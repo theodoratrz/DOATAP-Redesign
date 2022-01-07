@@ -1,11 +1,11 @@
 <link rel="stylesheet" href="/public/css/index.css">
 <link rel="stylesheet" href="/public/css/forms.css">
 
-<?php require_once("../components/template.php"); ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php" ?>
 
 <body>
 <div class="page-container fluid-container">
-    <?php require_once("../components/navbar.php"); ?>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/navbar.php" ?>
     <nav class="gray-box">
     <div class="container d-flex">
         Σύνδεση
@@ -13,7 +13,7 @@
     </nav>
     <div class="page-content-container">
         <?php 
-            require_once("../components/sidebar.php"); 
+            require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php" 
         ?>
         <div class="fluid-container" style="width:30rem; margin-top:1%;">
         <p>Μετά την οριστική υποβολή του χρήστη, η αίτηση λαμβάνει έναν μοναδικό 
@@ -47,4 +47,4 @@
 
 </body>
 
-<?php require_once("../components/footer.php"); ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/footer.php" ?>

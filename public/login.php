@@ -3,12 +3,12 @@
 <link rel="stylesheet" href="/public/css/forms.css">
 
 
-<?php require_once("../components/template.php"); ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php" ?>
 
 <body>
 
 <div class="page-container fluid-container">
-    <?php require_once("../components/navbar.php"); ?>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/navbar.php" ?>
 
     <nav class="gray-box">
     <div class="container d-flex">
@@ -51,5 +51,5 @@
     
 </body>
 
-<?php require_once("../components/footer.php"); ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/footer.php" ?>
 
