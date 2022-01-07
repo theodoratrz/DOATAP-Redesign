@@ -4,7 +4,7 @@
 	}
 </script>
 
-<link rel="stylesheet" href="css/sidebar.css">
+<link rel="stylesheet" href="/public/css/sidebar.css">
 
 <?php
 
@@ -29,6 +29,16 @@ const pageNames = array(
 	"announcements" => array(
 		"an1" => "Ανακοινώσεις1",
 		"an2" => "Ανακοινώσεις2"
+	),
+	"applications" => array(
+		"procedure_submission" => "Διαδικασία Υποβολής",
+		"application-course" => array(
+			"Η Πορεία μιας αίτησης",
+			array(
+				"applications-evaluation.php" => "Αξιολόγηση Αίτησης",
+				"bla" => "bla"
+			)
+		)
 	)
 );
 

@@ -1,6 +1,6 @@
-<link rel="stylesheet" href="css/index.css">
-<link rel="stylesheet" href="css/navbar.css">
-<link rel="stylesheet" href="css/forms.css">
+<link rel="stylesheet" href="/public/css/index.css">
+<link rel="stylesheet" href="/public/css/navbar.css">
+<link rel="stylesheet" href="/public/css/forms.css">
 
 
 <?php require_once("../components/template.php"); ?>

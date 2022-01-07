@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="css/content_accordion.css">
+<link rel="stylesheet" href="/public/css/content_accordion.css">
 
 <?php
 

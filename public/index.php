@@ -1,11 +1,11 @@
-<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="/public/css/index.css">
 
-<?php require_once("../components/template.php"); ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php" ?>
 
 <body>
 
 <div class="page-container fluid-container">
-<?php require_once("../components/navbar.php"); ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/navbar.php" ?>
 
 <style>
 .temp-flex {
@@ -27,11 +27,11 @@
 </style>
 
 <div class="temp-flex">
-    <?php require_once("../components/sidebar.php"); ?>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php" ?>
 
-    <?php require_once("../components/content_accordion.php"); ?>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/content_accordion.php" ?>
 
-    <?php require_once("../components/profile-info.php"); ?>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/profile-info.php" ?>
 </div>
 
 <!-- <div class="page-container fluid-container">
@@ -40,6 +40,6 @@
 
 </div>
 
-<?php require_once("../components/footer.php"); ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/footer.php" ?>
 
 </body>

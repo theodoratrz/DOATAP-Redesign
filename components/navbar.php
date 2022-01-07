@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="css/navbar.css">
+<link rel="stylesheet" href="/public/css/navbar.css">
 
 <?php
 $nav_links = array(
@@ -59,7 +59,7 @@ function echo_nav_array($arr)
 <nav class="primary-navbar navbar-expand-lg bg-primary navbar-dark">
   <div class="container d-flex">
 
-    <a class="navbar-brand" href="index.php"> <img src="images/doatap-logo.png" alt="" width="250px"> </a>
+    <a class="navbar-brand" href="index.php"> <img src="/public/images/doatap-logo.png" alt="" width="250px"> </a>
 
     <!-- LANGUAGE -->
       <!--a class="search_button"><i class="fas fa-globe-americas"></i></a>

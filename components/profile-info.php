@@ -184,7 +184,7 @@
     }
 ?>
 
-<link rel="stylesheet" href="css/profile_info.css">
+<link rel="stylesheet" href="/public/css/profile_info.css">
 
 <form class="needs-validation" novalidate>
     <script>
