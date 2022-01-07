@@ -44,6 +44,7 @@
     flex-direction: column;
     justify-content: center;
     row-gap: 0em;
+    max-width: fit-content;
 }
 
 .form-submit-button {
@@ -64,6 +65,5 @@
 .form-fields-group-horizontal {
     flex-direction: row;
     column-gap: 3rem;
-    justify-content: center;
-    align-items: left;
+    /* justify-content: center; */
 }

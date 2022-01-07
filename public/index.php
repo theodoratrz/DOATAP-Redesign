@@ -30,6 +30,8 @@
     <?php require_once("../components/sidebar.php"); ?>
 
     <?php require_once("../components/content_accordion.php"); ?>
+
+    <?php require_once("../components/profile-info.php"); ?>
 </div>
 
 </div>
