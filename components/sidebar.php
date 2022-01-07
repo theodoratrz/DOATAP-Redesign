@@ -34,8 +34,7 @@ const pageNames = array(
 
 function echoSidebar(string $path)
 {
-	$mainPath = $path;
-	$pathArray = explode("/", $mainPath);
+	$pathArray = array_values(array_diff(explode("/", $path), [""]));
 
 	echo "
 	<div class='flex-shrink-0 bg-white' style='width: auto; padding: 0%'>
@@ -46,7 +45,7 @@ function echoSidebar(string $path)
 		$type = gettype($value);
 		if ($type == 'string') {
 
-			echoSidebarItem("$value", "$pathArray[0]/$subpage", false);
+			echoSidebarItem("$value", "$pathArray[0]/$subpage", $subpage == $pathArray[1]);
 
 		} else if ($type == 'array') {
 			if ($subpage != $pathArray[1]) {
@@ -115,6 +114,6 @@ function echoSidebarItem(string $pageTitle, string $href, bool $active)
 	";
 }
 
-echoSidebar("profile/my_applications/declined");
+echoSidebar("/profile/my_applications/accepted");
 
 ?>
