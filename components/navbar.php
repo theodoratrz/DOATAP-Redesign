@@ -5,11 +5,12 @@ $nav_links = array(
   "Αιτήσεις" => array(
     "Διαδικασία Υποβολής" => "procedure_submission.php",
     "Η Πορεία μίας Αίτησης" => array(
-      "Αξιολόγηση Αίτησης" => "cc.php",
+      "Αξιολόγηση Αίτησης" => "applications-evaluation.php",
       "Χρόνοι Διεκπεραίωσης" => "cc.php",
       "Υπέρβαση Ουράς Προτεραιότητας" => "cc.php"
     ),
-    "Φόρμες Αιτήσεων" => "bb.php"
+    "Φόρμες Αιτήσεων" => "applications-forms.php",
+    "Παράβολα" => "applications.php"
   ),
   "Ανακοινώσεις" => array(
     "Γενικές Πληροφορίες" => "aa.php",
@@ -58,7 +59,7 @@ function echo_nav_array($arr)
 <nav class="primary-navbar navbar-expand-lg bg-primary navbar-dark">
   <div class="container d-flex">
 
-    <a class="navbar-brand" href="#"> <img src="images/doatap-logo.png" alt="" width="250px"> </a>
+    <a class="navbar-brand" href="index.php"> <img src="images/doatap-logo.png" alt="" width="250px"> </a>
 
     <!-- LANGUAGE -->
       <!--a class="search_button"><i class="fas fa-globe-americas"></i></a>

@@ -32,6 +32,7 @@ const pageNames = array(
 	)
 );
 
+
 function echoSidebar(string $path)
 {
 	$pathArray = array_values(array_diff(explode("/", $path), [""]));
