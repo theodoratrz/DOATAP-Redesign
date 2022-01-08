@@ -26,7 +26,7 @@
 }
 </style>
 
-<div class="temp-flex">
+<div class="central-container">
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php" ?>
 
     <?php
