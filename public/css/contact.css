@@ -3,4 +3,14 @@
     flex-direction:column; 
     justify-content: space-between; 
     align-items:left;
+    margin-bottom: 1rem;
+}
+
+.map-wrap{
+    display:flex; 
+    flex-direction:row; 
+    justify-content: space-between; 
+    align-items:left;
+    column-gap: 2rem;
+    margin-bottom: 1rem;
 }
