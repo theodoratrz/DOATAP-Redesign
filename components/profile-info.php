@@ -109,11 +109,6 @@
         <div class="form-fields-container">
         ';
 
-        // Top Group
-        echo '
-        <div class="form-fields-group-horizontal">
-        ';
-
             // Names group
             echo '
             <div class="form-fields-group-vertical">
@@ -136,14 +131,8 @@
 
             echo '
             </div>';
-        echo '
-        </div>';
 
         // Bottom Group
-
-        echo '
-        <div class="form-fields-group-horizontal">
-        ';
 
             // Phone Numbers group
             echo '
@@ -165,21 +154,14 @@
             echo '
             </div>';
 
-        echo '
-        </div>';
-
         // Submit Button
-        echo '
-        <div class="form-fields-group-horizontal">
-        ';
 
             echo '
             <div class="form-submit-button">
                 <button class="btn btn-primary" type="submit">Υποβολή</button>
             </div>
             ';
-
-            echo '</div>';
+        
         echo '</div>';
     }
 ?>
