@@ -33,6 +33,7 @@
 <div class="icon-text">
     <h6><a href="applications-forms.php" class="fas fa-book" style="text-decoration:none; color:inherit"> Ο ΔΟΑΤΑΠ</a></h6>
     <span style="color:black">Ενημερωθείτε για όλες τις δράσεις του οργανισμού.</span>
+
 </div>
 </div>
 
