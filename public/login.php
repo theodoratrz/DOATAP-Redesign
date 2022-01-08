@@ -42,9 +42,8 @@
                 <a class="forgot-item" style="color:blue; text-decoration:double; font-size:medium; text-align:right" href="#">Ξεχάσατε τον κωδικό σας;</button>
                 <a class="create-item" style="color:blue; text-decoration:underline; font-size:x-large; text-align:center" href="#">Δημιουργία Λογαριασμού</a>
         </div>
-        </div>
-
     </div>
+
 </div>
     
 </body>

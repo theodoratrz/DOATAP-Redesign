@@ -13,10 +13,16 @@
         <div class="gray-box">
                 <a class="fas fa-arrow-circle-left" onclick="history.back()" style="text-decoration:none; color:#002E69; cursor:pointer; margin-left:13rem; margin-top:1.7rem;">Εγγραφή</a>
             </div>
-            <form class="login-container-wrapper">
+            <div class="login-container-wrapper">
                 <div class="login-container">
-                    <h1>Register</h1>
-                    <p>Please fill in this form to create an account.</p>
+                    <h3 style="text-align:center">Δημιουργία Λογαριασμού</h3>
+                    <hr>
+                    <h7 style="text-align:center;">Συμπληρώστε τα στοιχεία σας ώστε να αποκτήσετε πρόσβαση</h7>
+                    <br>
+                    <h7 style="text-align:center;">σε όλες τις δυνατότητες της πλατφόρμας του ΔΟΑΤΑΠ.</h7>
+                    <br>
+                    <h7 style="text-align:center;"><b>Όλα τα πεδία είναι υποχρεωτικά.</b></h7>
+                   
                     <hr>
 
                     <label for="name"><b>ΟΝΟΜΑ</b></label>
@@ -61,7 +67,7 @@
                     <p>Already have an account? <a href="#">Sign in</a>.</p>
                 </div>
 
-            </form> 
+</div> 
     </div>
         
 </body>
