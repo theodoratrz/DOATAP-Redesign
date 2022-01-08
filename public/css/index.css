@@ -1,15 +1,63 @@
 .parallax {
     /* The image used */
-    background-image: url("/images/hp.png");
+    /* background-image: url("/public/images/im.png"); */
   
     /* Set a specific height */
-    min-height: 400px;
+    height:100%;
   
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
-    background-position: right;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    
   }
 
- 
+   /* Turn off parallax scrolling for all tablets and phones. Increase/decrease the pixels if needed */
+@media only screen and (max-device-width: 1366px) {
+  .parallax {
+    background-attachment: scroll;
+  }
+} 
+ /* Container holding the image and the text */
+ .container_photo {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+
+/* Centered text */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: gainsboro;
+  color: black;
+  width:40%;
+  height:35%;
+
+} 
+
+.container_photo:hover{
+  background-color: gray;
+}
+
+.menu-icons{
+  display: flex;
+  flex-direction: row;
+  padding: 3rem;
+  column-gap: 3rem;
+  justify-content: center;
+}
+
+.icon-text{
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  justify-content: left;
+  width: 30%;
+  color: #002E69;
+}
+

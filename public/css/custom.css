@@ -6467,8 +6467,10 @@ fieldset:disabled .btn {
   left: 15%;
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
-  color: #fff;
+  color: black;
   text-align: center;
+  border: black;
+  background-color: gainsboro;
 }
 
 .carousel-dark .carousel-control-prev-icon,

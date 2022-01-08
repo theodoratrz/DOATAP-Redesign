@@ -3,60 +3,41 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php" ?>
 
 <body>
-
 <div class="page-container fluid-container">
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/navbar.php" ?>
+    
+<div class="container_photo">
+  <img src="/public/images/im.png" alt="Snow" style="width:100%; opacity:0.5">
+  <div class="centered"><h5><b>Εξυπηρέτηση ΔΟΑΤΑΠ</b></h5>
+  Προς ανάσχεση της διασποράς του ιού, η δια ζώσης εξυπηρέτηση από υπαλλήλους
+    περιορίζεται στο κοινό που προσέρχεται για να <b>παραλάβει</b> έγγραφα.
+    Το κοινό που προσέρχεται για ενημέρωση εξυπηρετείται από υπαλλήλους <b>τηλεφωνικά </b> από την 
+    είσοδο του κτιρίου.<br>
+    <a href="#"> Διαβάστε Περισσότερα </a>
+  </div>
+</div> 
 
-<style>
-.central-container {
-    padding: 1rem;
-    display: flex;
-    flex-direction: row;
-    column-gap: 2rem;
-    row-gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-@media only screen and (max-width: 840px) {
-    .central-container {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-</style>
-
-<div class="central-container">
-    <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php" ?>
-
-    <?php
-        require_once $_SERVER['DOCUMENT_ROOT'] . "/components/content_accordion.php";
-        const content = array(
-            array(
-                "<b>header1</b>",
-                "<div style='display: flex; flex-direction: row; column-gap:0.5em;'>
-                    <span style='font-size: 0.75em'>Hi</span>
-                    <i>Hi</i>
-                    <b>Hi</b>
-                </div>"
-            ),
-            array(
-                "<i>header2</i>",
-                "<strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow."
-            )
-        );
-        echoAccordion(content, true);
-    ?>
-
-    <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/profile-info.php" ?>
+<div class="menu-icons">
+  <div class="icon-text">
+    <h6><a href="applications-forms.php" class="fas fa-file-alt" style="text-decoration:none; color:inherit"> Χρήσιμα Έγγραφα</a></h6>
+    <span style="color:black"> Βρείτε χρήσιμα έγρραφα και αιτήσεις που θα χρειαστεί να συμπληρώσετε, ταξινομημένα και σε ηλεκτρονική μορφή.</span>
 </div>
+<div class="icon-text">
+    <h6><a href="procedure_submission.php" class="fas fa-pen-alt" style="text-decoration:none; color:inherit"> Νέα Αίτηση</a></h6>
+    <span style="color:black">Βρείτε όλα όσα χρειάζονται για να πραγματοποιήσετε μία νέα αίτηση.</span>
+</div>
+<div class="icon-text">
+    <h6><a href="applications-forms.php" class="fas fa-bell" style="text-decoration:none; color:inherit"> Παρακολούθηση Αίτησης</a></h6>
+    <span style="color:black">Παρακολουθήστε την κατάσταση όλων των αιτήσεων σας.</span>
+</div>
+<div class="icon-text">
+    <h6><a href="applications-forms.php" class="fas fa-book" style="text-decoration:none; color:inherit"> Ο ΔΟΑΤΑΠ</a></h6>
+    <span style="color:black">Ενημερωθείτε για όλες τις δράσεις του οργανισμού.</span>
 
-<!-- <div class="page-container fluid-container">
-    <div class="parallax"></div>
-</div> -->
-
+</div>
 </div>
 
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/footer.php" ?>
-
+</div>
 </body>
+
