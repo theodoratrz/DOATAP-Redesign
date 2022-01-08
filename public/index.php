@@ -8,25 +8,25 @@
 <?php require_once("../components/navbar.php"); ?>
 
 <style>
-.temp-flex {
+.central-container {
     padding: 1rem;
     display: flex;
     flex-direction: row;
     column-gap: 2rem;
     row-gap: 1rem;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
 @media only screen and (max-width: 840px) {
-    .temp-flex {
+    .central-container {
         flex-direction: column;
         align-items: center;
     }
 }
 </style>
 
-<div class="temp-flex">
+<div class="central-container">
     <?php require_once("../components/sidebar.php"); ?>
 
     <?php require_once("../components/content_accordion.php"); ?>
