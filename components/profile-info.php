@@ -189,9 +189,11 @@
 <form name="profile-info-form" class="needs-validation" method="POST" novalidate>
     <script>
         function validateForm(form) {
-            debugger;
+
             //const usernamePattern = /^[a-zA-Z]+[a-zA-Z0-9]*$/;
-            const namePattern = /^(([A-Z][a-z]*)|([Α-Ω][α-ωίϊΐόάέύϋΰήώ]*))$/;
+
+            // Accept English & Greek names (more than 1 allowed)
+            const namePattern = /^([A-Z][a-z]*( [A-Z][a-z]*)*|[Α-Ω][α-ωίϊΐόάέύϋΰήώ]*( [Α-Ω][α-ωίϊΐόάέύϋΰήώ]*)*)$/;
             const phonePattern = /^[0-9]+$/;
 
             const fieldPatterns = {
@@ -201,15 +203,13 @@
                 "mothersName": namePattern,
                 "mobilePhone": phonePattern,
                 "homePhone": phonePattern,
-                /* "gender": '',
-                "docSelection": '', */
                 "docID": ''
             }
 
-            const radioFields = [
+            /* const radioFields = [
                 "gender",
                 "docSelection"
-            ]
+            ] */
 
             let valid = true;
 
@@ -240,22 +240,18 @@
             return valid;
         }
 
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function () {
             'use strict'
 
             window.addEventListener('load', function() {
-
-                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                
                 let form = document.forms["profile-info-form"]
 
                 form.addEventListener('submit', function (event) {
-                    debugger;
                     if (!validateForm(form)) {
                         event.preventDefault()
                         event.stopPropagation()
                     }
-
                     form.classList.add('was-validated')
                 }, false);
             });
