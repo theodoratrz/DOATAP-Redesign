@@ -11,9 +11,7 @@
             <a class="fas fa-arrow-circle-left" onclick="history.back()" style="text-decoration:none; color:#002E69; cursor:pointer; margin-left:13rem; margin-top:1.7rem;">Επικοινωνία</a>
         </div>
 
-        <div class="page-content-container">
-            <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php" ?>
-
+        <div class="page-content-container" style="margin-left:13rem">
             <div class="mail-wrap">
                 <i class="fas fa-envelope"> <a href="mailto:protocol@doatap.gr" style="font-weight:normal;">protocol@doatap.gr</a></i>
                 <span style="font-size:medium; margin-bottom:1.5rem;"> >Αποστολή Εγγράφων</span>
