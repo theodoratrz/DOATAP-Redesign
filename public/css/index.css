@@ -34,4 +34,29 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: gainsboro;
+  color: black;
+  width:40%;
+  height:35%;
+
 } 
+
+.container_photo:hover{
+  background-color: gray;
+}
+
+.menu-icons{
+  display: flex;
+  flex-direction: row;
+  padding: 3rem;
+  column-gap: 3rem;
+  justify-content: center;
+}
+
+.icon-text{
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  justify-content: left;
+  width: 30%;
+  color: #002E69;
+}
