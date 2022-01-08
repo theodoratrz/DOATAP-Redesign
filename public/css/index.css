@@ -1,13 +1,32 @@
 .parallax {
     /* The image used */
-    background-image: url("/images/hp.png");
+    /* background-image: url("/public/images/im.png"); */
   
     /* Set a specific height */
-    min-height: 400px;
+    height:100%;
   
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
-    background-position: right;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    
   }
+
+   /* Turn off parallax scrolling for all tablets and phones. Increase/decrease the pixels if needed */
+@media only screen and (max-device-width: 1366px) {
+  .parallax {
+    background-attachment: scroll;
+  }
+} 
+
+.background_box{
+  border: 2px solid black;
+} 
+
+.box{
+  margin: 30px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.6;
+}

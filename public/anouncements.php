@@ -1,11 +1,7 @@
-<link rel="stylesheet" href="/public/css/index.css">
-<link rel="stylesheet" href="/public/css/navbar.css">
-<link rel="stylesheet" href="/public/css/forms.css">
-
-
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php" ?>
+<link rel="stylesheet" href="/public/css/anouncements.css">
 
 <body>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php" ?>
 
 <div class="page-container fluid-container">
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/navbar.php" ?>
@@ -15,9 +11,10 @@
         </div>
     <div class="login-container-wrapper">
         <div class="login-container">
-                <h3 style="text-align:center;">ΕΓΓΡΑΦΗ</h3>
+                <h3 style="text-align:center;">Ανακοινώσεις</h3>
                 <hr>
-                
+            
+
         </div>
 
     </div>
@@ -26,4 +23,3 @@
 </body>
 
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/footer.php" ?>
-
