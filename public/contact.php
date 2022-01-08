@@ -59,7 +59,6 @@
             <div class="map-wrap">
                 <i class="fas fa-phone"><a href="tel:2105281000" style="font-size:medium; font-weight:normal; text-decoration:none; color:black;"> 210-5281000</a></i>
                 <i class="fas fa-phone" style="margin-left:6rem"><a href="tel:2313501372" style="font-size:medium; font-weight:normal; text-decoration:none; color:black;"> 2313-501372</a></i>
-                
             </div>
         </div>
     </div>
