@@ -8,18 +8,18 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/navbar.php" ?>
 
 <style>
-.temp-flex {
+.central-container {
     padding: 1rem;
     display: flex;
     flex-direction: row;
     column-gap: 2rem;
     row-gap: 1rem;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
 @media only screen and (max-width: 840px) {
-    .temp-flex {
+    .central-container {
         flex-direction: column;
         align-items: center;
     }

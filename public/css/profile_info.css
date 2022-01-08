@@ -29,14 +29,26 @@
 
 .invalid-feedback {
     overflow-wrap: normal;
+    font-size: .7em;
 }
 
 .form-fields-container {
-    padding: 1rem;
+    padding: 0.5rem;
     width: auto;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(3, auto);
+    column-gap: 1em;
     row-gap: 0.5em;
+}
+
+@media only screen and (max-width: 700px) {
+    .form-fields-container {
+        padding: 1rem;
+        width: auto;
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 .field-container {
