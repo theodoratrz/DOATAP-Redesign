@@ -25,7 +25,7 @@
                    
                     <hr>
 
-                    <label for="name"><b>ΟΝΟΜΑ</b></label>
+                    <!--label for="name"><b>ΟΝΟΜΑ</b></label>
                     <input type="text" placeholder="Όνομα" name="name" id="name" required>
 
                     <label for="last_name"><b>ΕΠΩΝΥΜΟ</b></label>
@@ -60,11 +60,14 @@
 
                     <label for="id_num"><b>ΑΡΙΘΜΟΣ ΕΓΓΡΑΦΟΥ</b></label>
                     <input type="number" placeholder="Αριθμός Εγγράφου" name="id_num" id="id_num" required>
-                    <hr>
+                    <hr-->
+                    <?php
+                     require_once $_SERVER['DOCUMENT_ROOT'] . "/components/profile-info.php"
 
+                    ?>
                     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-                    <button type="submit" class="registerbtn">Register</button>
-                    <p>Already have an account? <a href="#">Sign in</a>.</p>
+                    <button type="submit" class="registerbtn">Εγγραφή</button>
+                    <p>Αν έχετε ήδη λογαριασμό <a href="login.php">Συνδεθείτε</a>.</p>
                 </div>
 
 </div> 
