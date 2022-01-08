@@ -4006,7 +4006,7 @@ fieldset:disabled .btn {
   padding-right: 0px;
   display: flex;
   width:100%;
-  justify-content: space-around;
+  justify-content: left;
   --bs-bg-opacity: 1;
   background-color: rgba(128, 128, 128, 0.301);
   border-bottom: 2px solid #002E69;
