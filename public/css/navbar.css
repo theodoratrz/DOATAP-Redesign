@@ -82,6 +82,23 @@
   background-color: rgba(var(--bs-secondary-rgb), var(--bs-bg-opacity)) !important;
 }
 
+.temp-flex {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    column-gap: 2rem;
+    row-gap: 1rem;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 840px) {
+    .temp-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 /* horizontal */
 .nav {
   display: -webkit-box;

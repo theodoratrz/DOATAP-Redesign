@@ -9,11 +9,9 @@
 
 <div class="fluid-container">
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/navbar.php" ?>
-<nav class="gray-box">
-    <div class="container d-flex">
-        Σύνδεση
-    </div>
-</nav>
+        <div class="gray-box">
+            <a class="fas fa-arrow-circle-left" onclick="history.back()" style="text-decoration:none; color:#002E69; cursor:pointer; margin-left:13rem; margin-top:1.7rem;">Φόρμες Αιτήσεων</a>
+        </div>
 
 </div>
     <div class="page-content-container">
