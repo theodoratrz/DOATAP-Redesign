@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="css/content_accordion.css">
+<link rel="stylesheet" href="/public/css/content_accordion.css">
 
 <?php
 
@@ -38,7 +38,7 @@
         echo "<h2 class='accordion-header' id='flush-heading$index'>";
         echo "
         <button class='accordion-button collapsed shadow-none' type='button' data-bs-toggle='collapse'
-            data-bs-target='#flush-collapse$index' aria-expanded='false' aria-controls='flush-collapse$index'>
+            data-bs-target='#flush-collapse$index' aria-expanded='false' aria-controls='flush-collapse$index' style='align-items:center;'>
         ";
         echo $headerInnerHTML;
         echo "</button>";
@@ -61,5 +61,5 @@
         ";
     }
 
-    echoAccordion(sampleContent, true);
+    # echoAccordion(sampleContent, true);
 ?>

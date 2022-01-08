@@ -1,20 +1,18 @@
-<link rel="stylesheet" href="css/index.css">
-<link rel="stylesheet" href="css/navbar.css">
-<link rel="stylesheet" href="css/forms.css">
+<link rel="stylesheet" href="/public/css/index.css">
+<link rel="stylesheet" href="/public/css/navbar.css">
+<link rel="stylesheet" href="/public/css/forms.css">
 
 
-<?php require_once("../components/template.php"); ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php" ?>
 
 <body>
 
 <div class="page-container fluid-container">
-    <?php require_once("../components/navbar.php"); ?>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/navbar.php" ?>
 
-    <nav class="gray-box">
-    <div class="container d-flex">
-        Σύνδεση
-    </div>
-    </nav>
+        <div class="gray-box">
+            <a class="fas fa-arrow-circle-left" onclick="history.back()" style="text-decoration:none; color:#002E69; cursor:pointer; margin-left:13rem; margin-top:1.7rem;">Σύνδεση</a>
+        </div>
     <div class="login-container-wrapper">
         <div class="login-container">
                 <h3 style="text-align:center;">ΣΥΝΔΕΣΗ</h3>
@@ -51,5 +49,5 @@
     
 </body>
 
-<?php require_once("../components/footer.php"); ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/footer.php" ?>
 
