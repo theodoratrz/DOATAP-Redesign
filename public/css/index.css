@@ -66,6 +66,11 @@
   background-color: white;
 }
 
+.icon-text:hover{
+  background-color: #002E69;
+  color: white;
+}
+
 .text-box{
   display: flex;
   flex-direction: row;
