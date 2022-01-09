@@ -17,24 +17,30 @@
   </div>
 </div> 
 
+<div class="text-box">
+    <h5>Διεπιστημονικός Οργανισμός Αναγνώρισης Τίτλου Ακαδημαϊκών και Πληροφόρησης</h5>
+    <div class="vr" style="width:0.4rem"></div>
+    <h7>Ο ΔΟΑΤΑΠ έχει ως βασική αποστολή (α) την αναγνώριση τίτλων σπουδών από ιδρύματα της αλλοδαπής και 
+      (β) την παροχή πληροφοριών σχετικά με σπουδές στην ανώτατη εκπαίδευση στην ημεδαπή και την αλλοδαπή.</h7>
+</div>
 <div class="menu-icons">
-  <div class="icon-text">
-    <h6><a href="applications-forms.php" class="fas fa-file-alt" style="text-decoration:none; color:inherit"> Χρήσιμα Έγγραφα</a></h6>
-    <span style="color:black"> Βρείτε χρήσιμα έγρραφα και αιτήσεις που θα χρειαστεί να συμπληρώσετε, ταξινομημένα και σε ηλεκτρονική μορφή.</span>
-</div>
-<div class="icon-text">
-    <h6><a href="procedure_submission.php" class="fas fa-pen-alt" style="text-decoration:none; color:inherit"> Νέα Αίτηση</a></h6>
-    <span style="color:black">Βρείτε όλα όσα χρειάζονται για να πραγματοποιήσετε μία νέα αίτηση.</span>
-</div>
-<div class="icon-text">
-    <h6><a href="applications-forms.php" class="fas fa-bell" style="text-decoration:none; color:inherit"> Παρακολούθηση Αίτησης</a></h6>
-    <span style="color:black">Παρακολουθήστε την κατάσταση όλων των αιτήσεων σας.</span>
-</div>
-<div class="icon-text">
-    <h6><a href="applications-forms.php" class="fas fa-book" style="text-decoration:none; color:inherit"> Ο ΔΟΑΤΑΠ</a></h6>
-    <span style="color:black">Ενημερωθείτε για όλες τις δράσεις του οργανισμού.</span>
+    <div class="icon-text">
+      <h6><a href="applications-forms.php" class="fas fa-file-alt" style="text-decoration:none; color:inherit"> Χρήσιμα Έγγραφα</a></h6>
+      <span style="color:black"> Βρείτε χρήσιμα έγρραφα και αιτήσεις που θα χρειαστεί να συμπληρώσετε, ταξινομημένα και σε ηλεκτρονική μορφή.</span>
+    </div>
+    <div class="icon-text">
+      <h6><a href="procedure_submission.php" class="fas fa-pen-alt" style="text-decoration:none; color:inherit"> Νέα Αίτηση</a></h6>
+      <span style="color:black">Βρείτε όλα όσα χρειάζονται για να πραγματοποιήσετε μία νέα αίτηση.</span>
+    </div>
 
-</div>
+    <div class="icon-text">
+      <h6><a href="applications-forms.php" class="fas fa-bell" style="text-decoration:none; color:inherit"> Παρακολούθηση Αίτησης</a></h6>
+      <span style="color:black">Παρακολουθήστε την κατάσταση όλων των αιτήσεων σας.</span>
+    </div>
+    <div class="icon-text">
+        <h6><a href="applications-forms.php" class="fas fa-book" style="text-decoration:none; color:inherit"> Ο ΔΟΑΤΑΠ</a></h6>
+        <span style="color:black">Ενημερωθείτε για όλες τις δράσεις του οργανισμού.</span>
+    </div>
 </div>
 
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/footer.php" ?>

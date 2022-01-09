@@ -47,9 +47,13 @@
 .menu-icons{
   display: flex;
   flex-direction: row;
-  padding: 3rem;
+  padding: 2rem;
   column-gap: 3rem;
   justify-content: center;
+  background-color: gainsboro;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 3rem;
 }
 
 .icon-text{
@@ -59,5 +63,13 @@
   justify-content: left;
   width: 30%;
   color: #002E69;
+  background-color: white;
 }
 
+.text-box{
+  display: flex;
+  flex-direction: row;
+  padding: 2rem;
+  column-gap: 3rem;
+  justify-content: left;
+}
