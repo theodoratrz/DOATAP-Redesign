@@ -51,9 +51,9 @@
   column-gap: 3rem;
   justify-content: center;
   background-color: gainsboro;
-  margin-left: 2rem;
-  margin-right: 2rem;
-  margin-bottom: 3rem;
+  margin-left: 4rem;
+  margin-right: 4rem;
+  margin-bottom: 2rem;
 }
 
 .icon-text{
@@ -77,4 +77,6 @@
   padding: 2rem;
   column-gap: 3rem;
   justify-content: left;
+  margin-left: 4rem;
+  margin-right: 4rem;
 }

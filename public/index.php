@@ -42,6 +42,35 @@
         <span>Ενημερωθείτε για όλες τις δράσεις του οργανισμού.</span>
     </div>
 </div>
+<h5 style="text-align:center">ΑΝΑΚΟΙΝΩΣΕΙΣ</h5><hr style=" margin-left:4rem; margin-right:4rem; text-align:center; ">
+
+<div class="text-box">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Ημερομηνία</th>
+      <th scope="col">Τίτλος</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td><a href="#">Jacob</a></td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td><a href="#">Jacob</a></td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td><a href="#">Jacob</a></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<button style="text-align:left; margin-left:5rem; margin-bottom:2rem; border-radius:5%; padding:0.5rem;">
+<a href="anouncements.php" style= "color:#002E69; text-decoration:none;">ΟΛΕΣ ΟΙ ΑΝΑΚΟΙΝΩΣΕΙΣ</a></button>
 
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/footer.php" ?>
 </div>
