@@ -20,7 +20,7 @@
                 <h7 style="text-align:center;">Συμπληρώστε το όνομα χρήστη και τον κωδικό πρόσβασης</h7>
                 <h7 style="text-align:center;"> για να συνδεθείτε στην πλατφόρματου ΔΟΑΤΑΠ.</h7>
                 <br>
-                <h7 style="text-align:center;">Εναλλακτικά μπορείτε να συνδεθείτε μέσω <a href="taxisnet">TaxisNet</a></h7>
+                <h7 style="text-align:center;">Εναλλακτικά μπορείτε να συνδεθείτε μέσω <a href="https://www1.gsis.gr/oauth2server/login.jsp"">TaxisNet</a></h7>
                 <hr>
                 <div class="mb-3">
                     <i class="fas fa-user-circle"></i>

@@ -3,7 +3,7 @@
 <?php
 $nav_links = array(
 	"Αιτήσεις" => array(
-		"demo.php",
+		"applications.php",
 		array("Διαδικασία Υποβολής" => "procedure_submission.php",
 		/* "Η Πορεία μίας Αίτησης" => array(
 		"Αξιολόγηση Αίτησης" => "applications-evaluation.php",
@@ -15,23 +15,24 @@ $nav_links = array(
 		"Παράβολα" => "paravola.php")
 	),
 	"Ανακοινώσεις" => array(
-	"demo.php",
-	array("Γενικές Πληροφορίες" => "anouncements.php",
+	"anouncements.php",
+	array("Γενικές Πληροφορίες" => "under_construction.php",
 	"Αποφάσεις Δ.Σ" => "error404.php",
-	"Προϋπολογισμοί-Προκηρύξεις" => "error404.php",
-	"Εξετάσεις Οδοντιατρικής" => "error404.php",
-	"Εξετάσεις Ιατρικής" => "error404.php")
+	"Προϋπολογισμοί-Προκηρύξεις" => "under_construction.php",
+	"Εξετάσεις Οδοντιατρικής" => "under_construction.php",
+	"Εξετάσεις Ιατρικής" => "under_construction.php")
 	),
 	"Ενημέρωση" => array(
 	"demo.php",
-	array("Ανώτατα Εκπαιδευτικά Ιδρύματα" => "error404.php",
-	"Εκπαιδευτικά Ιδρύματα Αλλοδαπής" => "error404.php",
+	array("Ανώτατα Εκπαιδευτικά Ιδρύματα" => "under_construction.php",
+	"Εκπαιδευτικά Ιδρύματα Αλλοδαπής" => "under_construction.php",
 	"Το Ελληνικό Σύστημα Εκπαίδευσης" => "error404.php",
-	"Δι@υγεια" => "error404.php")
+	"Δι@υγεια" => "https://et.diavgeia.gov.gr/f/doatap")
 	),
 	"Οργανισμός" => array(
-	"demo.php",
-	array("Σύσταση του ΔΟΑΤΑΠ" => "error404.php",
+	"organization.php",
+	array("Ταυτότητα" => "error404.php",
+	"Διοίκηση" => "error404.php",
 	"Ετήσιος Απολογισμός ΔΣ" => "error404.php",
 	"Στατιστικά Στοιχεία" => "error404.php")
 	),
