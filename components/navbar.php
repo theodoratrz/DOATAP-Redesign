@@ -5,11 +5,12 @@ $nav_links = array(
 	"Αιτήσεις" => array(
 		"demo.php",
 		array("Διαδικασία Υποβολής" => "procedure_submission.php",
-		"Η Πορεία μίας Αίτησης" => array(
+		/* "Η Πορεία μίας Αίτησης" => array(
 		"Αξιολόγηση Αίτησης" => "applications-evaluation.php",
 		"Χρόνοι Διεκπεραίωσης" => "cc.php",
 		"Υπέρβαση Ουράς Προτεραιότητας" => "cc.php"
-		),
+		), */
+		"Η Πορεία μίας Αίτησης" => "application_trip.php",
 		"Φόρμες Αιτήσεων" => "applications-forms.php",
 		"Παράβολα" => "paravola.php")
 	),
@@ -96,7 +97,7 @@ function echoNavbarContent(array $content)
 			$subitems = $value[1];
 			echo '
 			<li class="nav-item dropdown nav-pills ">
-				<a class="nav-link dropdown-toggle" href="' . $href . '" data-bs-toggle="dropdown" data-bs-auto-close="outside">' . $title . '</a>
+				<a class="nav-link dropdown-toggle" href="' . $href . '" data-bs-auto-close="outside">' . $title . '</a>
 			';
 				echoNavbarMenu($subitems);
 				echo '
