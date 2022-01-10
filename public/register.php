@@ -65,7 +65,7 @@
                      require_once $_SERVER['DOCUMENT_ROOT'] . "/components/profile-info.php"
 
                     ?>
-                    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+                    <p>By creating an account you agree to our <a href="terms.php" target="_blank">Οροι Χρήσης-Δήλωση Απορρήτου</a>.</p>
                     <button type="submit" class="registerbtn">Εγγραφή</button>
                     <p>Αν έχετε ήδη λογαριασμό <a href="login.php">Συνδεθείτε</a>.</p>
                 </div>
