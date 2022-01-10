@@ -33,11 +33,12 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: gainsboro;
+  background-color: rgba(220, 220, 220, 0.459);
   color: black;
   width:40%;
   height:35%;
-
+  display: flex;
+  flex-direction: row;
 } 
 
 .container_photo:hover{
@@ -79,4 +80,20 @@
   justify-content: left;
   margin-left: 4rem;
   margin-right: 4rem;
+}
+
+.anouncements-box{
+  display: flex;
+  flex-direction: row;
+  padding: 2rem;
+  column-gap: 2rem;
+  justify-content: left;
+  margin-left: 4rem;
+  margin-right: 4rem;
+}
+
+.qa{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
 }
