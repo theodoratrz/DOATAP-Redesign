@@ -3,7 +3,7 @@
 <?php
 $nav_links = array(
 	"Αιτήσεις" => array(
-		"demo.php",
+		"applications.php",
 		array("Διαδικασία Υποβολής" => "procedure_submission.php",
 		/* "Η Πορεία μίας Αίτησης" => array(
 		"Αξιολόγηση Αίτησης" => "applications-evaluation.php",
@@ -27,7 +27,7 @@ $nav_links = array(
 	array("Ανώτατα Εκπαιδευτικά Ιδρύματα" => "error404.php",
 	"Εκπαιδευτικά Ιδρύματα Αλλοδαπής" => "error404.php",
 	"Το Ελληνικό Σύστημα Εκπαίδευσης" => "error404.php",
-	"Δι@υγεια" => "error404.php")
+	"Δι@υγεια" => "https://et.diavgeia.gov.gr/f/doatap")
 	),
 	"Οργανισμός" => array(
 	"demo.php",
