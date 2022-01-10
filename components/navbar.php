@@ -16,16 +16,16 @@ $nav_links = array(
 	),
 	"Ανακοινώσεις" => array(
 	"anouncements.php",
-	array("Γενικές Πληροφορίες" => "error404.php",
+	array("Γενικές Πληροφορίες" => "under_construction.php",
 	"Αποφάσεις Δ.Σ" => "error404.php",
-	"Προϋπολογισμοί-Προκηρύξεις" => "error404.php",
-	"Εξετάσεις Οδοντιατρικής" => "error404.php",
-	"Εξετάσεις Ιατρικής" => "error404.php")
+	"Προϋπολογισμοί-Προκηρύξεις" => "under_construction.php",
+	"Εξετάσεις Οδοντιατρικής" => "under_construction.php",
+	"Εξετάσεις Ιατρικής" => "under_construction.php")
 	),
 	"Ενημέρωση" => array(
 	"demo.php",
-	array("Ανώτατα Εκπαιδευτικά Ιδρύματα" => "error404.php",
-	"Εκπαιδευτικά Ιδρύματα Αλλοδαπής" => "error404.php",
+	array("Ανώτατα Εκπαιδευτικά Ιδρύματα" => "under_construction.php",
+	"Εκπαιδευτικά Ιδρύματα Αλλοδαπής" => "under_construction.php",
 	"Το Ελληνικό Σύστημα Εκπαίδευσης" => "error404.php",
 	"Δι@υγεια" => "https://et.diavgeia.gov.gr/f/doatap")
 	),
