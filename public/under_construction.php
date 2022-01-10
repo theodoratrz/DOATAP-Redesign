@@ -7,7 +7,7 @@
   <script src="https://kit.fontawesome.com/4b9ba14b0f.js" crossorigin="anonymous"></script>
   <script>
 // Set the date we're counting down to
-var countDownDate = new Date("Jan 28, 2022 15:37:25").getTime();
+var countDownDate = new Date("Jun 28, 2022 15:37:25").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -52,6 +52,6 @@ var x = setInterval(function() {
   <p class="rounded-circle" style="background-color:white; border:2px solid black; padding:1rem;" id="demo2"></p>
   <p class="rounded-circle" style="background-color:white; border:2px solid black; padding:1rem;" id="demo3"></p>
 </div>
-    <div class="msg">Maybe this page moved? Got deleted? Is hiding out in quarantine? Never existed in the first place?<p>Let's go <a href="index.php">home</a> and try from there.</p></div>
+    <div class="msg">Something Awesome Is In The Work!<p>We'll be up and running soon with our improved site</p></div>
 </div>
 </body>
