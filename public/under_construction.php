@@ -3,17 +3,18 @@
 
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php" ?>
 
+<!DOCTYPE html>
+<html>
 <body>
-    <div class="page-container fluid-container">
-        
-            <img src="/public/images/im.png" alt="..." style="width:100%; height:100%; opacity:0.5">
-            <div class="centered">
-            <div class="mainbox">
-   
-    <div class="msg">UNDER CONSTRUCTION<p>Let's go <a href="index.php">home</a> and try from there.</p></div>
-</div>
-  </div>
- 
 
-    </div>
+<div style="flex:0 0 100% backroung-color:#000000f0; height:100%; text-align:center;">
+<div class="container_video">
+<img src="https://media.giphy.com/media/9bTjZrytydVRK/giphy.gif" style=" width:50%;height:50%;">
+  <div class="centered_video">
+      <h4>WE ARE COMING SOON</h4>
+  </div>
+</div> 
+
+</div>
 </body>
+</html>

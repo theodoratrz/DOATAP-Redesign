@@ -41,6 +41,28 @@
   flex-direction: row;
 } 
 
+.container_video {
+  position: relative;
+  text-align: center;
+  color: black;
+  background-color: #000000f0;
+}
+
+
+/* Centered text */
+.centered_video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  color: red;
+  width:40%;
+  height:35%;
+  display: flex;
+  flex-direction: row;
+} 
+
 .container_photo:hover{
   background-color: gray;
 }
