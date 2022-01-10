@@ -122,7 +122,7 @@
 }
 
 /* horizontal */
-.nav {
+.navbar .nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
