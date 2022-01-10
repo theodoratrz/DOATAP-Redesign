@@ -15,8 +15,8 @@ $nav_links = array(
 		"Παράβολα" => "paravola.php")
 	),
 	"Ανακοινώσεις" => array(
-	"demo.php",
-	array("Γενικές Πληροφορίες" => "anouncements.php",
+	"anouncements.php",
+	array("Γενικές Πληροφορίες" => "error404.php",
 	"Αποφάσεις Δ.Σ" => "error404.php",
 	"Προϋπολογισμοί-Προκηρύξεις" => "error404.php",
 	"Εξετάσεις Οδοντιατρικής" => "error404.php",
@@ -30,8 +30,9 @@ $nav_links = array(
 	"Δι@υγεια" => "https://et.diavgeia.gov.gr/f/doatap")
 	),
 	"Οργανισμός" => array(
-	"demo.php",
-	array("Σύσταση του ΔΟΑΤΑΠ" => "error404.php",
+	"organization.php",
+	array("Ταυτότητα" => "error404.php",
+	"Διοίκηση" => "error404.php",
 	"Ετήσιος Απολογισμός ΔΣ" => "error404.php",
 	"Στατιστικά Στοιχεία" => "error404.php")
 	),
