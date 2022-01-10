@@ -33,7 +33,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(220, 220, 220, 0.459);
+  background-color: gainsboro;
   color: black;
   width:40%;
   height:35%;

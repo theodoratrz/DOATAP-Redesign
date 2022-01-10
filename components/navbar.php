@@ -10,7 +10,7 @@ $nav_links = array(
       "Υπέρβαση Ουράς Προτεραιότητας" => "cc.php"
     ),
     "Φόρμες Αιτήσεων" => "applications-forms.php",
-    "Παράβολα" => "applications.php"
+    "Παράβολα" => "paravola.php"
   ),
   "Ανακοινώσεις" => array(
     "Γενικές Πληροφορίες" => "anouncements.php",
