@@ -139,9 +139,9 @@ function echoNavbarContent(array $content)
 			echo '
 			<div class="login-signup-container d-flex justify-content-end">
 				
-				<a href="login.php" class="navbar-button nav-fill nav-pills">Σύνδεση</a>
+				<a href="login.php" class="login-link">Σύνδεση</a>
 				<span style="color:white">|</span>
-				<a href="register.php" class="navbar-button nav-fill nav-pills">Εγγραφή</a>
+				<a href="register.php" class="login-link">Εγγραφή</a>
 			 
 			</div>';
 		}

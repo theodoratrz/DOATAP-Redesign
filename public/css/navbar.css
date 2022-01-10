@@ -1,3 +1,17 @@
+.login-link {
+  background-color: transparent;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: large;
+  font-weight: 500;
+}
+
+.login-link:hover, .login-link:focus {
+  color: white;
+  text-decoration: underline;
+}
+
 .dropdown:hover > .dropdown-menu {
   display: block;
   margin-top: 0;
@@ -122,13 +136,12 @@
 }
 
 .nav-pills{
-  color: white;
+  border-radius: 0% !important;
   background-color:transparent;
 }
 
 .nav-pills:hover{
-  background-color: blue;
-  color: white;
+  background-color: white;
 }
 
 .nav-fill > .nav-link,
@@ -152,7 +165,6 @@ text-align: center;
 }
 
 .navbar-button{
-  color: white;
   background-color:transparent;
   text-decoration: none;
   cursor: pointer;
@@ -176,6 +188,7 @@ text-align: center;
 
   /*navbar links */
 .nav-link {
+  border-radius: 0% !important;
   display: block;
   padding: 0.5rem 1rem;
   color: #002E69;
@@ -184,15 +197,9 @@ text-align: center;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
 
-.nav-link:hover{
-  color: white;
-  border-radius: 0%;
-}
-
-.nav-link:focus{
-  background-color: blue;
-    color: white;
-    border-radius: 0%;
+.nav-link:hover, .nav-link:focus{
+  background-color: white;
+  color: #002E69;
 }
   
 .navbar_search{
@@ -326,7 +333,7 @@ text-align: center;
   background-color: #fff;
   background-clip:content-box;
   border: 0.5px solid rgba(0, 0, 0, 0.15);
-  border-radius: 0rem;
+  border-radius: 0%;
 }
 
 .dropdown-menu[data-bs-popper] {
