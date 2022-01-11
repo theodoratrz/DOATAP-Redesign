@@ -30,6 +30,8 @@
     <?php require_once("../components/sidebar.php"); ?>
 
     <?php require_once("../components/content_tabs.php"); ?>
+
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/react_usage_template.php" ?>
 </div>
 
 <!-- <div class="page-container fluid-container">

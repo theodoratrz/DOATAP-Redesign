@@ -1,6 +1,6 @@
 
 <!-- Using React component -->
-<div id="like_button_container"></div>
+<div id="checklist_container"></div>
 
 <!-- Required scripts for React
 https://reactjs.org/docs/add-react-to-a-website.html#optional-try-react-with-jsx -->
