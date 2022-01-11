@@ -1,6 +1,6 @@
 'use strict';
 
-class TodoItem extends React.Component {
+class CheckListItem extends React.Component {
 
 	deleteItem = () => {
 		this.props.deleteCallback(this.props.id);
@@ -12,26 +12,28 @@ class TodoItem extends React.Component {
 
 	itemContentHTML = (content, isChecked) => {
 		const checkedStyle = {
-			transition: '750ms',
 			textDecoration: 'line-through',
 			opacity: 0.6
 		}
 		const nonCheckedStyle = {
-			transition: '750ms',
 			textDecoration: 'none'
 		}
 		let contentContainerStyle = {
 			display: 'flex',
 			flexDirection: 'row',
 			justifyContent: 'space-between',
-			width: '100%'
+			width: '100%',
+			padding: '0em 1em',
+			alignItems: 'center'
 		}
 
 		const spanStyle = {
+			transition: '750ms',
 			maxWidth: '50%',
-			overflowWrap: 'wrap'
+			overflowWrap: 'wrap',
+			width: 'min-content'
 		}
-		Object.assign(contentContainerStyle, isChecked ? checkedStyle : nonCheckedStyle);
+		Object.assign(spanStyle, isChecked ? checkedStyle : nonCheckedStyle);
 
 		return (
 			<div style={contentContainerStyle}>
@@ -58,7 +60,7 @@ class TodoItem extends React.Component {
 	}
 }
 
-class TodoCheckList extends React.Component {
+class CheckList extends React.Component {
 
 	constructor(props = undefined) {
 		super(props);
@@ -92,11 +94,10 @@ class TodoCheckList extends React.Component {
 		});
 	}
 
-	addItem = (event) => {
-		event.preventDefault();
+	addItem = (itemContent)  => {
 		const newItem = {
 			key: `listItem${this.state.keyCounter++}`,
-			content: this.state.inputText,
+			content: itemContent,
 			isChecked: false
 		}
 		let updatedItems = this.state.items.slice();
@@ -127,11 +128,10 @@ class TodoCheckList extends React.Component {
 		for (const item of this.state.items) {
 			if ( item.key === key ) {
 				item.isChecked = !item.isChecked;
+				break;
 			}
 		}
-		this.setState( {
-			items: this.state.items
-		});
+		this.forceUpdate();
 	}
 
 	itemComponents = (items) => {
@@ -139,7 +139,7 @@ class TodoCheckList extends React.Component {
 
 		for (const item of items) {
 			itemComponents.push(
-				<TodoItem key={item.key} id={item.key} content={[item.content, 'placeholder']} 
+				<CheckListItem key={item.key} id={item.key} content={item.content} isChecked={item.isChecked}
 				deleteCallback={this.deleteItem} checkCallback={this.toggleItemCheck}/>
 			)
 		}
@@ -150,7 +150,7 @@ class TodoCheckList extends React.Component {
 	render() {
 		
 		// input text field style
-		const inputStyle = {
+		/* const inputStyle = {
 			backgroundColor: 'transparent',
 			color: 'white',
 			outline: 'none',
@@ -166,24 +166,30 @@ class TodoCheckList extends React.Component {
 			flexDirection: 'row',
 			justifyContent: 'start',
 			width: '100%'
-		}
+		} */
 		
 		const containerStyle = {
-			maxWidth: '25rem',
-			width: '25rem'
+			display: 'flex',
+			flexDirection: 'column',
+			rowGap: '.5em',
+			maxWidth: '25em',
+			width: '25em'
 		}
 		return (
 		<div style={containerStyle}>
 			{this.itemComponents(this.state.items)}
-			<form style={formStyle} className="new-item-form" onSubmit={this.addItem}>            
+			{/* <form style={formStyle} className="new-item-form" onSubmit={this.addItem}>            
 				<input style={inputStyle} onChange={this.updateInputText} value={this.state.inputText}
 				onSubmit={this.addItem} className="new-item-input"/>
 				<button type="submit" className="operation-button">Add+</button>
-
-				{this.checkedItemExists() ? 
-				<button type="button" onClick={this.deleteCheckedItems} className="operation-button">
-				Delete Checked</button> : []}
-			</form>
+			</form> */}
+			{
+				this.checkedItemExists() ? 
+				<button type="button" onClick={this.deleteCheckedItems}>
+				Delete Checked</button> :
+				<button type="button" disabled>
+				Delete Checked</button>
+			}
 		</div>
 		);
 	}
@@ -191,7 +197,7 @@ class TodoCheckList extends React.Component {
 
 // React places the rendered component as innerHTML for the selected DOM element 
 const domContainer = document.querySelector('#checklist_container');
-ReactDOM.render(<TodoCheckList ref={(checkListComponent) => {window.checkListComponent = checkListComponent}}/>, domContainer);
-/* 
- To refer to the component from the DOM, use `window.checkListComponent`
-*/
+ReactDOM.render(<CheckList ref={(checkListComponent) => {window.checkListComponent = checkListComponent}}/>, domContainer);
+ 
+// To refer to the component from the DOM, use `window.checkListComponent`
+
