@@ -1,6 +1,25 @@
 <link rel="stylesheet" href="/public/css/anouncements.css">
 
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php" ?>
+<head>
+<script type="text/javascript">
+        const tabs = document.querySelectorAll('[id]')
+        const tabInfos = document.querySelectorAll('[id]')
+  
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = document
+                    .querySelector(tab.dataset.tabValue);
+  
+                tabInfos.forEach(tabInfo => {
+                    tabInfo.classList.remove('active')
+                })
+                target.classList.add('active');
+            })
+        })
+    </script>
+
+</head>
 
 <body>
 
@@ -34,38 +53,166 @@
                 </li>
               </ul>
             <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade show active" id="anouncements" role="tabpanel" aria-labelledby="anouncements-tab">...</div>
-              <div class="tab-pane fade" id="generalinfo" role="tabpanel" aria-labelledby="generalinfo-tab">...</div>
-              <div class="tab-pane fade" id="decisions" role="tabpanel" aria-labelledby="decisions-tab">...</div>
-              <div class="tab-pane fade show active" id="budget" role="tabpanel" aria-labelledby="budget-tab">...</div>
-              <div class="tab-pane fade" id="med" role="tabpanel" aria-labelledby="med-tab">...</div>
-              <div class="tab-pane fade" id="tooth" role="tabpanel" aria-labelledby="tooth-tab">...</div>
+              <div class="tab-pane fade show active" id="anouncements" role="tabpanel" aria-labelledby="anouncements-tab">
+                <div class="anouncements-box">
+
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Ημερομηνία</th>
+                        <th scope="col">Τίτλος</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row" style="color:#002e69ce;font-size:large;">01/01/2022</th>
+                        <td><a href="#">Jacob</a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="color:#002e69ce;font-size:large;">01/01/2022</th>
+                        <td><a href="#">Jacob</a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="color:#002e69ce;font-size:large;">01/01/2022</th>
+                        <td><a href="#">Jacob</a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            
+              <div class="tab-pane fade" id="generalinfo" role="tabpanel" aria-labelledby="generalinfo-tab">
+              <div class="anouncements-box">
+
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Ημερομηνία</th>
+                        <th scope="col">Τίτλος</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row" style="color:#002e69ce;font-size:large;">01/01/2022</th>
+                        <td><a href="#">Jacob</a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="color:#002e69ce;font-size:large;">01/01/2022</th>
+                        <td><a href="#">Jacob</a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="color:#002e69ce;font-size:large;">01/01/2022</th>
+                        <td><a href="#">Jacob</a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              <div class="tab-pane fade" id="decisions" role="tabpanel" aria-labelledby="decisions-tab">
+              <div class="anouncements-box">
+
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Ημερομηνία</th>
+                        <th scope="col">Τίτλος</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row" style="color:#002e69ce;font-size:large;">01/01/2022</th>
+                        <td><a href="#">Jacob</a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="color:#002e69ce;font-size:large;">01/01/2022</th>
+                        <td><a href="#">Jacob</a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="color:#002e69ce;font-size:large;">01/01/2022</th>
+                        <td><a href="#">Jacob</a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              <div class="tab-pane fade show active" id="budget" role="tabpanel" aria-labelledby="budget-tab">
+              <div class="anouncements-box">
+
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Ημερομηνία</th>
+                        <th scope="col">Τίτλος</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row" style="color:#002e69ce;font-size:large;">01/01/2022</th>
+                        <td><a href="#">Jacob</a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="color:#002e69ce;font-size:large;">01/01/2022</th>
+                        <td><a href="#">Jacob</a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="color:#002e69ce;font-size:large;">01/01/2022</th>
+                        <td><a href="#">Jacob</a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              <div class="tab-pane fade" id="med" role="tabpanel" aria-labelledby="med-tab">
+              <div class="anouncements-box">
+
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Ημερομηνία</th>
+                        <th scope="col">Τίτλος</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row" style="color:#002e69ce;font-size:large;">01/01/2022</th>
+                        <td><a href="#">Jacob</a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="color:#002e69ce;font-size:large;">01/01/2022</th>
+                        <td><a href="#">Jacob</a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="color:#002e69ce;font-size:large;">01/01/2022</th>
+                        <td><a href="#">Jacob</a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              <div class="tab-pane fade" id="tooth" role="tabpanel" aria-labelledby="tooth-tab">
+              <div class="anouncements-box">
+
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Ημερομηνία</th>
+                        <th scope="col">Τίτλος</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row" style="color:#002e69ce;font-size:large;">01/01/2022</th>
+                        <td><a href="#">Jacob</a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="color:#002e69ce;font-size:large;">01/01/2022</th>
+                        <td><a href="#">Jacob</a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="color:#002e69ce;font-size:large;">01/01/2022</th>
+                        <td><a href="#">Jacob</a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
             </div>
 
-            <div class="anouncements-box">
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Ημερομηνία</th>
-      <th scope="col">Τίτλος</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row" style="color:#002e69ce;font-size:large;">01/01/2022</th>
-      <td><a href="#">Jacob</a></td>
-    </tr>
-    <tr>
-      <th scope="row" style="color:#002e69ce;font-size:large;">01/01/2022</th>
-      <td><a href="#">Jacob</a></td>
-    </tr>
-    <tr>
-      <th scope="row" style="color:#002e69ce;font-size:large;">01/01/2022</th>
-      <td><a href="#">Jacob</a></td>
-    </tr>
-  </tbody>
-</table>
-</div>
+
 
 
 </div>
