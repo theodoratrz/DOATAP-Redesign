@@ -14,7 +14,13 @@
             <a href="applications.php" class="fas fa-arrow-circle-left" style="text-decoration:none; color:#002E69; cursor:pointer; margin-left:13rem; 
             margin-top:1.7rem;">Παράβολα</a>
         </div>
-        <div style="display:flex; flex-direction:row; padding:2rem; justify-content:center;">
+        <div class="page-content-container">
+        <?php 
+            require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
+
+            #echoSidebar();
+        ?>
+        <div style="display:flex; flex-direction:row; justify-content:center;">
         <?php
 
             require_once $_SERVER['DOCUMENT_ROOT'] . "/components/content_accordion.php";
@@ -199,7 +205,7 @@
         ?>
 </div>
 </div>
-    
+        </div>
 </body>
 
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/footer.php" ?>
