@@ -1,25 +1,6 @@
 <link rel="stylesheet" href="/public/css/anouncements.css">
 
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php" ?>
-<head>
-<script type="text/javascript">
-        const tabs = document.querySelectorAll('[id]')
-        const tabInfos = document.querySelectorAll('[id]')
-  
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                const target = document
-                    .querySelector(tab.dataset.tabValue);
-  
-                tabInfos.forEach(tabInfo => {
-                    tabInfo.classList.remove('active')
-                })
-                target.classList.add('active');
-            })
-        })
-    </script>
-
-</head>
 
 <body>
 
@@ -31,8 +12,28 @@
             margin-left:13rem; margin-top:1.7rem;">Αιτήσεις</a>
         </div>
     
+        <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/content_tabs.php" ;
+
+          const tab_content = array(
+            "Βασικές Πληροφορίες" => array(
+                "basic_info",
+                'ηηηηη'
+            ),
+            "Επιλεγμένα Τμήματα" => array(
+                "selected_deps",
+                'μμμμ'
+            ),
+            "Επιλογές Αντιστοίχησης" => array(
+                "course_choices",
+                'κκκκκ'
+            ),
+        );        
+        
+        echoContentTabs(tab_content);
+        
+        ?>
        
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <!--ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nitem" role="presentation">
                   <button class="nav-link active" id="anouncements-tab" data-bs-toggle="tab" data-bs-target="#anouncements" type="button" role="tab" aria-controls="home" aria-selected="true">Ανακοινώσεις</button>
                 </li>
@@ -210,7 +211,7 @@
                     </tbody>
                   </table>
                 </div>
-            </div>
+            </div-->
 
 
 
