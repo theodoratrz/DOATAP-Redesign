@@ -2,7 +2,7 @@
 
 <?php
 
-    const sampleContent = array(
+    const _accordion_sample_content_ = array(
         array(
             "<b>header1</b>",
             "<div style='display: flex; flex-direction: row; column-gap:0.5em;'>
@@ -60,6 +60,4 @@
         </div>
         ";
     }
-
-    # echoAccordion(sampleContent, true);
 ?>
