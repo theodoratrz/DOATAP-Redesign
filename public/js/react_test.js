@@ -73,13 +73,13 @@ class CheckList extends React.Component {
 		this.state = {
 			keyCounter: 0,
 			items: [],
-			inputText: "",
+			/* inputText: "" */
 		}
 	}	
 
-	updateInputText = event => {
+	/* updateInputText = event => {
 		this.setState({inputText: event.target.value})
-	}
+	} */
 
 	deleteCheckedItems = () => {
 		let nonCheckedItems = [];
