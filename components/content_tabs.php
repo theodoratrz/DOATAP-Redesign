@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/public/css/content_tabs.css">
 <?php
 
-const tab_content = array(
+const _tab_sample_content_ = array(
     "Βασικές Πληροφορίες" => array(
         "basic_info",
         '<p><strong>This is some placeholder content the Βασικές Πληροφορίες tab\'s associated content.</strong>
