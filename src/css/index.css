@@ -1,0 +1,126 @@
+.parallax {
+    /* The image used */
+    /* background-image: url("/images/im.png"); */
+  
+    /* Set a specific height */
+    height:100%;
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+  }
+
+   /* Turn off parallax scrolling for all tablets and phones. Increase/decrease the pixels if needed */
+@media only screen and (max-device-width: 1366px) {
+  .parallax {
+    background-attachment: scroll;
+  }
+} 
+ /* Container holding the image and the text */
+ .container_photo {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+
+/* Centered text */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: gainsboro;
+  color: black;
+  width:40%;
+  height:35%;
+  display: flex;
+  flex-direction: row;
+} 
+
+.container_video {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  color: black;
+  background-color: #000000f0;
+  width: 100%;
+  height: 100%;
+
+}
+
+
+/* Centered text */
+.centered_video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  color: red;
+  width:40%;
+  height:35%;
+  display: flex;
+  flex-direction: row;
+} 
+
+.container_photo:hover{
+  background-color: gray;
+}
+
+.menu-icons{
+  display: flex;
+  flex-direction: row;
+  padding: 2rem;
+  column-gap: 3rem;
+  justify-content: center;
+  background-color: gainsboro;
+  margin-left: 4rem;
+  margin-right: 4rem;
+  margin-bottom: 2rem;
+}
+
+.icon-text{
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  justify-content: left;
+  width: 30%;
+  color: #002E69;
+  background-color: white;
+}
+
+.icon-text:hover{
+  background-color: #002E69;
+  color: white;
+}
+
+.text-box{
+  display: flex;
+  flex-direction: row;
+  padding: 2rem;
+  column-gap: 3rem;
+  justify-content: left;
+  margin-left: 4rem;
+  margin-right: 4rem;
+}
+
+.anouncements-box{
+  display: flex;
+  flex-direction: row;
+  padding: 2rem;
+  column-gap: 2rem;
+  justify-content: left;
+  margin-left: 4rem;
+  margin-right: 4rem;
+}
+
+.qa{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}

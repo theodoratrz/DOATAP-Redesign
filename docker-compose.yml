@@ -1,0 +1,21 @@
+version: '3.2'
+
+services:
+  apache:
+    build: ./apache
+    volumes:
+      - ./src:/var/www/html
+      - ./apache/apache2.conf:/etc/apache2/apache2.conf
+    ports:
+      - "80:80"
+  db:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=12344321
+    ports:
+      - "9906:3306"
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
