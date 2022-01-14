@@ -8,20 +8,31 @@ services:
       - ./src:/var/www/html
       - ./apache/apache2.conf:/etc/apache2/apache2.conf
     ports:
-      - "80:80"
+      - 80:80
+    networks:
+      - doatapgr
 
   db:
     image: mysql
     restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD=12344321
-    ports:
-      - "9906:3306"
+      MYSQL_ROOT_PASSWORD: "1234"
     volumes:
       - ./mysql:/var/lib/mysql
+    ports:
+      - 3306:3306
+    networks:
+      - doatapgr
+
 
   phpmyadmin:
     image: phpmyadmin
     restart: always
     ports:
       - 8080:80
+    networks:
+      - doatapgr
+
+networks:
+  doatapgr:
+    name: doatapgr
