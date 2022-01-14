@@ -35,24 +35,39 @@
     }
 </style>
 <script>
+    function stoppedTyping() {
+        const input1 = document.getElementById("checklist-input1");
+        const input2 = document.getElementById("checklist-input2");
+
+        if ((input1.value === "") || (input2.value === "")) {
+            document.getElementById("add-item-button").disabled = true;
+        } else {
+            document.getElementById("add-item-button").disabled = false;
+        }
+    }
+
     function addChecklistItem() {
         const input1 = document.getElementById("checklist-input1");
         const input2 = document.getElementById("checklist-input2");
 
-        if ((input1.value !== "") && (input2.value !== ""))
         window.checkListComponent.addItem([input1.value, input2.value]);
 
         input1.value = "";
         input2.value = "";
+        document.getElementById("add-item-button").disabled = true;
     }
 </script>
 <div style="display: flex; flex-direction: column; row-gap: 2em;">
     <div class="input-fields-button-wrapper">
         <div class="inputs-wrapper">
-            <input id="checklist-input1" placeholder="Επιλέξτε Πανεπιστημιακό Ίδρυμα..." class="checklist-input" type="text"/>
-            <input id="checklist-input2" placeholder="Επιλέξτε Τμήμα..." class="checklist-input" type="text"/>
+            <input id="checklist-input1" oninput="stoppedTyping()" placeholder="Επιλέξτε Πανεπιστημιακό Ίδρυμα..."
+             class="checklist-input" type="text"/>
+            <input id="checklist-input2" oninput="stoppedTyping()" placeholder="Επιλέξτε Τμήμα..."
+             class="checklist-input" type="text"/>
         </div>
-        <button onclick="addChecklistItem()">Προσθήκη</button>
+        <button id="add-item-button" style="font-size:18px" class="btn btn-primary" onclick="addChecklistItem()" disabled>
+            Προσθήκη
+        </button>
     </div>
     <!-- Using React component -->
     <div id="checklist_container" class="checklist-container"></div>
