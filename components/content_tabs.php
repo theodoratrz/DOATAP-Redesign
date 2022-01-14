@@ -48,9 +48,9 @@ function echoTabSubcontent(string $tabID, string $contentInnerHTML, bool $active
     ';
 }
 
-function echoContentTabs(array $content) {
+function echoContentTabs(array $content, string $wrapperClass = "tab-wrapper") {
     echo '
-    <div class="tab-wrapper">
+    <div class="' . $wrapperClass . '">
     <ul class="nav nav-tabs" id="tabHeaders" role="tablist">
     ';
     $cur = 0;
