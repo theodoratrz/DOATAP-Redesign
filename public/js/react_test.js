@@ -31,7 +31,7 @@ class CheckListItem extends React.Component {
 			transition: '750ms',
 			maxWidth: '50%',
 			overflowWrap: 'wrap',
-			width: 'min-content'
+			flex: '1'
 		}
 		Object.assign(spanStyle, isChecked ? checkedStyle : nonCheckedStyle);
 
@@ -49,12 +49,20 @@ class CheckListItem extends React.Component {
 			display: 'flex',
 			flexDirection: 'row'
 		};
+		const deleteButton = {
+			backgroundColor: 'transparent',
+			border: '0px',
+			outline: 'none',
+			padding: '0em 1em'
+		}
 		return (
 			<div style={itemContainer}>
 				<input type="checkbox" style={{marginRight: "1%"}} onChange={this.toggleCheck}
 				checked={this.props.isChecked}/>
 				{this.itemContentHTML(this.props.content, this.props.isChecked)}
-				<button className="delete-button" onClick={this.deleteItem}>Delete</button>
+				<button style={deleteButton} onClick={this.deleteItem}>
+					<i className="fas fa-trash"></i>
+				</button>
 			</div>
 		);
 	}
@@ -149,35 +157,25 @@ class CheckList extends React.Component {
 
 	render() {
 		
-		// input text field style
-		/* const inputStyle = {
-			backgroundColor: 'transparent',
-			color: 'white',
-			outline: 'none',
-			border: 'none',
-			borderBottom: '2px solid blue',
-			marginRight: '1%',
-			width: '15rem',
-			color: 'black'
-		}
-
-		const formStyle = {
-			display: 'flex',
-			flexDirection: 'row',
-			justifyContent: 'start',
-			width: '100%'
-		} */
-		
-		const containerStyle = {
+		const itemContainerStyle = {
 			display: 'flex',
 			flexDirection: 'column',
-			rowGap: '.5em',
-			maxWidth: '25em',
-			width: '25em'
+			rowGap: '.25em',
+			width: '100%',
+			flex: '1',
+			overflowY: 'scroll'
 		}
+
+		const deleteAllButton = {
+			fontSize: '18px',
+			width: 'max-content'
+		}
+		
 		return (
-		<div style={containerStyle}>
-			{this.itemComponents(this.state.items)}
+		<div style={this.props.containerStyle}>
+			<div style={itemContainerStyle}>
+				{this.itemComponents(this.state.items)}
+			</div>			
 			{/* <form style={formStyle} className="new-item-form" onSubmit={this.addItem}>            
 				<input style={inputStyle} onChange={this.updateInputText} value={this.state.inputText}
 				onSubmit={this.addItem} className="new-item-input"/>
@@ -185,19 +183,56 @@ class CheckList extends React.Component {
 			</form> */}
 			{
 				this.checkedItemExists() ? 
-				<button type="button" onClick={this.deleteCheckedItems}>
-				Delete Checked</button> :
-				<button type="button" disabled>
-				Delete Checked</button>
+				<button type="button" className="btn btn-primary" style={deleteAllButton}
+				 onClick={this.deleteCheckedItems}>
+					{this.props.deleteCheckedMsg}
+				</button> :
+				<button type="button" className="btn btn-primary" style={deleteAllButton} disabled>
+					{this.props.deleteCheckedMsg}
+				</button>
 			}
 		</div>
 		);
 	}
 }
 
+const containerStyle = {
+	display: 'flex',
+	flexDirection: 'column',
+	rowGap: '.25em',
+	maxWidth: '25em',
+	width: '100%',
+	alignItems: 'center'
+}
+
+const checklistWrapper = {
+	display: 'flex',
+	flexDirection: 'column',
+	rowGap: '.25em',
+	width: '100%'
+}
+
+const checklistTitles = {
+	display: 'flex',
+	flexDirection: 'row',
+	justifyContent: 'space-between',
+	padding: '0em min(8em, 20vw) 0em 1em',
+	borderBottom: '2px solid #0055c3',
+	fontWeight: 'bolder'
+}
+
 // React places the rendered component as innerHTML for the selected DOM element 
 const domContainer = document.querySelector('#checklist_container');
-ReactDOM.render(<CheckList ref={(checkListComponent) => {window.checkListComponent = checkListComponent}}/>, domContainer);
+ReactDOM.render(
+	<div style={checklistWrapper}>
+		<div style={checklistTitles}>
+            <span>Ίδρυμα</span>
+            <span>Τμήμα</span>
+        </div>
+		<CheckList ref={(checkListComponent) => {window.checkListComponent = checkListComponent}}
+		containerStyle={containerStyle} deleteCheckedMsg={'Διαγραφή Επιλεγμένων'}/>
+	</div>
+, domContainer);
  
 // To refer to the component from the DOM, use `window.checkListComponent`
 

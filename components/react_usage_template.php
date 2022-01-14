@@ -1,8 +1,10 @@
 
-<!-- Using React component -->
-<div id="checklist_container"></div>
-
 <style>
+
+    .checklist-container {
+        flex: 1;
+    }
+
     .checklist-input {
         background-color: transparent;
         outline: none;
@@ -16,20 +18,45 @@
     .checklist-input::placeholder {
         font-style: italic;
     }
+
+    .inputs-wrapper {
+        display: flex;
+        flex-direction: column;
+        row-gap: .5em;
+    }
+
+    .input-fields-button-wrapper {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        column-gap: 1em;
+        row-gap: .35em;
+    }
 </style>
 <script>
     function addChecklistItem() {
         const input1 = document.getElementById("checklist-input1");
         const input2 = document.getElementById("checklist-input2");
+
+        if ((input1.value !== "") && (input2.value !== ""))
         window.checkListComponent.addItem([input1.value, input2.value]);
 
         input1.value = "";
         input2.value = "";
     }
 </script>
-<input id="checklist-input1" placeholder="Επιλέξτε Πανεπιστημιακό Ίδρυμα..." class="checklist-input" type="text"/>
-<input id="checklist-input2" placeholder="Επιλέξτε Τμήμα..."class="checklist-input" type="text"/>
-<button onclick="addChecklistItem()">Add Item</button>
+<div style="display: flex; flex-direction: column; row-gap: 2em;">
+    <div class="input-fields-button-wrapper">
+        <div class="inputs-wrapper">
+            <input id="checklist-input1" placeholder="Επιλέξτε Πανεπιστημιακό Ίδρυμα..." class="checklist-input" type="text"/>
+            <input id="checklist-input2" placeholder="Επιλέξτε Τμήμα..." class="checklist-input" type="text"/>
+        </div>
+        <button onclick="addChecklistItem()">Προσθήκη</button>
+    </div>
+    <!-- Using React component -->
+    <div id="checklist_container" class="checklist-container"></div>
+</div>
 
 <!-- Required scripts for React
 https://reactjs.org/docs/add-react-to-a-website.html#optional-try-react-with-jsx -->
