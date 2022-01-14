@@ -29,6 +29,7 @@
 <div class="central-container">
     <?php require_once("../components/sidebar.php"); ?>
 
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/react_usage_template.php" ?>
     <?php 
     require_once("../components/content_tabs.php"); 
     const tabContent = array(
