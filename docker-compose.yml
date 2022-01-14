@@ -9,8 +9,6 @@ services:
       - ./apache/apache2.conf:/etc/apache2/apache2.conf
     ports:
       - 80:80
-    networks:
-      - doatapgr
 
   db:
     image: mysql
@@ -21,8 +19,6 @@ services:
       - ./mysql:/var/lib/mysql
     ports:
       - 3306:3306
-    networks:
-      - doatapgr
 
 
   phpmyadmin:
@@ -30,9 +26,3 @@ services:
     restart: always
     ports:
       - 8080:80
-    networks:
-      - doatapgr
-
-networks:
-  doatapgr:
-    name: doatapgr
