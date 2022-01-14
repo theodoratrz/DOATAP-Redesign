@@ -1,6 +1,6 @@
 <?php
 
-    const sampleFormValues = array(
+    const _sample_form_values_ = array(
         "fname" => "Κώστας",
         "surname" => "Χρήστου",
         "fathersName" => "Χρήστος",
@@ -239,5 +239,5 @@
             });
         })();
     </script>
-    <?php echoProfileInfoForm(sampleFormValues); ?>
+    <?php echoProfileInfoForm(_sample_form_values_); ?>
 </form>

@@ -5,11 +5,6 @@ $nav_links = array(
 	"Αιτήσεις" => array(
 		"applications.php",
 		array("Διαδικασία Υποβολής" => "procedure_submission.php",
-		/* "Η Πορεία μίας Αίτησης" => array(
-		"Αξιολόγηση Αίτησης" => "applications-evaluation.php",
-		"Χρόνοι Διεκπεραίωσης" => "cc.php",
-		"Υπέρβαση Ουράς Προτεραιότητας" => "cc.php"
-		), */
 		"Η Πορεία μίας Αίτησης" => "application_trip.php",
 		"Φόρμες Αιτήσεων" => "applications-forms.php",
 		"Παράβολα" => "paravola.php")

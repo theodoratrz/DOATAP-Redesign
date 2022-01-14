@@ -8,7 +8,7 @@
 
 <?php
 
-const pageNames = array(
+const _sidebar_page_names_ = array(
 	"profile" => array(
 		"" => "Οι πληροφορίες μου",
 		"account" => array(
@@ -52,7 +52,7 @@ function echoSidebar(string $path)
 	<ul class='list-group ps-0'>
 	";
 
-	foreach (pageNames[$pathArray[0]] as $subpage => $value) {
+	foreach (_sidebar_page_names_[$pathArray[0]] as $subpage => $value) {
 		$type = gettype($value);
 		if ($type == 'string') {
 

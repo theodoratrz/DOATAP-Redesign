@@ -1,7 +1,6 @@
-<link rel="stylesheet" href="/public/css/content_tabs.css">
 <?php
 
-const _tab_sample_content_ = array(
+const table_content = array(
     "Βασικές Πληροφορίες" => array(
         "basic_info",
         '<p><strong>This is some placeholder content the Βασικές Πληροφορίες tab\'s associated content.</strong>
@@ -25,20 +24,25 @@ const _tab_sample_content_ = array(
     ),
 );
 
-function echoTabHeader(string $title, string $tabID, bool $active)
+function echoTableHeader(string $title, bool $active)
 {
     echo '
-    <li class="nav-item" role="presentation">
-        <button class="tab-title nav-link ' . ($active ? 'active' : '') . '" id="' . $tabID . '-tab"
-            data-bs-toggle="tab" data-bs-target="#' . $tabID . '"
-            type="button" role="tab" aria-controls="' . $title .'" aria-selected="' . ($active ? 'true' : 'false') . '">
+    <div class="table">
+        <thead>
+        <tr>
+         <th scope="col">
             ' . $title . '
-        </button>
-    </li>
+            </th>
+            <th scope="col">
+            ' . $title . '
+            </th>
+            </tr>
+        </thead>
+    </div>
     ';
 }
 
-function echoTabSubcontent(string $tabID, string $contentInnerHTML, bool $active)
+function echoTableSubcontent(string $tabID, string $contentInnerHTML, bool $active)
 {
     echo '
     <div class="tab-pane fade show ' . ($active ? 'active' : '') . '" id="' . $tabID . '"
@@ -48,15 +52,14 @@ function echoTabSubcontent(string $tabID, string $contentInnerHTML, bool $active
     ';
 }
 
-function echoContentTabs(array $content, string $wrapperClass = "tab-wrapper") {
+function echoContentsTable(array $content) {
     echo '
-    <div class="' . $wrapperClass . '">
     <ul class="nav nav-tabs" id="tabHeaders" role="tablist">
     ';
     $cur = 0;
     foreach ($content as $title => $value) {
         $tabID = $value[0];
-        echoTabHeader($title, $tabID, $cur === 0);
+        echoTableHeader($title, $tabID, $cur === 0);
         $cur++;
     }
     echo '
@@ -69,12 +72,18 @@ function echoContentTabs(array $content, string $wrapperClass = "tab-wrapper") {
     foreach ($content as $title => $value) {
         $tabID = $value[0];
         $subcontent = $value[1];
-        echoTabSubcontent($tabID, $subcontent, $cur === 0);
+        echoTableSubcontent($tabID, $subcontent, $cur === 0);
         $cur++;
     }
     echo '
-    </div>
     </div>';
 }
 
 ?>
+
+<link rel="stylesheet" href="/public/css/content_tabs.css">
+<div class="tab-wrapper">
+    <?php
+    echoContentsTable(table_content);
+    ?>
+</div>
