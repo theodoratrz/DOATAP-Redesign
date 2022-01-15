@@ -50,7 +50,5 @@ function getCountries(){
     return $rows;
 }
 
-var_dump(getApplications(9));
-
 ?>
 
