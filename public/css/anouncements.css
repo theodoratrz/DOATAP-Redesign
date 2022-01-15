@@ -1,8 +1,0 @@
-
-.anouncements-box{
-  display: flex;
-  flex-direction: row;
-  column-gap: 2rem;
-  justify-content: left;
-  width: 60%;
-}

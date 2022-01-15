@@ -1,0 +1,44 @@
+:root {
+    font-size: 24px;
+}
+
+* {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.page-container {
+    min-height: 70vh;
+}
+
+.page-content-container {
+    display: flex;
+    flex-direction: row;
+    column-gap: 2rem;
+    margin-top: 1rem;
+    align-items: flex-start;
+    justify-content: center;
+}
