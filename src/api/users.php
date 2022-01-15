@@ -62,12 +62,12 @@ function userAuth(string $username, string $password)
 
     # Encrypt password
     $password = hash('sha256', $password);
-
+    
     # Execute query
     $sql = "SELECT * FROM users WHERE `username`='$username' AND `password`='$password';";
     $result = $conn->query($sql);
 
-    if ($result->num_rows > 0) {
+    if ($result->num_rows == 0) {
         $db_error_message = "Wrong username or password";
         return false;
     }
@@ -103,3 +103,5 @@ function isAdmin(int $id){
     $row = $result->fetch_assoc();
     return $row['isAdmin'];
 }
+
+// userAuth('nikoz', '1234');

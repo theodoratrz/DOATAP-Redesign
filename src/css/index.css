@@ -12,21 +12,25 @@
     background-size: cover;
     
   }
-
-   /* Turn off parallax scrolling for all tablets and phones. Increase/decrease the pixels if needed */
-@media only screen and (max-device-width: 1366px) {
-  .parallax {
-    background-attachment: scroll;
+  
+  /* Turn off parallax scrolling for all tablets and phones. Increase/decrease the pixels if needed */
+  @media only screen and (max-device-width: 1366px) {
+    .parallax {
+      background-attachment: scroll;
+    }
+  } 
+  /* Container holding the image and the text */
+  .container_photo {
+    position: relative;
+    text-align: center;
+    color: white;
+    transition: all 0.5s;
   }
-} 
- /* Container holding the image and the text */
- .container_photo {
-  position: relative;
-  text-align: center;
-  color: white;
-}
-
-
+  
+  .container_photo:hover{
+    background-color: rgb(167, 167, 167);
+  }
+  
 /* Centered text */
 .centered {
   position: absolute;
@@ -68,9 +72,7 @@
   flex-direction: row;
 } 
 
-.container_photo:hover{
-  background-color: gray;
-}
+
 
 .menu-icons{
   display: flex;

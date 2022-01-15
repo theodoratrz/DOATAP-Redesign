@@ -127,14 +127,19 @@ function echoNavbarContent(array $content)
 		<!-- login--> 
 		<?php
 
+		require_once $_SERVER['DOCUMENT_ROOT'] . "/api/users.php";
 
-		if (isset(($_SESSION['user'])) && ($_SESSION['user']) == true) {
-			if ($_SESSION['role'] == 'admin') {
-				echo '<li class ="nav-item">
-				</li>';
+		if (isset($_SESSION['user_id'])) {
+			$userID = $_SESSION['user_id'];
+			$username = getUsername($userID);
+			if (isAdmin($userID)) {
+				echo '<a class ="nav-item">
+					ADMIN: ' . $username . '
+				</a>';
 			} else {
-				echo '<li class ="nav-item">
-				</li>';
+				echo '<a class ="nav-item">
+					USER: ' . $username . '
+				</a>';
 			}
 		} else {
 			echo '
