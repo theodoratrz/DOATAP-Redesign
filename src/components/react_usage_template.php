@@ -1,10 +1,8 @@
 
 <style>
-
     .checklist-container {
         flex: 1;
     }
-
     .checklist-input {
         background-color: transparent;
         outline: none;
@@ -14,17 +12,14 @@
         width: 15rem;
         color: black;
     }
-
     .checklist-input::placeholder {
         font-style: italic;
     }
-
     .inputs-wrapper {
         display: flex;
         flex-direction: column;
         row-gap: .5em;
     }
-
     .input-fields-button-wrapper {
         display: flex;
         flex-direction: row;
@@ -38,23 +33,38 @@
     function stoppedTyping() {
         const input1 = document.getElementById("checklist-input1");
         const input2 = document.getElementById("checklist-input2");
-
         if ((input1.value === "") || (input2.value === "")) {
             document.getElementById("add-item-button").disabled = true;
         } else {
             document.getElementById("add-item-button").disabled = false;
         }
     }
-
     function addChecklistItem() {
         const input1 = document.getElementById("checklist-input1");
         const input2 = document.getElementById("checklist-input2");
-
         window.checkListComponent.addItem([input1.value, input2.value]);
-
         input1.value = "";
         input2.value = "";
         document.getElementById("add-item-button").disabled = true;
+    }
+    function submitData() {
+        const dataJSON = {
+            departments: window.checkListComponent.state.items.map(item => item.content)
+        }
+        $.ajax({
+            type: "POST",
+            url: "/public/process_submission.php",
+            dataType: "json",
+            success: answer => {
+                console.log(`Submitted!`)
+                console.log(answer)
+            },
+            error: answer => {
+                console.log(`Failed...`)
+                console.log(answer)
+            },
+            data: dataJSON
+        })
     }
 </script>
 <div style="display: flex; flex-direction: column; row-gap: 2em;">
@@ -73,6 +83,8 @@
     <div id="checklist_container" class="checklist-container"></div>
 </div>
 
+<button onclick="submitData()">Send</button>
+
 <!-- Required scripts for React
 https://reactjs.org/docs/add-react-to-a-website.html#optional-try-react-with-jsx -->
 
@@ -82,4 +94,4 @@ https://reactjs.org/docs/add-react-to-a-website.html#optional-try-react-with-jsx
 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
 <!-- text/babel needed for JSX -->
-<script type="text/babel" src="/js/react_test.js"></script>
+<script type="text/babel" src="/public/js/react_test.js"></script>
