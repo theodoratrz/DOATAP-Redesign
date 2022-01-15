@@ -1,15 +1,15 @@
-<link rel="stylesheet" href="/public/css/global.css">
-<link rel="stylesheet" href="/public/css/index.css">
-<link rel="stylesheet" href="/public/css/content_accordion.css">
-
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php" ?>
+
+<link rel="stylesheet" href="/css/global.css">
+<link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/css/content_accordion.css">
 
 <body>
 <div class="page-container fluid-container">
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/navbar.php" ?>
     
 <div class="container_photo">
-  <img src="/public/images/im.png" alt="Snow" style="width:100%; opacity:0.5">
+  <img src="/images/im.png" alt="Snow" style="width:100%; opacity:0.5">
   <div class="centered">
       
   </div>

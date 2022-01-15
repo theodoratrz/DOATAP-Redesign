@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/public/css/content_tabs.css">
+<link rel="stylesheet" href="/css/content_tabs.css">
 <?php
 
 const _tab_sample_content_ = array(

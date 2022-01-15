@@ -81,7 +81,7 @@ function echoContentsTable(array $content) {
 
 ?>
 
-<link rel="stylesheet" href="/public/css/content_tabs.css">
+<link rel="stylesheet" href="/css/content_tabs.css">
 <div class="tab-wrapper">
     <?php
     echoContentsTable(table_content);

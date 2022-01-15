@@ -1,7 +1,6 @@
-<link rel="stylesheet" href="/public/css/applications.css">
-
-
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php" ?>
+
+<link rel="stylesheet" href="/css/applications.css">
 
 <body>
 

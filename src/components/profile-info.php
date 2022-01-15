@@ -166,7 +166,7 @@
     }
 ?>
 
-<link rel="stylesheet" href="/public/css/profile_info.css">
+<link rel="stylesheet" href="/css/profile_info.css">
 
 <form name="profile-info-form" class="needs-validation" method="POST" novalidate>
     <script>

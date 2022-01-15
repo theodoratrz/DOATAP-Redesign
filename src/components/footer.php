@@ -1,8 +1,8 @@
-<link rel="stylesheet" href="/public/css/footer.css">
+<link rel="stylesheet" href="/css/footer.css">
 
 <div class="footer-clean">
     <footer>
-    <a class="navbar-brand" href="#"> <img src="/public/images/doatap-logo.png" alt="" width="180px"></a>
+    <a class="navbar-brand" href="#"> <img src="/images/doatap-logo.png" alt="" width="180px"></a>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-sm-4 col-md-3 item">

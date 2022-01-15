@@ -1,6 +1,6 @@
-<link rel="stylesheet" href="/public/css/anouncements.css">
-
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php" ?>
+
+<link rel="stylesheet" href="/css/anouncements.css">
 
 <body>
 

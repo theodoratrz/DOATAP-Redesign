@@ -1,7 +1,7 @@
-<link rel="stylesheet" href="/public/css/index.css">
-<link rel="stylesheet" href="/public/css/forms.css">
-
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php" ?>
+
+<link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/css/forms.css">
 
 <body>
 <div class="page-container fluid-container">

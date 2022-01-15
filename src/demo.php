@@ -1,6 +1,6 @@
-<link rel="stylesheet" href="css/index.css">
-
 <?php require_once("../components/template.php"); ?>
+
+<link rel="stylesheet" href="css/index.css">
 
 <body>
 

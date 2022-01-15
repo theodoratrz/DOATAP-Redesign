@@ -1,5 +1,5 @@
 <!-- purple x moss 2020 -->
-<link rel="stylesheet" href="/public/css/error404.css">
+<link rel="stylesheet" href="/css/error404.css">
 
 <head>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600;900&display=swap" rel="stylesheet">

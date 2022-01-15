@@ -4,7 +4,7 @@
 	}
 </script>
 
-<link rel="stylesheet" href="/public/css/sidebar.css">
+<link rel="stylesheet" href="/css/sidebar.css">
 
 <?php
 

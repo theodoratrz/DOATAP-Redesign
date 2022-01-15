@@ -1,6 +1,6 @@
 <!-- purple x moss 2020 -->
-<link rel="stylesheet" href="/public/css/under_construction.css">
-<link rel="stylesheet" href="/public/css/index.css">
+<link rel="stylesheet" href="/css/under_construction.css">
+<link rel="stylesheet" href="/css/index.css">
 
 <head>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600;900&display=swap" rel="stylesheet">
