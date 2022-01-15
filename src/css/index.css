@@ -14,19 +14,23 @@
   }
 
    /* Turn off parallax scrolling for all tablets and phones. Increase/decrease the pixels if needed */
-@media only screen and (max-device-width: 1366px) {
-  .parallax {
-    background-attachment: scroll;
-  }
-} 
- /* Container holding the image and the text */
- .container_photo {
-  position: relative;
-  text-align: center;
-  color: white;
-}
-
-
+   @media only screen and (max-device-width: 1366px) {
+     .parallax {
+       background-attachment: scroll;
+      }
+    } 
+    /* Container holding the image and the text */
+    .container_photo {
+      position: relative;
+      text-align: center;
+      color: white;
+      transition: 0.5s;
+    }
+    
+    .container_photo:hover{
+      background-color: rgb(179, 179, 179);
+    }
+    
 /* Centered text */
 .centered {
   position: absolute;
@@ -68,9 +72,6 @@
   flex-direction: row;
 } 
 
-.container_photo:hover{
-  background-color: gray;
-}
 
 .menu-icons{
   display: flex;
