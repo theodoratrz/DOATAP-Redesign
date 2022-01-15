@@ -2,10 +2,15 @@
 
 require "db_connect.php";
 
-function getAnnouncements($type = '')
+function getAnnouncements($type = 'all')
 {
     global $conn;
-    $sql = 'SELECT * FROM announcements';
+    if ($type === 'all'){
+        $sql = 'SELECT * FROM announcements';
+    }
+    else{
+        $sql = "SELECT * FROM announcements WHERE `type`='$type'";
+    }
     $result = $conn->query($sql);
     $rows = $result->fetch_all(MYSQLI_ASSOC);
     return $rows;

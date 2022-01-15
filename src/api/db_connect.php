@@ -17,4 +17,9 @@ function close_connection(){
     $conn->close();
 }
 
+function e($val){
+	global $conn;
+	return mysqli_real_escape_string($conn, trim($val));
+}
+
 ?>
