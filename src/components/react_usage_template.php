@@ -53,13 +53,14 @@
         }
         $.ajax({
             type: "POST",
-            url: "/public/process_submission.php",
+            url: "/demo_respond.php",
             dataType: "json",
             success: answer => {
                 console.log(`Submitted!`)
                 console.log(answer)
             },
             error: answer => {
+                window.alert("Failed...")
                 console.log(`Failed...`)
                 console.log(answer)
             },
