@@ -26,6 +26,19 @@
         ";
     }
 
+    function echoPwdField(string $fieldID, string $description, string $invalidInputMsg, string $value = '')
+    {
+        echo "
+        <div class='field-container'>
+            <label for='$fieldID' class='form-label'>$description</label>
+            <input type='password' class='form-control' id='$fieldID' value='$value'>
+            <div class='invalid-feedback'>
+            $invalidInputMsg
+            </div>
+        </div>
+        ";
+    }
+
     function echoCheckboxField(string $fieldID, string $description, string $invalidInputMsg, string $value = '')
     {
         echo "
@@ -103,11 +116,25 @@
         ";
     }
 
-    function echoProfileInfoForm(array $values)
+    function echoProfileInfoForm(array $values, bool $isRegisterForm = false)
     {
         echo '
         <div class="form-fields-container">
         ';
+
+            if ($isRegisterForm) {
+                // Username, email & pwd group
+                echo '
+                <div class="form-fields-group-vertical">
+                ';
+                echoTextField('uname', 'Όνομα Χρήστη', "Παρακαλώ, επιλέξτε όνομα χρήστη.", $values['uname']);
+                echoTextField('email', 'Διεύθυνση Ηλ. Ταχυδρομείου', "Παρακαλώ, επιλέξτε διεύθυνση email.", $values['email']);
+                echoPwdField('pwd', 'Κωδικός', "Παρακαλώ, επιλέξτε κωδικό.", $values['pwd']);
+                echoPwdField('pwd_dup', 'Επιβεβαίωση Κωδικού', "Παρακαλώ, επιβεβαιώστε τον κωδικό σας.", $values['pwd_dup']);
+
+                echo '
+                </div>';
+            }
 
             // Names group
             echo '
@@ -168,58 +195,11 @@
 
 <link rel="stylesheet" href="/css/profile_info.css">
 
-<form name="profile-info-form" class="needs-validation" method="POST" novalidate>
+<!-- Usage template: -->
+<!-- <form name="profile-info-form" class="needs-validation" method="POST" novalidate>
     <script>
         function validateForm(form) {
 
-            //const usernamePattern = /^[a-zA-Z]+[a-zA-Z0-9]*$/;
-
-            // Accept English & Greek names (more than 1 allowed)
-            const namePattern = /^([A-Z][a-z]*( [A-Z][a-z]*)*|[Α-Ω][α-ωίϊΐόάέύϋΰήώ]*( [Α-Ω][α-ωίϊΐόάέύϋΰήώ]*)*)$/;
-            const phonePattern = /^[0-9]+$/;
-
-            const fieldPatterns = {
-                "fname": namePattern,
-                "surname": namePattern,
-                "fathersName": namePattern,
-                "mothersName": namePattern,
-                "mobilePhone": phonePattern,
-                "homePhone": phonePattern,
-                "docID": ''
-            }
-
-            /* const radioFields = [
-                "gender",
-                "docSelection"
-            ] */
-
-            let valid = true;
-
-            for (const [fieldName, pattern] of Object.entries(fieldPatterns)) {
-                let field = form[fieldName]
-                if (pattern === '') {
-                    field.classList.remove('is-invalid');
-                    field.classList.add('is-valid');
-                    field.setCustomValidity('');
-                    continue;
-                }
-                if (!pattern.test(field.value)) {
-                    field.classList.remove('is-valid');
-                    field.classList.add('is-invalid');
-                    field.setCustomValidity('error');
-                    valid = false;
-                } else {
-                    field.classList.remove('is-invalid');
-                    field.classList.add('is-valid');
-                    field.setCustomValidity('');
-                }
-            }
-
-            /* for (let i = 0; i < radioFields.length; i++) {
-                let radioField = form[radioFields[i]];                
-            } */
-            
-            return valid;
         }
 
         (function () {
@@ -227,7 +207,7 @@
 
             window.addEventListener('load', function() {
                 
-                let form = document.forms["profile-info-form"]
+                let form = document.forms["<form_id>"]
 
                 form.addEventListener('submit', function (event) {
                     if (!validateForm(form)) {
@@ -239,5 +219,5 @@
             });
         })();
     </script>
-    <?php echoProfileInfoForm(_sample_form_values_); ?>
-</form>
+    </?php echoProfileInfoForm(_sample_form_values_); ?>
+</form> -->
