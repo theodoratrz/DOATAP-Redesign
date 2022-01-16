@@ -1,6 +1,6 @@
 <?php
 
-require "db_connect.php";
+require_once "db_connect.php";
 
 function newUser(string $username, string $password, string $email, bool $isAdmin)
 {
