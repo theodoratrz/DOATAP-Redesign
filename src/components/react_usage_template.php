@@ -94,4 +94,4 @@ https://reactjs.org/docs/add-react-to-a-website.html#optional-try-react-with-jsx
 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
 <!-- text/babel needed for JSX -->
-<script type="text/babel" src="/public/js/react_test.js"></script>
+<script type="text/babel" src="/js/checklist.js"></script>
