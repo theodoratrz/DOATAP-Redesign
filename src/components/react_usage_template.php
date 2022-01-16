@@ -53,13 +53,14 @@
         }
         $.ajax({
             type: "POST",
-            url: "/public/process_submission.php",
+            url: "/demo_respond.php",
             dataType: "json",
             success: answer => {
                 console.log(`Submitted!`)
                 console.log(answer)
             },
             error: answer => {
+                window.alert("Failed...")
                 console.log(`Failed...`)
                 console.log(answer)
             },
@@ -94,4 +95,4 @@ https://reactjs.org/docs/add-react-to-a-website.html#optional-try-react-with-jsx
 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
 <!-- text/babel needed for JSX -->
-<script type="text/babel" src="/public/js/react_test.js"></script>
+<script type="text/babel" src="/js/react_test.js"></script>
