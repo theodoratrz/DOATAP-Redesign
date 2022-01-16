@@ -36,7 +36,7 @@
     padding: 0.5rem;
     width: auto;
     display: grid;
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(2, 50%);
     grid-template-rows: repeat(3, auto);
     column-gap: 1em;
     row-gap: 0.5em;
@@ -59,6 +59,26 @@
     max-width: fit-content;
 }
 
+.date-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    column-gap: .85em;
+    max-width: fit-content;
+    flex-wrap: wrap;
+}
+
+.date-field-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    row-gap: 0em;
+}
+
+.date-field-container .form-control {
+    max-width: 100%;
+}
+
 .form-submit-button {
     width: max-content;
 }
@@ -70,7 +90,7 @@
 
 .form-fields-group-vertical {
     flex-direction: column;
-    row-gap: 0%;
+    row-gap: .5rem;
     margin-top: 1rem;
 }
 

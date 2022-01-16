@@ -1,17 +1,67 @@
 <?php
+    # require $_SERVER['DOCUMENT_ROOT'] . "/api/applications.php";
 
     const _sample_form_values_ = array(
+        "uname" => "",
+        "email" => "",
+        "pwd" => "",
+        "pwd_dup" => "",
+
         "fname" => "Κώστας",
         "surname" => "Χρήστου",
         "fathersName" => "Χρήστος",
         "mothersName" => "Μαρία",
+        "birthDate" => "31-1-1999",
         "gender" => "Άνδρας",
+
+        "country" => "",
+        "city" => "",
+        "address" => "",
+
         "docSelection" => "Ταυτότητα",
         "docID" => "14572",
 
         "mobilePhone" => "6969696969",
         "homePhone" => "2106969696",
     );
+
+    function echoDateField(string $dateID, string $description, string $invalidInputMsg, string $value = '')
+    {
+        if ($value === '') {
+            $dateValues = array(
+                "day" => "",
+                "month" => "",
+                "year" => ""
+            );
+        } else {
+            $splitValues = explode('-', $value);
+            $dateValues = array(
+                "day" => $splitValues[0],
+                "month" => $splitValues[1],
+                "year" => $splitValues[2]
+            );
+        }
+        echo '
+        <div class="field-container">
+            <label for="' . $dateID . '" class="form-label">' . $description . '</label>
+            <div class="date-container">
+                <div class="date-field-container" style="width: 3rem;">
+                    <label for="' . $dateID . '-day">Ημέρα</label>
+                    <input type="number" class="form-control" id="' . $dateID . '-day" value="' . $dateValues["day"] . '">
+                </div>
+                <div class="date-field-container" style="width: 3rem;">
+                    <label for="' . $dateID . '-month">Μήνας</label>
+                    <input type="number" class="form-control" id="' . $dateID . '-month" min="1" max="12" value="' . $dateValues["month"] . '">
+                </div>
+                <div class="date-field-container" style="width: 4rem;">
+                    <label for="' . $dateID . '-year">Έτος</label>
+                    <input type="number" class="form-control" id="' . $dateID . '-year" min="1900" value="' . $dateValues["year"] . '">
+                </div>
+            </div>
+            <div class="invalid-feedback">' . $invalidInputMsg .'</div>
+        </div>
+        ';
+    }
 
     function echoTextField(string $fieldID, string $description, string $invalidInputMsg, string $value = '')
     {
@@ -24,6 +74,63 @@
             </div>
         </div>
         ";
+    }
+
+    function getAllCountries()
+    {
+        # return getCountries();
+        return array(
+            array(
+                "count_id" => "1",
+                "name" => "Ελλάδα"
+            ),
+            array(
+                "count_id" => "2",
+                "name" => "ΗΠΑ"
+            ),
+            array(
+                "count_id" => "3",
+                "name" => "Γαλλία"
+            ),
+            array(
+                "count_id" => "4",
+                "name" => "4"
+            ),
+            array(
+                "count_id" => "5",
+                "name" => "5"
+            )
+        );
+    }
+
+    function echoCountryField(string $fieldID, string $description, string $invalidInputMsg, string $selectedValue = '')
+    {
+        $countries = getAllCountries();
+        echo '
+        <div class="field-container">
+            <label for=' . $fieldID . ' class="form-label">' . $description . '</label>
+            <select class="form-select" id="' . $fieldID . '" aria-label="Επιλογή χώρας">';
+                if ($selectedValue == '') {
+                    echo '<option value="none" disabled selected>Επιλέξτε Χώρα</option>';
+                }
+                
+                foreach ($countries as $country) {
+                    $value = $country["count_id"];
+                    $name = $country["name"];
+                    if ($name === $selectedValue) {
+                        echo '<option value="' . $value . '" selected>' . $name . '</option>';
+                    } else {
+                        echo '<option value="' . $value . '">' . $name . '</option>';
+                    }
+                }
+
+            echo '
+            </select>
+            <div class="invalid-feedback">'. 
+            $invalidInputMsg .'
+            </div>
+        </div>
+        ';
     }
 
     function echoPwdField(string $fieldID, string $description, string $invalidInputMsg, string $value = '')
@@ -136,7 +243,7 @@
                 </div>';
             }
 
-            // Names group
+            // Basics group
             echo '
             <div class="form-fields-group-vertical">
             ';
@@ -144,6 +251,9 @@
             echoTextField('surname', 'Επίθετο', "Παρακαλώ, επιλέξτε επίθετο.", $values['surname']);
             echoTextField('fathersName', 'Πατρώνυμο', "Παρακαλώ, επιλέξτε πατρώνυμο.", $values['fathersName']);
             echoTextField('mothersName', 'Μητρώνυμο', "Παρακαλώ, επιλέξτε πατρώνυμο.", $values['mothersName']);
+            echoDateField('birthDate', "Ημ. γέννησης", "Παρακαλώ, επιλέξτε ημ. γέννησης.", $values['birthDate']);
+            echoRadioField('gender', 'Φύλο', "Παρακαλώ, επιλέξτε φύλο.",
+                            array("Άνδρας", "Γυναίκα", "Άλλο"), $values['gender']);
 
             echo '
             </div>';
@@ -159,9 +269,18 @@
             echo '
             </div>';
 
-        // Bottom Group
+            // Region group
+            echo '
+            <div class="form-fields-group-vertical">
+            ';
+            echoCountryField('country', 'Χώρα', "Παρακαλώ, επιλέξτε χώρα.", $values['country']);
+            echoTextField('city', 'Πόλη', "Παρακαλώ, επιλέξτε πόλη.", $values['city']);
+            echoTextField('address', 'Διεύθυνση', "Παρακαλώ, επιλέξτε διεύθυνση.", $values['address']);
 
-            // Phone Numbers group
+            echo '
+            </div>';
+
+            // Contact group
             echo '
             <div class="form-fields-group-vertical">
             ';
@@ -170,24 +289,6 @@
 
             echo '
             </div>';
-
-            // Gender group
-            echo '
-            <div class="form-fields-group-vertical">
-            ';
-            echoRadioField('gender', 'Έγγραφο Ταυτοποίησης', "Παρακαλώ, επιλέξτε φύλο.",
-                            array("Άνδρας", "Γυναίκα", "Άλλο"), $values['gender']);
-
-            echo '
-            </div>';
-
-        // Submit Button
-
-            echo '
-            <div class="form-submit-button">
-                <button class="btn btn-primary" type="submit">Υποβολή</button>
-            </div>
-            ';
         
         echo '</div>';
     }

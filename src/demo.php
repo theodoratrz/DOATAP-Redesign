@@ -66,11 +66,18 @@
                 "email" => "",
                 "pwd" => "",
                 "pwd_dup" => "",
+
                 "fname" => "Κώστας",
                 "surname" => "Χρήστου",
                 "fathersName" => "Χρήστος",
                 "mothersName" => "Μαρία",
+                "birthDate" => "31-1-1999",
                 "gender" => "Άνδρας",
+
+                "country" => "",
+                "city" => "",
+                "address" => "",
+
                 "docSelection" => "Ταυτότητα",
                 "docID" => "14572",
         
@@ -87,6 +94,7 @@
                     // Accept English & Greek names (more than 1 allowed)
                     const namePattern = /^([A-Z][a-z]*( [A-Z][a-z]*)*|[Α-Ω][α-ωίϊΐόάέύϋΰήώ]*( [Α-Ω][α-ωίϊΐόάέύϋΰήώ]*)*)$/;
                     const phonePattern = /^[0-9]+$/;
+                    const docIDPattern = /^([A-Z]+|[Α-Ω]+)[ ]?[0-9]+$/;
 
                     const fieldPatterns = {
                         "fname": namePattern,
@@ -95,7 +103,7 @@
                         "mothersName": namePattern,
                         "mobilePhone": phonePattern,
                         "homePhone": phonePattern,
-                        "docID": ''
+                        "docID": docIDPattern
                     }
 
                     /* const radioFields = [
@@ -150,6 +158,9 @@
                 })();
             </script>
             <?php echoProfileInfoForm(formValues, true); ?>
+            <div class="form-submit-button">
+                <button class="btn btn-primary" type="submit">Υποβολή</button>
+            </div>
         </form>
     </div>
 </div>
