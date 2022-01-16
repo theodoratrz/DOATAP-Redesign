@@ -1,4 +1,9 @@
-<?php if(!isset($_SESSION)) session_start() ?>
+<?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+$webDir = "/var/www/html/";
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,5 +19,5 @@
     <!-- FONT AWESOME -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
-    <script src="js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 </head>
