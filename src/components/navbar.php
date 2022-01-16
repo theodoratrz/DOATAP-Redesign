@@ -38,8 +38,8 @@ $nav_links = array(
 function echoNavbarMainItem(string $title, string $href)
 {
 	echo '
-	<li class="nav-item">
-		<a class="nav-link nav-pills" aria-current="page" href="' . $href . '">' . $title . '</a>
+	<li class="custom-nav-item">
+		<a class="custom-nav-link custom-nav-pills" aria-current="page" href="' . $href . '">' . $title . '</a>
 	</li>';
 }
 
@@ -92,8 +92,8 @@ function echoNavbarContent(array $content)
 			$href = $value[0];
 			$subitems = $value[1];
 			echo '
-			<li class="nav-item dropdown nav-pills ">
-				<a class="nav-link dropdown-toggle" href="' . $href . '" data-bs-auto-close="outside">' . $title . '</a>
+			<li class="custom-nav-item dropdown custom-nav-pills ">
+				<a class="custom-nav-link dropdown-toggle" href="' . $href . '" data-bs-auto-close="outside">' . $title . '</a>
 			';
 				echoNavbarMenu($subitems);
 				echo '
@@ -107,10 +107,10 @@ function echoNavbarContent(array $content)
 
 ?>
 
-<nav class="primary-navbar navbar-expand-lg bg-primary navbar-dark">
-	<div class="container d-flex">
+<nav class="primary-custom-navbar custom-navbar-expand-lg bg-primary custom-navbar-dark">
+	<div class="navbar-container d-flex">
 
-	<a class="navbar-brand" href="index.php"> <img src="/images/doatap-logo.png" alt="" width="250px"> </a>
+	<a class="custom-navbar-brand" href="index.php"> <img src="/images/doatap-logo.png" alt="" width="250px"> </a>
 
 	<!-- LANGUAGE -->
 		<!--a class="search_button"><i class="fas fa-globe-americas"></i></a>
@@ -128,13 +128,13 @@ function echoNavbarContent(array $content)
 			$userID = $_SESSION['user_id'];
 
 			if (isAdmin($userID)) {
-				echo '<li class ="nav-item fas fa-user-circle "> ADMIN: ' . getUsername($userID) . '</li>';
+				echo '<li class ="custom-nav-item fas fa-user-circle "> ADMIN: ' . getUsername($userID) . '</li>';
 			} else {
-				echo '<li class ="nav-item fas fa-user-circle "> USER: ' . getUsername($userID) . '</li>';
+				echo '<li class ="custom-nav-item fas fa-user-circle "> USER: ' . getUsername($userID) . '</li>';
 			}
 		} else {
 			echo '
-			<div class="login-signup-container d-flex justify-content-end">
+			<div class="login-signup-navbar-container d-flex justify-content-end">
 				
 				<a href="login.php" class="login-link">Σύνδεση</a>
 				<span style="color:white">|</span>
@@ -148,9 +148,9 @@ function echoNavbarContent(array $content)
 	</div>
 </nav>
 
-<nav class="navbar navbar-expand-lg bg-primary navbar-dark">
+<nav class="custom-navbar custom-navbar-expand-lg bg-primary custom-navbar-dark">
 	<div class="container-fluid" style="flex-wrap: wrap; justify-content: center;">
-	<ul class="nav">
+	<ul class="custom-nav">
 		
 		<?php
 		echoNavbarContent($nav_links);

@@ -21,14 +21,14 @@
   display: block;
 }
 
-/* containers */
+/* navbar-containers */
 .align-items-center {
   -webkit-box-align: center !important;
       -ms-flex-align: center !important;
           align-items: center !important;
 }
 
-.container {
+.navbar-container {
   width: 100%;
   padding-right: var(--bs-gutter-x, 0.75rem);
   padding-left: var(--bs-gutter-x, 0.75rem);
@@ -38,31 +38,31 @@
 }
 
 @media (min-width: 576px) {
-  .container, .container-sm {
+  .navbar-container, .navbar-container-sm {
     max-width: 540px;
 }
 }
 
 @media (min-width: 768px) {
-  .container, .container-sm, .container-md {
+  .navbar-container, .navbar-container-sm, .navbar-container-md {
     max-width: 720px;
   }
 }
 
 @media (min-width: 992px) {
-  .container, .container-sm, .container-md, .container-lg {
+  .navbar-container, .navbar-container-sm, .navbar-container-md, .navbar-container-lg {
     max-width: 960px;
   }
 }
 
 @media (min-width: 1200px) {
-  .container, .container-sm, .container-md, .container-lg, .container-xl {
+  .navbar-container, .navbar-container-sm, .navbar-container-md, .navbar-container-lg, .navbar-container-xl {
     max-width: 1140px;
   }
 }
 
 @media (min-width: 1400px) {
-  .container, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
+  .navbar-container, .navbar-container-sm, .navbar-container-md, .navbar-container-lg, .navbar-container-xl, .navbar-container-xxl {
     max-width: 1320px;
   }
 }
@@ -73,14 +73,14 @@
   display: flex !important;
 }
 
-.login-signup-container{
+.login-signup-navbar-container{
   column-gap: 0.5rem;
   align-items: center;
 }
 
 
-/* navbar */
-.primary-navbar {
+/* custom-navbar */
+.primary-custom-navbar {
   box-shadow: none;
   height: 4rem;
   padding-right: 0px;
@@ -92,7 +92,7 @@
   width: 100%;
 }
 
-.navbar {
+.custom-navbar {
   box-shadow: none;
   height: auto;
   padding: 0px;
@@ -122,7 +122,7 @@
 }
 
 /* horizontal */
-.navbar .nav {
+.custom-navbar .custom-nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -135,24 +135,24 @@
 
 }
 
-.nav-pills{
+.custom-nav-pills{
   border-radius: 0% !important;
   background-color:transparent;
 }
 
-.nav-pills:hover{
+.custom-nav-pills:hover{
   background-color: white;
 }
 
-.nav-fill > .nav-link,
-.nav-fill .nav-item {
+.custom-nav-fill > .custom-nav-link,
+.custom-nav-fill .custom-nav-item {
 -webkit-box-flex: 1;
     -ms-flex: 1 1 auto;
         flex: 1 1 auto;
 text-align: center;
 }
 
-.navbar-collapse {
+.custom-navbar-collapse {
   -ms-flex-preferred-size: 50%;
       flex-basis: 50%;
   -webkit-box-flex: 1;
@@ -164,7 +164,7 @@ text-align: center;
           justify-content: center;
 }
 
-.navbar-button{
+.custom-navbar-button{
   background-color:transparent;
   text-decoration: none;
   cursor: pointer;
@@ -186,8 +186,8 @@ text-align: center;
   margin-left: 0.2rem;
 }
 
-  /*navbar links */
-.nav-link {
+  /*custom-custom-navbar links */
+.custom-nav-link {
   border-radius: 0% !important;
   display: block;
   padding: 0.5rem 1rem;
@@ -197,12 +197,12 @@ text-align: center;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
 
-.nav-link:hover, .nav-link:focus{
+.custom-nav-link:hover, .custom-nav-link:focus{
   background-color: white;
   color: #002E69;
 }
   
-.navbar_search{
+.custom-navbar_search{
     margin-right: 0px;
     padding-right: 0px;
     height: 50px;
@@ -210,7 +210,7 @@ text-align: center;
     background-color: none;
   }
 
-  .navbar_language{
+  .custom-navbar_language{
     margin-right: 0px;
     padding-right: 0px;
     text-align: right;
@@ -245,12 +245,12 @@ text-align: center;
     color: black;
   }
   
-.navbar-brand {
+.custom-navbar-brand {
     margin-left: 0;
     background-color: none;
   }
   
-.navbar-nav {
+.custom-navbar-nav {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -263,26 +263,26 @@ text-align: center;
     list-style: none;
   }
 
-  .navbar-text {
+  .custom-navbar-text {
     padding-top: 1rem;
     padding-bottom: 1rem;
   }
   
 
-.nav-item{
+.custom-nav-item{
     background-color: transparent;
 }
 
-.navbar-nav .dropdown-menu {
+.custom-navbar-nav .dropdown-menu {
   position: static;
 }
 
-.navbar-text {
+.custom-navbar-text {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
 
-.navbar-collapse {
+.custom-navbar-collapse {
   -ms-flex-preferred-size: 50%;
       flex-basis: 50%;
   -webkit-box-flex: 1;

@@ -1,0 +1,173 @@
+user-progress {
+    vertical-align: baseline;
+  }
+
+  @-webkit-keyframes user-progress-bar-stripes {
+    0% {
+      background-position-x: 1rem;
+    }
+  }
+  
+  @keyframes user-progress-bar-stripes {
+    0% {
+      background-position-x: 1rem;
+    }
+  }
+  
+  .user-progress {
+    display: flex;
+    height: 1rem;
+    width:100%;
+    overflow: hidden;
+    font-size: 0.75rem;
+    background-color: #e9ecef;
+    border-radius: 0.25rem;
+    flex:1;
+  }
+  
+  .user-progress-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #0d6efd;
+    -webkit-transition: width 0.6s ease;
+    transition: width 0.6s ease;
+    width: 100%;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .user-progress-bar {
+      -webkit-transition: none;
+      transition: none;
+    }
+  }
+  
+  .user-progress-bar-striped {
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-size: 1rem 1rem;
+  }
+  
+  .user-progress-bar-animated {
+    -webkit-animation: 1s linear infinite user-progress-bar-stripes;
+            animation: 1s linear infinite user-progress-bar-stripes;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .user-progress-bar-animated {
+      -webkit-animation: none;
+              animation: none;
+    }
+  }
+
+  li.active > a.hidden-xs {
+    display: block!important;
+   }
+   li.active > a.visible-xs {
+       display: none!important; 
+   }
+   .nav-pills.nav-wizard > li {
+     position: relative;
+     overflow: visible;
+     border-right: 10px solid #fff;
+     border-left: 10px solid #fff;
+   }
+   .nav-pills.nav-wizard > li:first-child {
+     border-left: 0;
+   }
+   .nav-pills.nav-wizard > li:first-child a {
+     border-radius: 5px 0 0 5px;
+   }
+   .nav-pills.nav-wizard > li:last-child {
+     border-right: 0;
+   }
+   .nav-pills.nav-wizard > li:last-child a {
+     border-radius: 0 5px 5px 0;
+   }
+   .nav-pills.nav-wizard > li a {
+     border-radius: 0;
+     background-color: #eee;
+     padding: 10px;
+   }
+   .nav-pills.nav-wizard > li .nav-arrow {
+     position: absolute;
+     top: 0px;
+     right: -20px;
+     width: 0px;
+     height: 0px;
+     border-style: solid;
+     border-width: 20px 0 20px 20px;
+     border-color: transparent transparent transparent #eee;
+     z-index: 150;
+   }
+   .nav-pills.nav-wizard > li .nav-wedge {
+     position: absolute;
+     top: 0px;
+     left: -20px;
+     width: 0px;
+     height: 0px;
+     border-style: solid;
+     border-width: 20px 0 20px 20px;
+     border-color: #eee #eee #eee transparent;
+     z-index: 150;
+   }
+   .nav-pills.nav-wizard > li:hover .nav-arrow {
+     border-color: transparent transparent transparent #aaa;
+   }
+   .nav-pills.nav-wizard > li:hover .nav-wedge {
+     border-color: #aaa #aaa #aaa transparent;
+   }
+   .nav-pills.nav-wizard > li:hover a {
+     background-color: #aaa;
+     color: #fff;
+   }
+   .nav-pills.nav-wizard > li.active .nav-arrow {
+     border-color: transparent transparent transparent #428bca;
+   }
+   .nav-pills.nav-wizard > li.active .nav-wedge {
+     border-color: #428bca #428bca #428bca transparent;
+   }
+   .nav-pills.nav-wizard > li.active a {
+     background-color: #428bca;
+   }
+   /* CSS for Credit Card Payment form */
+   .credit-card-box .panel-title {
+       display: inline;
+       font-weight: bold;	
+   }
+   .credit-card-box .form-control.error {
+       border-color: red;
+       outline: 0;
+       box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(255,0,0,0.6);
+   }
+   .credit-card-box label.error {
+     font-weight: bold;
+     color: red;
+     padding: 2px 8px;
+     margin-top: 2px;
+   }
+   .credit-card-box .payment-errors {
+     font-weight: bold;
+     color: red;
+     padding: 2px 8px;
+     margin-top: 2px;
+   }
+   .credit-card-box label {
+       display: block;
+   }
+   
+   .credit-card-box .display-tr {
+       display: table-row;
+   }
+   .credit-card-box .display-td {
+       display: table-cell;
+       vertical-align: middle;
+       width: 50%;
+   }
+   /* Just looks nicer */
+   .credit-card-box .panel-heading img {
+       min-width: 180px;
+   }

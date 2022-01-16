@@ -7,11 +7,11 @@
 <div class="page-container fluid-container">
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/navbar.php" ?>
         <div class="gray-box">
-                <div class="breadcrumb" style="align-items:center">
-                    <li class="breadcrumb-item"><a href="index.php" style="text-decoration:none;"><i class="fas fa-home"></i></a></li>
-                    <li class="breadcrumb-item"><a href="applications.php" style="text-decoration:none;">Αιτήσεις</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Διαδικασία Υποβολής</li>
-</div>
+                <div class="breadcrumb" style="align-items:end;">
+                    <li class="breadcrumb-item"><a href="index.php" style="text-decoration:none;"><i class="fas fa-home" style="font-size:15px;"></i></a></li>
+                    <li class="breadcrumb-item"><a href="applications.php" style="text-decoration:none; font-size:15px;">Αιτήσεις</a></li>
+                    <li class="breadcrumb-item active" aria-current="page" style="font-size:15px;">Διαδικασία Υποβολής</li>
+                </div>
         </div>
     <div class="page-content-container">
         <?php 

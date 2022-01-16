@@ -1,16 +1,29 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php"; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php" ?>
 
-<link rel="stylesheet" href="css/user.css">
+<link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/css/user.css">
 <head>
 <script src="/js/progress.js"></script> 
 </head>
-
 <body>
+<div class="page-container fluid-container">
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/navbar.php" ?>
+        <div class="gray-box">
+                <div class="breadcrumb" style="align-items:end;">
+                    <li class="breadcrumb-item"><a href="index.php" style="text-decoration:none;"><i class="fas fa-home" style="font-size:15px;"></i></a></li>
+                    <li class="breadcrumb-item"><a href="applications.php" style="text-decoration:none; font-size:15px;">Αιτήσεις</a></li>
+                    <li class="breadcrumb-item active" aria-current="page" style="font-size:15px;">Διαδικασία Υποβολής</li>
+                </div>
+        </div>
+    <div class="page-content-container">
+        <?php 
+            require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
+        ?>
 
 <div class="container" id="myWizard">
 
             <div class="user-progress">
-                <div class="user-progress-bar user-progress-bar-success" role="user-progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4" style="width: 25%;">
+                <div class="user-progress-bar user-progress-bar-success" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4" style="width: 25%;">
                     Step 1 of 4
                 </div>
             </div>
@@ -328,5 +341,6 @@
 
 
         <div id="push"></div>
-
+    </div>
+</div>
 </body>
