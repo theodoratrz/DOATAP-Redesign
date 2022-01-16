@@ -1,202 +1,185 @@
 .parallax {
-    /* The image used */
-    /* background-image: url("/images/im.png"); */
-  
-    /* Set a specific height */
-    height:100%;
-  
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-  }
+  /* The image used */
+  /* background-image: url("/public/images/im.png"); */
 
-   /* Turn off parallax scrolling for all tablets and phones. Increase/decrease the pixels if needed */
-   @media only screen and (max-device-width: 1366px) {
-     .parallax {
-       background-attachment: scroll;
-      }
-    } 
-    /* Container holding the image and the text */
-    .container_photo {
-      position: relative;
-      text-align: center;
-      color: white;
-      transition: 0.5s;
-    }
-    
-    .container_photo:hover{
-      background-color: rgb(179, 179, 179);
-    }
-    
+  /* Set a specific height */
+  height:100%;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+ /* Turn off parallax scrolling for all tablets and phones. Increase/decrease the pixels if needed */
+@media only screen and (max-device-width: 1366px) {
+.parallax {
+  background-attachment: scroll;
+}
+} 
+/* Container holding the image and the text */
+.container_photo {
+position: relative;
+text-align: center;
+color: white;
+width: 100%;
+}
+
+
 /* Centered text */
 .centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: gainsboro;
-  color: black;
-  width:40%;
-  height:35%;
-  display: flex;
-  flex-direction: row;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background-color: gainsboro;
+color: black;
+width:40%;
+height:35%;
+display: flex;
+flex-direction: row;
 } 
 
 .container_video {
-  display: flex;
-  justify-content: center;
-  position: relative;
-  text-align: center;
-  color: black;
-  background-color: #000000f0;
-  width: 100%;
-  height: 100%;
+display: flex;
+justify-content: center;
+position: relative;
+text-align: center;
+color: black;
+background-color: #000000f0;
+width: 100%;
+height: 100%;
 
 }
 
 
 /* Centered text */
 .centered_video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: transparent;
-  color: red;
-  width:40%;
-  height:35%;
-  display: flex;
-  flex-direction: row;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background-color: transparent;
+color: red;
+width:40%;
+height:35%;
+display: flex;
+flex-direction: row;
 } 
 
+.container_photo:hover{
+background-color: gray;
+}
 
 .menu-icons{
-  display: flex;
-  flex-direction: row;
-  padding: 2rem;
-  column-gap: 3rem;
-  justify-content: center;
-  background-color: gainsboro;
-  margin-left: 4rem;
-  margin-right: 4rem;
-  margin-bottom: 2rem;
+display: flex;
+flex-direction: row;
+padding: 2rem;
+column-gap: 3rem;
+justify-content: center;
+background-color: gainsboro;
+margin-left: 4rem;
+margin-right: 4rem;
+margin-bottom: 2rem;
+flex-wrap: wrap;
+row-gap: 1rem;
 }
 
 @media (max-width: 785px) {
-  .menu-icons {
-    max-width: 800px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: gainsboro;
-    margin-bottom: 2rem;
-    row-gap: 1rem;
-}
+/* .menu-icons {
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: gainsboro;
+  margin-bottom: 2rem;
+  row-gap: 1rem;
+} */
 
 .icon-text{
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  align-items: center;
-  width: max-content;
-  color: #002E69;
-  background-color: white;
-  height: max-content;
+display: flex;
+flex-direction: column;
+padding: 1rem;
+align-items: center;
+width: max-content;
+color: #002E69;
+background-color: white;
+height: max-content;
 }
-span{
-  font-size: medium;
-}
-
-h6{
-  font-size: medium;
+.icon-text span{
+font-size: medium;
 }
 
-
-h5{
-  font-size: medium;
+.icon-text h6{
+font-size: medium;
 }
 
-a{
-  text-align: center;
-  font-size: large;
+
+.icon-text h5{
+font-size: medium;
 }
 
-.text-box{
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-  row-gap: 3rem;
-  justify-content: left;
-  margin-left: 4rem;
-  margin-right: 4rem;
+.icon-text a{
+text-align: center;
+font-size: large;
 }
 }
 
 @media (max-width: 1472px) {
-  .menu-icons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: gainsboro;
-    margin-bottom: 2rem;
-    row-gap: 1rem;
-    width: 80%;
-}
-
-.icon-text{
+.menu-icons {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
   align-items: center;
-  width: max-content;
-  color: #002E69;
-  background-color: white;
-  height: max-content;
-}
-span{
-  font-size: medium;
-}
-
-h6{
-  font-size: medium;
-}
-
-a{
-  text-align: center;
-  font-size: large;
-}
+  background-color: gainsboro;
+  margin-bottom: 2rem;
+  row-gap: 1rem;
+  width: 80%;
 }
 
 .icon-text{
+display: flex;
+flex-direction: column;
+padding: 1rem;
+align-items: center;
+width: max-content;
+color: #002E69;
+background-color: white;
+height: max-content;
+}
+.icon-text span{
+font-size: medium;
+}
+
+.icon-text h6{
+font-size: medium;
+}
+
+.icon-text a{
+text-align: center;
+font-size: large;
+}
+}
+
+.icon-text {
   display: flex;
   flex-direction: column;
   padding: 1rem;
   justify-content: normal;
-  width: 90%;
+  width: 100%;
   color: #002E69;
   background-color: white;
   text-align: center;
+  flex: 1;
 }
 
 .icon-text:hover{
-  background-color: #002E69;
-  color: white;
+background-color: #002E69;
+color: white;
 }
 
 .text-box{
-  display: flex;
-  flex-direction: row;
-  padding: 2rem;
-  column-gap: 3rem;
-  justify-content: left;
-  margin-left: 4rem;
-  margin-right: 4rem;
-}
-
-.anouncements-box{
   display: flex;
   flex-direction: row;
   padding: 2rem;
@@ -204,10 +187,21 @@ a{
   justify-content: left;
   margin-left: 4rem;
   margin-right: 4rem;
+  flex-wrap: wrap;
+}
+
+.anouncements-box{
+display: flex;
+flex-direction: row;
+padding: 2rem;
+column-gap: 2rem;
+justify-content: left;
+margin-left: 4rem;
+margin-right: 4rem;
 }
 
 .qa{
-  display: flex;
-  justify-content: center;
-  margin-bottom: 2rem;
+display: flex;
+justify-content: center;
+margin-bottom: 2rem;
 }

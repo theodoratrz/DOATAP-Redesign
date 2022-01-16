@@ -49,9 +49,3 @@
 </body>
 
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/footer.php" ?>
-
-<script>
-
-    document.getElementById("error-message").innerHTML = "HEllo";
-
-</script>

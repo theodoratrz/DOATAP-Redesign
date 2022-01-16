@@ -84,24 +84,24 @@
   box-shadow: none;
   height: 4rem;
   padding-right: 0px;
-  display: none !important;
   display: -webkit-box !important;
   display: -ms-flexbox !important;
   display: flex !important;
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
+  width: 100%;
 }
 
 .navbar {
   box-shadow: none;
   height: auto;
   padding: 0px;
-  display: none !important;
   display: -webkit-box !important;
   display: -ms-flexbox !important;
   display: flex !important;
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-secondary-rgb), var(--bs-bg-opacity)) !important;
+  width: 100%;
 }
 
 .temp-flex {

@@ -8,6 +8,7 @@
     <div class="page-container fluid-container">
         <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/navbar.php" ?>
         <div class="gray-box">
+        <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/breadcrumb.php" ?>
             <a class="fas fa-arrow-circle-left" onclick="history.back()" style="text-decoration:none; color:#002E69; cursor:pointer; margin-left:13rem; margin-top:1.7rem;">Επικοινωνία</a>
         </div>
 
