@@ -47,7 +47,8 @@ class CheckListItem extends React.Component {
 		const itemContainer = {
 			width: '100%',
 			display: 'flex',
-			flexDirection: 'row'
+			flexDirection: 'row',
+			alignItems: 'center'
 		};
 		const deleteButton = {
 			backgroundColor: 'transparent',
