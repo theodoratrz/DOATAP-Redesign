@@ -128,9 +128,9 @@ function echoNavbarContent(array $content)
 			$userID = $_SESSION['user_id'];
 
 			if (isAdmin($userID)) {
-				echo '<li class ="custom-nav-item fas fa-user-circle "> ADMIN: ' . getUsername($userID) . '</li>';
+				echo '<li class ="custom-nav-item fas fa-user-circle "> ADMIN: ' . getUserInfo($userID)['username'] . '</li>';
 			} else {
-				echo '<li class ="custom-nav-item fas fa-user-circle "> USER: ' . getUsername($userID) . '</li>';
+				echo '<li class ="custom-nav-item fas fa-user-circle "> USER: ' . getUserInfo($userID)['username'] . '</li>';
 			}
 		} else {
 			echo '
