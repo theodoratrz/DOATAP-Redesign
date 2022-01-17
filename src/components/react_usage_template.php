@@ -49,7 +49,7 @@
     }
     function submitData() {
         const dataJSON = {
-            departments: window.checkListComponent.state.items.map(item => item.content)
+            "departments": window.checkListComponent.state.items.map(item => item.content)
         }
         $.ajax({
             type: "POST",
