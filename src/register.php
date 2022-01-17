@@ -23,49 +23,113 @@
                    
                     <hr>
 
-                    <!--label for="name"><b>ΟΝΟΜΑ</b></label>
-                    <input type="text" placeholder="Όνομα" name="name" id="name" required>
+                    <?php 
+            require_once  $_SERVER['DOCUMENT_ROOT'] . "/components/profile-info.php";
 
-                    <label for="last_name"><b>ΕΠΩΝΥΜΟ</b></label>
-                    <input type="password" placeholder="Επώνυμο" name="last_name" id="last_name" required>
+            const formValues = array(
+                "uname" => "",
+                "email" => "",
+                "pwd" => "",
+                "pwd_dup" => "",
 
-                    <label for="fathers_name"><b>ΠΑΤΡΩΝΥΜΟ</b></label>
-                    <input type="text" placeholder="Πατρώνυμο" name="fathers_name" id="fathers_name" required>
+                "fname" => "",
+                "surname" => "",
+                "fathersName" => "",
+                "mothersName" => "",
+                "birthDate" => "",
+                "gender" => "",
 
-                    <label for="mothers_name"><b>ΜΗΤΡΩΝΥΜΟ</b></label>
-                    <input type="text" placeholder="Μητρώνυμο" name="mothers_name" id="mothers_name" required>
+                "country" => "",
+                "city" => "",
+                "address" => "",
 
-                    <label for="username"><b>ΟΝΟΜΑ ΧΡΗΣΤΗ</b></label>
-                    <input type="text" placeholder="όνομα Χρήστη" name="username" id="username" required>
+                "docSelection" => "",
+                "docID" => "",
+        
+                "mobilePhone" => "",
+                "homePhone" => "",
+            );
+        ?>
+        <form name="profile-info-form" class="needs-validation" method="POST" novalidate>
+            <script>
+                function validateForm(form) {
 
-                    <label for="email"><b>Email</b></label>
-                    <input type="text" placeholder="Email" name="email" id="email" required>
+                    //const usernamePattern = /^[a-zA-Z]+[a-zA-Z0-9]*$/;
 
-                    <label for="phone"><b>ΤΗΛΕΦΩΝΟ</b></label>
-                    <input type="number" placeholder="Τηλέφωνο" name="phone" id="phone" required>
+                    // Accept English & Greek names (more than 1 allowed)
+                    const namePattern = /^([A-Z][a-z]*( [A-Z][a-z]*)*|[Α-Ω][α-ωίϊΐόάέύϋΰήώ]*( [Α-Ω][α-ωίϊΐόάέύϋΰήώ]*)*)$/;
+                    const phonePattern = /^[0-9]+$/;
+                    const docIDPattern = /^([A-Z]+|[Α-Ω]+)[ ]?[0-9]+$/;
 
-                    <label for="psw"><b>ΚΩΔΙΚΟΣ</b></label>
-                    <input type="password" placeholder="Κωδικός" name="psw" id="psw" required>
+                    const fieldPatterns = {
+                        "fname": namePattern,
+                        "surname": namePattern,
+                        "fathersName": namePattern,
+                        "mothersName": namePattern,
+                        "mobilePhone": phonePattern,
+                        "homePhone": phonePattern,
+                        "docID": docIDPattern
+                    }
 
-                    <label for="psw-repeat"><b>Repeat Password</b></label>
-                    <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+                    /* const radioFields = [
+                        "gender",
+                        "docSelection"
+                    ] */
 
-                    <label for="id_type"><b>ΕΓΓΡΑΦΟ ΤΑΥΤΟΠΟΙΗΣΗΣ</b></label>
-                    <input type="radio" id="id" name="id_type" value="ID">
-                    <label for="id_type">ΤΑΥΤΟΤΗΤΑ</label><br>
-                    <input type="radio" id="passport" name="id_type" value="PASSPORT">
-                    <label for="passport">ΔΙΑΒΑΤΗΡΙΟ</label><br>
+                    let valid = true;
 
-                    <label for="id_num"><b>ΑΡΙΘΜΟΣ ΕΓΓΡΑΦΟΥ</b></label>
-                    <input type="number" placeholder="Αριθμός Εγγράφου" name="id_num" id="id_num" required>
-                    <hr-->
-                    <?php
-                     require_once $_SERVER['DOCUMENT_ROOT'] . "/components/profile-info.php"
+                    for (const [fieldName, pattern] of Object.entries(fieldPatterns)) {
+                        let field = form[fieldName]
+                        if (pattern === '') {
+                            field.classList.remove('is-invalid');
+                            field.classList.add('is-valid');
+                            field.setCustomValidity('');
+                            continue;
+                        }
+                        if (!pattern.test(field.value)) {
+                            field.classList.remove('is-valid');
+                            field.classList.add('is-invalid');
+                            field.setCustomValidity('error');
+                            valid = false;
+                        } else {
+                            field.classList.remove('is-invalid');
+                            field.classList.add('is-valid');
+                            field.setCustomValidity('');
+                        }
+                    }
 
-                    ?>
-                    <p>By creating an account you agree to our <a href="terms.php" target="_blank">Οροι Χρήσης-Δήλωση Απορρήτου</a>.</p>
+                    /* for (let i = 0; i < radioFields.length; i++) {
+                        let radioField = form[radioFields[i]];                
+                    } */
+                    
+                    return valid;
+                }
+
+                (function () {
+                    'use strict'
+
+                    window.addEventListener('load', function() {
+                        
+                        let form = document.forms["profile-info-form"]
+
+                        form.addEventListener('submit', function (event) {
+                            if (!validateForm(form)) {
+                                event.preventDefault()
+                                event.stopPropagation()
+                            }
+                            form.classList.add('was-validated')
+                        }, false);
+                    });
+                })();
+            </script>
+            <?php echoProfileInfoForm(formValues, true); ?>
+            <p>By creating an account you agree to our <a href="terms.php" target="_blank">Οροι Χρήσης-Δήλωση Απορρήτου</a>.</p>
+            <div class="form-submit-button">
                     <button type="submit" class="registerbtn">Εγγραφή</button>
-                    <p>Αν έχετε ήδη λογαριασμό <a href="login.php">Συνδεθείτε</a>.</p>
+            </div>
+            <p>Αν έχετε ήδη λογαριασμό <a href="login.php">Συνδεθείτε</a>.</p>
+        </form>
+                    
                 </div>
 
 </div> 
