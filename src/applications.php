@@ -13,28 +13,27 @@
         </div>
     
         <div class="menu">
-    <a href="procedure_submission.php" class="icon-text">
-      <h6><div style="font-weight:bold; text-decoration:none; color:inherit"> Διαδικασία Υποβολής</div></h6>
-      <span style="text-align:center"> Πληροφορίες για τη διαδικασία υποβολής των αιτήσεων, βήμα-βήμα.</span>
-    </a>
-    <a href="applications-evaluation.php"  class="icon-text">
-      <h6><div style="font-weight:bold; text-decoration:none; color:inherit"> Η Πορεία μίας Αίτησης</div></h6>
-      <span style="text-align:center">Πληροφορίες για την πορεία των αιτήσεων σας, αφού τις καταθέσετε.</span>
-    </a>
+          <a href="procedure_submission.php" class="icon-text">
+            <h6><div style="font-weight:bold; text-decoration:none; color:inherit"> Διαδικασία Υποβολής</div></h6>
+            <span style="text-align:center"> Πληροφορίες για τη διαδικασία υποβολής των αιτήσεων, βήμα-βήμα.</span>
+          </a>
+          <a href="applications-evaluation.php"  class="icon-text">
+            <h6><div style="font-weight:bold; text-decoration:none; color:inherit"> Η Πορεία μίας Αίτησης</div></h6>
+            <span style="text-align:center">Πληροφορίες για την πορεία των αιτήσεων σας, αφού τις καταθέσετε.</span>
+          </a>
+      </div>
+      <div class="menu">
+        <a href="applications-forms.php"  class="icon-text">
+          <h6><div style="font-weight:bold; color:inherit"> Φόρμες Αιτήσεων</div></h6>
+          <span style="text-align:center">Πληροφορίες για όλες τις απαραίτητες αιτήσεις που θα χρειαστείτε.</span>
+        </a>
+        <a href="paravola.php" class="icon-text">
+            <h6><div style="font-weight:bold; color:inherit"> Παράβολα</div></h6>
+            <span style="text-align:center">Πληροφορίες για τα παράβολα που οφείλετε να κατaβάλλετε.</span>
+        </a>
+      </div>
 </div>
-    <div class="menu">
-    <a href="applications-forms.php"  class="icon-text">
-      <h6><div style="font-weight:bold; color:inherit"> Φόρμες Αιτήσεων</div></h6>
-      <span style="text-align:center">Πληροφορίες για όλες τις απαραίτητες αιτήσεις που θα χρειαστείτε.</span>
-    </a>
-    <a href="paravola.php" class="icon-text">
-        <h6><div style="font-weight:bold; color:inherit"> Παράβολα</div></h6>
-        <span style="text-align:center">Πληροφορίες για τα παράβολα που οφείλετε να κατaβάλλετε.</span>
-    </a>
-</div>
-</div>
-    
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/footer.php" ?>
 </body>
 
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/footer.php" ?>
 

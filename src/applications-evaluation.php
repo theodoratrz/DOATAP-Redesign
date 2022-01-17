@@ -4,16 +4,21 @@
 <link rel="stylesheet" href="/css/forms.css">
 
 <body>
-<div class="page-container fluid-container">
-    <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/navbar.php" ?>
+
+<div class="fluid-container">
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/navbar.php" ?>
         <div class="gray-box">
-            <a class="fas fa-arrow-circle-left" onclick="history.back()" style="text-decoration:none; color:#002E69; cursor:pointer; margin-left:13rem; margin-top:1.7rem;">Αξιολόγηση Αίτησης</a>
+            <a href="procedure_submission.php" class="fas fa-arrow-circle-left" style="text-decoration:none; color:#002E69; cursor:pointer; margin-left:13rem; margin-top:1.7rem;">Φόρμες Αιτήσεων</a>
         </div>
-    
-    <div class="two-column-list mb-sm-5 pr-lg-3 container-fluid" id="two-column-list"">
+
+</div>
+    <div class="page-content-container">
         <?php 
-            require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php" 
+            require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
+
+            #echoSidebar();
         ?>
+
         <div class="fluid-container" style="width:30rem; margin-top:1%;">
         <p>Μετά την οριστική υποβολή του χρήστη, η αίτηση λαμβάνει έναν μοναδικό 
             αριθμό καταχώρησης. Με αυτόν τον αριθμό θα μπορεί μέσω του προφίλ του 
