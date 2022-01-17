@@ -19,7 +19,33 @@
         <?php 
             require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
             require_once $_SERVER['DOCUMENT_ROOT'] . "/components/content_tabs.php";
-            const tab_sample_content = array(
+            require_once $_SERVER['DOCUMENT_ROOT'] . "/titlos_spoudon.php";
+            const sample_titlos_values = array(
+                "titlos" => "",
+                "ects" => "",
+                "uni" => "",
+                "tei" => "",
+        
+                "fname" => "Κώστας",
+                "surname" => "Χρήστου",
+                "fathersName" => "Χρήστος",
+                "mothersName" => "Μαρία",
+                "entryDate" => "31-1-1999",
+                "graduationDate" => "31-1-1999",
+                "attendance" => "Άνδρας",
+                "fullTime" => "Άνδρας",
+        
+                "country" => "",
+                "universityAbroad" => "",
+                "attendanceTime" => "",
+        
+                "docSelection" => "Ταυτότητα",
+                "docID" => "14572",
+        
+                "mobilePhone" => "6969696969",
+                "homePhone" => "2106969696",
+            );
+            $tab_sample_content = array(
                 "<i class='fas fa-info-circle'></i><br> Προσωπικά Στοιχεία" => array(
                     "basic_info",
                     '<p><strong>This is some placeholder content the Βασικές Πληροφορίες tab\'s associated content.</strong>
@@ -29,10 +55,7 @@
                 ),
                 "<i class='fas fa-edit'></i> <br>Τίτλος Σπουδών" => array(
                     "selected_deps",
-                    '<p><strong>This is some placeholder content the Επιλεγμένα Τμήματα tab\'s associated content.</strong>
-                    Clicking another tab will toggle the visibility of this one for the next.
-                    The tab JavaScript swaps classes to control the content visibility and styling.
-                    You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>'
+                    echoTitlosForm(sample_titlos_values,true)
                 ),
                 "<i class='fas fa-pencil-alt'></i><br> Συνεκτίμηση Τίτλου" => array(
                     "course_choices",
@@ -50,7 +73,7 @@
                 )
             );
             
-            echoContentTabs(tab_sample_content,"user-tab-wrapper");
+            echoContentTabs($tab_sample_content,);
         ?>
             
     </div>
