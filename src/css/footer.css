@@ -93,3 +93,8 @@
 .contact-group {
     max-width: 40vw;
 }
+
+.contact-group li {
+    display: block;
+    margin-bottom: 10px;
+}

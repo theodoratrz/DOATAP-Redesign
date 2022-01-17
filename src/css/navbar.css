@@ -73,6 +73,10 @@
   display: flex !important;
 }
 
+.navbar-container.d-flex {
+  align-items: center;
+}
+
 .login-signup-navbar-container{
   column-gap: 0.5rem;
   align-items: center;
