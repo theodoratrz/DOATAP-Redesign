@@ -21,7 +21,7 @@
                 <br>
                 <h7 style="text-align:center;">Εναλλακτικά μπορείτε να συνδεθείτε μέσω <a href="https://www1.gsis.gr/oauth2server/login.jsp"">TaxisNet</a></h7>
                 <hr>
-                <div id=" error-message">
+                <div id="error-message">
             </div>
             <div class="mb-3">
                 <i class="fas fa-user-circle"></i>
@@ -61,8 +61,10 @@
             username: username,
             password: password
         }).done(function(data) {
-            if (data === true) {
+            console.log(data);
+            if (data == true) {
                 // Redirect to home
+                window.location.replace("/");
             } else {
                 // display error message
                 $("#error-message").text(data);
