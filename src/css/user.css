@@ -16,3 +16,10 @@
     justify-content: space-evenly;
 }
   
+.table-wrapper{
+    display: flex;
+    flex-direction: row;
+    column-gap: 2rem;
+    justify-content: space-evenly;
+    width: 100%;
+}
