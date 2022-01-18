@@ -125,7 +125,7 @@
             <?php echoProfileInfoForm(formValues, true); ?>
             <p>By creating an account you agree to our <a href="terms.php" target="_blank">Οροι Χρήσης-Δήλωση Απορρήτου</a>.</p>
             <div class="form-submit-button">
-                    <button type="submit" class="registerbtn">Εγγραφή</button>
+                    <button class="registerbtn">Εγγραφή</button>
             </div>
             <p>Αν έχετε ήδη λογαριασμό <a href="login.php">Συνδεθείτε</a>.</p>
         </form>

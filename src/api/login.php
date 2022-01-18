@@ -1,13 +1,14 @@
 <?php
 
-require_once("users.php");
+include("users.php");
 
 if (userAuth($_POST['username'], $_POST['password'])){
-    echo true;
+    echo 'login';
 }
 else{
     echo $db_error_message;
 }
+
 
 
 ?>

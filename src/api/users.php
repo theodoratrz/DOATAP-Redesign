@@ -73,7 +73,7 @@ function userAuth(string $username, string $password)
     }
 
     $row = $result->fetch_array();
-    if ($row['username'] === $username) {
+    if ($row['username'] == $username) {
         $_SESSION['user_id'] = $row['user_id'];
         return true;
     } else {

@@ -62,9 +62,12 @@
             password: password
         }).done(function(data) {
             console.log(data);
-            if (data == true) {
+            if (data === 'login') {
+
                 // Redirect to home
-                window.location.replace("/");
+                window.location.replace('');
+
+
             } else {
                 // display error message
                 $("#error-message").text(data);
