@@ -88,8 +88,8 @@ $('#no_mls_entry').popover('show').focus();
     function echoTitlosForm(array $values, bool $isRegisterForm = false)
     {
         echo '
-        <div class="row" style="diplay:flex; flex-direction:column; align-items:left;">
-            <h6><i class="fas fa-info-circle"></i> Στοιχεία Τίτλου Σπουδών προς αναγνώριση </h6>
+        <div style="display:flex; flex-direction:column; align-items:center;">
+            <h6 style="font-size:large"><i class="fas fa-info-circle"></i> Στοιχεία Τίτλου Σπουδών προς αναγνώριση </h6>
             <h7 style="font-size:medium; color:red;"> Παρακαλώ Συμπληρώστε με Κεφαλαία Γράμματα. </h7>
         </div>
         <div class="form-fields-container">';

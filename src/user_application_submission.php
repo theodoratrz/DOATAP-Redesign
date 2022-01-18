@@ -92,10 +92,6 @@
                  
                     $val
                 ),
-                "<i class='fas fa-pencil-alt'></i><br> Συνεκτίμηση Τίτλου" => array(
-                    "course_choices",
-                    $val
-                ),
                 "<i class='fas fa-cloud-upload-alt'></i> <br>Επισυναπτόμενα" => array(
                     "upload",
                     '
@@ -230,15 +226,15 @@
                             </tbody>
                         </table>
                         </form>
-
-                    </div>
-                    
-                    <div style="background-color:#269b65; width:max-content; padding:0rem; height:max-content; border-radius:5%;">
-                        <button style="font-size:medium; color:white; padding:0.5rem; font-weight:500; margin-bottom:0rem;justify-content:center;" type="submit" name="submit" 
+                        <div style=" background-color:#269b65; width:max-content; padding:0rem; height:max-content; border-radius:5%;">
+                        <button style="font-size:medium; color:white; padding:0.5rem; font-weight:500; margin-bottom:0rem;" type="submit" name="submit" 
                         value="δικαιολογητικο" data-toggle="modal"  
                         data-target="#newApplication" class="btn btn-success" ><i class="fas fa-file-alt" aria-hidden="true" ></i> Προσθήκη Δικαιολογητικού</input>
                         </button>
-                    </div>'
+                    </div>
+                    </div>
+                    
+                   '
                 )
             );
             
