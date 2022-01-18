@@ -1,6 +1,6 @@
 <?php
 
-require "db_connect.php";
+require_once "db_connect.php";
 
 function newUser(string $username, string $password, string $email, bool $isAdmin)
 {
@@ -82,15 +82,15 @@ function userAuth(string $username, string $password)
     }
 }
 
-function getUsername(int $id){
+function getUserInfo(int $id){
     global $conn;
-    $sql = "SELECT username FROM users WHERE `user_id`=$id;";
+    $sql = "SELECT * FROM users WHERE `user_id`=$id;";
     $result = $conn->query($sql);
     if ($result->num_rows == 0){
-        return '';
+        return null;
     }
     $row = $result->fetch_assoc();
-    return $row['username'];
+    return $row;
 }
 
 function isAdmin(int $id){

@@ -1,6 +1,6 @@
 <?php
 
-require "db_connect.php";
+require_once "db_connect.php";
 
 function getApplications(int $userID){
     global $conn, $db_error_message;
@@ -51,4 +51,3 @@ function getCountries(){
 }
 
 ?>
-

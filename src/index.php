@@ -16,10 +16,14 @@
 </div> 
 
 <div class="text-box">
-    <h5>Διεπιστημονικός Οργανισμός Αναγνώρισης Τίτλου Ακαδημαϊκών και Πληροφόρησης</h5>
-    <div class="vr" style="width:0.4rem"></div>
-    <h7>Ο ΔΟΑΤΑΠ έχει ως βασική αποστολή (α) την αναγνώριση τίτλων σπουδών από ιδρύματα της αλλοδαπής και 
-      (β) την παροχή πληροφοριών σχετικά με σπουδές στην ανώτατη εκπαίδευση στην ημεδαπή και την αλλοδαπή.</h7>
+<h5 style="font-weight: bold">Διεπιστημονικός Οργανισμός Αναγνώρισης Τίτλου Ακαδημαϊκών και Πληροφόρησης</h5>
+    <span>
+      Ο ΔΟΑΤΑΠ έχει ως βασικές αποστολές:
+      <ul>
+        <li>Tην αναγνώριση τίτλων σπουδών από ιδρύματα της αλλοδαπής</li>
+        <li>Tην παροχή πληροφοριών σχετικά με σπουδές στην ανώτατη εκπαίδευση στην ημεδαπή και την αλλοδαπή.</li>
+      </ul>
+    </span>
 </div>
 <div class="menu-icons">
     <div class="icon-text">
@@ -28,7 +32,7 @@
     </div>
     <div class="icon-text">
       <h6><a href="procedure_submission.php" class="fas fa-pen-alt" style="text-decoration:none; color:inherit"> Νέα Αίτηση</a></h6>
-      <span>Βρείτε όλα όσα χρειάζονται για να πραγματοποιήσετε μία νέα αίτηση.</span>
+      <span>Βρείτε όλα όσα χρειάζονται για να φτιάξετε μία νέα αίτηση.</span>
     </div>
 
     <div class="icon-text">
@@ -42,33 +46,6 @@
 </div>
 <h5 style="text-align:center">ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ</h5><hr style=" margin-left:4rem; margin-right:4rem; text-align:center; ">
 
-<!--div class="anouncements-box">
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Ημερομηνία</th>
-      <th scope="col">Τίτλος</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row" style="color:#002e69ce;font-size:large;">01/01/2022</th>
-      <td><a href="#">Jacob</a></td>
-    </tr>
-    <tr>
-      <th scope="row" style="color:#002e69ce;font-size:large;">01/01/2022</th>
-      <td><a href="#">Jacob</a></td>
-    </tr>
-    <tr>
-      <th scope="row" style="color:#002e69ce;font-size:large;">01/01/2022</th>
-      <td><a href="#">Jacob</a></td>
-    </tr>
-  </tbody>
-</table>
-</div-->
-
-<!--button style="text-align:left; margin-left:5rem; margin-bottom:2rem; border-radius:5%; padding:0.5rem;">
-<a href="anouncements.php" style= "color:#002E69; text-decoration:none;">ΟΛΕΣ ΟΙ ΑΝΑΚΟΙΝΩΣΕΙΣ</a></button-->
 <div class="qa">
 <?php
 

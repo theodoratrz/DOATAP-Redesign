@@ -14,11 +14,11 @@ services:
     image: mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: "1234"
+      MYSQL_ROOT_PASSWORD: "12344321"
     volumes:
       - ./mysql:/var/lib/mysql
     ports:
-      - 3306:3306
+      - 9906:3306
 
 
   phpmyadmin:

@@ -30,15 +30,14 @@ const _sidebar_page_names_ = array(
 		"an1" => "Ανακοινώσεις1",
 		"an2" => "Ανακοινώσεις2"
 	),
-	"applications" => array(
-		"procedure_submission" => "Διαδικασία Υποβολής",
-		"application-course" => array(
-			"Η Πορεία μιας αίτησης",
-			array(
-				"applications-evaluation.php" => "Αξιολόγηση Αίτησης",
-				"bla" => "bla"
-			)
-		)
+	
+	"applications.php" => 
+	"Αιτήσεις",
+	array(
+		"procedure-submission.php" => "Διαδικασία Υποβολής",
+		"applications-evaluation.php" => "Η Πορεία μίας Αίτησης",
+		"applications-forms.php" => "Φόρμες Αιτήσεων",
+		"paravola.php" => "Παράβολα"
 	)
 );
 

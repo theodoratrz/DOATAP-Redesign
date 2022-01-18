@@ -1,5 +1,12 @@
 <?php
+<<<<<<< HEAD
 if (!isset($_SESSION)) session_start();
+=======
+if (!isset($_SESSION)) {
+    session_start();
+}
+$webDir = "/var/www/html/";
+>>>>>>> main
 ?>
 
 <!DOCTYPE html>
@@ -16,5 +23,11 @@ if (!isset($_SESSION)) session_start();
     <!-- FONT AWESOME -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
+<<<<<<< HEAD
     <script src="js/bootstrap.min.js"></script>
 </head>
+=======
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery-3.6.0.min.js"></script>
+</head>
+>>>>>>> main

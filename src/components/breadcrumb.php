@@ -3,7 +3,7 @@
 
         <?php
 
-        include_once('/../config/pages.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/../config/pages.php');
 
         # Get path array
         $path = $_SERVER['REQUEST_URI'];

@@ -1,0 +1,81 @@
+user-progress {
+    vertical-align: baseline;
+  }
+
+  @-webkit-keyframes user-progress-bar-stripes {
+    0% {
+      background-position-x: 1rem;
+    }
+  }
+  
+  @keyframes user-progress-bar-stripes {
+    0% {
+      background-position-x: 1rem;
+    }
+  }
+  .user-tab-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 45rem;
+    min-width: 15rem;
+}
+
+.application-actions-container{
+    display: flex;
+    flex-direction: row;
+    column-gap: 20%;
+    width:45rem;
+    margin-left:15%;
+    justify-content: space-evenly;
+}
+  .user-progress {
+    display: flex;
+    height: 1rem;
+    width:100%;
+    overflow: hidden;
+    font-size: 0.75rem;
+    background-color: #e9ecef;
+    border-radius: 0.25rem;
+    flex:1;
+  }
+  
+  .user-progress-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #0d6efd;
+    -webkit-transition: width 0.6s ease;
+    transition: width 0.6s ease;
+    width: 100%;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .user-progress-bar {
+      -webkit-transition: none;
+      transition: none;
+    }
+  }
+  
+  .user-progress-bar-striped {
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-size: 1rem 1rem;
+  }
+  
+  .user-progress-bar-animated {
+    -webkit-animation: 1s linear infinite user-progress-bar-stripes;
+            animation: 1s linear infinite user-progress-bar-stripes;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .user-progress-bar-animated {
+      -webkit-animation: none;
+              animation: none;
+    }
+  }
+
+  

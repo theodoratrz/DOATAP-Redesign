@@ -4,7 +4,6 @@
 <link rel="stylesheet" href="/css/index.css">
 <link rel="stylesheet" href="/css/content_accordion.css">
 
-
 <body>
 
 <div class="fluid-container">
