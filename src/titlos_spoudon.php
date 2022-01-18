@@ -16,8 +16,8 @@ $('#no_mls_entry').popover('show').focus();
         "surname" => "Χρήστου",
         "fathersName" => "Χρήστος",
         "mothersName" => "Μαρία",
-        "entryDate" => "31-1-1999",
-        "graduationDate" => "31-1-1999",
+        "entryDate" => "",
+        "graduationDate" => "",
         "attendance" => "Άνδρας",
         "fullTime" => "Άνδρας",
         "isotimia" => "Άνδρας",
@@ -27,11 +27,6 @@ $('#no_mls_entry').popover('show').focus();
         "universityAbroad" => "",
         "attendanceTime" => "",
 
-        "docSelection" => "Ταυτότητα",
-        "docID" => "14572",
-
-        "mobilePhone" => "6969696969",
-        "homePhone" => "2106969696",
     );
 
     function getAllUniversities()
@@ -99,11 +94,6 @@ $('#no_mls_entry').popover('show').focus();
         </div>
         <div class="form-fields-container">';
         
-        
-            echoRadioField('isotimia', 'Ισοτιμία/Αντιστοιχία', "Παρακαλώ, επιλέξτε.",
-            array("Ισοτιμία και Αντιστοιχία Πτυχίου", "Ισοτιμία Πτυχίου"), $values['attendance']);
-            echoRadioField('with', 'με', "Παρακαλώ, επιλέξτε.",
-            array("Πανεπιστήμιο ή ΤΕΙ", "Πανεπιστήμιο" ,"ΤΕΙ"), $values['attendance']);
             echoRadioField('attendance', 'Τύπος Φοίτησης', "Παρακαλώ, επιλέξτε τον τύπο φοίτησης.",
             array("Συμβατικός", "Εξ Αποστάσεως"), $values['attendance']);
             echoRadioField('fullTime', 'Τύπος Φοίτησης', "Παρακαλώ, επιλέξτε τον τύπο φοίτησης.",
@@ -114,10 +104,7 @@ $('#no_mls_entry').popover('show').focus();
             echoCountryField('attendanceTime', 'Έτη σπουδών', "Παρακαλώ, επιλέξτε έτη σπουδών.", $values['attendanceTime']);
             echoDateField('entryDate', "Ημ. Εισαγωγής", "Παρακαλώ, επιλέξτε ημ. εγγραφής.", $values['entryDate']);
             echoDateField('graduationDate', "Ημ. Αποφοίτησης", "Παρακαλώ, επιλέξτε ημ. αποφοίτησης.", $values['graduationDate']);
-           
-
-            echoTextField('uni', 'Πανεπιστήμιο', "Παρακαλώ, αναζητήστε πανεπιστήμιο για αντιστοίχιση.", $values['uni']);
-            echoTextField('tei', 'ΤΕΙ', "Παρακαλώ, αναζητήστε ΤΕΙ για αντιστοίχιση.", $values['tei']);
+ 
         
         echo '</div>';
     }
