@@ -85,7 +85,6 @@
             $tab_sample_content = array(
                 "<i class='fas fa-info-circle'></i><br> Προσωπικά Στοιχεία" => array(
                     "basic_info",
-                    
                     $val2
                 ),
                 "<i class='fas fa-edit'></i> <br>Τίτλος Σπουδών" => array(

@@ -11,7 +11,7 @@ $('#no_mls_entry').popover('show').focus();
         "ects" => "",
         "uni" => "",
         "tei" => "",
-
+        
         "fname" => "Κώστας",
         "surname" => "Χρήστου",
         "fathersName" => "Χρήστος",
@@ -20,6 +20,8 @@ $('#no_mls_entry').popover('show').focus();
         "graduationDate" => "31-1-1999",
         "attendance" => "Άνδρας",
         "fullTime" => "Άνδρας",
+        "isotimia" => "Άνδρας",
+        "with" => "Άνδρας",
 
         "country" => "",
         "universityAbroad" => "",
@@ -32,73 +34,90 @@ $('#no_mls_entry').popover('show').focus();
         "homePhone" => "2106969696",
     );
 
-    
+    function getAllUniversities()
+    {
+        # return getCountries();
+        return array(
+            array(
+                "count_id" => "1",
+                "name" => "ΕΚΠΑ"
+            ),
+            array(
+                "count_id" => "2",
+                "name" => "ΟΠΑ"
+            ),
+            array(
+                "count_id" => "3",
+                "name" => "ΠΑΠΕΙ"
+            ),
+            array(
+                "count_id" => "4",
+                "name" => "ΑΠΘ"
+            ),
+            array(
+                "count_id" => "5",
+                "name" => "ΠΑΜΑΚ"
+            )
+        );
+    }
+    function echoUniversityField(string $fieldID, string $description, string $invalidInputMsg, string $selectedValue = '')
+    {
+        $countries = getAllUniversities();
+        echo '
+        <div class="field-container">
+            <label for=' . $fieldID . ' class="form-label">' . $description . '</label>
+            <select class="form-select" id="' . $fieldID . '" aria-label="Επιλογή Πανεπιστημίου">';
+                if ($selectedValue == '') {
+                    echo '<option value="none" disabled selected>Επιλέξτε Πανεπιστήμιο</option>';
+                }
+                
+                foreach ($universities as $university) {
+                    $value = $university["count_id"];
+                    $name = $university["name"];
+                    if ($name === $selectedValue) {
+                        echo '<option value="' . $value . '" selected>' . $name . '</option>';
+                    } else {
+                        echo '<option value="' . $value . '">' . $name . '</option>';
+                    }
+                }
+
+            echo '
+            </select>
+            <div class="invalid-feedback">'. 
+            $invalidInputMsg .'
+            </div>
+        </div>
+        ';
+    }
+
     function echoTitlosForm(array $values, bool $isRegisterForm = false)
     {
         echo '
-        <div class="form-fields-container">
-        ';
-
-            if ($isRegisterForm) {
-                // Username, email & pwd group
-                echo '
-                <div class="form-fields-group-vertical">
-                ';
-                echoTextField('titlos', 'Τίτλος Σπουδών', "Παρακαλώ, συμπληρώστε Τίτλος Σπουδών.", $values['titlos']);
-                
-                echoTextField('ects', 'Πιστωτικές Μονάδες(credits)', "Παρακαλώ, συμπληρώστε Πιστωτικές Μονάδες.", $values['ects']);
-                echoTextField('uni', 'Πανεπιστήμιο', "Παρακαλώ, αναζητήστε πανεπιστήμιο για αντιστοίχιση.", $values['uni']);
-                echoTextField('tei', 'ΤΕΙ', "Παρακαλώ, αναζητήστε ΤΕΙ για αντιστοίχιση.", $values['tei']);
-
-                echo '
-                </div>';
-            }
-
-            // Basics group
-            echo '
-            <div class="form-fields-group-vertical">
-            ';
+        <div class="row" style="diplay:flex; flex-direction:column; align-items:left;">
+            <h6><i class="fas fa-info-circle"></i> Στοιχεία Τίτλου Σπουδών προς αναγνώριση </h6>
+            <h7 style="font-size:medium; color:red;"> Παρακαλώ Συμπληρώστε με Κεφαλαία Γράμματα. </h7>
+        </div>
+        <div class="form-fields-container">';
+        
+        
+            echoRadioField('isotimia', 'Ισοτιμία/Αντιστοιχία', "Παρακαλώ, επιλέξτε.",
+            array("Ισοτιμία και Αντιστοιχία Πτυχίου", "Ισοτιμία Πτυχίου"), $values['attendance']);
+            echoRadioField('with', 'με', "Παρακαλώ, επιλέξτε.",
+            array("Πανεπιστήμιο ή ΤΕΙ", "Πανεπιστήμιο" ,"ΤΕΙ"), $values['attendance']);
+            echoRadioField('attendance', 'Τύπος Φοίτησης', "Παρακαλώ, επιλέξτε τον τύπο φοίτησης.",
+            array("Συμβατικός", "Εξ Αποστάσεως"), $values['attendance']);
+            echoRadioField('fullTime', 'Τύπος Φοίτησης', "Παρακαλώ, επιλέξτε τον τύπο φοίτησης.",
+            array("Τακτικη", "Μερική"), $values['fullTime']);
+            echoCountryField('country', 'Χώρα', "Παρακαλώ, επιλέξτε χώρα σπουδών.", $values['country']);
+            echoUniversityField('universityAbroad', 'Πανεπιστήμιο', "Παρακαλώ, επιλέξτε πανεπιστήμιο.", $values['universityAbroad']);            
+            echoTextField('ects', 'Πιστωτικές Μονάδες(credits)', "Παρακαλώ, συμπληρώστε Πιστωτικές Μονάδες.", $values['ects']);
+            echoCountryField('attendanceTime', 'Έτη σπουδών', "Παρακαλώ, επιλέξτε έτη σπουδών.", $values['attendanceTime']);
             echoDateField('entryDate', "Ημ. Εισαγωγής", "Παρακαλώ, επιλέξτε ημ. εγγραφής.", $values['entryDate']);
             echoDateField('graduationDate', "Ημ. Αποφοίτησης", "Παρακαλώ, επιλέξτε ημ. αποφοίτησης.", $values['graduationDate']);
-            echoRadioField('attendance', 'Τύπος Φοίτησης', "Παρακαλώ, επιλέξτε τον τύπο φοίτησης.",
-                            array("Συμβατικός", "Εξ Αποστάσεως"), $values['attendance']);
-            echoRadioField('fullTime', 'Τύπος Φοίτησης', "Παρακαλώ, επιλέξτε τον τύπο φοίτησης.",
-                            array("Τακτικη", "Μερική"), $values['fullTime']);
+           
 
-            echo '
-            </div>';
-
-            // Document group
-            echo '
-            <div class="form-fields-group-vertical">
-            ';
-            echoRadioField('docSelection', 'Έγγραφο Ταυτοποίησης', "Παρακαλώ, επιλέξτε έγγραφο ταυτοποίησης.",
-                            array("Ταυτότητα", "Διαβατήριο"), $values['docSelection']);
-            echoTextField('docID', 'Αριθμός Εγγράφου', "Παρακαλώ, επιλέξτε αριθμό εγγράφου.", $values['docID']);
-
-            echo '
-            </div>';
-
-            // Region group
-            echo '
-            <div class="form-fields-group-vertical">
-            ';
-            echoCountryField('country', 'Χώρα', "Παρακαλώ, επιλέξτε χώρα σπουδών.", $values['country']);
-            echoCountryField('universityAbroad', 'Χώρα', "Παρακαλώ, επιλέξτε πανεπιστήμιο.", $values['universityAbroad']);
-            echoCountryField('attendanceTime', 'Χώρα', "Παρακαλώ, επιλέξτε έτη σπουδών.", $values['attendanceTime']);
-
-            echo '
-            </div>';
-
-            // Contact group
-            echo '
-            <div class="form-fields-group-vertical">
-            ';
-            echoTextField('mobilePhone', 'Κινητό Τηλέφωνο', "Παρακαλώ, επιλέξτε αριθμό κινητού.", $values['mobilePhone']);
-            echoTextField('homePhone', 'Σταθερό Τηλέφωνο', "Παρακαλώ, επιλέξτε αριθμό σταθερού.", $values['homePhone']);
-
-            echo '
-            </div>';
+            echoTextField('uni', 'Πανεπιστήμιο', "Παρακαλώ, αναζητήστε πανεπιστήμιο για αντιστοίχιση.", $values['uni']);
+            echoTextField('tei', 'ΤΕΙ', "Παρακαλώ, αναζητήστε ΤΕΙ για αντιστοίχιση.", $values['tei']);
         
         echo '</div>';
     }
