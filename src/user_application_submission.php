@@ -115,13 +115,11 @@
                             <tbody>
                             <tr>
                                 <td>Έγγραφο Ταυτοπροσωπίας</td>
-                                <th scope="row" style="color:#002e69ce;font-size:large;">
-                                <div style="background-color:yellow; width:max-content; padding:0rem; height:max-content; border-radius:5%;">
-                                    <button style="font-size:medium; color:black; padding:0.5rem; margin-bottom:0rem;justify-content:center;" type="submit" name="submit" 
-                                    value="δικαιολογητικα" data-toggle="modal"  
-                                    data-target="#newApplication" class="btn btn-success" ><i class="fas fa-upload"></i> Αναμένεται</input>
-                                    </button>
-                                </div>
+                                <th scope="row">
+                                    <div class="upload-btn">
+                                        <input type="file" id="actual-btn" hidden/>
+                                        <label for="actual-btn"><i class="fas fa-upload"></i> Αναμένεται</label>
+                                    </div>
                                 </th>
                                 
                                 <!-- Trigger/Open The Modal -->
@@ -152,13 +150,11 @@
                             
                             <tr>
                                 <td>Αίτηση</td>
-                                <th scope="row" style="color:#002e69ce;font-size:large;">
-                                <div style="background-color:yellow; width:max-content; padding:0rem; height:max-content; border-radius:5%;">
-                                    <button style="font-size:medium; color:black; padding:0.5rem; margin-bottom:0rem;justify-content:center;" type="submit" name="submit" 
-                                    value="δικαιολογητικα" data-toggle="modal"  
-                                    data-target="#newApplication" class="btn btn-success" ><i class="fas fa-upload"></i> Αναμένεται</input>
-                                    </button>
-                                </div>
+                                <th scope="row">
+                                    <div class="upload-btn">
+                                        <input type="file" id="actual-btn" hidden/>
+                                        <label for="actual-btn"><i class="fas fa-upload"></i> Αναμένεται</label>
+                                    </div>
                                 </th>
                                 
                                 <!-- Trigger/Open The Modal -->
@@ -189,13 +185,11 @@
 
                             <tr>
                                 <td>Παράβολα</td>
-                                <th scope="row" style="color:#002e69ce;font-size:large;">
-                                <div style="background-color:yellow; width:max-content; padding:0rem; height:max-content; border-radius:5%;">
-                                    <button style="font-size:medium; color:black; padding:0.5rem; margin-bottom:0rem;justify-content:center;" type="submit" name="submit" 
-                                    value="δικαιολογητικα" data-toggle="modal"  
-                                    data-target="#newApplication" class="btn btn-success" ><i class="fas fa-upload"></i> Αναμένεται</input>
-                                    </button>
-                                </div>
+                                <th scope="row">
+                                    <div class="upload-btn">
+                                        <input type="file" id="actual-btn" hidden/>
+                                        <label for="actual-btn"><i class="fas fa-upload"></i> Αναμένεται</label>
+                                    </div>
                                 </th>
                                 
                                 <!-- Trigger/Open The Modal -->
