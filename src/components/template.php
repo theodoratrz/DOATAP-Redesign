@@ -1,12 +1,8 @@
 <?php
-<<<<<<< HEAD
-if (!isset($_SESSION)) session_start();
-=======
 if (!isset($_SESSION)) {
     session_start();
 }
 $webDir = "/var/www/html/";
->>>>>>> main
 ?>
 
 <!DOCTYPE html>
