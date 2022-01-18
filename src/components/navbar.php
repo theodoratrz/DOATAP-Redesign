@@ -122,6 +122,21 @@ function echoNavbarContent(array $content)
 		<!-- login--> 
 		<?php
 
+<<<<<<< HEAD
+		require_once $_SERVER['DOCUMENT_ROOT'] . "/api/users.php";
+
+		if (isset($_SESSION['user_id'])) {
+			$userID = $_SESSION['user_id'];
+			$username = getUsername($userID);
+			if (isAdmin($userID)) {
+				echo '<a class ="nav-item">
+					ADMIN: ' . $username . '
+				</a>';
+			} else {
+				echo '<a class ="nav-item">
+					USER: ' . $username . '
+				</a>';
+=======
 		require_once $_SERVER['DOCUMENT_ROOT'] . '/api/users.php';
 
 		if (isset($_SESSION['user_id'])) {
@@ -131,6 +146,7 @@ function echoNavbarContent(array $content)
 				echo '<li class ="custom-nav-item fas fa-user-circle "> ADMIN: ' . getUserInfo($userID)['username'] . '</li>';
 			} else {
 				echo '<li class ="custom-nav-item fas fa-user-circle "> USER: ' . getUserInfo($userID)['username'] . '</li>';
+>>>>>>> main
 			}
 		} else {
 			echo '

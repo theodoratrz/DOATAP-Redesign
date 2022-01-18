@@ -62,7 +62,7 @@ function userAuth(string $username, string $password)
 
     # Encrypt password
     $password = hash('sha256', $password);
-
+    
     # Execute query
     $sql = "SELECT * FROM users WHERE `username`='$username' AND `password`='$password';";
     $result = $conn->query($sql);
@@ -103,3 +103,5 @@ function isAdmin(int $id){
     $row = $result->fetch_assoc();
     return $row['isAdmin'];
 }
+
+// userAuth('nikoz', '1234');

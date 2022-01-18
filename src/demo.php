@@ -5,6 +5,8 @@
 <script src="/js/progress.js"></script> 
 </head>
 
+<link rel="stylesheet" href="css/index.css">
+
 <body>
 
 <div class="container" id="myWizard">
