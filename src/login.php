@@ -23,20 +23,22 @@
                 <hr>
                 <div class="mb-3">
                     <i class="fas fa-user-circle"></i>
-                    <label for="formGroupExampleInput" class="form-label">Όνομα Χρήστη</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" required>
+                    <label for="username-input" class="form-label">Όνομα Χρήστη</label>
+                    <input type="text" class="form-control" id="username-input" required>
                 </div>
                 <div class="mb-3">
                     <i class="fas fa-key"></i>
-                    <label for="formGroupExampleInput2" class="form-label">Κωδικός</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput2" required>
+
+                    <label for="password-input" class="form-label">Κωδικός</label>
+                    <input type="password" class="form-control" id="password-input" required>
+
                 </div>
                 <div class="mb-3">
                     <label>
                         <input type="checkbox" class="form-check-input" name="remember">Remember me
                     </label>
                 </div>
-                <button type="submit" class="btn btn-primary">Σύνδεση</button>
+                <button id = "submit-button"  class="btn btn-primary">Σύνδεση</button>
                 <div class="dropdown-divider"></div>
                 <a class="forgot-item" style="color:blue; text-decoration:double; font-size:medium; text-align:right" href="#">Ξεχάσατε τον κωδικό σας;</button>
                 <a class="create-item" style="color:blue; text-decoration:underline; font-size:x-large; text-align:center" href="register.php">Δημιουργία Λογαριασμού</a>
@@ -49,3 +51,22 @@
 
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/footer.php" ?>
 
+<script>
+
+$("#submit-button").click(function() {
+    let username = $('#username-input').val();
+    let password = $('#password-input').val();
+    $.post("/api/login.php", {
+        username: username,
+        password: password
+    }).done(function(data){
+        if(data === true){
+            // Redirect to home
+        }else{
+            // display error message
+            $("#error-message").text(data);
+        }
+    });
+});
+
+</script>
