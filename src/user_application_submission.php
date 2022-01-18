@@ -10,8 +10,8 @@
         <div class="gray-box">
                 <div class="breadcrumb" style="align-items:end;">
                     <li class="breadcrumb-item"><a href="index.php" style="text-decoration:none;"><i class="fas fa-home" style="font-size:15px;"></i></a></li>
-                    <li class="breadcrumb-item"><a href="applications.php" style="text-decoration:none; font-size:15px;">Αιτήσεις</a></li>
-                    <li class="breadcrumb-item active" aria-current="page" style="font-size:15px;">Διαδικασία Υποβολής</li>
+                    <li class="breadcrumb-item"><a href="applications.php" style="text-decoration:none; font-size:15px;">Το Προφίλ μου</a></li>
+                    <li class="breadcrumb-item active" aria-current="page" style="font-size:15px;">Νέα Αίτηση</li>
                 </div>
         </div>
     <div class="page-content-container" style="margin-bottom:2rem;">

@@ -12,8 +12,8 @@
         <div class="gray-box">
                 <div class="breadcrumb" style="align-items:end;">
                     <li class="breadcrumb-item"><a href="index.php" style="text-decoration:none;"><i class="fas fa-home" style="font-size:15px;"></i></a></li>
-                    <li class="breadcrumb-item"><a href="applications.php" style="text-decoration:none; font-size:15px;">Αιτήσεις</a></li>
-                    <li class="breadcrumb-item active" aria-current="page" style="font-size:15px;">Διαδικασία Υποβολής</li>
+                    <li class="breadcrumb-item"><a href="applications.php" style="text-decoration:none; font-size:15px;">Το Προφίλ μου</a></li>
+                    <li class="breadcrumb-item active" aria-current="page" style="font-size:15px;">Οι Αιτήσεις μου</li>
                 </div>
         </div>
     <div class="page-content-container">
@@ -48,10 +48,28 @@
                                     <th scope="row" style="color:#002e69ce;font-size:large;"><a href="#">34567</a></th>
                                     <td>-</td>
                                     <td>1/12/2021</td>
-                                    <td><a href="#" class="fas fa-trash" style="color:red; text-decoration:none;">
-                                    <div class="popup" onclick="myFunction()">Click me!
-                                        <span class="popuptext" id="myPopup">Popup text...</span>
-                                    </div></a></td>
+                                    <td>
+                                <button type="button" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#exampleModal">
+                                </button></td>
+                                
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                      </div>
+                                      <div class="modal-body">
+                                        Είστε σίγουροι ότι θα θέλατε να διαγράψετε αυτή την αίτηση;
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn" style="background-color:gray; color:white;" data-bs-dismiss="modal">Ακύρωση</button>
+                                        <button type="button" class="btn " style="background-color:red; color:white;" >Διαγραφή</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>          
                                   </tr>
                                 
                                 </tbody>
