@@ -54,16 +54,13 @@ var CheckListItem = function (_React$Component) {
 			return React.createElement(
 				'div',
 				{ style: contentContainerStyle },
-				React.createElement(
-					'span',
-					{ style: spanStyle },
-					content[0]
-				),
-				React.createElement(
-					'span',
-					{ style: spanStyle },
-					content[1]
-				)
+				_this.props.content.map(function (item, index) {
+					return React.createElement(
+						'span',
+						{ key: 'item' + index, style: spanStyle },
+						item
+					);
+				})
 			);
 		}, _temp), _possibleConstructorReturn(_this, _ret);
 	}
@@ -108,16 +105,9 @@ var CheckList = function (_React$Component2) {
 
 		_classCallCheck(this, CheckList);
 
-		/* if (props === undefined) {
-  	this.state = {}
-  } else {
-  	// Maybe this will be needed
-  	this.state = {}
-  } */
 		var _this2 = _possibleConstructorReturn(this, (CheckList.__proto__ || Object.getPrototypeOf(CheckList)).call(this, props));
 
-		_this2.deleteCheckedItems = function () {
-			var nonCheckedItems = [];
+		_this2.selectAllItems = function () {
 			var _iteratorNormalCompletion = true;
 			var _didIteratorError = false;
 			var _iteratorError = undefined;
@@ -126,9 +116,7 @@ var CheckList = function (_React$Component2) {
 				for (var _iterator = _this2.state.items[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 					var item = _step.value;
 
-					if (!item.isChecked) {
-						nonCheckedItems.push(item);
-					}
+					item.isChecked = true;
 				}
 			} catch (err) {
 				_didIteratorError = true;
@@ -141,6 +129,38 @@ var CheckList = function (_React$Component2) {
 				} finally {
 					if (_didIteratorError) {
 						throw _iteratorError;
+					}
+				}
+			}
+
+			_this2.forceUpdate();
+		};
+
+		_this2.deleteCheckedItems = function () {
+			var nonCheckedItems = [];
+			var _iteratorNormalCompletion2 = true;
+			var _didIteratorError2 = false;
+			var _iteratorError2 = undefined;
+
+			try {
+				for (var _iterator2 = _this2.state.items[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+					var item = _step2.value;
+
+					if (!item.isChecked) {
+						nonCheckedItems.push(item);
+					}
+				}
+			} catch (err) {
+				_didIteratorError2 = true;
+				_iteratorError2 = err;
+			} finally {
+				try {
+					if (!_iteratorNormalCompletion2 && _iterator2.return) {
+						_iterator2.return();
+					}
+				} finally {
+					if (_didIteratorError2) {
+						throw _iteratorError2;
 					}
 				}
 			}
@@ -172,39 +192,6 @@ var CheckList = function (_React$Component2) {
 
 		_this2.deleteItem = function (key) {
 			var updatedItems = [];
-			var _iteratorNormalCompletion2 = true;
-			var _didIteratorError2 = false;
-			var _iteratorError2 = undefined;
-
-			try {
-				for (var _iterator2 = _this2.state.items[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-					var item = _step2.value;
-
-					if (item.key !== key) {
-						updatedItems.push(item);
-					}
-				}
-			} catch (err) {
-				_didIteratorError2 = true;
-				_iteratorError2 = err;
-			} finally {
-				try {
-					if (!_iteratorNormalCompletion2 && _iterator2.return) {
-						_iterator2.return();
-					}
-				} finally {
-					if (_didIteratorError2) {
-						throw _iteratorError2;
-					}
-				}
-			}
-
-			_this2.setState({
-				items: updatedItems
-			});
-		};
-
-		_this2.toggleItemCheck = function (key) {
 			var _iteratorNormalCompletion3 = true;
 			var _didIteratorError3 = false;
 			var _iteratorError3 = undefined;
@@ -213,9 +200,8 @@ var CheckList = function (_React$Component2) {
 				for (var _iterator3 = _this2.state.items[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
 					var item = _step3.value;
 
-					if (item.key === key) {
-						item.isChecked = !item.isChecked;
-						break;
+					if (item.key !== key) {
+						updatedItems.push(item);
 					}
 				}
 			} catch (err) {
@@ -233,22 +219,24 @@ var CheckList = function (_React$Component2) {
 				}
 			}
 
-			_this2.forceUpdate();
+			_this2.setState({
+				items: updatedItems
+			});
 		};
 
-		_this2.itemComponents = function (items) {
-			var itemComponents = [];
-
+		_this2.toggleItemCheck = function (key) {
 			var _iteratorNormalCompletion4 = true;
 			var _didIteratorError4 = false;
 			var _iteratorError4 = undefined;
 
 			try {
-				for (var _iterator4 = items[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+				for (var _iterator4 = _this2.state.items[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
 					var item = _step4.value;
 
-					itemComponents.push(React.createElement(CheckListItem, { key: item.key, id: item.key, content: item.content, isChecked: item.isChecked,
-						deleteCallback: _this2.deleteItem, checkCallback: _this2.toggleItemCheck }));
+					if (item.key === key) {
+						item.isChecked = !item.isChecked;
+						break;
+					}
 				}
 			} catch (err) {
 				_didIteratorError4 = true;
@@ -265,20 +253,47 @@ var CheckList = function (_React$Component2) {
 				}
 			}
 
+			_this2.forceUpdate();
+		};
+
+		_this2.itemComponents = function (items) {
+			var itemComponents = [];
+
+			var _iteratorNormalCompletion5 = true;
+			var _didIteratorError5 = false;
+			var _iteratorError5 = undefined;
+
+			try {
+				for (var _iterator5 = items[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+					var item = _step5.value;
+
+					itemComponents.push(React.createElement(CheckListItem, { key: item.key, id: item.key, content: item.content, isChecked: item.isChecked,
+						deleteCallback: _this2.deleteItem, checkCallback: _this2.toggleItemCheck }));
+				}
+			} catch (err) {
+				_didIteratorError5 = true;
+				_iteratorError5 = err;
+			} finally {
+				try {
+					if (!_iteratorNormalCompletion5 && _iterator5.return) {
+						_iterator5.return();
+					}
+				} finally {
+					if (_didIteratorError5) {
+						throw _iteratorError5;
+					}
+				}
+			}
+
 			return itemComponents;
 		};
 
 		_this2.state = {
 			keyCounter: 0,
 			items: []
-			/* inputText: "" */
 		};
 		return _this2;
 	}
-
-	/* updateInputText = event => {
- 	this.setState({inputText: event.target.value})
- } */
 
 	_createClass(CheckList, [{
 		key: 'render',
@@ -289,13 +304,20 @@ var CheckList = function (_React$Component2) {
 				flexDirection: 'column',
 				rowGap: '.25em',
 				width: '100%',
-				flex: '1',
+				maxHeight: '10rem',
 				overflowY: 'scroll'
 			};
 
-			var deleteAllButton = {
+			var buttonsContainerStyle = {
+				display: 'flex',
+				flexDirection: 'row',
+				justifyContent: 'space-between',
+				width: "100%"
+			};
+
+			var buttonStyle = {
 				fontSize: '18px',
-				width: 'max-content'
+				padding: '.15em .8em'
 			};
 
 			return React.createElement(
@@ -306,15 +328,28 @@ var CheckList = function (_React$Component2) {
 					{ style: itemContainerStyle },
 					this.itemComponents(this.state.items)
 				),
-				this.checkedItemExists() ? React.createElement(
-					'button',
-					{ type: 'button', className: 'btn btn-primary', style: deleteAllButton,
-						onClick: this.deleteCheckedItems },
-					this.props.deleteCheckedMsg
-				) : React.createElement(
-					'button',
-					{ type: 'button', className: 'btn btn-primary', style: deleteAllButton, disabled: true },
-					this.props.deleteCheckedMsg
+				React.createElement(
+					'div',
+					{ style: buttonsContainerStyle },
+					this.state.items.length > 0 ? React.createElement(
+						'button',
+						{ type: 'button', className: 'btn btn-primary', style: buttonStyle, onClick: this.selectAllItems },
+						this.props.selectAllMsg
+					) : React.createElement(
+						'button',
+						{ type: 'button', className: 'btn btn-primary', style: buttonStyle, disabled: true },
+						this.props.selectAllMsg
+					),
+					this.checkedItemExists() ? React.createElement(
+						'button',
+						{ type: 'button', className: 'btn btn-primary', style: buttonStyle,
+							onClick: this.deleteCheckedItems },
+						this.props.deleteCheckedMsg
+					) : React.createElement(
+						'button',
+						{ type: 'button', className: 'btn btn-primary', style: buttonStyle, disabled: true },
+						this.props.deleteCheckedMsg
+					)
 				)
 			);
 		}
@@ -336,7 +371,8 @@ var checklistWrapper = {
 	display: 'flex',
 	flexDirection: 'column',
 	rowGap: '.25em',
-	width: '100%'
+	width: '100%',
+	alignItems: 'center'
 };
 
 var checklistTitles = {
@@ -345,7 +381,8 @@ var checklistTitles = {
 	justifyContent: 'space-between',
 	padding: '0em min(8em, 20vw) 0em 1em',
 	borderBottom: '2px solid #0055c3',
-	fontWeight: 'bolder'
+	fontWeight: 'bolder',
+	width: '100%'
 
 	// React places the rendered component as innerHTML for the selected DOM element 
 };var domContainer = document.querySelector('#checklist_container');
@@ -358,18 +395,13 @@ ReactDOM.render(React.createElement(
 		React.createElement(
 			'span',
 			null,
-			'\u038A\u03B4\u03C1\u03C5\u03BC\u03B1'
-		),
-		React.createElement(
-			'span',
-			null,
-			'\u03A4\u03BC\u03AE\u03BC\u03B1'
+			'\u039C\u03AC\u03B8\u03B7\u03BC\u03B1'
 		)
 	),
 	React.createElement(CheckList, { ref: function ref(checkListComponent) {
 			window.checkListComponent = checkListComponent;
 		},
-		containerStyle: containerStyle, deleteCheckedMsg: 'Διαγραφή Επιλεγμένων' })
+		containerStyle: containerStyle, selectAllMsg: 'Επιλογή Όλων', deleteCheckedMsg: 'Διαγραφή Επιλεγμένων' })
 ), domContainer);
 
 // To refer to the component from the DOM, use `window.checkListComponent`

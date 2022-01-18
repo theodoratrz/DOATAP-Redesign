@@ -37,8 +37,7 @@ class CheckListItem extends React.Component {
 
 		return (
 			<div style={contentContainerStyle}>
-				<span style={spanStyle}>{content[0]}</span>
-				<span style={spanStyle}>{content[1]}</span>
+				{this.props.content.map((item, index) => <span key={`item${index}`} style={spanStyle}>{item}</span>)}
 			</div>
 		);
 	}
@@ -72,22 +71,18 @@ class CheckList extends React.Component {
 
 	constructor(props = undefined) {
 		super(props);
-		/* if (props === undefined) {
-			this.state = {}
-		} else {
-			// Maybe this will be needed
-			this.state = {}
-		} */
 		this.state = {
 			keyCounter: 0,
-			items: [],
-			/* inputText: "" */
+			items: []
 		}
-	}	
+	}
 
-	/* updateInputText = event => {
-		this.setState({inputText: event.target.value})
-	} */
+	selectAllItems = () => {
+		for (const item of this.state.items) {
+			item.isChecked = true;
+		}
+		this.forceUpdate();
+	}
 
 	deleteCheckedItems = () => {
 		let nonCheckedItems = [];
@@ -162,35 +157,48 @@ class CheckList extends React.Component {
 			flexDirection: 'column',
 			rowGap: '.25em',
 			width: '100%',
-			flex: '1',
+			maxHeight: '10rem',
 			overflowY: 'scroll'
 		}
 
-		const deleteAllButton = {
+		const buttonsContainerStyle = {
+			display: 'flex',
+			flexDirection: 'row',
+			justifyContent: 'space-between',
+			width: "100%"
+		}
+
+		const buttonStyle = {
 			fontSize: '18px',
-			width: 'max-content'
+			padding: '.15em .8em'
 		}
 		
 		return (
 		<div style={this.props.containerStyle}>
 			<div style={itemContainerStyle}>
 				{this.itemComponents(this.state.items)}
-			</div>			
-			{/* <form style={formStyle} className="new-item-form" onSubmit={this.addItem}>            
-				<input style={inputStyle} onChange={this.updateInputText} value={this.state.inputText}
-				onSubmit={this.addItem} className="new-item-input"/>
-				<button type="submit" className="operation-button">Add+</button>
-			</form> */}
-			{
-				this.checkedItemExists() ? 
-				<button type="button" className="btn btn-primary" style={deleteAllButton}
-				 onClick={this.deleteCheckedItems}>
-					{this.props.deleteCheckedMsg}
-				</button> :
-				<button type="button" className="btn btn-primary" style={deleteAllButton} disabled>
-					{this.props.deleteCheckedMsg}
-				</button>
-			}
+			</div>
+			<div style={buttonsContainerStyle}>
+				{
+					this.state.items.length > 0 ?
+					<button type="button" className="btn btn-primary" style={buttonStyle} onClick={this.selectAllItems}>
+						{this.props.selectAllMsg}
+					</button>:
+					<button type="button" className="btn btn-primary" style={buttonStyle} disabled>
+						{this.props.selectAllMsg}
+					</button>
+				}
+				{
+					this.checkedItemExists() ? 
+					<button type="button" className="btn btn-primary" style={buttonStyle}
+					onClick={this.deleteCheckedItems}>
+						{this.props.deleteCheckedMsg}
+					</button> :
+					<button type="button" className="btn btn-primary" style={buttonStyle} disabled>
+						{this.props.deleteCheckedMsg}
+					</button>
+				}
+			</div>
 		</div>
 		);
 	}
@@ -209,7 +217,8 @@ const checklistWrapper = {
 	display: 'flex',
 	flexDirection: 'column',
 	rowGap: '.25em',
-	width: '100%'
+	width: '100%',
+	alignItems: 'center'
 }
 
 const checklistTitles = {
@@ -218,7 +227,8 @@ const checklistTitles = {
 	justifyContent: 'space-between',
 	padding: '0em min(8em, 20vw) 0em 1em',
 	borderBottom: '2px solid #0055c3',
-	fontWeight: 'bolder'
+	fontWeight: 'bolder',
+	width: '100%'
 }
 
 // React places the rendered component as innerHTML for the selected DOM element 
@@ -226,11 +236,10 @@ const domContainer = document.querySelector('#checklist_container');
 ReactDOM.render(
 	<div style={checklistWrapper}>
 		<div style={checklistTitles}>
-            <span>Ίδρυμα</span>
-            <span>Τμήμα</span>
+            <span>Μάθημα</span>
         </div>
 		<CheckList ref={(checkListComponent) => {window.checkListComponent = checkListComponent}}
-		containerStyle={containerStyle} deleteCheckedMsg={'Διαγραφή Επιλεγμένων'}/>
+		containerStyle={containerStyle} selectAllMsg={'Επιλογή Όλων'} deleteCheckedMsg={'Διαγραφή Επιλεγμένων'}/>
 	</div>
 , domContainer);
  
