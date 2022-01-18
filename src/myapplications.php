@@ -20,36 +20,38 @@
     
         <?php 
             require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php"?>
-            <div class="page-content-container">
                         <div class="table-wrapper">
-
-                            <form method="" action="" id=""> 
+                            <form> 
                                 <div class="table">
-                                    <div class="row">
+                                    <div class="row" style="diplay:flex; flex-direction:row; justify-content:space-evenly;">
                                         <h2>Αιτήσεις </h2>
                                         <div style="background-color:#77B6EA; width:max-content; padding:0rem; height:max-content; border-radius:5%;">
                                             <button style="font-size:medium; color:#002E69; padding:0.5rem; margin-bottom:0rem;justify-content:center;" type="submit" name="submit" 
                                             value="Αίτηση" data-toggle="modal"  
-                                            data-target="#newApplication" class="btn btn-success" ></input>
-                                                <i class="fas fa-file-alt" aria-hidden="true" "></i> Νέα Αίτηση
+                                            data-target="#newApplication" class="btn btn-success" ><i class="fas fa-file-alt" aria-hidden="true" ></i> Νέα Αίτηση</input>
                                             </button>
                                         </div>
                                     </div>
                                 </div>
 
-                                <table class="table">
+                                <table class="table" style="text-align:center">
                                 <thead>
                                   <tr>
                                     <th scope="col">Αίτηση</th>
                                     <th scope="col">Κατάσταση</th>
                                     <th scope="col">Ημ/νία Υποβολής</th>
+                                    <th scope="col"></th>
                                   </tr>
                                 </thead>
                                 <tbody>
                                   <tr>
                                     <th scope="row" style="color:#002e69ce;font-size:large;"><a href="#">34567</a></th>
                                     <td>-</td>
-                                    <td><a href="#" class="fas fa-trash" style="color:red; text-decoration:none;"></a></td>
+                                    <td>1/12/2021</td>
+                                    <td><a href="#" class="fas fa-trash" style="color:red; text-decoration:none;">
+                                    <div class="popup" onclick="myFunction()">Click me!
+                                        <span class="popuptext" id="myPopup">Popup text...</span>
+                                    </div></a></td>
                                   </tr>
                                 
                                 </tbody>
@@ -57,7 +59,14 @@
                             </form>
 
                         </div></div>
-        </div>
 </div>
 </body>
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/footer.php" ?>
+
+<script>
+// When the user clicks on <div>, open the popup
+function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
+</script>

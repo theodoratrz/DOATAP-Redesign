@@ -45,6 +45,7 @@ $('#no_mls_entry').popover('show').focus();
                 <div class="form-fields-group-vertical">
                 ';
                 echoTextField('titlos', 'Τίτλος Σπουδών', "Παρακαλώ, συμπληρώστε Τίτλος Σπουδών.", $values['titlos']);
+                
                 echoTextField('ects', 'Πιστωτικές Μονάδες(credits)', "Παρακαλώ, συμπληρώστε Πιστωτικές Μονάδες.", $values['ects']);
                 echoTextField('uni', 'Πανεπιστήμιο', "Παρακαλώ, αναζητήστε πανεπιστήμιο για αντιστοίχιση.", $values['uni']);
                 echoTextField('tei', 'ΤΕΙ', "Παρακαλώ, αναζητήστε ΤΕΙ για αντιστοίχιση.", $values['tei']);

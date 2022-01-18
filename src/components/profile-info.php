@@ -70,7 +70,6 @@
         <div class='field-container'>
             <label for='$fieldID' class='form-label'>$description</label>
             <input type='text' class='form-control' id='$fieldID' value='$value' >
-            <a tabindex='0' class='btn btn-lg btn-danger' role='button' data-bs-toggle='popover' data-bs-trigger='focus' title='Dismissible popover' data-bs-content='And here's some amazing content. It's very engaging. Right?'>Dismissible popover</a>
             <div class='invalid-feedback'>
             $invalidInputMsg
             </div>
@@ -242,6 +241,8 @@
                 echoTextField('email', 'Διεύθυνση Ηλ. Ταχυδρομείου', "Παρακαλώ, επιλέξτε διεύθυνση email.", $values['email']);
                 echoPwdField('pwd', 'Κωδικός', "Παρακαλώ, επιλέξτε κωδικό.", $values['pwd']);
                 echoPwdField('pwd_dup', 'Επιβεβαίωση Κωδικού', "Παρακαλώ, επιβεβαιώστε τον κωδικό σας.", $values['pwd_dup']);
+                echoRadioField('gender', 'Φύλο', "Παρακαλώ, επιλέξτε φύλο.",
+                            array("Άνδρας", "Γυναίκα", "Άλλο"), $values['gender']);
 
                 echo '
                 </div>';
@@ -256,8 +257,7 @@
             echoTextField('fathersName', 'Πατρώνυμο', "Παρακαλώ, επιλέξτε πατρώνυμο.", $values['fathersName']);
             echoTextField('mothersName', 'Μητρώνυμο', "Παρακαλώ, επιλέξτε πατρώνυμο.", $values['mothersName']);
             echoDateField('birthDate', "Ημ. γέννησης", "Παρακαλώ, επιλέξτε ημ. γέννησης.", $values['birthDate']);
-            echoRadioField('gender', 'Φύλο', "Παρακαλώ, επιλέξτε φύλο.",
-                            array("Άνδρας", "Γυναίκα", "Άλλο"), $values['gender']);
+            
 
             echo '
             </div>';
