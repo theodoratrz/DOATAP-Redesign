@@ -1,3 +1,4 @@
+
 <?php
     # require $_SERVER['DOCUMENT_ROOT'] . "/api/applications.php";
 
@@ -68,10 +69,12 @@
         echo "
         <div class='field-container'>
             <label for='$fieldID' class='form-label'>$description</label>
-            <input type='text' class='form-control' id='$fieldID' value='$value'>
+            <input type='text' class='form-control' id='$fieldID' value='$value' >
             <div class='invalid-feedback'>
             $invalidInputMsg
             </div>
+            
+
         </div>
         ";
     }
@@ -238,6 +241,8 @@
                 echoTextField('email', 'Διεύθυνση Ηλ. Ταχυδρομείου', "Παρακαλώ, επιλέξτε διεύθυνση email.", $values['email']);
                 echoPwdField('pwd', 'Κωδικός', "Παρακαλώ, επιλέξτε κωδικό.", $values['pwd']);
                 echoPwdField('pwd_dup', 'Επιβεβαίωση Κωδικού', "Παρακαλώ, επιβεβαιώστε τον κωδικό σας.", $values['pwd_dup']);
+                echoRadioField('gender', 'Φύλο', "Παρακαλώ, επιλέξτε φύλο.",
+                            array("Άνδρας", "Γυναίκα", "Άλλο"), $values['gender']);
 
                 echo '
                 </div>';
@@ -252,8 +257,7 @@
             echoTextField('fathersName', 'Πατρώνυμο', "Παρακαλώ, επιλέξτε πατρώνυμο.", $values['fathersName']);
             echoTextField('mothersName', 'Μητρώνυμο', "Παρακαλώ, επιλέξτε πατρώνυμο.", $values['mothersName']);
             echoDateField('birthDate', "Ημ. γέννησης", "Παρακαλώ, επιλέξτε ημ. γέννησης.", $values['birthDate']);
-            echoRadioField('gender', 'Φύλο', "Παρακαλώ, επιλέξτε φύλο.",
-                            array("Άνδρας", "Γυναίκα", "Άλλο"), $values['gender']);
+            
 
             echo '
             </div>';

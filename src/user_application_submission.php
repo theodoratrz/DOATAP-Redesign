@@ -2,62 +2,251 @@
 
 <link rel="stylesheet" href="/css/index.css">
 <link rel="stylesheet" href="/css/user.css">
-<head>
-<script src="/js/progress.js"></script> 
-</head>
+<link rel="stylesheet" href="/css/form.css">
+
 <body>
 <div class="page-container fluid-container">
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/navbar.php" ?>
         <div class="gray-box">
                 <div class="breadcrumb" style="align-items:end;">
                     <li class="breadcrumb-item"><a href="index.php" style="text-decoration:none;"><i class="fas fa-home" style="font-size:15px;"></i></a></li>
-                    <li class="breadcrumb-item"><a href="applications.php" style="text-decoration:none; font-size:15px;">Αιτήσεις</a></li>
-                    <li class="breadcrumb-item active" aria-current="page" style="font-size:15px;">Διαδικασία Υποβολής</li>
+                    <li class="breadcrumb-item"><a href="applications.php" style="text-decoration:none; font-size:15px;">Το Προφίλ μου</a></li>
+                    <li class="breadcrumb-item active" aria-current="page" style="font-size:15px;">Νέα Αίτηση</li>
                 </div>
         </div>
-    <div class="page-content-container">
+    <div class="page-content-container" style="margin-bottom:2rem;">
+    
         <?php 
-            require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
+            require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php"?>
+        <?php
             require_once $_SERVER['DOCUMENT_ROOT'] . "/components/content_tabs.php";
-            const tab_sample_content = array(
+            require_once $_SERVER['DOCUMENT_ROOT'] . "/titlos_spoudon.php";
+            require_once $_SERVER['DOCUMENT_ROOT'] . "/components/profile-info.php";
+
+            const sample_form_values = array(
+                "uname" => "",
+                "email" => "",
+                "pwd" => "",
+                "pwd_dup" => "",
+        
+                "fname" => "Κώστας",
+                "surname" => "Χρήστου",
+                "fathersName" => "Χρήστος",
+                "mothersName" => "Μαρία",
+                "birthDate" => "31-1-1999",
+                "gender" => "Άνδρας",
+        
+                "country" => "",
+                "city" => "",
+                "address" => "",
+        
+                "docSelection" => "Ταυτότητα",
+                "docID" => "14572",
+        
+                "mobilePhone" => "6969696969",
+                "homePhone" => "2106969696",
+            );
+        
+            const sample_titlos_values = array(
+                "titlos" => "",
+                "ects" => "",
+                "uni" => "",
+                "tei" => "",
+        
+                "fname" => "Κώστας",
+                "surname" => "Χρήστου",
+                "fathersName" => "Χρήστος",
+                "mothersName" => "Μαρία",
+                "entryDate" => "31-1-1999",
+                "graduationDate" => "31-1-1999",
+                "attendance" => "Άνδρας",
+                "fullTime" => "Άνδρας",
+        
+                "country" => "",
+                "universityAbroad" => "",
+                "attendanceTime" => "",
+        
+                "docSelection" => "Ταυτότητα",
+                "docID" => "14572",
+        
+                "mobilePhone" => "6969696969",
+                "homePhone" => "2106969696",
+            );
+            ob_start();
+            echoTitlosForm(sample_titlos_values,true);
+            $val = ob_get_contents();
+            ob_end_clean();
+
+            ob_start();
+            echoProfileInfoForm(sample_form_values,true);
+            $val2 = ob_get_contents();
+            ob_end_clean();
+
+            $tab_sample_content = array(
                 "<i class='fas fa-info-circle'></i><br> Προσωπικά Στοιχεία" => array(
                     "basic_info",
-                    '<p><strong>This is some placeholder content the Βασικές Πληροφορίες tab\'s associated content.</strong>
-                    Clicking another tab will toggle the visibility of this one for the next.
-                    The tab JavaScript swaps classes to control the content visibility and styling.
-                    You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>'
+                    $val2
                 ),
                 "<i class='fas fa-edit'></i> <br>Τίτλος Σπουδών" => array(
                     "selected_deps",
-                    '<p><strong>This is some placeholder content the Επιλεγμένα Τμήματα tab\'s associated content.</strong>
-                    Clicking another tab will toggle the visibility of this one for the next.
-                    The tab JavaScript swaps classes to control the content visibility and styling.
-                    You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>'
-                ),
-                "<i class='fas fa-pencil-alt'></i><br> Συνεκτίμηση Τίτλου" => array(
-                    "course_choices",
-                    '<p><strong>This is some placeholder content the Επιλογές Αντιστοίχησης tab\'s associated content.</strong>
-                    Clicking another tab will toggle the visibility of this one for the next.
-                    The tab JavaScript swaps classes to control the content visibility and styling.
-                    You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>'
+                 
+                    $val
                 ),
                 "<i class='fas fa-cloud-upload-alt'></i> <br>Επισυναπτόμενα" => array(
-                    "course_choices",
-                    '<p><strong>This is some placeholder content the Επιλογές Αντιστοίχησης tab\'s associated content.</strong>
-                    Clicking another tab will toggle the visibility of this one for the next.
-                    The tab JavaScript swaps classes to control the content visibility and styling.
-                    You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>'
+                    "upload",
+                    '
+                    <div class="table-wrapper" style="background-color:transparent">
+                        <form> 
+                            <div class="table">
+                                <div class="row" style="diplay:flex; flex-direction:row; justify-content:space-evenly;">
+                                    <h6><i class="fas fa-info-circle"></i>Μεταφόρτωση Απαραίτητων Δικαιολογητικών </h6>
+                                    
+                                </div>
+                            </div>
+
+                            <table class="table" style="text-align:left">
+                            <thead>
+                            <tr>
+                                <th scope="col">Δικαιολογητικό</th>
+                                <th scope="col">Αρχείο</th>
+                                <th scope="col"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Έγγραφο Ταυτοπροσωπίας</td>
+                                <th scope="row">
+                                    <div class="upload-btn">
+                                        <input type="file" id="actual-btn" hidden/>
+                                        <label for="actual-btn"><i class="fas fa-upload"></i> Αναμένεται</label>
+                                    </div>
+                                </th>
+                                
+                                <!-- Trigger/Open The Modal -->
+                                <td>
+                                <button type="button" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#exampleModal">
+                                </button></td>
+                                
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                      </div>
+                                      <div class="modal-body">
+                                        Είστε σίγουροι ότι θα θέλατε να διαγράψετε αυτό το δικαιολογητικό;
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn" style="background-color:gray; color:white;" data-bs-dismiss="modal">Ακύρωση</button>
+                                        <button type="button" class="btn " style="background-color:red; color:white;" >Διαγραφή</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>                                
+                                
+                            </tr>
+                            
+                            <tr>
+                                <td>Αίτηση</td>
+                                <th scope="row">
+                                    <div class="upload-btn">
+                                        <input type="file" id="actual-btn" hidden/>
+                                        <label for="actual-btn"><i class="fas fa-upload"></i> Αναμένεται</label>
+                                    </div>
+                                </th>
+                                
+                                <!-- Trigger/Open The Modal -->
+                                <td>
+                                <button type="button" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#exampleModal">
+                                </button></td>
+                                
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                      </div>
+                                      <div class="modal-body">
+                                        Είστε σίγουροι ότι θα θέλατε να διαγράψετε αυτό το δικαιολογητικό;
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn" style="background-color:gray; color:white;" data-bs-dismiss="modal">Ακύρωση</button>
+                                        <button type="button" class="btn " style="background-color:red; color:white;" >Διαγραφή</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>                                
+                                
+                            </tr>
+
+                            <tr>
+                                <td>Παράβολα</td>
+                                <th scope="row">
+                                    <div class="upload-btn">
+                                        <input type="file" id="actual-btn" hidden/>
+                                        <label for="actual-btn"><i class="fas fa-upload"></i> Αναμένεται</label>
+                                    </div>
+                                </th>
+                                
+                                <!-- Trigger/Open The Modal -->
+                                <td>
+                                <button type="button" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#exampleModal">
+                                </button></td>
+                                
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                      </div>
+                                      <div class="modal-body">
+                                        Είστε σίγουροι ότι θα θέλατε να διαγράψετε αυτό το δικαιολογητικό;
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn" style="background-color:gray; color:white;" data-bs-dismiss="modal">Ακύρωση</button>
+                                        <button type="button" class="btn " style="background-color:red; color:white;" >Διαγραφή</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>                                
+                                
+                            </tr>
+                            </tbody>
+                        </table>
+                        </form>
+                        <div style=" background-color:#269b65; width:max-content; padding:0rem; height:max-content; border-radius:5%;">
+                        <button style="font-size:medium; color:white; padding:0.5rem; font-weight:500; margin-bottom:0rem;" type="submit" name="submit" 
+                        value="δικαιολογητικο" data-toggle="modal"  
+                        data-target="#newApplication" class="btn btn-success" ><i class="fas fa-file-alt" aria-hidden="true" ></i> Προσθήκη Δικαιολογητικού</input>
+                        </button>
+                    </div>
+                    </div>
+                    
+                   '
                 )
             );
             
-            echoContentTabs(tab_sample_content,"user-tab-wrapper");
+            echoContentTabs($tab_sample_content,"user-tab-wrapper");
         ?>
             
     </div>
-    <div class="application-actions-container">
-    <a href="procedure_submission.php" class="fas fa-arrow-circle-left" style="text-decoration:none; color:#002E69; cursor:pointer;">Προηγούμενο</a>
-    <a href="procedure_submission.php" class="fas fa-save" style="text-decoration:none; color:#002E69; cursor:pointer;">Προσωρινή Αποθήκευση</a>
-    <a href="procedure_submission.php" class="fas fa-arrow-circle-right" style="text-decoration:none; color:#002E69; cursor:pointer;">Επόμενο</a>
-    </div>
+    
 </div>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/footer.php" ?>
+
+<script>
+var myModal = document.getElementById('myModal')
+var myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', function () {
+  myInput.focus()
+})
+
+</script>
 </body>
