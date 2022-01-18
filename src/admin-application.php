@@ -41,28 +41,25 @@
     </style>
 
     <div class="central-container">
-        <?php 
+        <?php
         require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
         require_once  $_SERVER['DOCUMENT_ROOT'] . "/components/content_tabs.php"; 
-        require_once  $_SERVER['DOCUMENT_ROOT'] . "/components/admin-application-approve.php"; 
+        require_once  $_SERVER['DOCUMENT_ROOT'] . "/components/application_approve_component.php";
+        require_once  $_SERVER['DOCUMENT_ROOT'] . "/components/application_courses_component.php";
         $tabContent = array(
             "Στοιχεία Αίτησης" => array(
                 "application-info",
-                '<p><strong>This is the Βασικές Πληροφορίες tab\'s associated content.</strong>
-                Clicking another tab will toggle the visibility of this one for the next.
-                The tab JavaScript swaps classes to control the content visibility and styling.
-                You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>'
+                getApplicationCoursesFrozenForm('uni1', 'dep1')
             ),
-            "Αντιστοίχηση & Έγκριση" => array(
+            "Αντιστοίχιση & Έγκριση" => array(
                 "match-approve",
                 getApplicationApproveForm()
+                #getApplicationApproveFrozenForm('ιδρυμα1', 'τμημα1')
             ),
             "Ανάθεση Μαθημάτων" => array(
-                "blabla",
-                '<p><strong>This is the Επιλογές Αντιστοίχησης tab\'s associated content.</strong>
-                Clicking another tab will toggle the visibility of this one for the next.
-                The tab JavaScript swaps classes to control the content visibility and styling.
-                You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>'
+                "attach-courses",
+                getApplicationCoursesForm()
+                #getApplicationCoursesFrozenForm('uni1', 'dep1')
             ),
         );
         echoContentTabs($tabContent, "admin-tab-wrapper");
