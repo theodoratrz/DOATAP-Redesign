@@ -2,8 +2,9 @@
 
 <link rel="stylesheet" href="/css/index.css">
 <link rel="stylesheet" href="/css/user.css">
+<link rel="stylesheet" href="/css/form.css">
 <head>
-<script src="/js/progress.js"></script> 
+<script></script> 
 </head>
 <body>
 <div class="page-container fluid-container">
@@ -16,10 +17,38 @@
                 </div>
         </div>
     <div class="page-content-container">
+    
         <?php 
-            require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
+            require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php"?>
+        <?php
             require_once $_SERVER['DOCUMENT_ROOT'] . "/components/content_tabs.php";
             require_once $_SERVER['DOCUMENT_ROOT'] . "/titlos_spoudon.php";
+            require_once $_SERVER['DOCUMENT_ROOT'] . "/components/profile-info.php";
+
+            const sample_form_values = array(
+                "uname" => "",
+                "email" => "",
+                "pwd" => "",
+                "pwd_dup" => "",
+        
+                "fname" => "Κώστας",
+                "surname" => "Χρήστου",
+                "fathersName" => "Χρήστος",
+                "mothersName" => "Μαρία",
+                "birthDate" => "31-1-1999",
+                "gender" => "Άνδρας",
+        
+                "country" => "",
+                "city" => "",
+                "address" => "",
+        
+                "docSelection" => "Ταυτότητα",
+                "docID" => "14572",
+        
+                "mobilePhone" => "6969696969",
+                "homePhone" => "2106969696",
+            );
+        
             const sample_titlos_values = array(
                 "titlos" => "",
                 "ects" => "",
@@ -45,17 +74,26 @@
                 "mobilePhone" => "6969696969",
                 "homePhone" => "2106969696",
             );
+            ob_start();
+            echoTitlosForm(sample_titlos_values,true);
+            $val = ob_get_contents();
+            ob_end_clean();
+
+            ob_start();
+            echoProfileInfoForm(sample_form_values,true);
+            $val2 = ob_get_contents();
+            ob_end_clean();
+
             $tab_sample_content = array(
                 "<i class='fas fa-info-circle'></i><br> Προσωπικά Στοιχεία" => array(
                     "basic_info",
-                    '<p><strong>This is some placeholder content the Βασικές Πληροφορίες tab\'s associated content.</strong>
-                    Clicking another tab will toggle the visibility of this one for the next.
-                    The tab JavaScript swaps classes to control the content visibility and styling.
-                    You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>'
+                    
+                    $val2
                 ),
                 "<i class='fas fa-edit'></i> <br>Τίτλος Σπουδών" => array(
                     "selected_deps",
-                    echoTitlosForm(sample_titlos_values,true)
+                 
+                    $val
                 ),
                 "<i class='fas fa-pencil-alt'></i><br> Συνεκτίμηση Τίτλου" => array(
                     "course_choices",
@@ -73,14 +111,12 @@
                 )
             );
             
-            echoContentTabs($tab_sample_content,);
+            echoContentTabs($tab_sample_content,"user-tab-wrapper");
         ?>
             
     </div>
-    <div class="application-actions-container">
-    <a href="procedure_submission.php" class="fas fa-arrow-circle-left" style="text-decoration:none; color:#002E69; cursor:pointer;">Προηγούμενο</a>
-    <a href="procedure_submission.php" class="fas fa-save" style="text-decoration:none; color:#002E69; cursor:pointer;">Προσωρινή Αποθήκευση</a>
-    <a href="procedure_submission.php" class="fas fa-arrow-circle-right" style="text-decoration:none; color:#002E69; cursor:pointer;">Επόμενο</a>
-    </div>
+    
 </div>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/footer.php" ?>
+
 </body>

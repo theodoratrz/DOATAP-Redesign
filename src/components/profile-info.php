@@ -1,3 +1,4 @@
+
 <?php
     # require $_SERVER['DOCUMENT_ROOT'] . "/api/applications.php";
 
@@ -68,10 +69,13 @@
         echo "
         <div class='field-container'>
             <label for='$fieldID' class='form-label'>$description</label>
-            <input type='text' class='form-control' id='$fieldID' value='$value'>
+            <input type='text' class='form-control' id='$fieldID' value='$value' >
+            <a tabindex='0' class='btn btn-lg btn-danger' role='button' data-bs-toggle='popover' data-bs-trigger='focus' title='Dismissible popover' data-bs-content='And here's some amazing content. It's very engaging. Right?'>Dismissible popover</a>
             <div class='invalid-feedback'>
             $invalidInputMsg
             </div>
+            
+
         </div>
         ";
     }
