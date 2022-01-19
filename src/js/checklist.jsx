@@ -37,7 +37,7 @@ class CheckListItem extends React.Component {
 
 		return (
 			<div style={contentContainerStyle}>
-				{this.props.content.map((item, index) => <span key={`item${index}`} style={spanStyle}>{item}</span>)}
+				{content.map((item, index) => <span key={`item${index}`} style={spanStyle}>{item}</span>)}
 			</div>
 		);
 	}
@@ -244,4 +244,3 @@ ReactDOM.render(
 , domContainer);
  
 // To refer to the component from the DOM, use `window.checkListComponent`
-

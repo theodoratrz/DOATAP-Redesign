@@ -76,9 +76,18 @@ form[name="courses-submission-form"] .form-control::placeholder {
     max-width: 85vw;
 }
 
+.modal-title {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.modal-body {
+    font-size: 18px;
+}
+
 </style>
 <script>
-    const coursesNamespace = {
+    var coursesNamespace = {
         handleUniversityOnKeyUp: () => {
             const universitySelection = document.getElementById("courses-university-selection");
             let departmentSelection = document.getElementById("courses-department-selection");
@@ -108,6 +117,7 @@ form[name="courses-submission-form"] .form-control::placeholder {
                     if (university.value === universityInput.value) {
                         function storeDepartments(departments) {
                             for (const department of departments) {
+                                console.log(department);
                                 let optionNode = document.createElement("option");
                                 optionNode.setAttribute('data-dep-id', department.dep_id);
                                 optionNode.id = `dep_${department.dep_id}`;
@@ -136,43 +146,47 @@ form[name="courses-submission-form"] .form-control::placeholder {
             }
         },
     
-        submitApplicationCourses: event => {
-            event.preventDefault();
+        submitApplicationCourses: event => {     
+            event.preventDefault();       
             const universitySelection = document.getElementById("courses-university-selection");
             const departmentSelection = document.getElementById("courses-department-selection");
+            const selectedCourses = window.checkListComponent.state.items.map(item => item.content[0]);
 
             if (universitySelection.value === "" || departmentSelection.value === "") {
-                let errorMsgElement = document.getElementById("courses-error-msg-container");
-                document.getElementById('courses-error-message').innerHTML = 'Εκρεμμεί η επιλογή ιδρύματος και τμήματος.';
-                errorMsgElement.style.display = 'block';
-            } else {
+                document.getElementById('modal-body-msg').innerHTML = 'Εκρεμμεί η επιλογή ιδρύματος και τμήματος.';
+                $('#errorMsgModal').modal("show");
+            }
+            else if (selectedCourses.length === 0) {
+                document.getElementById('modal-body-msg').innerHTML = 'Εκρεμμεί η επιλογή μαθημάτων προς ανάθεση.';
+                $('#errorMsgModal').modal("show");
+            }
+            else {
                 $.ajax({
                     type: "POST",
                     url: "/submit_application_courses.php",
                     dataType: "json",
                     success: answer => {
+                        alert(answer);
                         document.forms["courses-submission-form"].submit();
                     },
                     error: answer => {
                         // Reject submission
-                        let errorMsgElement = document.getElementById("courses-error-msg-container");
-                        document.getElementById('courses-error-message').innerHTML = answer;
-                        errorMsgElement.style.display = 'block';
+                        document.getElementById('modal-body-msg').innerHTML = answer;
+                        $('#errorMsgModal').modal("show");
                         return false;
                     },
                     data: {
                         "university": universitySelection.value,
-                        "department": departmentSelection.value
+                        "department": departmentSelection.value,
+                        "courses": selectedCourses
                     }
                 });
             }
-        },
-
-        closeErrorMsg: () => {
-            let errorMsgElement = document.getElementById("courses-error-msg-container");
-            errorMsgElement.style.display = 'none';
-            document.getElementById('courses-error-message').innerHTML = '';
         }
+    }
+
+    function hideModal() {
+        $("#errorMsgModal").modal("toggle");
     }
 
     function addCourse() {
@@ -200,22 +214,34 @@ form[name="courses-submission-form"] .form-control::placeholder {
     # getUniversities("gr")
 } */
 
+function getErrorMsgModal() {
+    return '
+    <div class="modal fade" id="errorMsgModal" tabindex="-1" role="dialog" aria-labelledby="errorMsgModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title" id="errorMsgModalLabel">Σφάλμα</span>
+            </div>
+            <div id="modal-body-msg" class="modal-body">
+                Μπλα μπλα
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary close-message-btn" data-dismiss="modal" onclick="hideModal()">Κλείσιμο</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    ';
+}
+
 function getApplicationCoursesForm()
 {
     return '
     <div class="admin-courses-container">
-        <div class="alert alert-danger courses-error-message-container" role="alert" id="courses-error-msg-container">
-            <h5 class="alert-heading">Σφάλμα</h5>
-            <p id="courses-error-message"></p>
-            <hr>
-            <button type="button" class="btn btn-secondary close-message-btn" onclick="coursesNamespace.closeErrorMsg()">
-                Κλείσιμο
-            </button>
-        </div>
         <span style="font-size: 21px">
             Eπιλέξτε ίδρυμα & τμήμα και εισάγετε τα απαιτούμενα μαθήματα από το επιλεγμένο τμήμα:
         </span>
-        <form name="courses-submission-form" action="index.php?application_id=148&status=accepted" method="POST" 
+        <form name="courses-submission-form" action="/index.php?application_id=148&status=accepted" method="POST" 
         onsubmit="coursesNamespace.submitApplicationCourses(event)">
             <div class="courses-form-contents">
                 <div class="courses-form-field">
@@ -232,17 +258,16 @@ function getApplicationCoursesForm()
                 </div>
                 <div class="courses-form-field">
                     <label class="bold-label" for="courses-department-selection">Επιλέξτε Τμήμα:</label>
-                    <input class="form-control" list="departmentOptions" id="courses-department-selection" placeholder="Επιλέξτε Τμήμα..."
+                    <input class="form-control" list="coursesDepartmentOptions" id="courses-department-selection" placeholder="Επιλέξτε Τμήμα..."
                     autocomplete="off" disabled>
                     <span class="courses-form-extra-info">Μπορείτε επίσης να εισάγετε Τμήμα εκτός λίστας.</span>
                     <datalist id="coursesDepartmentOptions">
                     </datalist>
                 </div>
-                <span class="courses-form-extra-info">Παρακάτω μπορείτε να εισάγετε μαθήματα για ανάθεση:</span>
                 <div style="display: flex; flex-direction: row; flex-wrap: wrap; column-gap: 1em; row-gap: .5em; align-items:flex-end;">                    
                     <div class="courses-form-field">
                         <span class="bold-label" for="courses-input">Επιλέξτε Μάθημα:</span>
-                        <input class="form-control" list="departmentOptions" id="courses-input" placeholder="Επιλέξτε Μάθημα...">
+                        <input class="form-control" id="courses-input" placeholder="Επιλέξτε Μάθημα...">
                     </div>
                     <button type="button" onclick="addCourse()" style="font-size:20px; height: 2em;
                      padding: .25em 1em;" class="btn btn-primary">
@@ -257,7 +282,8 @@ function getApplicationCoursesForm()
                 </div>
             </div>
         </form>
-    </div>
+    </div>' .
+    getErrorMsgModal() . '
     <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
     <script src="/js/checklist.js"></script>

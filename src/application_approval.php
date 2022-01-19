@@ -10,7 +10,7 @@ if ( (!array_key_exists('university', $_POST)) || (!array_key_exists('department
 $universityName = $_POST["university"];
 $departmentName = $_POST["department"];
 
-$results = getDepartments($universityID);
+#$results = getDepartments($universityID);
 
-echo json_encode($results);
+echo json_encode(array($universityName, $departmentName));
 ?>

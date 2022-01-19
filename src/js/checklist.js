@@ -54,7 +54,7 @@ var CheckListItem = function (_React$Component) {
 			return React.createElement(
 				'div',
 				{ style: contentContainerStyle },
-				_this.props.content.map(function (item, index) {
+				content.map(function (item, index) {
 					return React.createElement(
 						'span',
 						{ key: 'item' + index, style: spanStyle },
