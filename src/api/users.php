@@ -2,7 +2,7 @@
 
 require_once "db_connect.php";
 
-function newUser(string $username, string $password, string $email, bool $isAdmin)
+function newUser($username, $password, $email, $isAdmin)
 {
     global $conn;
     global $db_error_message;
@@ -41,7 +41,7 @@ function newUser(string $username, string $password, string $email, bool $isAdmi
     return true;
 }
 
-function userAuth(string $username, string $password)
+function userAuth($username, $password)
 {
     global $conn;
     global $db_error_message;
@@ -71,7 +71,7 @@ function userAuth(string $username, string $password)
     }
 }
 
-function getUserInfo(int $id){
+function getUserInfo($id){
     global $conn;
     $sql = "SELECT * FROM users WHERE `user_id`=$id;";
     $result = $conn->query($sql);
@@ -82,7 +82,7 @@ function getUserInfo(int $id){
     return $row;
 }
 
-function isAdmin(int $id){
+function isAdmin($id){
     global $conn;
     $sql = "SELECT isAdmin FROM users WHERE `user_id`=$id;";
     $result = $conn->query($sql);

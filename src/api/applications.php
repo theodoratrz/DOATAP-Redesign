@@ -2,7 +2,7 @@
 
 require_once "db_connect.php";
 
-function getApplications(int $userID){
+function getApplications($userID){
     global $conn, $db_error_message;
 
     $sql = "SELECT a.app_id, c.name as country, d.name as department, un.name as university
@@ -26,7 +26,7 @@ function getApplications(int $userID){
 
 }
 
-function getDepartments(int $universityID){
+function getDepartments($universityID){
     global $conn;
     $sql = "SELECT * FROM departments WHERE university = $universityID";
     $result = $conn->query($sql);
@@ -34,7 +34,7 @@ function getDepartments(int $universityID){
     return $rows;
 }
 
-function getUniversities(int $countryID){
+function getUniversities($countryID){
     global $conn;
     $sql = "SELECT * FROM universities WHERE country = $countryID";
     $result = $conn->query($sql);
