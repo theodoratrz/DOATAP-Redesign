@@ -59,7 +59,7 @@
             "Ανάθεση Μαθημάτων" => array(
                 "attach-courses",
                 getApplicationCoursesForm()
-                #getApplicationCoursesFrozenForm('uni1', 'dep1')
+                #getApplicationCoursesFrozen('uni1', 'dep1', array('ΕΑΜ', 'OOP', 'ΤΕΔΕ'))
             ),
         );
         echoContentTabs($tabContent, "admin-tab-wrapper");

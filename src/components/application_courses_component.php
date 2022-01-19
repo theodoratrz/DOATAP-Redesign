@@ -41,6 +41,11 @@ form[name="courses-submission-form"] .form-control::placeholder {
 .submit-courses-button .btn.btn-primary {
     font-size: 20px;
 }
+.courses-list {
+    display: flex;
+    flex-direction: column;
+    column-gap: .5em;
+}
 
 .courses-form-field .form-control {
     width: 20em;
@@ -289,25 +294,37 @@ function getApplicationCoursesForm()
     ';
 }
 
-function getApplicationCoursesFrozenForm(string $university, string $department)
+function getSelectedCourses(array $courses) {
+    $ret = '';
+    foreach ($courses as $course) {
+        $ret = $ret . '<li>'. $course . '</li>';
+    }
+    return $ret;
+}
+
+function getApplicationCoursesFrozen(string $university, string $department, array $courses)
 {
     return '
     <div class="admin-courses-container">
         <span style="font-size: 21px">
-            Έχει επιλεγεί το ακόλουθο ίδρυμα & τμήμα για αντιστοίχιση τίτλου σπουδών:
+            Εχουν ανατεθεί τα ακόλουθα μαθήματα για την πραγματοποίηση αντιστοίχισης:
         </span>
-        <form name="courses-submission-form">
-            <div class="courses-form-contents">
-                <div class="courses-form-field">
-                    <span class="bold-label">Επιλεγμένο Ίδρυμα:</span>
-                    <span>' . $university . '</span>
-                </div>
-                <div class="courses-form-field">
-                    <span class="bold-label">Επιλεγμένο Τμήμα:</span>
-                    <span>' . $department . '</span>
-                </div>
+        <div class="courses-form-contents">
+            <div class="courses-form-field">
+                <span class="bold-label">Επιλεγμένο Ίδρυμα:</span>
+                <span>' . $university . '</span>
             </div>
-        </form>
+            <div class="courses-form-field">
+                <span class="bold-label">Επιλεγμένο Τμήμα:</span>
+                <span>' . $department . '</span>
+            </div>
+            <div class="courses-form-field">
+                <span class="bold-label">Επιλεγμένα Μαθήματα:</span>
+                <ul>'.
+                getSelectedCourses($courses)
+                .'</ul>
+            </div>
+        </div>
     </div>
     ';
 }
