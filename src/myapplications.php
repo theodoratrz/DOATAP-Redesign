@@ -52,60 +52,6 @@
 }
 
 </style>
-<?php 
-
-const applicationID = '<th><a href="#">2345</a></th>';
-
-const storedStatusIcon = '<td style="text-align: -moz-center; text-align: center;">
-<div class="application-status status-stored"> 
-  <i class="fas fa-lock-open"></i>
-  Προσωρινά Αποθηκευμένη
-</div>
-</td>';
-
-const submittedStatusIcon = '<td style="text-align: -moz-center;">
-<div style="background-color:#1bca26bf; padding:0rem; height:max-content; width:fit-content;
-font-size:medium; color:#002E69; padding:0.5rem; margin-bottom:0rem;justify-content:center;">
-  <i class="fas fa-lock"></i> Οριστικοποιημένη
-</div>
-</td>';
-
-const declinedStatusIcon = '<td style="text-align: -moz-center;">
-<div style="background-color:#f00c; padding:0rem; height:max-content; width:fit-content;
-font-size:medium; color:#002E69; padding:0.5rem; margin-bottom:0rem;justify-content:center;">
-  <i class="fas fa-ban"></i> Απορρίφθηκε
-</div>
-</td>';
-
-const date = "<td>1/12/2021</td>";
-
-const editActionsContainer = '<td style="text-align: -moz-center;">
-<div>
-  <button style="background-color:#77B6EA; width:max-content; padding:0rem; height:max-content; border-radius:5%; width:fit-content;
-  font-size:medium; color:#002E69; padding:0.5rem; margin-bottom:0rem;justify-content:center;"   
-  class="btn btn-success">
-    <i class="fas fa-edit"></i>
-    Επεξεργασία
-  </button>
-</div>
-
-<button type="button" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#exampleModal">
-</button>
-</td>';
-
-const viewActionContainer = '<td style="text-align: -moz-center;">
-<div>
-  <button style="background-color:#77B6EA; width:max-content; padding:0rem; height:max-content; border-radius:5%; width:fit-content;
-  font-size:medium; color:#002E69; padding:0.5rem; margin-bottom:0rem;justify-content:center;"   
-  class="btn btn-success" >
-    <i class="fas fa-eye"></i> Προβολή
-  </button>
-</div>
-</td>';
-
-
-
-?>
 
 <link rel="stylesheet" href="/css/index.css">
 <link rel="stylesheet" href="/css/user.css">
@@ -124,9 +70,9 @@ const viewActionContainer = '<td style="text-align: -moz-center;">
     <div class="page-content-container">
     
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php"?>
+
       <div class="table-wrapper">
-        <form method="GET" action="/application_watch.php" onsubmit="">                               
-          <div style="display:flex; flex-direction:row; justify-content:space-between;margin-bottom:1rem;">
+          <div style="display:flex; flex-direction:row; justify-content:space-between;margin-bottom:1rem; width:inherit; align-items:center;">
             <h2>Αιτήσεις </h2>
             <div style="background-color:#20c997; width:max-content; padding:0rem; height:max-content; border-radius:5%;width:fit-content;">
                 <button style="font-size:medium; color:black; padding:0.5rem; margin-bottom:0rem;justify-content:center;" type="submit" name="submit" 
@@ -221,10 +167,10 @@ const viewActionContainer = '<td style="text-align: -moz-center;">
                       <td>' . $application["date_modified"] . '</td>
                       <td style="text-align: -moz-center;">
                       <div>
-                        <button data-application-id="' . $application["application_id"] . '"
-                        class="btn btn-success application-action-button" >
+                        <a href="/application_watch?application_id="' . $application["application_id"] . '"
+                        class="btn btn-success application-action-button">
                           <i class="fas fa-eye"></i> Προβολή
-                        </button>
+                        </a>
                       </div>
                       </td>';
                       break;
@@ -238,10 +184,10 @@ const viewActionContainer = '<td style="text-align: -moz-center;">
                       <td>' . $application["date_modified"] . '</td>
                       <td style="text-align: -moz-center;">
                       <div>
-                        <button data-application-id="' . $application["application_id"] . '"
-                        class="btn btn-success application-action-button" >
+                        <a href="/application_watch?application_id="' . $application["application_id"] . '"
+                        class="btn btn-success application-action-button">
                           <i class="fas fa-eye"></i> Προβολή
-                        </button>
+                        </a>
                       </div>
                       </td>';
                       break;
@@ -255,10 +201,10 @@ const viewActionContainer = '<td style="text-align: -moz-center;">
                       <td>' . $application["date_modified"] . '</td>
                       <td style="text-align: -moz-center;">
                       <div>
-                        <button data-application-id="' . $application["application_id"] . '"
-                        class="btn btn-success application-action-button" >
+                        <a href="/application_watch?application_id="' . $application["application_id"] . '"
+                        class="btn btn-success application-action-button">
                           <i class="fas fa-eye"></i> Προβολή
-                        </button>
+                        </a>
                       </div>
                       </td>';
                       break;
@@ -272,10 +218,10 @@ const viewActionContainer = '<td style="text-align: -moz-center;">
                       <td>' . $application["date_modified"] . '</td>
                       <td style="text-align: -moz-center;">
                       <div>
-                        <button data-application-id="' . $application["application_id"] . '"
-                        class="btn btn-success application-action-button" >
+                        <a href="/application_watch?application_id="' . $application["application_id"] . '"
+                        class="btn btn-success application-action-button">
                           <i class="fas fa-eye"></i> Προβολή
-                        </button>
+                        </a>
                       </div>
                       </td>';
                       break;
@@ -283,23 +229,21 @@ const viewActionContainer = '<td style="text-align: -moz-center;">
                       echo '
                       <td style="text-align: -moz-center; text-align: center;">
                         <div class="application-status status-stored"> 
-                          <i class="fas fa-lock-open"></i>
-                          Προσωρινά Αποθηκευμένη
+                          <i class="fas fa-lock-open"></i>Προσωρινά Αποθηκευμένη
                         </div>
                       </td>
                       <td>' . $application["date_modified"] . '</td>
                       <td style="text-align: -moz-center;">
                         <div>
-                          <button data-application-id="' . $application["application_id"] . '"
-                          class="btn btn-success application-action-button" >
+                          <a href="/application_watch?application_id="' . $application["application_id"] . '"
+                          class="btn btn-success application-action-button">
                             <i class="fas fa-edit"></i>
                             Επεξεργασία
-                          </button>
+                          </a>
                         </div>
-
                         <button type="button" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#exampleModal">
                         </button>
-                        </td>
+                      </td>
                       ';
                       break;
                   }
@@ -310,7 +254,6 @@ const viewActionContainer = '<td style="text-align: -moz-center;">
                               
             </tbody>
           </table>
-        </form>
       </div>
     </div>
 </div>
