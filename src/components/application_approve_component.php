@@ -148,7 +148,6 @@ form[name="match-approve-form"] .form-control::placeholder {
                     let errorMsgElement = document.getElementById("error-msg-container");
                     document.getElementById('error-message').innerHTML = answer;
                     errorMsgElement.style.display = 'block';
-                    return false;
                 },
                 data: {
                     "university": universitySelection.value,

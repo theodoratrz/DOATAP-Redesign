@@ -144,9 +144,10 @@ form[name="courses-submission-form"] .form-control::placeholder {
                     }
                 }
             }
-        },
-    
-        submitApplicationCourses: event => {     
+        }
+    }
+
+    function submitApplicationCourses(event) {     
             event.preventDefault();       
             const universitySelection = document.getElementById("courses-university-selection");
             const departmentSelection = document.getElementById("courses-department-selection");
@@ -166,14 +167,14 @@ form[name="courses-submission-form"] .form-control::placeholder {
                     url: "/submit_application_courses.php",
                     dataType: "json",
                     success: answer => {
-                        alert(answer);
+                        //console.log(answer);
+                        //window.alert();
                         document.forms["courses-submission-form"].submit();
                     },
                     error: answer => {
                         // Reject submission
                         document.getElementById('modal-body-msg').innerHTML = answer;
                         $('#errorMsgModal').modal("show");
-                        return false;
                     },
                     data: {
                         "university": universitySelection.value,
@@ -183,7 +184,6 @@ form[name="courses-submission-form"] .form-control::placeholder {
                 });
             }
         }
-    }
 
     function hideModal() {
         $("#errorMsgModal").modal("toggle");
@@ -201,18 +201,18 @@ form[name="courses-submission-form"] .form-control::placeholder {
 
 <?php
 
-/* function getUniversityOptions()
+function getCourseUniversityOptions()
 {
     return '
-    <option id="uni_1" data-uni-id="1" value="ΕΚΠΑ">
-    <option id="uni_2" data-uni-id="2" value="ΕΜΠ">
-    <option id="uni_3" data-uni-id="3" value="ΟΠΑ">
-    <option id="uni_4" data-uni-id="4" value="ΑΠΘ">
-    <option id="uni_5" data-uni-id="5" value="Παν. Μακεδονίας">
+    <option id="course_uni_1" data-uni-id="1" value="ΕΚΠΑ">
+    <option id="course_uni_2" data-uni-id="2" value="ΕΜΠ">
+    <option id="course_uni_3" data-uni-id="3" value="ΟΠΑ">
+    <option id="course_uni_4" data-uni-id="4" value="ΑΠΘ">
+    <option id="course_uni_5" data-uni-id="5" value="Παν. Μακεδονίας">
     ';
 
     # getUniversities("gr")
-} */
+}
 
 function getErrorMsgModal() {
     return '
@@ -241,8 +241,7 @@ function getApplicationCoursesForm()
         <span style="font-size: 21px">
             Eπιλέξτε ίδρυμα & τμήμα και εισάγετε τα απαιτούμενα μαθήματα από το επιλεγμένο τμήμα:
         </span>
-        <form name="courses-submission-form" action="/index.php?application_id=148&status=accepted" method="POST" 
-        onsubmit="coursesNamespace.submitApplicationCourses(event)">
+        <form name="courses-submission-form" action="index.php?application_id=148&status=accepted" method="POST" onsubmit="submitApplicationCourses(event)">
             <div class="courses-form-contents">
                 <div class="courses-form-field">
                     <label class="bold-label" for="courses-university-selection">Επιλέξτε Ίδρυμα:</label>
@@ -251,7 +250,7 @@ function getApplicationCoursesForm()
                     <span class="courses-form-extra-info">Μπορείτε επίσης να εισάγετε Ίδρυμα εκτός λίστας.</span>
                     <datalist id="coursesUniversityOptions">' .
 
-                    getUniversityOptions()
+                    getCourseUniversityOptions()
                     
                     . '
                     </datalist>
@@ -266,7 +265,7 @@ function getApplicationCoursesForm()
                 </div>
                 <div style="display: flex; flex-direction: row; flex-wrap: wrap; column-gap: 1em; row-gap: .5em; align-items:flex-end;">                    
                     <div class="courses-form-field">
-                        <span class="bold-label" for="courses-input">Επιλέξτε Μάθημα:</span>
+                        <span class="bold-label">Επιλέξτε Μάθημα:</span>
                         <input class="form-control" id="courses-input" placeholder="Επιλέξτε Μάθημα...">
                     </div>
                     <button type="button" onclick="addCourse()" style="font-size:20px; height: 2em;

@@ -49,7 +49,7 @@
         $tabContent = array(
             "Στοιχεία Αίτησης" => array(
                 "application-info",
-                getApplicationCoursesFrozenForm('uni1', 'dep1')
+                "<div></div>"
             ),
             "Αντιστοίχιση & Έγκριση" => array(
                 "match-approve",
