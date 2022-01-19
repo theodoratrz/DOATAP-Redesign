@@ -15,7 +15,25 @@
                 </div>
         </div>
     <div class="page-content-container" style="margin-bottom:2rem;">
-    
+
+         <!-- Modal -->
+         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Είστε σίγουροι ότι θα θέλατε να διαγράψετε αυτό το δικαιολογητικό;
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn" style="background-color:gray; color:white;" data-bs-dismiss="modal">Ακύρωση</button>
+                  <button type="button" class="btn " style="background-color:red; color:white;" >Διαγραφή</button>
+                </div>
+              </div>
+            </div>
+          </div>    
         <?php 
             require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php"?>
         <?php
@@ -81,7 +99,7 @@
             echoProfileInfoForm(sample_form_values,true);
             $val2 = ob_get_contents();
             ob_end_clean();
-
+            
             $tab_sample_content = array(
                 "<i class='fas fa-info-circle'></i><br> Προσωπικά Στοιχεία" => array(
                     "basic_info",
@@ -115,117 +133,57 @@
                             <tbody>
                             <tr>
                                 <td>Έγγραφο Ταυτοπροσωπίας</td>
-                                <th scope="row">
-                                    <div class="upload-btn">
-                                        <input type="file" id="actual-btn" hidden/>
-                                        <label for="actual-btn"><i class="fas fa-upload"></i> Αναμένεται</label>
-                                    </div>
+                                <th>
+                                  <div style="color:#ff6000; font-size:medium;">
+                                    <i class="fas fa-exclamation-circle"></i> Αναμένεται</label>
+                                </div>
                                 </th>
                                 
                                 <!-- Trigger/Open The Modal -->
                                 <td>
                                 <button type="button" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#exampleModal">
-                                </button></td>
-                                
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                  <div class="modal-dialog">
-                                    <div class="modal-content">
-                                      <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                      </div>
-                                      <div class="modal-body">
-                                        Είστε σίγουροι ότι θα θέλατε να διαγράψετε αυτό το δικαιολογητικό;
-                                      </div>
-                                      <div class="modal-footer">
-                                        <button type="button" class="btn" style="background-color:gray; color:white;" data-bs-dismiss="modal">Ακύρωση</button>
-                                        <button type="button" class="btn " style="background-color:red; color:white;" >Διαγραφή</button>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>                                
-                                
+                                </button>
+                                </td>
                             </tr>
                             
                             <tr>
                                 <td>Αίτηση</td>
-                                <th scope="row">
-                                    <div class="upload-btn">
-                                        <input type="file" id="actual-btn" hidden/>
-                                        <label for="actual-btn"><i class="fas fa-upload"></i> Αναμένεται</label>
-                                    </div>
+                                <th>
+                                  <div style="color:#ff6000; font-size:medium;">
+                                     <i class="fas fa-exclamation-circle"></i> Αναμένεται</label>
+                                  </div>
                                 </th>
                                 
                                 <!-- Trigger/Open The Modal -->
                                 <td>
                                 <button type="button" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#exampleModal">
-                                </button></td>
-                                
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                  <div class="modal-dialog">
-                                    <div class="modal-content">
-                                      <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                      </div>
-                                      <div class="modal-body">
-                                        Είστε σίγουροι ότι θα θέλατε να διαγράψετε αυτό το δικαιολογητικό;
-                                      </div>
-                                      <div class="modal-footer">
-                                        <button type="button" class="btn" style="background-color:gray; color:white;" data-bs-dismiss="modal">Ακύρωση</button>
-                                        <button type="button" class="btn " style="background-color:red; color:white;" >Διαγραφή</button>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>                                
-                                
+                                </button>
+                                </td>
                             </tr>
 
                             <tr>
                                 <td>Παράβολα</td>
-                                <th scope="row">
-                                    <div class="upload-btn">
-                                        <input type="file" id="actual-btn" hidden/>
-                                        <label for="actual-btn"><i class="fas fa-upload"></i> Αναμένεται</label>
+                                <th>
+                                    <div style="color:#ff6000; font-size:medium;">
+                                        <i class="fas fa-exclamation-circle"></i> Αναμένεται</label>
                                     </div>
                                 </th>
                                 
                                 <!-- Trigger/Open The Modal -->
                                 <td>
                                 <button type="button" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#exampleModal">
-                                </button></td>
-                                
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                  <div class="modal-dialog">
-                                    <div class="modal-content">
-                                      <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                      </div>
-                                      <div class="modal-body">
-                                        Είστε σίγουροι ότι θα θέλατε να διαγράψετε αυτό το δικαιολογητικό;
-                                      </div>
-                                      <div class="modal-footer">
-                                        <button type="button" class="btn" style="background-color:gray; color:white;" data-bs-dismiss="modal">Ακύρωση</button>
-                                        <button type="button" class="btn " style="background-color:red; color:white;" >Διαγραφή</button>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>                                
-                                
+                                </button>
+                                </td>
+                               
                             </tr>
                             </tbody>
                         </table>
                         </form>
-                        <div style=" background-color:#269b65; width:max-content; padding:0rem; height:max-content; border-radius:5%;">
-                        <button style="font-size:medium; color:white; padding:0.5rem; font-weight:500; margin-bottom:0rem;" type="submit" name="submit" 
-                        value="δικαιολογητικο" data-toggle="modal"  
-                        data-target="#newApplication" class="btn btn-success" ><i class="fas fa-file-alt" aria-hidden="true" ></i> Προσθήκη Δικαιολογητικού</input>
-                        </button>
-                    </div>
+                        
+                        <div class="upload-btn">
+                            <input type="file" id="actual-btn" hidden/>
+                            <label for="actual-btn"><i class="fas fa-cloud-upload-alt"></i> Προσθήκη Δικαιολογητικού</label>
+                        </div>
                     </div>
                     
                    '

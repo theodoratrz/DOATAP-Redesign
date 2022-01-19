@@ -130,7 +130,25 @@ function echoNavbarContent(array $content)
 			if (isAdmin($userID)) {
 				echo '<li class ="custom-nav-item fas fa-user-circle "> ADMIN: ' . getUserInfo($userID)['username'] . '</li>';
 			} else {
-				echo '<li class ="custom-nav-item fas fa-user-circle "> USER: ' . getUserInfo($userID)['username'] . '</li>';
+				echo '
+				<div class="login-signup-navbar-container d-flex justify-content-end">
+				<div class="dropdown">
+					<a class="btn dropdown-toggle fas fa-user-circle " style="color:white; font-weight:100; font-size:20px; 
+					padding:0rem; align-items:center;" href="../user_profile.php" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" 
+					aria-expanded="false">'
+					. getUserInfo($userID)['username'] .
+					'</a>
+
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+						<li><a class="dropdown-item" href="../user_profile.php">Το Προφίλ μου</a></li>
+						<li><a class="dropdown-item" href="../user_application_submission.php">Νέα Αίτηση</a></li>
+						<li><a class="dropdown-item" href="../myapplications.php">Οι Αιτήσεις μου</a></li>
+					</ul>
+				</div>
+				<span style="color:white">|</span>
+				<a href="register.php" class="login-link fas fa-sign-out-alt">Αποσύνδεση</a>
+			 
+			</div>';
 			}
 		} else {
 			echo '
