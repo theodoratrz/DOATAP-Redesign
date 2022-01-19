@@ -134,7 +134,7 @@ function echoNavbarContent(array $content)
 				<div class="login-signup-navbar-container d-flex justify-content-end">
 				<div class="dropdown">
 					<a class="btn dropdown-toggle fas fa-user-circle " style="color:white; font-weight:100; font-size:20px; 
-					padding:0rem; align-items:center;" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" 
+					padding:0rem; align-items:center;" href="../profile.php" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" 
 					aria-expanded="false">'
 					. getUserInfo($userID)['username'] .
 					'</a>

@@ -22,16 +22,16 @@
             require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php"?>
                         <div class="table-wrapper">
                             <form> 
-                                <div class="table">
-                                    <div class="row" style="diplay:flex; flex-direction:row; justify-content:space-evenly;">
-                                        <h2>Αιτήσεις </h2>
-                                        <div style="background-color:#77B6EA; width:max-content; padding:0rem; height:max-content; border-radius:5%;">
-                                            <button style="font-size:medium; color:#002E69; padding:0.5rem; margin-bottom:0rem;justify-content:center;" type="submit" name="submit" 
-                                            value="Αίτηση" data-toggle="modal"  
-                                            data-target="#newApplication" class="btn btn-success" ><i class="fas fa-file-alt" aria-hidden="true" ></i> Νέα Αίτηση</input>
-                                            </button>
-                                        </div>
-                                    </div>
+                               
+                              <div style="display:flex; flex-direction:row; justify-content:space-between;margin-bottom:1rem;">
+                                  <h2>Αιτήσεις </h2>
+                                  <div style="background-color:#20c997; width:max-content; padding:0rem; height:max-content; border-radius:5%;width:fit-content;">
+                                      <button style="font-size:medium; color:black; padding:0.5rem; margin-bottom:0rem;justify-content:center;" type="submit" name="submit" 
+                                      value="Αίτηση" data-toggle="modal"  
+                                      data-target="#newApplication" class="btn btn-success" ><i class="fas fa-file-alt" aria-hidden="true" ></i> Νέα Αίτηση</input>
+                                      </button>
+                                  </div>
+                                   
                                 </div>
 
                                 <table class="table" style="text-align:center">
@@ -40,18 +40,28 @@
                                     <th scope="col">Αίτηση</th>
                                     <th scope="col">Κατάσταση</th>
                                     <th scope="col">Ημ/νία Υποβολής</th>
-                                    <th scope="col"></th>
+                                    <th scope="col">Ενέργειες</th>
                                   </tr>
                                 </thead>
                                 <tbody>
                                   <tr>
-                                    <th scope="row" style="color:#002e69ce;font-size:large;"><a href="#">34567</a></th>
-                                    <td>-</td>
+                                    <th><a href="#">2345</a></th>
+                                    <td style="text-align: -moz-center;">
+                                    <div style="background-color:#fd7e14b3; padding:0rem; height:max-content;width:fit-content;
+                                    font-size:medium; color:#002E69; padding:0.5rem; margin-bottom:0rem;justify-content:center;"   
+                                     ><i class="fas fa-lock-open"></i> Προσωρινά Αποθηκευμένη</input>
+                                    </td>
                                     <td>1/12/2021</td>
-                                    <td>
+                                    <td style="text-align: -moz-center;">
+                                    <div>
+                                      <button style="background-color:#77B6EA; width:max-content; padding:0rem; height:max-content; border-radius:5%; width:fit-content;
+                                      font-size:medium; color:#002E69; padding:0.5rem; margin-bottom:0rem;justify-content:center;"   
+                                     class="btn btn-success" ><i class="fas fa-edit"></i> Επεξεργασία</input>
+                                      </button>
+                                    
                                 <button type="button" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#exampleModal">
                                 </button></td>
-                                
+                                </div>
                                 <!-- Modal -->
                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                   <div class="modal-dialog">
@@ -71,7 +81,86 @@
                                   </div>
                                 </div>          
                                   </tr>
-                                
+                                 
+                                  <tr>
+                                    <th><a href="#">2345</a></th>
+                                    <td style="text-align: -moz-center;">
+                                    <div style="background-color:#1bca26bf; padding:0rem; height:max-content; width:fit-content;
+                                    font-size:medium; color:#002E69; padding:0.5rem; margin-bottom:0rem;justify-content:center;"   
+                                    ><i class="fas fa-lock"></i> Οριστικοποιημένη</input>
+                                    </td>
+                                    <td>1/12/2021</td>
+                                    <td style="text-align: -moz-center;">
+                                    <div>
+                                      <button style="background-color:#77B6EA; width:max-content; padding:0rem; height:max-content; border-radius:5%; width:fit-content;
+                                      font-size:medium; color:#002E69; padding:0.5rem; margin-bottom:0rem;justify-content:center;"   
+                                     class="btn btn-success" ><i class="fas fa-eye"></i> Προβολή</input>
+                                      </button>
+                                    
+                                <button type="button" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#exampleModal">
+                                </button></td>
+                                </div>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                      </div>
+                                      <div class="modal-body">
+                                        Είστε σίγουροι ότι θα θέλατε να διαγράψετε αυτή την αίτηση;
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn" style="background-color:gray; color:white;" data-bs-dismiss="modal">Ακύρωση</button>
+                                        <button type="button" class="btn " style="background-color:red; color:white;" >Διαγραφή</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>          
+                                  </tr>
+                                  
+                                  <tr>
+                                    <th>
+                                      <a href="#">2345</a>
+                                    </th>
+                                    <td style="text-align: -moz-center;">
+                                    <div style="background-color:#f00c; padding:0rem; height:max-content; width:fit-content;
+                                    font-size:medium; color:#002E69; padding:0.5rem; margin-bottom:0rem;justify-content:center;"   
+                                     ><i class="fas fa-ban"></i> Απορρίφθηκε</input>
+                                    </td>
+                                    <td>1/12/2021</td>
+                                    <td style="text-align: -moz-center;">
+                                    <div>
+                                    <button style="background-color:#77B6EA; width:max-content; padding:0rem; height:max-content; border-radius:5%; width:fit-content;
+                                      font-size:medium; color:#002E69; padding:0.5rem; margin-bottom:0rem;justify-content:center;"   
+                                     class="btn btn-success" ><i class="fas fa-eye"></i> Προβολή</input>
+                                      </button>
+                                      </button>
+                                    
+                                <button type="button" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#exampleModal">
+                                </button></td>
+                                </div>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                      </div>
+                                      <div class="modal-body">
+                                        Είστε σίγουροι ότι θα θέλατε να διαγράψετε αυτή την αίτηση;
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn" style="background-color:gray; color:white;" data-bs-dismiss="modal">Ακύρωση</button>
+                                        <button type="button" class="btn " style="background-color:red; color:white;" >Διαγραφή</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>          
+                                  </tr>
+                                  <tr>
                                 </tbody>
                               </table>
                             </form>
