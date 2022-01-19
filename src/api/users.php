@@ -2,7 +2,9 @@
 
 require_once "db_connect.php";
 
-function newUser($username, $password, $email, $isAdmin)
+function newUser($username, $password, $email, $firstName, $lastName, 
+$mothersName, $fathersName, $country, $city, $address,
+$docType, $docNumber, $gender, $birthday, $mobile, $phone, $isAdmin)
 {
     global $conn;
     global $db_error_message;
@@ -10,12 +12,23 @@ function newUser($username, $password, $email, $isAdmin)
     # Escape sql characters
     $username = e($username);
     $email = e($email);
+    $firstName = e($firstName);
+    $lastName = e($lastName);
+    $mothersName = e($mothersName);
+    $fathersName = e($fathersName);
+    $country = e($country);
+    $city = e($city);
+    $address = e($address);
+    $docType = e($docType);
+    $docNumber = e($docNumber);
+    $gender = e($gender);
+    $birthday = e($birthday);
+    $mobile = e($mobile);
+    $phone = e($phone);
 
     # Encrypt password
     $password = hash('sha256', $password);
-
     $isAdmin = $isAdmin ? 1 : 0;
-
 
     # Check existing username
     $sql = "SELECT username FROM users WHERE `username`='$username'";
@@ -34,7 +47,14 @@ function newUser($username, $password, $email, $isAdmin)
     }
 
     # Make query
-    $sql = "INSERT INTO users(`username`, `password`, `email`, `isAdmin`) VALUES('$username', '$password', '$email', $isAdmin);";
+    $sql = "INSERT INTO users(`username`, `password`, `email`, `isAdmin`,
+            `first_name`, `last_name`, `mothers_name`, `fathers_name`,
+            `country`, `city`, `address`, `docType`, `docNumber`,
+            `gender`, `birthday`, `mobile`, `phone`)
+            VALUES('$username', '$password', '$email', '$isAdmin',
+            '$firstName', '$lastName', '$mothersName', '$fathersName',
+            '$country', '$city', '$address', '$docType', '$docNumber',
+            '$gender', '$birthday', '$mobile', '$phone');";
     $conn->query($sql);
 
     $_SESSION['user_id'] = $conn->insert_id;

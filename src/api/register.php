@@ -25,7 +25,12 @@ require_once "users.php";
 
 $data = $_POST;
 
-if (newUser($data['uname'], $data['pwd'], $data['email'], 0) == true){
+if (newUser($data['uname'], $data['pwd'], $data['email'],
+            $data['fname'], $data['surname'], $data['mothersName'], $data['fathersName'],
+            $data['country'], $data['city'], $data['address'],
+            $data['docSelection'], $data['docID'], $data['gender'],
+            $data['birthDate-year'].'-'.$data['birthDate-month'].'-'.$data['birthDate-day'],
+            $data['mobilePhone'], $data['homePhone'], 0) == true){
     echo 'success';
 }else{
     echo $db_error_message;
