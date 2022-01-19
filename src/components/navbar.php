@@ -134,15 +134,15 @@ function echoNavbarContent(array $content)
 				<div class="login-signup-navbar-container d-flex justify-content-end">
 				<div class="dropdown">
 					<a class="btn dropdown-toggle fas fa-user-circle " style="color:white; font-weight:100; font-size:20px; 
-					padding:0rem; align-items:center;" href="../profile.php" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" 
+					padding:0rem; align-items:center;" href="../user_profile.php" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" 
 					aria-expanded="false">'
 					. getUserInfo($userID)['username'] .
 					'</a>
 
 					<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-						<li><a class="dropdown-item" href="/profil.php">Το Προφίλ μου</a></li>
-						<li><a class="dropdown-item" href="/user_application_submission.php">Νέα Αίτηση</a></li>
-						<li><a class="dropdown-item" href="/myapplications.php">Οι Αιτήσεις μου</a></li>
+						<li><a class="dropdown-item" href="../user_profile.php">Το Προφίλ μου</a></li>
+						<li><a class="dropdown-item" href="../user_application_submission.php">Νέα Αίτηση</a></li>
+						<li><a class="dropdown-item" href="../myapplications.php">Οι Αιτήσεις μου</a></li>
 					</ul>
 				</div>
 				<span style="color:white">|</span>
