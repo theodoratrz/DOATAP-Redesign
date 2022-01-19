@@ -16,18 +16,6 @@ function newUser(string $username, string $password, string $email, bool $isAdmi
 
     $isAdmin = $isAdmin ? 1 : 0;
 
-    # Check valid username
-    if (!preg_match("/^[A-Za-z0-9_]+$/", $username)) {
-        $db_error_message = "This username is not valid. Try using only characters, numbers and underscores";
-        return false;
-    }
-
-    # Check valid email
-    if (!preg_match('/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/', $email)) {
-        $db_error_message = "Please insert a valid email";
-        return false;
-    }
-
 
     # Check existing username
     $sql = "SELECT username FROM users WHERE `username`='$username'";
@@ -50,6 +38,7 @@ function newUser(string $username, string $password, string $email, bool $isAdmi
     $conn->query($sql);
 
     $_SESSION['user_id'] = $conn->insert_id;
+    return true;
 }
 
 function userAuth(string $username, string $password)

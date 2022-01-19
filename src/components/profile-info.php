@@ -48,15 +48,15 @@
             <div class="date-container">
                 <div class="date-field-container" style="width: 3rem;">
                     <label for="' . $dateID . '-day">Ημέρα</label>
-                    <input type="number" class="form-control" id="' . $dateID . '-day" value="' . $dateValues["day"] . '">
+                    <input type="number" class="form-control" id="' . $dateID . '-day" name="' . $dateID . '-day" value="' . $dateValues["day"] . '">
                 </div>
                 <div class="date-field-container" style="width: 3rem;">
                     <label for="' . $dateID . '-month">Μήνας</label>
-                    <input type="number" class="form-control" id="' . $dateID . '-month" min="1" max="12" value="' . $dateValues["month"] . '">
+                    <input type="number" class="form-control" id="' . $dateID . '-month" name="' . $dateID . '-month" min="1" max="12" value="' . $dateValues["month"] . '">
                 </div>
                 <div class="date-field-container" style="width: 4rem;">
                     <label for="' . $dateID . '-year">Έτος</label>
-                    <input type="number" class="form-control" id="' . $dateID . '-year" min="1900" value="' . $dateValues["year"] . '">
+                    <input type="number" class="form-control" id="' . $dateID . '-year" name="' . $dateID . '-year" min="1900" value="' . $dateValues["year"] . '">
                 </div>
             </div>
             <div class="invalid-feedback">' . $invalidInputMsg .'</div>
@@ -69,7 +69,7 @@
         echo "
         <div class='field-container'>
             <label for='$fieldID' class='form-label'>$description</label>
-            <input type='text' class='form-control' id='$fieldID' value='$value' >
+            <input type='text' class='form-control' id='$fieldID' name='$fieldID' value='$value' >
             <div class='invalid-feedback'>
             $invalidInputMsg
             </div>
@@ -112,7 +112,7 @@
         echo '
         <div class="field-container">
             <label for=' . $fieldID . ' class="form-label">' . $description . '</label>
-            <select class="form-select" id="' . $fieldID . '" aria-label="Επιλογή χώρας">';
+            <select class="form-select" id="' . $fieldID . '" name="' . $fieldID . '" aria-label="Επιλογή χώρας">';
                 if ($selectedValue == '') {
                     echo '<option value="none" disabled selected>Επιλέξτε Χώρα</option>';
                 }
@@ -141,7 +141,7 @@
         echo "
         <div class='field-container'>
             <label for='$fieldID' class='form-label'>$description</label>
-            <input type='password' class='form-control' id='$fieldID' value='$value'>
+            <input type='password' class='form-control' id='$fieldID' name='$fieldID' value='$value'>
             <div class='invalid-feedback'>
             $invalidInputMsg
             </div>
@@ -154,7 +154,7 @@
         echo "
         <div class='field-container'>
             <div class='form-check'>
-                <input class='form-check-input' type='checkbox' value='$value' id='$fieldID'>
+                <input class='form-check-input' type='checkbox' value='$value' id='$fieldID' name='$fieldID'>
                 <label class='form-check-label' for='$fieldID'>
                 $description
                 </label>
@@ -171,7 +171,7 @@
         echo "
         <div class='field-container'>
             <label for='$fieldID' class='form-label'>$description</label>
-            <select class='form-select' id='$fieldID'>
+            <select class='form-select' id='$fieldID' name='$fieldID'>
             <option selected disabled value=''>Επιλέξτε...</option>";
 
         foreach ($options as $option) {
@@ -201,8 +201,8 @@
             if ($value == $option) {
                 echo "
                 <div class='form-check'>
-                    <input class='form-check-input' type='radio' name='$fieldID' id='$fieldID$index' checked>
-                    <label class='form-check-label' for='$fieldID$index'>
+                    <input class='form-check-input' type='radio' name='$fieldID' value='$index' id='$fieldID-$index' checked>
+                    <label class='form-check-label' for='$fieldID-$index'>
                         $option
                     </label>
                 </div>
@@ -210,8 +210,8 @@
             } else {
                 echo "
                 <div class='form-check'>
-                    <input class='form-check-input' type='radio' name='$fieldID' id='$fieldID$index'>
-                    <label class='form-check-label' for='$fieldID$index'>
+                    <input class='form-check-input' type='radio' name='$fieldID' value='$index' id='$fieldID-$index'>
+                    <label class='form-check-label' for='$fieldID-$index'>
                         $option
                     </label>
                 </div>
