@@ -36,7 +36,7 @@
     </div>
 
     <div class="icon-text">
-      <h6><a href="applications-forms.php" class="fas fa-bell" style="text-decoration:none; color:inherit"> Παρακολούθηση Αίτησης</a></h6>
+      <h6><a href="myapplications.php" class="fas fa-bell" style="text-decoration:none; color:inherit"> Παρακολούθηση Αίτησης</a></h6>
       <span>Παρακολουθήστε την κατάσταση όλων των αιτήσεων σας.</span>
     </div>
     <div class="icon-text">
