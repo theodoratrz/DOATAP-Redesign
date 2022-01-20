@@ -80,8 +80,39 @@ form[name="application-reject-form"] .form-control::placeholder {
     color: blue;
 }
 
+.document-modal-title {
+    font-size: 24px;
+}
+
+#docImgModal .modal-header {
+    padding: .25em .5em;
+    color: #818181;
+}
+
+.close-doc-btn, .close-doc-btn:hover {
+    background-color: #d6d6d6;
+    color: black;
+    border-color: black;
+    font-size: 19px;
+    height: 2em;
+    padding: .25em 1em;
+}
+
 </style>
 <script>
+
+    function openDocumentModal(documentButton) {
+        const imgURL = documentButton.getAttribute('data-img-src');
+        const modalMainContent = `<img alt="Document Image (${imgURL})" src="${imgURL}">`;
+        document.getElementById('docImgModalLabel').innerHTML = `Έγγραφο: ${documentButton.innerHTML}`;
+        document.getElementById('document-modal-body-msg').innerHTML = modalMainContent;
+        $('#docImgModal').modal("show");
+    }
+
+    function hideDocumentModal() {
+        $("#docImgModal").modal("toggle");
+        document.getElementById('document-modal-body-msg').innerHTML = '';
+    }
 
     function rejectApplication(params) {
         $.ajax({
@@ -103,6 +134,26 @@ form[name="application-reject-form"] .form-control::placeholder {
 </script>
 
 <?php
+
+function getDocumentImageModal() {
+    return '
+    <div class="modal fade" id="docImgModal" tabindex="-1" role="dialog" aria-labelledby="docImgModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="document-modal-title" id="docImgModalLabel"></span>
+                </div>
+                <div id="document-modal-body-msg" class="modal-body">
+                    <img goes here>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary close-doc-btn" data-dismiss="modal" onclick="hideDocumentModal()">Κλείσιμο</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    ';
+}
 
 function getBasicInfo(array $userInfo)
 {
@@ -232,7 +283,9 @@ function getDocuments(array $documentsInfo)
     return '
     <div class="documents-container">
         <div class="document-field-container">
-            <button class="document-file-button" data-img-src="' . $documentsInfo['id'][0] . '">Έγγραφο Ταυτοπροσωπίας</button>
+            <button type="button" onclick="openDocumentModal(this)" class="document-file-button" data-img-src="' . $documentsInfo['id'][0] . '">
+                Έγγραφο Ταυτοπροσωπίας
+            </button>
             <label class="approve-checkbox">
                 <input type="checkbox" checked>
                     Εγκρίνεται
@@ -240,7 +293,9 @@ function getDocuments(array $documentsInfo)
             </label>
         </div>
         <div class="document-field-container">
-            <button class="document-file-button"  data-img-src="' . $documentsInfo['title'][0] . '">Τίτλος Σπουδών</button>
+            <button type="button" onclick="openDocumentModal(this)" class="document-file-button"  data-img-src="' . $documentsInfo['title'][0] . '">
+                Τίτλος Σπουδών
+            </button>
             <label class="approve-checkbox">
                 <input type="checkbox" checked>
                     Εγκρίνεται
@@ -248,7 +303,9 @@ function getDocuments(array $documentsInfo)
             </label>
         </div>
         <div class="document-field-container">
-            <button class="document-file-button"  data-img-src="' . $documentsInfo['application'][0] . '">Αίτηση</button>
+            <button type="button" onclick="openDocumentModal(this)" class="document-file-button"  data-img-src="' . $documentsInfo['application'][0] . '">
+                Αίτηση
+            </button>
             <label class="approve-checkbox">
                 <input type="checkbox" checked>
                     Εγκρίνεται
@@ -311,6 +368,7 @@ function getApplicationRejectForm(array $applicationInfo)
         <span style="font-size: 21px;">
             Σε περίπτωση απόρριψης της αίτησης, μπορείτε να αποεπιλέξτε την επιλογή έγκρισης σε κάποια ενότητα ή δικαιολογητικό:
         </span>
+        ' . getDocumentImageModal() . '
         <form name="application-reject-form" onsubmit="rejectApplication()">
             ' . getRejectFormAccordion($applicationInfo) . '
         </form>
@@ -323,7 +381,9 @@ function getFrozenDocuments(array $documentsInfo)
     return '
     <div class="documents-container">
         <div class="document-field-container">
-            <button class="document-file-button"  data-img-src="' . $documentsInfo['id'][0] . '">Έγγραφο Ταυτοπροσωπίας</button>
+            <button type="button" onclick="openDocumentModal(this)" class="document-file-button" data-img-src="' . $documentsInfo['id'][0] . '">
+                Έγγραφο Ταυτοπροσωπίας
+            </button>
             <label class="approve-checkbox">
                 <input type="checkbox" ' . ($documentsInfo['id'][1] === "1" ? 'checked' : "") . ' disabled>
                     Εγκρίνεται
@@ -331,7 +391,9 @@ function getFrozenDocuments(array $documentsInfo)
             </label>
         </div>
         <div class="document-field-container">
-            <button class="document-file-button"  data-img-src="' . $documentsInfo['application'][0] . '">Τίτλος Σπουδών</button>
+            <button type="button" onclick="openDocumentModal(this)" class="document-file-button" data-img-src="' . $documentsInfo['application'][0] . '">
+                Τίτλος Σπουδών
+            </button>
             <label class="approve-checkbox">
                 <input type="checkbox" ' . ($documentsInfo['application'][1] === "1" ? "checked" : "") . ' disabled>
                     Εγκρίνεται
@@ -339,7 +401,9 @@ function getFrozenDocuments(array $documentsInfo)
             </label>
         </div>
         <div class="document-field-container">
-            <button class="document-file-button"  data-img-src="' . $documentsInfo['title'][0] . '">Αίτηση</button>
+            <button type="button" onclick="openDocumentModal(this)" class="document-file-button" data-img-src="' . $documentsInfo['title'][0] . '">
+                Αίτηση
+            </button>
             <label class="approve-checkbox">
                 <input type="checkbox" ' . ($documentsInfo['title'][1] === "1" ? "checked" : "") . ' disabled>
                     Εγκρίνεται
@@ -402,7 +466,8 @@ function getApplicationFrozenRejectForm(array $applicationInfo)
         <span style="font-size: 21px;">
             Παρακάτω εμφανίζονται οι πληροφορίες έγκρισης πεδίων και δικαιολογητικών:
         </span>
-        <form name="application-reject-form" onsubmit="rejectApplication()">
+        ' . getDocumentImageModal() . '
+        <form name="application-reject-form">
             ' . getFrozenRejectFormAccordion($applicationInfo) . '
         </form>
     </div>

@@ -49,7 +49,7 @@
         require_once  $_SERVER['DOCUMENT_ROOT'] . "/components/application_courses_component.php";
 
         $applicationInfo = array (
-            "status" => "pending", #"accepted", "declined", "submitted"
+            "status" => "submitted", #"accepted", "declined", "submitted"
             "basic_info" => array(
                 "uname" => "kostas_44",
                 "email" => "kostas44@gmail.com",
@@ -119,8 +119,8 @@
                     "match-approve",
                     getApplicationApproveForm()
                 );
-                $tabContent["Αντιστοίχιση & Έγκριση"] = array(
-                    "match-approve",
+                $tabContent["Ανάθεση Μαθημάτων"] = array(
+                    "attach-courses",
                     getApplicationCoursesForm()
                 );
                 break;            
