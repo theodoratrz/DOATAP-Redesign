@@ -171,7 +171,7 @@ function getBasicInfo()
                 ' . $userInfo['mobilePhone'] . '
             </div>
             <div class="basic-info-field">
-                <div class="basic-info-field-title">Σταθερό Τηλέφωνο:</div>
+                <div class="basic-info-field-title">Σταθ. Τηλέφωνο:</div>
                 ' . $userInfo['homePhone'] . '
             </div>
         </div>
@@ -182,47 +182,57 @@ function getBasicInfo()
 function getStudiesTitle()
 {
     $studiesInfo = array(
-        "uname" => "kostas_44",
-        "email" => "kostas44@gmail.com",
-
-        "fname" => "Κώστας",
-        "surname" => "Χρήστου",
-        "fathersName" => "Χρήστος",
-        "mothersName" => "Μαρία",
-        "birthDate" => "31-1-1999",
-        "gender" => "Άνδρας",
-
-        "country" => "Ελλάδα",
-        "city" => "Αθήνα",
-        "address" => "Αθηνάς 4",
-
-        "docSelection" => "Ταυτότητα",
-        "docID" => "14572",
-
-        "mobilePhone" => "6969696969",
-        "homePhone" => "2106969696",
+        "studies_type" => "Συμβατικός",
+        "studies_duration" => "Τακτική",
+        "country" => "Η.Π.Α.",
+        "university" => "Yale",
+        "title" => "Fine Arts",
+        "ects" => "240",
+        "studyYears" => "4",
+        "dateStarted" => "31-1-1999",
+        "dateFinished" => "31-1-2003",
     );
 
     return '
     <div class="basic-info-container">
         <div class="basic-info-field-group">
             <div class="basic-info-field">
-                <div class="basic-info-field-title">Χρήστης:</div>
-                ' . $studiesInfo['uname'] . '
+                <div class="basic-info-field-title">Χώρα:</div>
+                ' . $studiesInfo['country'] . '
             </div>
             <div class="basic-info-field">
-                <div class="basic-info-field-title">Email:</div>
-                ' . $studiesInfo['email'] . '
+                <div class="basic-info-field-title">Ίδρυμα:</div>
+                ' . $studiesInfo['university'] . '
+            </div>
+            <div class="basic-info-field">
+                <div class="basic-info-field-title">Τίτλος Σπουδών:</div>
+                ' . $studiesInfo['title'] . '
+            </div>
+            <div class="basic-info-field">
+                <div class="basic-info-field-title">Έτη σπουδών:</div>
+                ' . $studiesInfo['studyYears'] . '
+            </div>
+            <div class="basic-info-field">
+                <div class="basic-info-field-title">Πιστωτικές Μονάδες:</div>
+                ' . $studiesInfo['ects'] . '
             </div>
         </div>
         <div class="basic-info-field-group">
             <div class="basic-info-field">
-                <div class="basic-info-field-title">Ταυτοποίηση:</div>
-                ' . $studiesInfo['docSelection'] . '
+                <div class="basic-info-field-title">Τύπος Φοίτησης:</div>
+                ' . $studiesInfo['studies_type'] . '
             </div>
             <div class="basic-info-field">
-                <div class="basic-info-field-title">Αριθμός Εγγράφου:</div>
-                ' . $studiesInfo['docID'] . '
+                <div class="basic-info-field-title">Προγρ. Φοίτησης:</div>
+                ' . $studiesInfo['studies_duration'] . '
+            </div>
+            <div class="basic-info-field">
+                <div class="basic-info-field-title">Ημ. εκκίνησης:</div>
+                ' . $studiesInfo['dateStarted'] . '
+            </div>
+            <div class="basic-info-field">
+                <div class="basic-info-field-title">Ημ. ολοκλήρωσης:</div>
+                ' . $studiesInfo['dateFinished'] . '
             </div>
         </div>
     </div>';
@@ -240,9 +250,7 @@ function getRejectFormAccordion()
 
     $accordionContent = array(
         array(
-            '
-            <span class="accordion-header-title">Προσωπικά Στοιχεία</span>
-            ',
+            '<span class="accordion-header-title">Προσωπικά Στοιχεία</span>',
             '
             <div style="display: flex; flex-direction: column; row-gap: .8em;">
                 <label class="approve-checkbox">
@@ -253,9 +261,7 @@ function getRejectFormAccordion()
             '
         ),
         array(
-            '
-            <span class="accordion-header-title">Τίτλος Σπουδών</span>
-            ',
+            '<span class="accordion-header-title">Τίτλος Σπουδών</span>',
             '
             <div style="display: flex; flex-direction: column; row-gap: .8em;">
                 <label class="approve-checkbox">
@@ -266,9 +272,7 @@ function getRejectFormAccordion()
             '
         ),
         array(
-            '
-            <span class="accordion-header-title">Δικαιολογητικά</span>
-            ',
+            '<span class="accordion-header-title">Δικαιολογητικά</span>',
             'application documents HTML'
         )
     );
