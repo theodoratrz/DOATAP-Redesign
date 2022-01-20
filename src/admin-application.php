@@ -49,6 +49,7 @@
         require_once  $_SERVER['DOCUMENT_ROOT'] . "/components/application_courses_component.php";
 
         $applicationInfo = array (
+            "status" => "pending", #"accepted", "declined", "submitted"
             "basic_info" => array(
                 "uname" => "kostas_44",
                 "email" => "kostas44@gmail.com",
@@ -96,26 +97,77 @@
                     "/uploads/title1.png",
                     "1"
                 )
+            ),
+            "university" => "uni1",
+            "department" => "dep1",
+            "courses" => array(
+                "course1",
+                "course2",
+                "course3"
             )
         );
 
-        $tabContent = array(
-            "Στοιχεία Αίτησης" => array(
-                "application-info",
-                getApplicationRejectForm($applicationInfo)
-                #getApplicationFrozenRejectForm($applicationInfo)
-            ),
-            "Αντιστοίχιση & Έγκριση" => array(
-                "match-approve",
-                getApplicationApproveForm()
-                #getApplicationApproveFrozenForm('ιδρυμα1', 'τμημα1')
-            ),
-            "Ανάθεση Μαθημάτων" => array(
-                "attach-courses",
-                getApplicationCoursesForm()
-                #getApplicationCoursesFrozen('uni1', 'dep1', array('ΕΑΜ', 'OOP', 'ΤΕΔΕ'))
-            ),
-        );
+        $tabContent = array();
+
+        switch ($applicationInfo["status"]) {
+            case 'submitted':
+                $tabContent["Στοιχεία Αίτησης"] = array(
+                    "application-info",
+                    getApplicationRejectForm($applicationInfo)
+                );
+                $tabContent["Αντιστοίχιση & Έγκριση"] = array(
+                    "match-approve",
+                    getApplicationApproveForm()
+                );
+                $tabContent["Αντιστοίχιση & Έγκριση"] = array(
+                    "match-approve",
+                    getApplicationCoursesForm()
+                );
+                break;            
+            case 'declined':
+                $tabContent["Στοιχεία Αίτησης"] = array(
+                    "application-info",
+                    getApplicationFrozenRejectForm($applicationInfo)
+                );
+                break;                
+            case 'accepted':
+                $tabContent["Στοιχεία Αίτησης"] = array(
+                    "application-info",
+                    getApplicationFrozenRejectForm($applicationInfo)
+                );
+                $tabContent["Αντιστοίχιση & Έγκριση"] = array(
+                    "match-approve",
+                    getApplicationApproveFrozenForm(
+                        $applicationInfo['university'],
+                        $applicationInfo['department']
+                    )
+                );
+                break;            
+            case 'pending':
+                $tabContent["Στοιχεία Αίτησης"] = array(
+                    "application-info",
+                    getApplicationFrozenRejectForm($applicationInfo)
+                );
+                $tabContent["Αντιστοίχιση & Έγκριση"] = array(
+                    "match-approve",
+                    getApplicationApproveFrozenForm(
+                        $applicationInfo['university'],
+                        $applicationInfo['department']
+                    )
+                );
+                $tabContent["Ανάθεση Μαθημάτων"] = array(
+                    "attach-courses",
+                    getApplicationCoursesFrozen(
+                        $applicationInfo['university'],
+                        $applicationInfo['department'],
+                        $applicationInfo['courses']
+                    )
+                );
+                break;            
+            default:
+                # code...
+                break;
+        }
         echoContentTabs($tabContent, "admin-tab-wrapper");
         ?>
     </div>
