@@ -44,12 +44,13 @@
         <?php
         require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
         require_once  $_SERVER['DOCUMENT_ROOT'] . "/components/content_tabs.php"; 
+        require_once  $_SERVER['DOCUMENT_ROOT'] . "/components/application_reject_component.php";
         require_once  $_SERVER['DOCUMENT_ROOT'] . "/components/application_approve_component.php";
         require_once  $_SERVER['DOCUMENT_ROOT'] . "/components/application_courses_component.php";
         $tabContent = array(
             "Στοιχεία Αίτησης" => array(
                 "application-info",
-                "<div></div>"
+                getApplicationRejectForm()
             ),
             "Αντιστοίχιση & Έγκριση" => array(
                 "match-approve",
