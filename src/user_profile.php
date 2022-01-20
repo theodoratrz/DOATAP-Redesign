@@ -28,20 +28,36 @@
                                     <hr>
                                 </div>
                                 <div class="row2">
-                                        <div class="col-md-4">
-                                            <div style="font-size:large">
-                                                <label style="font-weight:bold;" class="col-sm-2">'Ονομα</label>
-                                                <div class="col-sm-8">
-                                                    <?php echo getUserInfo($userID)['username'] ; ?>
-                                                </div>
-                                            </div>
-                                            <div style="font-size:large">
-                                                <label style="font-weight:bold;" class="col-sm-2">'Ονομα</label>
-                                                <div class="col-sm-8">
-                                                    <?php echo getUserInfo($userID)['username'] ; ?>
-                                                </div>
-                                            </div>
-                                        </div>   
+                                <?php 
+                                    require_once $_SERVER['DOCUMENT_ROOT'] . "/components/profile-info.php";
+                                    require_once $_SERVER['DOCUMENT_ROOT'] . "/api/users.php";
+                                    
+                                    $name = getUserInfo($userID)['username'];
+                                     $sample_form_values = array(
+                                        "uname" => "",
+                                        "email" => "",
+                                        "pwd" => "",
+                                        "pwd_dup" => "",
+                                
+                                        "fname" => array("getUserInfo($userID)['username']"),
+                                        "surname" => "Χρήστου",
+                                        "fathersName" => "Χρήστος",
+                                        "mothersName" => "Μαρία",
+                                        "birthDate" => "31-1-1999",
+                                        "gender" => "Άνδρας",
+                                
+                                        "country" => "",
+                                        "city" => "",
+                                        "address" => "",
+                                
+                                        "docSelection" => "Ταυτότητα",
+                                        "docID" => "14572",
+                                
+                                        "mobilePhone" => "6969696969",
+                                        "homePhone" => "2106969696",
+                                    );
+                                    #echoProfileInfoForm(sample_form_values,true);
+                                ?>
                                 </div>
                         </div>
                 </form>
