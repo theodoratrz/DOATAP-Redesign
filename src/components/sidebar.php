@@ -82,12 +82,12 @@ function echoSidebar(string $path)
 function echoSidebarSubmenu(string $topPage, string $topPageTitle, array $subpages, string $selectedSubpage, string $rootPage)
 {
 	echo "
-	<button class='btn-toggle align-items-center collapsed' data-bs-target='#$topPage-collapse' aria-expanded='true'>
+	<a href='$rootPage/$topPage' class='btn-toggle align-items-center collapsed' aria-expanded='true' style='text-decoration: none;'>
 		$topPageTitle
 		<div class='sidebar-active-arrow'>
 			<i class='fas fa-chevron-right fa-xs'></i>
 		</div>
-	</button>
+	</a>
 	";
 	echo "
 	<div class='collapse show' id='$topPage-collapse'>
