@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Jan 19, 2022 at 11:41 PM
+-- Generation Time: Jan 20, 2022 at 12:28 PM
 -- Server version: 8.0.27
 -- PHP Version: 7.4.27
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `doatap`
 --
+CREATE DATABASE IF NOT EXISTS `doatap` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+USE `doatap`;
 
 -- --------------------------------------------------------
 
@@ -50,8 +52,7 @@ INSERT INTO `announcements` (`ann_id`, `type`, `title`, `content`, `time_uploade
 
 CREATE TABLE `applications` (
   `app_id` int NOT NULL,
-  `state` enum('Υποβλήθηκε','Εκκρεμής','Προσωρινά Αποθηκευμένη','Απορρίφθηκε','Εγκρίθηκε') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `department` int NOT NULL,
+  `state` enum('uploaded','pending','approved','rejected','needsSubject') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'uploaded',
   `user_id` int NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `last_modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -60,26 +61,39 @@ CREATE TABLE `applications` (
   `ECTS` int NOT NULL,
   `dateIntro` date DEFAULT NULL,
   `dateGrad` date DEFAULT NULL,
-  `yearsOfStudy` tinyint NOT NULL
+  `yearsOfStudy` tinyint NOT NULL,
+  `department` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `university` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `comment` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `basicInfoApproved` tinyint(1) NOT NULL DEFAULT '1',
+  `studiesInfoApproved` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `applications`
 --
 
-INSERT INTO `applications` (`app_id`, `state`, `department`, `user_id`, `created`, `last_modified`, `attendance`, `studiesType`, `ECTS`, `dateIntro`, `dateGrad`, `yearsOfStudy`) VALUES
-(3, 'Υποβλήθηκε', 1, 9, '2022-01-19 21:12:42', '2022-01-19 21:12:42', 'Συμβατικός', 'Τακτική', 0, NULL, NULL, 0);
+INSERT INTO `applications` (`app_id`, `state`, `user_id`, `created`, `last_modified`, `attendance`, `studiesType`, `ECTS`, `dateIntro`, `dateGrad`, `yearsOfStudy`, `department`, `university`, `comment`, `basicInfoApproved`, `studiesInfoApproved`) VALUES
+(1, 'rejected', 13, '2022-01-20 11:08:54', '2022-01-20 12:25:24', 'Συμβατικός', 'Τακτική', 240, '2022-01-01', '2022-01-20', 4, 'dit', 'uoa', 'Θολά', 1, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `application_to_form`
+-- Table structure for table `application_to_subject`
 --
 
-CREATE TABLE `application_to_form` (
-  `application` int NOT NULL,
-  `form` int NOT NULL
+CREATE TABLE `application_to_subject` (
+  `app_id` int NOT NULL,
+  `sub_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `application_to_subject`
+--
+
+INSERT INTO `application_to_subject` (`app_id`, `sub_id`) VALUES
+(1, 19),
+(1, 20);
 
 -- --------------------------------------------------------
 
@@ -121,12 +135,34 @@ INSERT INTO `departments` (`dep_id`, `name`, `university`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `forms`
+-- Table structure for table `documents`
 --
 
-CREATE TABLE `forms` (
-  `from_id` int NOT NULL,
-  `file_location` varchar(60) NOT NULL
+CREATE TABLE `documents` (
+  `doc_id` int NOT NULL,
+  `app_id` int NOT NULL,
+  `filename` varchar(40) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
+  `approved` tinyint(1) NOT NULL DEFAULT '1',
+  `type` enum('id','form','title') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `documents`
+--
+
+INSERT INTO `documents` (`doc_id`, `app_id`, `filename`, `file_location`, `approved`, `type`) VALUES
+(1, 1, 'file.doc', '/tmp/file.doc', 1, 'id');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subjects`
+--
+
+CREATE TABLE `subjects` (
+  `sub_id` int NOT NULL,
+  `title` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -202,14 +238,13 @@ ALTER TABLE `announcements`
 --
 ALTER TABLE `applications`
   ADD PRIMARY KEY (`app_id`),
-  ADD KEY `department` (`department`),
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indexes for table `application_to_form`
+-- Indexes for table `application_to_subject`
 --
-ALTER TABLE `application_to_form`
-  ADD PRIMARY KEY (`application`,`form`);
+ALTER TABLE `application_to_subject`
+  ADD PRIMARY KEY (`app_id`,`sub_id`);
 
 --
 -- Indexes for table `countries`
@@ -225,10 +260,17 @@ ALTER TABLE `departments`
   ADD KEY `university` (`university`);
 
 --
--- Indexes for table `forms`
+-- Indexes for table `documents`
 --
-ALTER TABLE `forms`
-  ADD PRIMARY KEY (`from_id`);
+ALTER TABLE `documents`
+  ADD PRIMARY KEY (`doc_id`);
+
+--
+-- Indexes for table `subjects`
+--
+ALTER TABLE `subjects`
+  ADD PRIMARY KEY (`sub_id`),
+  ADD UNIQUE KEY `title` (`title`);
 
 --
 -- Indexes for table `universities`
@@ -274,10 +316,16 @@ ALTER TABLE `departments`
   MODIFY `dep_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `forms`
+-- AUTO_INCREMENT for table `documents`
 --
-ALTER TABLE `forms`
-  MODIFY `from_id` int NOT NULL AUTO_INCREMENT;
+ALTER TABLE `documents`
+  MODIFY `doc_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `subjects`
+--
+ALTER TABLE `subjects`
+  MODIFY `sub_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `universities`
@@ -299,7 +347,6 @@ ALTER TABLE `users`
 -- Constraints for table `applications`
 --
 ALTER TABLE `applications`
-  ADD CONSTRAINT `applications_ibfk_1` FOREIGN KEY (`department`) REFERENCES `departments` (`dep_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   ADD CONSTRAINT `applications_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
