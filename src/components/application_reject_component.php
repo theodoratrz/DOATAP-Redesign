@@ -60,13 +60,24 @@ form[name="application-reject-form"] .form-control::placeholder {
     display: flex;
     flex-direction: column;
     width: 100%;
-    row-gap: .85em;
+    row-gap: .2em;
+    overflow: hidden;
 }
 
 .document-field-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    border-top: 1px solid #b7b0b0;
+    margin-top: -1px;
+}
+
+.document-file-button {
+    border: 0px;
+    outline: none;
+    background-color: transparent;
+    text-decoration: underline;
+    color: blue;
 }
 
 </style>
@@ -221,7 +232,7 @@ function getDocuments(array $documentsInfo)
     return '
     <div class="documents-container">
         <div class="document-field-container">
-            <button data-img-src="' . $documentsInfo['id'][0] . '">Έγγραφο Ταυτοπροσωπίας</button>
+            <button class="document-file-button" data-img-src="' . $documentsInfo['id'][0] . '">Έγγραφο Ταυτοπροσωπίας</button>
             <label class="approve-checkbox">
                 <input type="checkbox" checked>
                     Εγκρίνεται
@@ -229,7 +240,7 @@ function getDocuments(array $documentsInfo)
             </label>
         </div>
         <div class="document-field-container">
-            <button data-img-src="' . $documentsInfo['title'][0] . '">Τίτλος Σπουδών</button>
+            <button class="document-file-button"  data-img-src="' . $documentsInfo['title'][0] . '">Τίτλος Σπουδών</button>
             <label class="approve-checkbox">
                 <input type="checkbox" checked>
                     Εγκρίνεται
@@ -237,7 +248,7 @@ function getDocuments(array $documentsInfo)
             </label>
         </div>
         <div class="document-field-container">
-            <button data-img-src="' . $documentsInfo['application'][0] . '">Αίτηση</button>
+            <button class="document-file-button"  data-img-src="' . $documentsInfo['application'][0] . '">Αίτηση</button>
             <label class="approve-checkbox">
                 <input type="checkbox" checked>
                     Εγκρίνεται
@@ -312,7 +323,7 @@ function getFrozenDocuments(array $documentsInfo)
     return '
     <div class="documents-container">
         <div class="document-field-container">
-            <button data-img-src="' . $documentsInfo['id'][0] . '">Έγγραφο Ταυτοπροσωπίας</button>
+            <button class="document-file-button"  data-img-src="' . $documentsInfo['id'][0] . '">Έγγραφο Ταυτοπροσωπίας</button>
             <label class="approve-checkbox">
                 <input type="checkbox" ' . ($documentsInfo['id'][1] === "1" ? 'checked' : "") . ' disabled>
                     Εγκρίνεται
@@ -320,7 +331,7 @@ function getFrozenDocuments(array $documentsInfo)
             </label>
         </div>
         <div class="document-field-container">
-            <button data-img-src="' . $documentsInfo['application'][0] . '">Τίτλος Σπουδών</button>
+            <button class="document-file-button"  data-img-src="' . $documentsInfo['application'][0] . '">Τίτλος Σπουδών</button>
             <label class="approve-checkbox">
                 <input type="checkbox" ' . ($documentsInfo['application'][1] === "1" ? "checked" : "") . ' disabled>
                     Εγκρίνεται
@@ -328,7 +339,7 @@ function getFrozenDocuments(array $documentsInfo)
             </label>
         </div>
         <div class="document-field-container">
-            <button data-img-src="' . $documentsInfo['title'][0] . '">Αίτηση</button>
+            <button class="document-file-button"  data-img-src="' . $documentsInfo['title'][0] . '">Αίτηση</button>
             <label class="approve-checkbox">
                 <input type="checkbox" ' . ($documentsInfo['title'][1] === "1" ? "checked" : "") . ' disabled>
                     Εγκρίνεται
