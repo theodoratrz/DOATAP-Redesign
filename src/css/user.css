@@ -108,7 +108,7 @@
 } 
 
 .upload-btn label {
-    background-color: #269b65;
+    background-color: #002E69;
     color: white;
     font-size: medium;
     padding: 0.5rem;
@@ -121,3 +121,8 @@
     margin-bottom:0rem;
   }
   
+  .page_btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }

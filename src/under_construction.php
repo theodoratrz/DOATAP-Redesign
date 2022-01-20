@@ -40,18 +40,20 @@
 </script>
 
 <body>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/navbar.php" ?>
   <div class="mainbox">
 
     <i class="err fas fa-cog fa-spin"></i>
     <i class="err2 fas fa-cog fa-spin"></i>
-    <div style="display:flex; flex-direction: row; column-gap:1rem;  justify-content:center; align-items:center; padding-top:25rem; padding-left:10rem;padding-right:10rem;">
+    <div style="display:flex; flex-direction: row; column-gap:1rem;  justify-content:center; align-items:center; padding-top:20rem; padding-left:10rem;
+    padding-right:10rem;">
 
       <p class="rounded-circle" style="background-color:rgb(0, 68, 255)" id="demo"></p>
       <p class="rounded-circle" style="background-color:rgb(0, 110, 255); " id="demo1"></p>
       <p class="rounded-circle" style="background-color:rgb(0, 140, 255); " id="demo2"></p>
       <p class="rounded-circle" style="background-color:rgb(0, 174, 255);" id="demo3"></p>
     </div>
-    <div class="msg">Something Awesome Is In The Work!<p>We'll be up and running soon with our improved site</p>
-    </div>
+    <div class="msg">Σύντομα κοντά σας!
   </div>
+  <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/footer.php" ?>
 </body>

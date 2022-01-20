@@ -5,7 +5,19 @@
 <link rel="stylesheet" href="/css/forms.css">
 
 <body>
-
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Προσωρινή Αποθήκευση</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                Η εγγραφή σας ολοκληρώθηκε επιτυχώς!
+                </div>
+            </div>
+            </div>
+        </div>  
     <div class="page-container fluid-container">
         <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/navbar.php" ?>
 
@@ -35,14 +47,9 @@
                 <input type="password" class="form-control" id="password-input" required>
 
             </div>
-            <div class="mb-3">
-                <label>
-                    <input type="checkbox" class="form-check-input" name="remember">Remember me
-                </label>
-            </div>
-            <button id="submit-button" class="btn btn-primary">Σύνδεση</button>
+            
+            <button id="submit-button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Σύνδεση</button>
             <div class="dropdown-divider"></div>
-            <a class="forgot-item" style="color:blue; text-decoration:double; font-size:medium; text-align:right" href="#">Ξεχάσατε τον κωδικό σας;</button>
                 <a class="create-item" style="color:blue; text-decoration:underline; font-size:x-large; text-align:center" href="register.php">Δημιουργία Λογαριασμού</a>
         </div>
     </div>
@@ -64,6 +71,8 @@
             console.log(data);
             if (data === 'login') {
                 // Redirect to home
+               
+                $('#exampleModal').modal('show'); 
                 window.location.replace('/');
             } else {
                 // display error message

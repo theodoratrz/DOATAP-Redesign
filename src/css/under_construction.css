@@ -1,9 +1,7 @@
-body {
-    background-color: #568daf;
-  }
+
   
   .mainbox {
-    background-color: #568daf;
+    background-color: white;
     margin: auto;
     height: 100%;
     width: 100%;
@@ -12,21 +10,21 @@ body {
   }
   
     .err {
-      color: #ffffff;
+      color: #568daf;
       font-family: 'Nunito Sans', sans-serif;
       font-size: 11rem;
       position:absolute;
       left: 35%;
-      bottom: 55%;
+      bottom: 65%;
     }
 
   .rounded-circle{
     
     border-radius: 50%;
-    padding:3rem;
-    animation: mymove 10s infinite;
+    padding:2rem;
     color: #002E69;
     font-weight: 600;
+    top: 50%;
   }
 
   @keyframes mymove {
@@ -43,12 +41,12 @@ body {
   }
   
    .err2 {
-      color: #ffffff;
+      color: #568daf;
       font-family: 'Nunito Sans', sans-serif;
       font-size: 8rem;
       position:absolute;
       left: 50%;
-      bottom: 55%;
+      bottom: 65%;
     }
   
   .msg {
@@ -57,7 +55,7 @@ body {
       font-size: 1.6rem;
       position:absolute;
       left: 12%;
-      top: 50%;
+      top: 40%;
       width: 75%;
       color: #002E69;
     }

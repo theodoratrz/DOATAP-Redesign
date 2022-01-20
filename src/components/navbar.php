@@ -146,7 +146,7 @@ function echoNavbarContent(array $content)
 					</ul>
 				</div>
 				<span style="color:white">|</span>
-				<a href="register.php" class="login-link fas fa-sign-out-alt">Αποσύνδεση</a>
+				<a href="logout.php" class="login-link fas fa-sign-out-alt">Αποσύνδεση</a>
 			 
 			</div>';
 			}
