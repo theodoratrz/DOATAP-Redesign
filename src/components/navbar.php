@@ -110,7 +110,7 @@ function echoNavbarContent(array $content)
 <nav class="primary-custom-navbar custom-navbar-expand-lg bg-primary custom-navbar-dark">
 	<div class="navbar-container d-flex">
 
-	<a class="custom-navbar-brand" href="index.php" style="margin-top:0.7rem"> <img src="/images/doatap-logo.png" alt="" width="250px"> </a>
+	<a class="custom-navbar-brand" href="index.php" style="margin-top: 0.4rem;"> <img src="/images/doatap-logo.png" alt="" width="250px"> </a>
 
 	<!-- LANGUAGE -->
 		<!--a class="search_button"><i class="fas fa-globe-americas"></i></a>
@@ -135,7 +135,7 @@ function echoNavbarContent(array $content)
 				<div class="dropdown">
 					<a class="btn dropdown-toggle fas fa-user-circle " style="color:white; font-weight:100; font-size:20px; 
 					padding:0rem; align-items:center;" href="../user_profile.php" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" 
-					aria-expanded="false">'
+					aria-expanded="false"> '
 					. getUserInfo($userID)['username'] .
 					'</a>
 
@@ -146,7 +146,7 @@ function echoNavbarContent(array $content)
 					</ul>
 				</div>
 				<span style="color:white">|</span>
-				<a href="logout.php" class="login-link fas fa-sign-out-alt">Αποσύνδεση</a>
+				<a href="logout.php" class="login-link fas fa-sign-out-alt"> Αποσύνδεση</a>
 			 
 			</div>';
 			}
