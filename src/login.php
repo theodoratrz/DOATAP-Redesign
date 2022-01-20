@@ -50,7 +50,6 @@
             
             <button id="submit-button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Σύνδεση</button>
             <div class="dropdown-divider"></div>
-            <a class="forgot-item" style="color:blue; text-decoration:double; font-size:medium; text-align:right" href="#">Ξεχάσατε τον κωδικό σας;</button>
                 <a class="create-item" style="color:blue; text-decoration:underline; font-size:x-large; text-align:center" href="register.php">Δημιουργία Λογαριασμού</a>
         </div>
     </div>
@@ -72,6 +71,7 @@
             console.log(data);
             if (data === 'login') {
                 // Redirect to home
+               
                 $('#exampleModal').modal('show'); 
                 window.location.replace('/');
             } else {

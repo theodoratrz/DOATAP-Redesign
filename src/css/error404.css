@@ -1,9 +1,6 @@
-body {
-    background-color: #95c2de;
-  }
-  
+
   .mainbox {
-    background-color: #95c2de;
+    background-color: white;
     margin: auto;
     height: 600px;
     width: 600px;
@@ -11,7 +8,7 @@ body {
   }
   
     .err {
-      color: #ffffff;
+      color: #95c2de;
       font-family: 'Nunito Sans', sans-serif;
       font-size: 11rem;
       position:absolute;
@@ -24,11 +21,11 @@ body {
     font-size: 8.5rem;
     left: 42%;
     top: 15%;
-    color: #ffffff;
+    color: #95c2de;
   }
   
    .err2 {
-      color: #ffffff;
+      color: #95c2de;
       font-family: 'Nunito Sans', sans-serif;
       font-size: 11rem;
       position:absolute;
@@ -40,15 +37,16 @@ body {
       text-align: center;
       font-family: 'Nunito Sans', sans-serif;
       font-size: 1.6rem;
-      position:absolute;
       left: 16%;
-      top: 45%;
-      width: 75%;
+      top: 65%;
+      width: 100%;
+      font-size:large;
+      position:absolute;
     }
   
   a {
     text-decoration: none;
-    color: white;
+    color: 95c2de;
   }
   
   a:hover {

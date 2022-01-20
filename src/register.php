@@ -123,7 +123,7 @@
                         // })();
                     </script>
                     <?php echoProfileInfoForm(formValues, true); ?>
-                    <p>By creating an account you agree to our <a href="terms.php" target="_blank">Οροι Χρήσης-Δήλωση Απορρήτου</a>.</p>
+                    <p>Με τη δημιουργία λογαριασμού συμφωνείτε στους <a href="terms.php" target="_blank">Όρους Χρήσης-Δήλωση Απορρήτου</a>.</p>
                     <div class="form-submit-button">
                         <button type="button" id="registerbtn" class="registerbtn">Εγγραφή</button>
                     </div>

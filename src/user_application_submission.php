@@ -18,7 +18,24 @@
           
         <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php"?>
             <!-- Modal -->
-         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="deleteModalLabel">Διαγραφή Δικαιολογητικού</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      Είστε σίγουροι ότι θα θέλατε να διαγράψετε αυτό το δικαιολογητικό;
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn" style="background-color:gray; color:white;" data-bs-dismiss="modal">Ακύρωση</button>
+                      <button type="button" class="btn " style="background-color:red; color:white;" >Διαγραφή</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
@@ -174,7 +191,7 @@
                                   
                                   <!-- Trigger/Open The Modal -->
                                   <td>
-                                  <button type="button" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#exampleModal">
+                                  <button type="button" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#deleteModal">
                                   </button>
                                   </td>
                               </tr>
@@ -190,7 +207,7 @@
                                   
                                   <!-- Trigger/Open The Modal -->
                                   <td>
-                                  <button type="button" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#exampleModal">
+                                  <button type="button" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#deleteModal">
                                   </button>
                                   </td>
                               </tr>
@@ -206,7 +223,7 @@
                                   
                                   <!-- Trigger/Open The Modal -->
                                   <td>
-                                  <button type="button" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#exampleModal">
+                                  <button type="button" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#deleteModal">
                                   </button>
                                   </td>
                                 
