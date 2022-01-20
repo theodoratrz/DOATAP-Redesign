@@ -89,13 +89,29 @@ form[name="application-reject-form"] .form-control::placeholder {
     color: #818181;
 }
 
-.close-doc-btn, .close-doc-btn:hover {
+.close-doc-btn {
     background-color: #d6d6d6;
     color: black;
     border-color: black;
     font-size: 19px;
     height: 2em;
     padding: .25em 1em;
+}
+
+.close-doc-btn:hover {
+    background-color: #b7b7b7;
+    color: black;
+    border-color: black;
+}
+
+.reject-application-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+}
+.reject-application-button .btn.btn-primary {
+    font-size: 20px;
 }
 
 </style>
@@ -114,19 +130,28 @@ form[name="application-reject-form"] .form-control::placeholder {
         document.getElementById('document-modal-body-msg').innerHTML = '';
     }
 
-    function rejectApplication(params) {
+    function rejectApplication(event) {
+        event.preventDefault();
         $.ajax({
-            type: "GET",
-            url: "/get_university_departments.php",
+            type: "POST",
+            url: "/reject_application.php",
             dataType: "json",
             success: answer => {
-                storeDepartments(answer);
+                console.log(answer);
+                // Success Modal, reload page
             },
             error: answer => {
-                console.log("No departments found");
+                // Error Modal
             },
             data: {
-                "university": university.getAttribute('data-uni-id')
+                "basic_info": document.getElementById('basic_info_check').checked ? "1" : "0",
+                "studies_info": document.getElementById('studies_info_check').checked ? "1" : "0",
+                "documents": {
+                    'id': document.getElementById('id_check').checked ? "1" : "0",
+                    'form': document.getElementById('application_check').checked ? "1" : "0",
+                    'title': document.getElementById('title_check').checked ? "1" : "0",
+                    'fee': ""
+                }
             }
         })
     }
@@ -287,7 +312,7 @@ function getDocuments(array $documentsInfo)
                 Έγγραφο Ταυτοπροσωπίας
             </button>
             <label class="approve-checkbox">
-                <input type="checkbox" checked>
+                <input id="id_check" type="checkbox" checked>
                     Εγκρίνεται
                 </input>
             </label>
@@ -297,7 +322,7 @@ function getDocuments(array $documentsInfo)
                 Τίτλος Σπουδών
             </button>
             <label class="approve-checkbox">
-                <input type="checkbox" checked>
+                <input id="title_check" type="checkbox" checked>
                     Εγκρίνεται
                 </input>
             </label>
@@ -307,7 +332,7 @@ function getDocuments(array $documentsInfo)
                 Αίτηση
             </button>
             <label class="approve-checkbox">
-                <input type="checkbox" checked>
+                <input id="application_check" type="checkbox" checked>
                     Εγκρίνεται
                 </input>
             </label>
@@ -327,7 +352,7 @@ function getRejectFormAccordion(array $applicationInfo)
             '
             <div style="display: flex; flex-direction: column; row-gap: .8em;">
                 <label class="approve-checkbox">
-                    <input type="checkbox" checked>Έγκριση Προσωπικών Στοιχείων</input>
+                    <input id="basic_info_check" type="checkbox" checked>Έγκριση Προσωπικών Στοιχείων</input>
                 </label>'
                 . getBasicInfo($applicationInfo['basic_info']) . '
             </div>
@@ -338,7 +363,7 @@ function getRejectFormAccordion(array $applicationInfo)
             '
             <div style="display: flex; flex-direction: column; row-gap: .8em;">
                 <label class="approve-checkbox">
-                    <input type="checkbox" checked>Έγκριση Τίτλου Σπουδών</input>
+                    <input id="studies_info_check" type="checkbox" checked>Έγκριση Τίτλου Σπουδών</input>
                 </label>'
                 . getStudiesTitle($applicationInfo['studies_info']) . '
             </div>
@@ -369,8 +394,11 @@ function getApplicationRejectForm(array $applicationInfo)
             Σε περίπτωση απόρριψης της αίτησης, μπορείτε να αποεπιλέξτε την επιλογή έγκρισης σε κάποια ενότητα ή δικαιολογητικό:
         </span>
         ' . getDocumentImageModal() . '
-        <form name="application-reject-form" onsubmit="rejectApplication()">
+        <form name="application-reject-form" onsubmit="rejectApplication(event)">
             ' . getRejectFormAccordion($applicationInfo) . '
+            <div class="reject-application-button">
+                <button class="btn btn-primary" type="submit">Απόρριψη Αίτησης</button>
+            </div>
         </form>
     </div>
     ';
