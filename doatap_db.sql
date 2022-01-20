@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Jan 20, 2022 at 12:28 PM
+-- Generation Time: Jan 20, 2022 at 01:11 PM
 -- Server version: 8.0.27
 -- PHP Version: 7.4.27
 
@@ -79,25 +79,6 @@ INSERT INTO `applications` (`app_id`, `state`, `user_id`, `created`, `last_modif
 -- --------------------------------------------------------
 
 --
--- Table structure for table `application_to_subject`
---
-
-CREATE TABLE `application_to_subject` (
-  `app_id` int NOT NULL,
-  `sub_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `application_to_subject`
---
-
-INSERT INTO `application_to_subject` (`app_id`, `sub_id`) VALUES
-(1, 19),
-(1, 20);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `countries`
 --
 
@@ -112,6 +93,17 @@ CREATE TABLE `countries` (
 
 INSERT INTO `countries` (`coun_id`, `name`) VALUES
 (1, 'Greece');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `courses`
+--
+
+CREATE TABLE `courses` (
+  `app_id` int NOT NULL,
+  `title` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -153,17 +145,6 @@ CREATE TABLE `documents` (
 
 INSERT INTO `documents` (`doc_id`, `app_id`, `filename`, `file_location`, `approved`, `type`) VALUES
 (1, 1, 'file.doc', '/tmp/file.doc', 1, 'id');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `subjects`
---
-
-CREATE TABLE `subjects` (
-  `sub_id` int NOT NULL,
-  `title` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -241,16 +222,16 @@ ALTER TABLE `applications`
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indexes for table `application_to_subject`
---
-ALTER TABLE `application_to_subject`
-  ADD PRIMARY KEY (`app_id`,`sub_id`);
-
---
 -- Indexes for table `countries`
 --
 ALTER TABLE `countries`
   ADD PRIMARY KEY (`coun_id`);
+
+--
+-- Indexes for table `courses`
+--
+ALTER TABLE `courses`
+  ADD PRIMARY KEY (`app_id`,`title`);
 
 --
 -- Indexes for table `departments`
@@ -264,13 +245,6 @@ ALTER TABLE `departments`
 --
 ALTER TABLE `documents`
   ADD PRIMARY KEY (`doc_id`);
-
---
--- Indexes for table `subjects`
---
-ALTER TABLE `subjects`
-  ADD PRIMARY KEY (`sub_id`),
-  ADD UNIQUE KEY `title` (`title`);
 
 --
 -- Indexes for table `universities`
@@ -320,12 +294,6 @@ ALTER TABLE `departments`
 --
 ALTER TABLE `documents`
   MODIFY `doc_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `subjects`
---
-ALTER TABLE `subjects`
-  MODIFY `sub_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `universities`

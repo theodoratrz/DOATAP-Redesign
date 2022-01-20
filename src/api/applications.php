@@ -76,14 +76,11 @@ function approveApplication($appID, $university, $department){
 function setApplicationCourses($appID, $university, $department, $subjects){
     global $conn;
 
-    $subjectIDs = array();
-
+    // Add subjects
     foreach($subjects as $subject){
-        $sql = "INSERT IGNORE INTO subjects(`title`)
-                VALUES('$subject');";
+        $sql = "INSERT IGNORE INTO subjects(`app_id`, `title`)
+                VALUES('$appID', '$subject');";
         $conn->query($sql);
-        $sid = $conn->insert_id;
-        array_push($subjectIDs, $sid);
     }
 
     $sql = "UPDATE `applications`
@@ -93,12 +90,6 @@ function setApplicationCourses($appID, $university, $department, $subjects){
         `last_modified` = NOW()
     WHERE `app_id` = $appID;";
     $conn->query($sql);
-
-    foreach($subjectIDs as $subID){
-    $sql = "INSERT IGNORE INTO `application_to_subject`
-            VALUES('$appID', '$subID')";
-    $conn->query($sql);
-    }   
 }
 
 /*
