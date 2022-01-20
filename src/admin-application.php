@@ -47,10 +47,63 @@
         require_once  $_SERVER['DOCUMENT_ROOT'] . "/components/application_reject_component.php";
         require_once  $_SERVER['DOCUMENT_ROOT'] . "/components/application_approve_component.php";
         require_once  $_SERVER['DOCUMENT_ROOT'] . "/components/application_courses_component.php";
+
+        $applicationInfo = array (
+            "basic_info" => array(
+                "uname" => "kostas_44",
+                "email" => "kostas44@gmail.com",
+    
+                "fname" => "Κώστας",
+                "surname" => "Χρήστου",
+                "fathersName" => "Χρήστος",
+                "mothersName" => "Μαρία",
+                "birthDate" => "31-1-1999",
+                "gender" => "Άνδρας",
+    
+                "country" => "Ελλάδα",
+                "city" => "Αθήνα",
+                "address" => "Αθηνάς 4",
+    
+                "docSelection" => "Ταυτότητα",
+                "docID" => "14572",
+    
+                "mobilePhone" => "6969696969",
+                "homePhone" => "2106969696"
+            ),
+            "basic_info_accepted" => "1",
+            "studies_info" => array(
+                "studies_type" => "Συμβατικός",
+                "studies_duration" => "Τακτική",
+                "country" => "Η.Π.Α.",
+                "university" => "Yale",
+                "title" => "Fine Arts",
+                "ects" => "240",
+                "studyYears" => "4",
+                "dateStarted" => "31-1-1999",
+                "dateFinished" => "31-1-2003",
+            ),
+            "studies_info_accepted" => "0",
+            "documents" => array(
+                "id" => array (
+                    "/uploads/id_doc1.png",
+                    "1"
+                ),
+                "application" => array (
+                    "/uploads/application1.png",
+                    "0"
+                ),
+                "title" => array (
+                    "/uploads/title1.png",
+                    "1"
+                )
+            )
+        );
+
         $tabContent = array(
             "Στοιχεία Αίτησης" => array(
                 "application-info",
-                getApplicationRejectForm()
+                getApplicationRejectForm($applicationInfo)
+                #getApplicationFrozenRejectForm($applicationInfo)
             ),
             "Αντιστοίχιση & Έγκριση" => array(
                 "match-approve",

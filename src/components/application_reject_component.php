@@ -56,6 +56,19 @@ form[name="application-reject-form"] .form-control::placeholder {
     font-size: 18px;
 }
 
+.documents-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    row-gap: .85em;
+}
+
+.document-field-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 </style>
 <script>
 
@@ -80,31 +93,8 @@ form[name="application-reject-form"] .form-control::placeholder {
 
 <?php
 
-function getBasicInfo()
+function getBasicInfo(array $userInfo)
 {
-    # get these from DB
-    $userInfo = array(
-        "uname" => "kostas_44",
-        "email" => "kostas44@gmail.com",
-
-        "fname" => "Κώστας",
-        "surname" => "Χρήστου",
-        "fathersName" => "Χρήστος",
-        "mothersName" => "Μαρία",
-        "birthDate" => "31-1-1999",
-        "gender" => "Άνδρας",
-
-        "country" => "Ελλάδα",
-        "city" => "Αθήνα",
-        "address" => "Αθηνάς 4",
-
-        "docSelection" => "Ταυτότητα",
-        "docID" => "14572",
-
-        "mobilePhone" => "6969696969",
-        "homePhone" => "2106969696",
-    );
-
     return '
     <div class="basic-info-container">
         <div class="basic-info-field-group">
@@ -179,20 +169,8 @@ function getBasicInfo()
     ';
 }
 
-function getStudiesTitle()
+function getStudiesTitle(array $studiesInfo)
 {
-    $studiesInfo = array(
-        "studies_type" => "Συμβατικός",
-        "studies_duration" => "Τακτική",
-        "country" => "Η.Π.Α.",
-        "university" => "Yale",
-        "title" => "Fine Arts",
-        "ects" => "240",
-        "studyYears" => "4",
-        "dateStarted" => "31-1-1999",
-        "dateFinished" => "31-1-2003",
-    );
-
     return '
     <div class="basic-info-container">
         <div class="basic-info-field-group">
@@ -238,14 +216,41 @@ function getStudiesTitle()
     </div>';
 }
 
-function getDocuments()
+function getDocuments(array $documentsInfo)
 {
-
+    return '
+    <div class="documents-container">
+        <div class="document-field-container">
+            <button data-img-src="' . $documentsInfo['id'][0] . '">Έγγραφο Ταυτοπροσωπίας</button>
+            <label class="approve-checkbox">
+                <input type="checkbox" checked>
+                    Εγκρίνεται
+                </input>
+            </label>
+        </div>
+        <div class="document-field-container">
+            <button data-img-src="' . $documentsInfo['title'][0] . '">Τίτλος Σπουδών</button>
+            <label class="approve-checkbox">
+                <input type="checkbox" checked>
+                    Εγκρίνεται
+                </input>
+            </label>
+        </div>
+        <div class="document-field-container">
+            <button data-img-src="' . $documentsInfo['application'][0] . '">Αίτηση</button>
+            <label class="approve-checkbox">
+                <input type="checkbox" checked>
+                    Εγκρίνεται
+                </input>
+            </label>
+        </div>
+        
+    </div>
+    ';
 }
 
-function getRejectFormAccordion()
+function getRejectFormAccordion(array $applicationInfo)
 {
-
     require_once $_SERVER['DOCUMENT_ROOT'] . "/components/content_accordion.php";
 
     $accordionContent = array(
@@ -254,9 +259,9 @@ function getRejectFormAccordion()
             '
             <div style="display: flex; flex-direction: column; row-gap: .8em;">
                 <label class="approve-checkbox">
-                    <input type="checkbox" value="on">Έγκριση Προσωπικών Στοιχείων</input>
+                    <input type="checkbox" checked>Έγκριση Προσωπικών Στοιχείων</input>
                 </label>'
-                . getBasicInfo() . '
+                . getBasicInfo($applicationInfo['basic_info']) . '
             </div>
             '
         ),
@@ -265,15 +270,19 @@ function getRejectFormAccordion()
             '
             <div style="display: flex; flex-direction: column; row-gap: .8em;">
                 <label class="approve-checkbox">
-                    <input type="checkbox" value="on">Έγκριση Τίτλου Σπουδών</input>
+                    <input type="checkbox" checked>Έγκριση Τίτλου Σπουδών</input>
                 </label>'
-                . getStudiesTitle() . '
+                . getStudiesTitle($applicationInfo['studies_info']) . '
             </div>
             '
         ),
         array(
             '<span class="accordion-header-title">Δικαιολογητικά</span>',
-            'application documents HTML'
+            '
+            <div style="display: flex; flex-direction: column; row-gap: .8em;">
+                ' . getDocuments($applicationInfo['documents']) . '
+            </div>
+            '
         )
     );
     
@@ -284,7 +293,7 @@ function getRejectFormAccordion()
     return $tabs;
 }
 
-function getApplicationRejectForm()
+function getApplicationRejectForm(array $applicationInfo)
 {
     return '
     <div class="admin-reject-container">
@@ -292,21 +301,98 @@ function getApplicationRejectForm()
             Σε περίπτωση απόρριψης της αίτησης, μπορείτε να αποεπιλέξτε την επιλογή έγκρισης σε κάποια ενότητα ή δικαιολογητικό:
         </span>
         <form name="application-reject-form" onsubmit="rejectApplication()">
-            ' . getRejectFormAccordion() . '
+            ' . getRejectFormAccordion($applicationInfo) . '
         </form>
     </div>
     ';
 }
 
-function getApplicationRejectFrozenForm()
+function getFrozenDocuments(array $documentsInfo)
+{
+    return '
+    <div class="documents-container">
+        <div class="document-field-container">
+            <button data-img-src="' . $documentsInfo['id'][0] . '">Έγγραφο Ταυτοπροσωπίας</button>
+            <label class="approve-checkbox">
+                <input type="checkbox" ' . ($documentsInfo['id'][1] === "1" ? 'checked' : "") . ' disabled>
+                    Εγκρίνεται
+                </input>
+            </label>
+        </div>
+        <div class="document-field-container">
+            <button data-img-src="' . $documentsInfo['application'][0] . '">Τίτλος Σπουδών</button>
+            <label class="approve-checkbox">
+                <input type="checkbox" ' . ($documentsInfo['application'][1] === "1" ? "checked" : "") . ' disabled>
+                    Εγκρίνεται
+                </input>
+            </label>
+        </div>
+        <div class="document-field-container">
+            <button data-img-src="' . $documentsInfo['title'][0] . '">Αίτηση</button>
+            <label class="approve-checkbox">
+                <input type="checkbox" ' . ($documentsInfo['title'][1] === "1" ? "checked" : "") . ' disabled>
+                    Εγκρίνεται
+                </input>
+            </label>
+        </div>
+        
+    </div>
+    ';
+}
+
+function getFrozenRejectFormAccordion(array $applicationInfo)
+{
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/components/content_accordion.php";
+
+    $accordionContent = array(
+        array(
+            '<span class="accordion-header-title">Προσωπικά Στοιχεία</span>',
+            '
+            <div style="display: flex; flex-direction: column; row-gap: .8em;">
+                <label class="approve-checkbox">
+                    <input type="checkbox" ' . ($applicationInfo["basic_info_accepted"] === "1" ? "checked" : "") . ' disabled>Έγκριση Προσωπικών Στοιχείων</input>
+                </label>'
+                . getBasicInfo($applicationInfo["basic_info"]) . '
+            </div>
+            '
+        ),
+        array(
+            '<span class="accordion-header-title">Τίτλος Σπουδών</span>',
+            '
+            <div style="display: flex; flex-direction: column; row-gap: .8em;">
+                <label class="approve-checkbox">
+                    <input type="checkbox" ' . ($applicationInfo["studies_info_accepted"] === "1" ? "checked" : "") . ' disabled>Έγκριση Τίτλου Σπουδών</input>
+                </label>'
+                . getStudiesTitle($applicationInfo["studies_info"]) . '
+            </div>
+            '
+        ),
+        array(
+            '<span class="accordion-header-title">Δικαιολογητικά</span>',
+            '
+            <div style="display: flex; flex-direction: column; row-gap: .8em;">
+                ' . getFrozenDocuments($applicationInfo["documents"]) . '
+            </div>
+            '
+        )
+    );
+    
+    ob_start();
+    echoAccordion($accordionContent, true);
+    $tabs = ob_get_contents();
+    ob_clean();
+    return $tabs;
+}
+
+function getApplicationFrozenRejectForm(array $applicationInfo)
 {
     return '
     <div class="admin-reject-container">
         <span style="font-size: 21px;">
-            Για την απόρριψη της αίτησης, αποεπιλέξτε την επιλογή "Εγκρίνεται" σε κάποια ενότητα ή δικαιολογητικό:
+            Παρακάτω εμφανίζονται οι πληροφορίες έγκρισης πεδίων και δικαιολογητικών:
         </span>
         <form name="application-reject-form" onsubmit="rejectApplication()">
-        
+            ' . getFrozenRejectFormAccordion($applicationInfo) . '
         </form>
     </div>
     ';
