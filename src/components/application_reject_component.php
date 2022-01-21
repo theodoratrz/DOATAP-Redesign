@@ -179,7 +179,8 @@ form[name="application-reject-form"] .form-control::placeholder {
                     'form': document.getElementById('application_check').checked ? "1" : "0",
                     'title': document.getElementById('title_check').checked ? "1" : "0",
                     'fee': ""
-                }
+                },
+                "comments": document.getElementById('admin-comments-textbox').value
             }
         })
     }

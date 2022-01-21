@@ -84,6 +84,11 @@ form[name="courses-submission-form"] .form-control::placeholder {
 </style>
 <script>
     var coursesNamespace = {
+
+        toggleVerificationModal: () => {
+            $("#coursesVerificationModal").modal("toggle");
+        },
+
         handleUniversityOnKeyUp: () => {
             const universitySelection = document.getElementById("courses-university-selection");
             let departmentSelection = document.getElementById("courses-department-selection");
@@ -144,42 +149,45 @@ form[name="courses-submission-form"] .form-control::placeholder {
     }
 
     function submitApplicationCourses(event) {     
-            event.preventDefault();       
-            const universitySelection = document.getElementById("courses-university-selection");
-            const departmentSelection = document.getElementById("courses-department-selection");
-            const selectedCourses = window.checkListComponent.state.items.map(item => item.content[0]);
+        event.preventDefault();
+        coursesNamespace.toggleVerificationModal();
+        
+        const universitySelection = document.getElementById("courses-university-selection");
+        const departmentSelection = document.getElementById("courses-department-selection");
+        const selectedCourses = window.checkListComponent.state.items.map(item => item.content[0]);
 
-            if (universitySelection.value === "" || departmentSelection.value === "") {
-                document.getElementById('modal-body-msg').innerHTML = 'Εκρεμμεί η επιλογή ιδρύματος και τμήματος.';
-                $('#errorMsgModal').modal("show");
-            }
-            else if (selectedCourses.length === 0) {
-                document.getElementById('modal-body-msg').innerHTML = 'Εκρεμμεί η επιλογή μαθημάτων προς ανάθεση.';
-                $('#errorMsgModal').modal("show");
-            }
-            else {
-                $.ajax({
-                    type: "POST",
-                    url: "/submit_application_courses.php",
-                    dataType: "json",
-                    success: answer => {
-                        //console.log(answer);
-                        //window.alert();
-                        document.forms["courses-submission-form"].submit();
-                    },
-                    error: answer => {
-                        // Reject submission
-                        document.getElementById('modal-body-msg').innerHTML = answer;
-                        $('#errorMsgModal').modal("show");
-                    },
-                    data: {
-                        "university": universitySelection.value,
-                        "department": departmentSelection.value,
-                        "courses": selectedCourses
-                    }
-                });
-            }
+        if (universitySelection.value === "" || departmentSelection.value === "") {
+            document.getElementById('modal-body-msg').innerHTML = 'Εκρεμμεί η επιλογή ιδρύματος και τμήματος.';
+            $('#errorMsgModal').modal("show");
         }
+        else if (selectedCourses.length === 0) {
+            document.getElementById('modal-body-msg').innerHTML = 'Εκρεμμεί η επιλογή μαθημάτων προς ανάθεση.';
+            $('#errorMsgModal').modal("show");
+        }
+        else {
+            $.ajax({
+                type: "POST",
+                url: "/submit_application_courses.php",
+                dataType: "json",
+                success: answer => {
+                    //console.log(answer);
+                    //window.alert();
+                    document.forms["courses-submission-form"].submit();
+                },
+                error: answer => {
+                    // Reject submission
+                    document.getElementById('modal-body-msg').innerHTML = answer;
+                    $('#errorMsgModal').modal("show");
+                },
+                data: {
+                    "university": universitySelection.value,
+                    "department": departmentSelection.value,
+                    "courses": selectedCourses,
+                    "comments": document.getElementById('admin-comments-textbox').value
+                }
+            });
+        }
+    }
 
     function hideModal() {
         $("#errorMsgModal").modal("toggle");
@@ -196,6 +204,31 @@ form[name="courses-submission-form"] .form-control::placeholder {
 </script>
 
 <?php
+
+function getCoursesVerificationModal() {
+    return '
+    <div class="modal fade" id="coursesVerificationModal" tabindex="-1" role="dialog" aria-labelledby="coursesVerificationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-title" id="coursesVerificationModalLabel">Επιβεβαίωση</span>
+                </div>
+                <div id="courses-verify-modal-body-msg" class="modal-body">
+                    Είστε βέβαιοι ότι θέλετε να αναθέσετε τα επιλεγμένα μαθήματα σε αυτή την αίτηση?
+                </div>
+                <div class="modal-footer verify-footer">
+                    <button type="button" class="btn btn-secondary close-doc-btn cancel-reject" data-dismiss="modal" onclick="coursesNamespace.toggleVerificationModal()">
+                        Ακύρωση
+                    </button>
+                    <button type="submit" class="btn btn-secondary close-doc-btn verify-reject" data-dismiss="modal" onclick="submitApplicationCourses(event)">
+                        Συνέχεια
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    ';
+}
 
 function getCourseUniversityOptions()
 {
@@ -253,8 +286,11 @@ function getApplicationCoursesForm()
                 <!-- Using React component -->
                 <div id="checklist_container" class="checklist-container"></div>
                 <div class="submit-courses-button">
-                    <button class="btn btn-primary" type="submit">Ανάθεση Μαθημάτων</button>
+                    <button class="btn btn-primary" type="button" onclick="coursesNamespace.toggleVerificationModal()">
+                        Ανάθεση Μαθημάτων
+                    </button>
                 </div>
+                '. getCoursesVerificationModal() .'
             </div>
         </form>
     </div>

@@ -9,8 +9,7 @@ $MYSQL_USER = $mysqlUser;
 $MYSQL_PASSWORD = $mysqlPassword;
 $MYSQL_DB = "doatap";
 
-$conn = mysqli_connect("db", "root", "1234", "doatap");
-
+$conn = mysqli_connect("db", "root", "12344321", "doatap");
 
 function close_connection(){
     global $conn;

@@ -47,15 +47,61 @@
         font-size: 18px;
     }
 
+    .admin-comments-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .comments-title-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .comments-title {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .comments-box {
+        font-size: 16px;
+        width: 20em;
+        height: 20em;
+    }
+
     </style>
 
     <div class="central-container">
         <?php
 
+        function echoAdminCommentsContainer() {
+            echo '
+            <div class="admin-comments-container">
+                <div class="comments-title-wrapper">
+                    <span class="comments-title">Σχόλια Διαχειριστή</span>
+                </div>
+                <textarea id="admin-comments-textbox" class="comments-box"></textarea>
+            </div>
+            ';
+        }
+
+        function echoAdminCommentsFrozenContainer($comments) {
+            echo '
+            <div class="admin-comments-container">
+                <div class="comments-title-wrapper">
+                    <span class="comments-title">Σχόλια Διαχειριστή</span>
+                </div>
+                <textarea class="comments-box" disabled>'. $comments .'</textarea>
+            </div>
+            ';
+        }
+
         function echoErrorMsgModal() {
             echo '
             <div class="modal fade" id="errorMsgModal" tabindex="-1" role="dialog" aria-labelledby="errorMsgModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
+                <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                     <div class="modal-header">
                         <span class="modal-title" id="errorMsgModalLabel">Σφάλμα</span>
@@ -73,7 +119,7 @@
         }
 
         require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
-        require_once  $_SERVER['DOCUMENT_ROOT'] . "/components/content_tabs.php"; 
+        require_once  $_SERVER['DOCUMENT_ROOT'] . "/components/content_tabs_old.php"; 
         require_once  $_SERVER['DOCUMENT_ROOT'] . "/components/application_reject_component.php";
         require_once  $_SERVER['DOCUMENT_ROOT'] . "/components/application_approve_component.php";
         require_once  $_SERVER['DOCUMENT_ROOT'] . "/components/application_courses_component.php";
@@ -134,10 +180,16 @@
                 "course1",
                 "course2",
                 "course3"
-            )
+            ),
+            "comments" => "
+            - bla1
+            - bla2
+            - bla3
+            "
         );
 
         $tabContent = array();
+        $isApplicationClosed = true;
 
         switch ($applicationInfo["status"]) {
             case 'submitted':
@@ -153,6 +205,7 @@
                     "attach-courses",
                     getApplicationCoursesForm()
                 );
+                $isApplicationClosed = false;
                 break;            
             case 'declined':
                 $tabContent["Στοιχεία Αίτησης"] = array(
@@ -200,6 +253,13 @@
         }
         echoErrorMsgModal();
         echoContentTabs($tabContent, "admin-tab-wrapper");
+
+        if ($isApplicationClosed) {
+            echoAdminCommentsFrozenContainer($applicationInfo['comments']);
+        } else {
+            echoAdminCommentsContainer();
+        }
+
         ?>
     </div>
 </div>

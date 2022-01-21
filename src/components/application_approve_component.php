@@ -69,6 +69,12 @@ form[name="match-approve-form"] .form-control::placeholder {
 
 </style>
 <script>
+    var approveFormNamespace = {
+        toggleVerificationModal: () => {
+            $("#approveVerifyModal").modal("toggle");
+        }
+    }
+
     function handleUniversityOnKeyUp() {
         const universitySelection = document.getElementById("approve-university-selection");
         let departmentSelection = document.getElementById("approve-department-selection");
@@ -128,13 +134,14 @@ form[name="match-approve-form"] .form-control::placeholder {
     
     function approveApplication(event) {
         event.preventDefault();
+        $("#approveVerifyModal").modal("hide");
+
         const universitySelection = document.getElementById("approve-university-selection");
         const departmentSelection = document.getElementById("approve-department-selection");
 
         if (universitySelection.value === "" || departmentSelection.value === "") {
-            let errorMsgElement = document.getElementById("error-msg-container");
-            document.getElementById('error-message').innerHTML = 'Εκρεμμεί η επιλογή ιδρύματος και τμήματος.';
-            errorMsgElement.style.display = 'block';
+            document.getElementById('modal-body-msg').innerHTML = 'Εκρεμμεί η επιλογή ιδρύματος και τμήματος.';
+            $('#errorMsgModal').modal("show");
         } else {
             $.ajax({
                 type: "POST",
@@ -151,7 +158,8 @@ form[name="match-approve-form"] .form-control::placeholder {
                 },
                 data: {
                     "university": universitySelection.value,
-                    "department": departmentSelection.value
+                    "department": departmentSelection.value,
+                    "comments": document.getElementById('admin-comments-textbox').value
                 }
             });
         }
@@ -176,22 +184,37 @@ function getUniversityOptions()
     <option id="uni_4" data-uni-id="4" value="ΑΠΘ">
     <option id="uni_5" data-uni-id="5" value="Παν. Μακεδονίας">
     ';
+}
 
-    # getUniversities("gr")
+function getApproveVerificationModal() {
+    return '
+    <div class="modal fade" id="approveVerifyModal" tabindex="-1" role="dialog" aria-labelledby="approveVerifyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-title" id="approveVerifyModalLabel">Επιβεβαίωση</span>
+                </div>
+                <div id="approve-verify-modal-body-msg" class="modal-body">
+                    Είστε βέβαιοι ότι θέλετε να εγκρίνετε αυτή την αίτηση?
+                </div>
+                <div class="modal-footer verify-footer">
+                    <button type="button" class="btn btn-secondary close-doc-btn cancel-reject" data-dismiss="modal" onclick="approveFormNamespace.toggleVerificationModal()">
+                        Ακύρωση
+                    </button>
+                    <button type="submit" class="btn btn-secondary close-doc-btn verify-reject" data-dismiss="modal" onclick="approveApplication(event)">
+                        Συνέχεια
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    ';
 }
 
 function getApplicationApproveForm()
 {
     return '
     <div class="admin-approve-container">
-        <div class="alert alert-danger error-message-container" role="alert" id="error-msg-container">
-            <h5 class="alert-heading">Σφάλμα</h5>
-            <p id="error-message"></p>
-            <hr>
-            <button type="button" class="btn btn-secondary close-message-btn" onclick="closeErrorMsg()">
-                Κλείσιμο
-            </button>
-        </div>
         <span style="font-size: 21px">
             Για την έγκριση της αίτησης, επιλέξτε ίδρυμα & τμήμα για αντιστοίχιση τίτλου σπουδών:
         </span>
@@ -218,8 +241,11 @@ function getApplicationApproveForm()
                     </datalist>
                 </div>
                 <div class="submit-approval-button">
-                    <button class="btn btn-primary" type="submit">Αντιστοίχιση και Έγκριση</button>
+                    <button class="btn btn-primary" type="button" onclick="approveFormNamespace.toggleVerificationModal()">
+                        Αντιστοίχιση και Έγκριση
+                    </button>
                 </div>
+                '. getApproveVerificationModal() .'
             </div>
         </form>
     </div>
