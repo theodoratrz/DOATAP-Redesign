@@ -38,10 +38,40 @@
         column-gap: .15rem;
     }
 
+    .modal-title {
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .modal-body {
+        font-size: 18px;
+    }
+
     </style>
 
     <div class="central-container">
         <?php
+
+        function echoErrorMsgModal() {
+            echo '
+            <div class="modal fade" id="errorMsgModal" tabindex="-1" role="dialog" aria-labelledby="errorMsgModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="modal-title" id="errorMsgModalLabel">Σφάλμα</span>
+                    </div>
+                    <div id="modal-body-msg" class="modal-body">
+                        <error message>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary close-message-btn" data-dismiss="modal" onclick="hideModal()">Κλείσιμο</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            ';
+        }
+
         require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
         require_once  $_SERVER['DOCUMENT_ROOT'] . "/components/content_tabs.php"; 
         require_once  $_SERVER['DOCUMENT_ROOT'] . "/components/application_reject_component.php";
@@ -168,6 +198,7 @@
                 # code...
                 break;
         }
+        echoErrorMsgModal();
         echoContentTabs($tabContent, "admin-tab-wrapper");
         ?>
     </div>

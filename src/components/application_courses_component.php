@@ -81,15 +81,6 @@ form[name="courses-submission-form"] .form-control::placeholder {
     max-width: 85vw;
 }
 
-.modal-title {
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.modal-body {
-    font-size: 18px;
-}
-
 </style>
 <script>
     var coursesNamespace = {
@@ -219,26 +210,6 @@ function getCourseUniversityOptions()
     # getUniversities("gr")
 }
 
-function getErrorMsgModal() {
-    return '
-    <div class="modal fade" id="errorMsgModal" tabindex="-1" role="dialog" aria-labelledby="errorMsgModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-            <div class="modal-header">
-                <span class="modal-title" id="errorMsgModalLabel">Σφάλμα</span>
-            </div>
-            <div id="modal-body-msg" class="modal-body">
-                Μπλα μπλα
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary close-message-btn" data-dismiss="modal" onclick="hideModal()">Κλείσιμο</button>
-            </div>
-            </div>
-        </div>
-    </div>
-    ';
-}
-
 function getApplicationCoursesForm()
 {
     return '
@@ -286,8 +257,7 @@ function getApplicationCoursesForm()
                 </div>
             </div>
         </form>
-    </div>' .
-    getErrorMsgModal() . '
+    </div>
     <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
     <script src="/js/checklist.js"></script>
