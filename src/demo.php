@@ -2,8 +2,6 @@
 
 <link rel="stylesheet" href="css/index.css">
 
-<link rel="stylesheet" href="css/index.css">
-
 <body>
 
 <div class="page-container fluid-container">
@@ -165,6 +163,14 @@
             </div>
         </form>
     </div>
+    <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+    <datalist id="datalistOptions">
+        <option value="Πληροφορικής">
+        <option value="Ανάπτυξης">
+        <option value="lemon">
+        <option value="pear">
+        <option value="grape">
+    </datalist>
 </div>
 
 <?php require_once  $_SERVER['DOCUMENT_ROOT'] . "/components/footer.php"; ?>

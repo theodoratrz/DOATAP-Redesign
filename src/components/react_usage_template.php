@@ -49,7 +49,7 @@
     }
     function submitData() {
         const dataJSON = {
-            departments: window.checkListComponent.state.items.map(item => item.content)
+            "departments": window.checkListComponent.state.items.map(item => item.content)
         }
         $.ajax({
             type: "POST",
@@ -91,8 +91,9 @@ https://reactjs.org/docs/add-react-to-a-website.html#optional-try-react-with-jsx
 
 <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
 <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
-<!-- For JSX -->
-<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+<!-- For JSX (Replaced by Babel production preprocessor) -->
+<!-- <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
 
 <!-- text/babel needed for JSX -->
-<script type="text/babel" src="/js/checklist.js"></script>
+<script src="/js/checklist.js"></script>

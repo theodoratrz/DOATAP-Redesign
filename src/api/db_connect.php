@@ -15,7 +15,6 @@ $MYSQL_DB = "doatap";
 
 $conn = mysqli_connect("db", "root", "1234", "doatap");
 
-
 function close_connection(){
     global $conn;
     $conn->close();
