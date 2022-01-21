@@ -505,3 +505,22 @@ text-align: center;
 .dropend .dropdown-toggle::after {
   vertical-align: 0;
 }
+
+.breadcrumb{
+  margin-top: 0.5rem;
+  margin-left: 1.5rem;
+}
+
+.breadcrumb-item{
+  font-size: 15px;
+}
+
+.fa-home{
+  position: relative;
+  top: 2px;
+}
+
+.gray-box > a{
+  margin-left: 4rem !important;
+  margin-top: 1rem !important;
+}

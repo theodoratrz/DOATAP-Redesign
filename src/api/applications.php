@@ -50,4 +50,119 @@ function getCountries(){
     return $rows;
 }
 
-?>
+function getApplication($appID){
+    global $conn;
+    $sql = "SELECT * FROM applications WHERE `app_id`='$appID'";
+    $result = $conn->query($sql);
+    if ($result->num_rows == 0){
+        return null;
+    }
+    $row = $result->fetch_assoc();
+    return $row;
+}
+
+function approveApplication($appID, $university, $department){
+    global $conn;
+    $sql = "UPDATE `applications`
+            SET `state` = 'approved',
+                `university` = '$university',
+                `department` = '$department',
+                `last_modified` = NOW()
+            WHERE `app_id` = $appID;";
+
+    $conn->query($sql);
+}
+
+function setApplicationCourses($appID, $university, $department, $subjects){
+    global $conn;
+
+    // Add subjects
+    foreach($subjects as $subject){
+        $sql = "INSERT IGNORE INTO subjects(`app_id`, `title`)
+                VALUES('$appID', '$subject');";
+        $conn->query($sql);
+    }
+
+    $sql = "UPDATE `applications`
+    SET `state` = 'needsSubject',
+        `university` = '$university',
+        `department` = '$department',
+        `last_modified` = NOW()
+    WHERE `app_id` = $appID;";
+    $conn->query($sql);
+}
+
+/*
+Sample $rejected
+array (
+    "basic_info" => true,
+    "studies_info" => true,
+    "documents" => array(
+      "id" => false,
+      "form" => true,
+      "title" => true
+    )
+  )
+*/
+
+function rejectApplication($appID, $rejectedDocs, $comment){
+    global $conn;
+
+    $basicApproved = $rejectedDocs['basic_info'];
+    $studiesApproved = $rejectedDocs['studies_info'];
+    $documents = $rejectedDocs['documents'];
+
+    $sql = "UPDATE `applications`
+            SET `state` = 'rejected',
+                `comment` = '$comment',
+                `basicInfoApproved` = '$basicApproved',
+                `studiesInfoApproved` = '$studiesApproved',
+                `last_modified` = NOW()
+            WHERE `app_id` = $appID;";
+    $conn->query($sql);
+
+    foreach(array('id', 'form', 'title') as $type){
+        $approved = $documents[$type];
+        $sql = "UPDATE `documents`
+                SET `approved` = '$approved'
+                WHERE `app_id` = $appID AND `type` = '$type';";
+        $conn->query($sql);
+    }
+
+}
+
+/*
+app_id
+state
+user_id
+created
+last_modified
+attendance
+studiesType
+ECTS
+dateIntro
+dateGrad
+yearsOfStudy
+department
+university
+*/
+
+function newApplication($userID, $state, $attendance, $studiesType, $ECTS, $dateIntro, $dateGrad,
+$yearsOfStudy, $department, $university){
+    global $conn;
+
+    $sql = "INSERT INTO applications(
+        `user_id`, `state`, `attendance`,`studiesType`, `ECTS`, `dateIntro`, `dateGrad`,
+        `yearsOfStudy`, `department`, `university` 
+    )
+    VALUES (
+        '$userID', '$state', '$attendance', '$studiesType', '$ECTS', '$dateIntro', '$dateGrad',
+        '$yearsOfStudy', '$department', '$university'
+    );";
+    $conn->query($sql);
+
+    echo $sql;
+
+    return true;
+    
+}
