@@ -16,6 +16,7 @@
     <div class="page-content-container">
         <?php 
             require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
+            echoSidebar("/applications/apps/procedure-submission/");
         ?>
         <div class="fluid-container" style="width:30rem; margin-top:1%;">
         <h6 style="font-weight:bold">1. Σύνδεση ή Δημιουργία Λογαριασμού</h6>

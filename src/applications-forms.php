@@ -15,8 +15,7 @@
     <div class="page-content-container">
         <?php 
             require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
-
-            #echoSidebar();
+            echoSidebar("/applications/apps/applications-forms/");
         ?>
         <?php
 

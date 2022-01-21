@@ -69,7 +69,9 @@
         </div>
     <div class="page-content-container">
     
-      <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php"?>
+      <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
+      echoSidebar("/profile/myapplications/");
+      ?>
 
       <div class="table-wrapper">
           <div style="display:flex; flex-direction:row; justify-content:space-between;margin-bottom:1rem; width:inherit; align-items:center;">

@@ -10,7 +10,7 @@ $nav_links = array(
 		"Παράβολα" => "paravola.php")
 	),
 	"Ανακοινώσεις" => array(
-	"anouncements.php",
+	"announcements.php",
 	array("Γενικές Πληροφορίες" => "under_construction.php",
 	"Αποφάσεις Δ.Σ" => "error404.php",
 	"Προϋπολογισμοί-Προκηρύξεις" => "under_construction.php",

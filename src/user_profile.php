@@ -18,7 +18,9 @@
     <div class="page-content-container">
     
         <?php 
-            require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php"?>
+            require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
+            echoSidebar("/profile/prof/");
+            ?>
                         <div class="table-wrapper">
                             <form> 
                                

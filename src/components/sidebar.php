@@ -10,35 +10,37 @@
 
 const _sidebar_page_names_ = array(
 	"profile" => array(
-		"" => "Οι πληροφορίες μου",
-		"account" => array(
-			"Ο Λογαριασμός μου",
-			array(
-				"details1" => "1",
-				"details2" => "2"
-			)				
-		),
-		"my_applications" => array(
-			"Πρόσφατες Αιτήσεις",
-			array(
-				"declined" => "Απορρίφθηκαν",
-				"accepted" => "Εγκρίθηκαν"
-			)				
-		)
+		"prof" => "Οι πληροφορίες μου",
+		"new" => "Νέα Αίτηση",
+		"myapplications" => "Οι Αιτήσεις μου"
+					
 	),
 	"announcements" => array(
-		"an1" => "Ανακοινώσεις1",
-		"an2" => "Ανακοινώσεις2"
+		array(
+			"Ανακοινώσεις",
+			array(
+		"generalInfo" => "Γενικές Πληροφορίες",
+		"ds" => "Αποφάσεις Δ.Σ",
+		"statistics" => "Προϋπολογισμοί-Προκηρύξεις",
+		"medInfo" => "Εξετάσεις Ιατρικής",	
+		"teethInfo" => "Εξετάσεις Οδοντιατρικής",
+			)
+		),				
 	),
 	
-	"applications.php" => 
-	"Αιτήσεις",
-	array(
-		"procedure-submission.php" => "Διαδικασία Υποβολής",
-		"applications-evaluation.php" => "Η Πορεία μίας Αίτησης",
-		"applications-forms.php" => "Φόρμες Αιτήσεων",
-		"paravola.php" => "Παράβολα"
+	"applications" => array(
+		"apps" => array(
+			"Αιτήσεις",
+		array(
+		"procedure-submission" => "Διαδικασία Υποβολής",
+		"applications-evaluation" => "Η Πορεία μίας Αίτησης",
+		"applications-forms" => "Φόρμες Αιτήσεων",
+		"paravola" => "Παράβολα"
+		)	
+		)		
 	)
+	
+	
 );
 
 
@@ -124,6 +126,6 @@ function echoSidebarItem(string $pageTitle, string $href, bool $active)
 	";
 }
 
-echoSidebar("/profile/my_applications/accepted");
+#echoSidebar("/profile/my_applications/accepted");
 
 ?>

@@ -16,7 +16,9 @@
         </div>
     <div class="page-content-container" style="margin-bottom:2rem;">
           
-        <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php"?>
+        <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
+        echoSidebar("/profile/new/");
+        ?>
             <!-- Modal -->
           <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
