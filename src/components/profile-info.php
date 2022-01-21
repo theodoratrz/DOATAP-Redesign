@@ -79,36 +79,9 @@
         ";
     }
 
-    function getAllCountries()
-    {
-        # return getCountries();
-        return array(
-            array(
-                "count_id" => "1",
-                "name" => "Ελλάδα"
-            ),
-            array(
-                "count_id" => "2",
-                "name" => "ΗΠΑ"
-            ),
-            array(
-                "count_id" => "3",
-                "name" => "Γαλλία"
-            ),
-            array(
-                "count_id" => "4",
-                "name" => "4"
-            ),
-            array(
-                "count_id" => "5",
-                "name" => "5"
-            )
-        );
-    }
-
     function echoCountryField(string $fieldID, string $description, string $invalidInputMsg, string $selectedValue = '')
     {
-        $countries = getAllCountries();
+        $countries = getCountries();
         echo '
         <div class="field-container">
             <label for=' . $fieldID . ' class="form-label">' . $description . '</label>
@@ -118,7 +91,7 @@
                 }
                 
                 foreach ($countries as $country) {
-                    $value = $country["count_id"];
+                    $value = $country["coun_id"];
                     $name = $country["name"];
                     if ($name === $selectedValue) {
                         echo '<option value="' . $value . '" selected>' . $name . '</option>';

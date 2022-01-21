@@ -10,9 +10,9 @@
 
 const _sidebar_page_names_ = array(
 	"profile" => array(
-		"prof" => "Οι πληροφορίες μου",
-		"new" => "Νέα Αίτηση",
-		"myapplications" => "Οι Αιτήσεις μου"
+		"user_profile.php" => "Οι πληροφορίες μου",
+		"user_application_submission.php" => "Νέα Αίτηση",
+		"myapplications.php" => "Οι Αιτήσεις μου"
 					
 	),
 	"announcements" => array(

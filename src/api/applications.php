@@ -5,14 +5,21 @@ require_once "db_connect.php";
 function getApplications($userID){
     global $conn, $db_error_message;
 
-    $sql = "SELECT a.app_id, c.name as country, d.name as department, un.name as university
-    FROM applications a, users us, countries c, departments d, universities un
-    WHERE a.user_id=$userID
-    AND a.user_id = us.user_id
-    AND a.department = d.dep_id
-    AND d.university = un.uni_id
-    AND un.country = c.coun_id
-    ";
+    // $sql = "SELECT a.app_id, c.name as country, d.name as department, un.name as university
+    // FROM applications a, users us, countries c, departments d, universities un
+    // WHERE a.user_id=$userID
+    // AND a.user_id = us.user_id
+    // AND a.department = d.dep_id
+    // AND d.university = un.uni_id
+    // AND un.country = c.coun_id
+    // ";
+
+    $sql = "SELECT 
+    `app_id` as application_id,
+    DATE_FORMAT(`created`, '%d-%m-%Y') as date_created,
+    DATE_FORMAT(`last_modified`, '%d-%m-%Y') as date_modified,
+    `state`
+    FROM applications WHERE `user_id`=$userID";
 
     $result = $conn->query($sql);
 
@@ -84,7 +91,7 @@ function setApplicationCourses($appID, $university, $department, $subjects){
     }
 
     $sql = "UPDATE `applications`
-    SET `state` = 'needsSubject',
+    SET `state` = 'pending',
         `university` = '$university',
         `department` = '$department',
         `last_modified` = NOW()
@@ -113,7 +120,7 @@ function rejectApplication($appID, $rejectedDocs, $comment){
     $documents = $rejectedDocs['documents'];
 
     $sql = "UPDATE `applications`
-            SET `state` = 'rejected',
+            SET `state` = 'declined',
                 `comment` = '$comment',
                 `basicInfoApproved` = '$basicApproved',
                 `studiesInfoApproved` = '$studiesApproved',

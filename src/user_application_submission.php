@@ -155,7 +155,9 @@
         ob_end_clean();
 
         ob_start();
+        echo "<form id='profile-form'>";
         echoProfileInfoForm($form_values, true);
+        echo "</form>";
         $val2 = ob_get_contents();
         ob_end_clean();
 
@@ -295,11 +297,11 @@
     let submitbtn = $("#final-submit-button");
 
     savebtn.click(function() {
-      submitForm('saved');
+      submitForm('stored');
     });
 
     submitbtn.click(function() {
-      submitForm('uploaded');
+      submitForm('submitted');
     });
 
     function submitForm(state) {
@@ -337,21 +339,11 @@
           // Display error
           alert(data);
         } else {
-          alert(data);
           // Do smth
         }
       })
-
-
-
-
-
-
-
-
     }
   </script>
-
 
   <script>
     // UPLOAD FILES
@@ -384,6 +376,13 @@
       $("#del-3").show()
       filesUploaded[2] = this.files[0];
     })
+  </script>
+
+<script>
+    // DISABLE PROFILE FORM
+
+    $("#profile-form :input").prop("disabled", true);
+
   </script>
 
 
