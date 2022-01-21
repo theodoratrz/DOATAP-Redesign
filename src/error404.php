@@ -1,3 +1,4 @@
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php" ?>
 <!-- purple x moss 2020 -->
 <link rel="stylesheet" href="/css/error404.css">
 
@@ -6,10 +7,14 @@
   <script src="https://kit.fontawesome.com/4b9ba14b0f.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/navbar.php" ?>
+
   <div class="mainbox">
     <div class="err">4</div>
-    <i class="far fa-question-circle fa-spin"></i>
+    <i style="top:20%; right:1rem; left:1rem;" class="far fa-question-circle fa-spin"></i>
     <div class="err2">4</div>
-    <div class="msg">Maybe this page moved? Got deleted? Is hiding out in quarantine? Never existed in the first place?<p>Let's go <a href="index.php">home</a> and try from there.</p></div>
+    <div class="msg">Μήπως η σελίδα μετακόμισε; Διαγράφτηκε; Είναι σε καραντίνα; Ποτέ δεν υπήρξε;<p>Ας πάμε στην <a href="index.php">αρχική</a> και βλέπουμε.</p></div>
 </div>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/footer.php" ?>
+
 </body>

@@ -2,7 +2,9 @@
 
 require_once "db_connect.php";
 
-function newUser(string $username, string $password, string $email, bool $isAdmin)
+function newUser($username, $password, $email, $firstName, $lastName, 
+$mothersName, $fathersName, $country, $city, $address,
+$docType, $docNumber, $gender, $birthday, $mobile, $phone, $isAdmin)
 {
     global $conn;
     global $db_error_message;
@@ -10,24 +12,23 @@ function newUser(string $username, string $password, string $email, bool $isAdmi
     # Escape sql characters
     $username = e($username);
     $email = e($email);
+    $firstName = e($firstName);
+    $lastName = e($lastName);
+    $mothersName = e($mothersName);
+    $fathersName = e($fathersName);
+    $country = e($country);
+    $city = e($city);
+    $address = e($address);
+    $docType = e($docType);
+    $docNumber = e($docNumber);
+    $gender = e($gender);
+    $birthday = e($birthday);
+    $mobile = e($mobile);
+    $phone = e($phone);
 
     # Encrypt password
     $password = hash('sha256', $password);
-
     $isAdmin = $isAdmin ? 1 : 0;
-
-    # Check valid username
-    if (!preg_match("/^[A-Za-z0-9_]+$/", $username)) {
-        $db_error_message = "This username is not valid. Try using only characters, numbers and underscores";
-        return false;
-    }
-
-    # Check valid email
-    if (!preg_match('/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/', $email)) {
-        $db_error_message = "Please insert a valid email";
-        return false;
-    }
-
 
     # Check existing username
     $sql = "SELECT username FROM users WHERE `username`='$username'";
@@ -46,13 +47,21 @@ function newUser(string $username, string $password, string $email, bool $isAdmi
     }
 
     # Make query
-    $sql = "INSERT INTO users(`username`, `password`, `email`, `isAdmin`) VALUES('$username', '$password', '$email', $isAdmin);";
+    $sql = "INSERT INTO users(`username`, `password`, `email`, `isAdmin`,
+            `first_name`, `last_name`, `mothers_name`, `fathers_name`,
+            `country`, `city`, `address`, `docType`, `docNumber`,
+            `gender`, `birthday`, `mobile`, `phone`)
+            VALUES('$username', '$password', '$email', '$isAdmin',
+            '$firstName', '$lastName', '$mothersName', '$fathersName',
+            '$country', '$city', '$address', '$docType', '$docNumber',
+            '$gender', '$birthday', '$mobile', '$phone');";
     $conn->query($sql);
 
     $_SESSION['user_id'] = $conn->insert_id;
+    return true;
 }
 
-function userAuth(string $username, string $password)
+function userAuth($username, $password)
 {
     global $conn;
     global $db_error_message;
@@ -62,7 +71,7 @@ function userAuth(string $username, string $password)
 
     # Encrypt password
     $password = hash('sha256', $password);
-
+    
     # Execute query
     $sql = "SELECT * FROM users WHERE `username`='$username' AND `password`='$password';";
     $result = $conn->query($sql);
@@ -73,7 +82,7 @@ function userAuth(string $username, string $password)
     }
 
     $row = $result->fetch_array();
-    if ($row['username'] === $username) {
+    if ($row['username'] == $username) {
         $_SESSION['user_id'] = $row['user_id'];
         return true;
     } else {
@@ -82,18 +91,37 @@ function userAuth(string $username, string $password)
     }
 }
 
-function getUsername(int $id){
+function getUserInfo($id){
     global $conn;
-    $sql = "SELECT username FROM users WHERE `user_id`=$id;";
+
+    $sql = "SELECT 
+    user_id,
+    username,
+    email,
+    isAdmin,
+    first_name,
+    last_name,
+    mothers_name,
+    fathers_name,
+    city,
+    address,
+    docType,
+    docNumber,
+    gender,
+    birthday,
+    mobile,
+    phone,
+    countries.name as country FROM users INNER JOIN countries ON countries.coun_id = users.country WHERE `user_id`=$id;";
+
     $result = $conn->query($sql);
     if ($result->num_rows == 0){
-        return '';
+        return null;
     }
     $row = $result->fetch_assoc();
-    return $row['username'];
+    return $row;
 }
 
-function isAdmin(int $id){
+function isAdmin($id){
     global $conn;
     $sql = "SELECT isAdmin FROM users WHERE `user_id`=$id;";
     $result = $conn->query($sql);
@@ -103,3 +131,5 @@ function isAdmin(int $id){
     $row = $result->fetch_assoc();
     return $row['isAdmin'];
 }
+
+// userAuth('nikoz', '1234');

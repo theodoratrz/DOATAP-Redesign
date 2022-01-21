@@ -1,24 +1,11 @@
-user-progress {
-    vertical-align: baseline;
-  }
 
-  @-webkit-keyframes user-progress-bar-stripes {
-    0% {
-      background-position-x: 1rem;
-    }
-  }
-  
-  @keyframes user-progress-bar-stripes {
-    0% {
-      background-position-x: 1rem;
-    }
-  }
   .user-tab-wrapper {
     display: flex;
     flex-direction: column;
+    align-items:center;
     width: 100%;
-    max-width: 45rem;
     min-width: 15rem;
+    background-color:  rgba(138, 136, 136, 0.37);
 }
 
 .application-actions-container{
@@ -29,53 +16,113 @@ user-progress {
     margin-left:15%;
     justify-content: space-evenly;
 }
-  .user-progress {
-    display: flex;
-    height: 1rem;
-    width:100%;
-    overflow: hidden;
-    font-size: 0.75rem;
-    background-color: #e9ecef;
-    border-radius: 0.25rem;
-    flex:1;
-  }
   
-  .user-progress-bar {
+.table-wrapper{
     display: flex;
     flex-direction: column;
+    row-gap: 2rem;
     justify-content: center;
-    overflow: hidden;
+    align-items: center;
+    width: 100%;
+    background-color: rgba(128, 128, 128, 0.336);
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Popup container */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  /* The actual popup (appears on top) */
+  .popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
     color: #fff;
     text-align: center;
-    white-space: nowrap;
-    background-color: #0d6efd;
-    -webkit-transition: width 0.6s ease;
-    transition: width 0.6s ease;
-    width: 100%;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
   }
   
-  @media (prefers-reduced-motion: reduce) {
-    .user-progress-bar {
-      -webkit-transition: none;
-      transition: none;
-    }
+  /* Popup arrow */
+  .popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
   }
   
-  .user-progress-bar-striped {
-    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
-    background-size: 1rem 1rem;
+  /* Toggle this class when clicking on the popup container (hide and show the popup) */
+  .popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
   }
   
-  .user-progress-bar-animated {
-    -webkit-animation: 1s linear infinite user-progress-bar-stripes;
-            animation: 1s linear infinite user-progress-bar-stripes;
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
   }
   
-  @media (prefers-reduced-motion: reduce) {
-    .user-progress-bar-animated {
-      -webkit-animation: none;
-              animation: none;
-    }
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
   }
 
+ /* The alert message box */
+.alert {
+  padding: 20px;
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-bottom: 15px;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+} 
+
+.upload-btn label {
+    background-color: #002E69;
+    color: white;
+    font-size: medium;
+    padding: 0.5rem;
+    font-family: inherit;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    width: max-content;
+    padding:0.5rem; 
+    font-weight:500; 
+    margin-bottom:0rem;
+  }
   
+  .page_btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }

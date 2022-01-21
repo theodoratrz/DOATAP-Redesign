@@ -1,5 +1,9 @@
 <?php
 
+if (!isset($_SESSION)) {
+    session_start();
+}
+
 require $_SERVER['DOCUMENT_ROOT'] . "/config/config.php";
 
 $db_error_message = '';

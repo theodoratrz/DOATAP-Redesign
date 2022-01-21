@@ -5,7 +5,7 @@
     background-color: var(--bs-primary);
     /* color: whitesmoke; */
     padding: 1em;
-    margin-bottom: 0;
+    bottom: 0;
     width: 100%;
     align-items: center;
 }

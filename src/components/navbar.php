@@ -10,7 +10,7 @@ $nav_links = array(
 		"Παράβολα" => "paravola.php")
 	),
 	"Ανακοινώσεις" => array(
-	"anouncements.php",
+	"announcements.php",
 	array("Γενικές Πληροφορίες" => "under_construction.php",
 	"Αποφάσεις Δ.Σ" => "error404.php",
 	"Προϋπολογισμοί-Προκηρύξεις" => "under_construction.php",
@@ -110,7 +110,7 @@ function echoNavbarContent(array $content)
 <nav class="primary-custom-navbar custom-navbar-expand-lg bg-primary custom-navbar-dark">
 	<div class="navbar-container d-flex">
 
-	<a class="custom-navbar-brand" href="index.php"> <img src="/images/doatap-logo.png" alt="" width="250px"> </a>
+	<a class="custom-navbar-brand" href="index.php" style="margin-top: 0.4rem;"> <img src="/images/doatap-logo.png" alt="" width="250px"> </a>
 
 	<!-- LANGUAGE -->
 		<!--a class="search_button"><i class="fas fa-globe-americas"></i></a>
@@ -128,9 +128,27 @@ function echoNavbarContent(array $content)
 			$userID = $_SESSION['user_id'];
 
 			if (isAdmin($userID)) {
-				echo '<li class ="custom-nav-item fas fa-user-circle "> ADMIN: ' . getUsername($userID) . '</li>';
+				echo '<li class ="custom-nav-item fas fa-user-circle "> ADMIN: ' . getUserInfo($userID)['username'] . '</li>';
 			} else {
-				echo '<li class ="custom-nav-item fas fa-user-circle "> USER: ' . getUsername($userID) . '</li>';
+				echo '
+				<div class="login-signup-navbar-container d-flex justify-content-end">
+				<div class="dropdown">
+					<a class="btn dropdown-toggle fas fa-user-circle " style="color:white; font-weight:100; font-size:20px; 
+					padding:0rem; align-items:center;" href="../user_profile.php" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" 
+					aria-expanded="false"> '
+					. getUserInfo($userID)['username'] .
+					'</a>
+
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+						<li><a class="dropdown-item" href="../user_profile.php">Το Προφίλ μου</a></li>
+						<li><a class="dropdown-item" href="../user_application_submission.php">Νέα Αίτηση</a></li>
+						<li><a class="dropdown-item" href="../myapplications.php">Οι Αιτήσεις μου</a></li>
+					</ul>
+				</div>
+				<span style="color:white">|</span>
+				<a href="logout.php" class="login-link fas fa-sign-out-alt">Αποσύνδεση</a>
+			 
+			</div>';
 			}
 		} else {
 			echo '
