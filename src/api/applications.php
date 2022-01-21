@@ -148,9 +148,10 @@ university
 */
 
 function newApplication($userID, $state, $attendance, $studiesType, $ECTS, $dateIntro, $dateGrad,
-$yearsOfStudy, $department, $university){
+$yearsOfStudy, $department, $university, $file_id, $file_app, $file_par){
     global $conn;
 
+    
     $sql = "INSERT INTO applications(
         `user_id`, `state`, `attendance`,`studiesType`, `ECTS`, `dateIntro`, `dateGrad`,
         `yearsOfStudy`, `department`, `university` 
@@ -161,7 +162,20 @@ $yearsOfStudy, $department, $university){
     );";
     $conn->query($sql);
 
-    echo $sql;
+    $appID = $conn->insert_id;
+    
+    foreach (array($file_id, $file_app, $file_par) as $i => $file){
+        if ($file==NULL) continue;
+
+        $filename = $file['name'];
+        $fileLocation = $_SERVER['DOCUMENT_ROOT'] . "/uploads/" . uniqid() . '_' . $filename;
+        $type = $i == 0 ? "id" :
+               ($i == 1 ? "app": "par");
+
+        $sql = "INSERT INTO documents(`app_id`, `filename`, `file_location`, `type`
+        VALUES('$appID', '$filename', '$fileLocation', '$type');
+        ";
+    }
 
     return true;
     

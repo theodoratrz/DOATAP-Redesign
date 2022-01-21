@@ -171,79 +171,82 @@
           "<i class='fas fa-cloud-upload-alt'></i> <br>Επισυναπτόμενα" => array(
             "upload",
             '
-                      <div class="table-wrapper" style="background-color:transparent">
-                          <form> 
-                              <div class="table">
-                                  <div class="row" style="diplay:flex; flex-direction:row; justify-content:space-evenly;">
-                                      <h6><i class="fas fa-info-circle"></i>Μεταφόρτωση Απαραίτητων Δικαιολογητικών </h6>
-                                      
-                                  </div>
-                              </div>
-
-                              <table class="table" style="text-align:left">
-                              <thead>
-                              <tr>
-                                  <th scope="col">Δικαιολογητικό</th>
-                                  <th scope="col">Αρχείο</th>
-                                  <th scope="col"></th>
-                              </tr>
-                              </thead>
-                              <tbody>
-                              <tr>
-                                  <td>Έγγραφο Ταυτοπροσωπίας</td>
-                                  <th>
-                                    <div class="upload-btn">
-                                        <input type="file" id="actual-btn" hidden/>
-                                        <label for="actual-btn"><i class="fas fa-cloud-upload-alt"></i> Προσθήκη</label>
-                                    </div>
-                                  </th>
-                                  
-                                  <!-- Trigger/Open The Modal -->
-                                  <td>
-                                  <button type="button" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#deleteModal">
-                                  </button>
-                                  </td>
-                              </tr>
-                              
-                              <tr>
-                                  <td>Αίτηση</td>
-                                  <th>
-                                    <div class="upload-btn">
-                                        <input type="file" id="actual-btn" hidden/>
-                                        <label for="actual-btn"><i class="fas fa-cloud-upload-alt"></i> Προσθήκη</label>
-                                    </div>
-                                  </th>
-                                  
-                                  <!-- Trigger/Open The Modal -->
-                                  <td>
-                                  <button type="button" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#deleteModal">
-                                  </button>
-                                  </td>
-                              </tr>
-
-                              <tr>
-                                  <td>Παράβολα</td>
-                                  <th>
-                                    <div class="upload-btn">
-                                        <input type="file" id="actual-btn" hidden/>
-                                        <label for="actual-btn"><i class="fas fa-cloud-upload-alt"></i> Προσθήκη</label>
-                                    </div>
-                                  </th>
-                                  
-                                  <!-- Trigger/Open The Modal -->
-                                  <td>
-                                  <button type="button" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#deleteModal">
-                                  </button>
-                                  </td>
-                                
-                              </tr>
-                              </tbody>
-                          </table>
-                          </form>
-                        
+            <div class="table-wrapper" style="background-color:transparent">
+            <form id="file-form" method="POST" enctype="multipart/form-data">
+              <div class="table">
+                <div class="row" style="diplay:flex; flex-direction:row; justify-content:space-evenly;">
+                  <h6><i class="fas fa-info-circle"></i>Μεταφόρτωση Απαραίτητων Δικαιολογητικών </h6>
+          
+                </div>
+              </div>
+          
+              <table class="table" style="text-align:left">
+                <thead>
+                  <tr>
+                    <th scope="col">Δικαιολογητικό</th>
+                    <th scope="col">Αρχείο</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Έγγραφο Ταυτοπροσωπίας</td>
+                    <td>
+                      <div class="upload-btn">
+                        <input type="file" id="actual-btn-1" name="file-1" hidden />
+                        <label for="actual-btn-1"><i class="fas fa-cloud-upload-alt"></i> Προσθήκη</label>
+                        <span id="file-chosen-1">Επιλέξτε Αρχείο</span>
                       </div>
+                    </td>
+          
+                    <!-- Trigger/Open The Modal -->
+                    <td>
+                      <button type="button" id="del-1" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#deleteModal">
+                      </button>
+                    </td>
+                  </tr>
+          
+                  <tr>
+                    <td>Αίτηση</td>
+                    <td>
+                      <div class="upload-btn">
+                        <input type="file" id="actual-btn-2" name="file-2" hidden />
+                        <label for="actual-btn-2"><i class="fas fa-cloud-upload-alt"></i> Προσθήκη</label>
+                        <span id="file-chosen-2">Επιλέξτε Αρχείο</span>
+                      </div>
+                    </td>
+          
+                    <!-- Trigger/Open The Modal -->
+                    <td>
+                      <button type="button" id="del-2" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#deleteModal">
+                      </button>
+                    </td>
+                  </tr>
+          
+                  <tr>
+                    <td>Παράβολα</td>
+                    <td>
+                      <div class="upload-btn">
+                        <input type="file" id="actual-btn-3" name="file-3" hidden />
+                        <label for="actual-btn-3"><i class="fas fa-cloud-upload-alt"></i> Προσθήκη</label>
+                        <span id="file-chosen-3">Επιλέξτε Αρχείο</span>
+                      </div>
+                    </td>
+          
+                    <!-- Trigger/Open The Modal -->
+                    <td>
+                      <button type="button" id="del-3" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#deleteModal">
+                      </button>
+                    </td>
+          
+                  </tr>
+                </tbody>
+              </table>
+            </form>
+          
+          </div>
                       
-                    '
+            '
           )
         );
 
@@ -268,12 +271,14 @@
   <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/footer.php" ?>
 
   <script>
+    // MODAL
     var modalToggle = document.getElementById('beforeSubmitModal') // relatedTarget
     myModal.show(modalToggle)
   </script>
 
   <script>
-    // Utility function
+    // SUBMIT FORM
+
     function getFormData($form) {
       let unindexed_array = $form.serializeArray();
       let indexed_array = {};
@@ -296,31 +301,88 @@
       submitForm('uploaded');
     });
 
-
     function submitForm(state) {
-      let titleForm = getFormData($("#titlos-form"));
-      console.log(titleForm)
 
-      $.post('/api/new_application.php', {
-          'state': state,
-          'attendance': titleForm['partTime'],
-          'studiesType': titleForm['attendance'],
-          'ECTS': titleForm['ects'],
-          'dateIntro': titleForm['entryDate-year'] + '-' + titleForm['entryDate-month'] + '-' + titleForm['entryDate-day'],
-          'dateGrad': titleForm['graduationDate-year'] + '-' + titleForm['graduationDate-month'] + '-' + titleForm['graduationDate-day'],
-          'yearsOfStudy': titleForm['attendanceTime'],
-          'department': "",
-          'university': titleForm['universityAbroad']
-        })
-        .done(function(data) {
-          if (data != 'success') {
-            // Display error
-            alert(data);
-          } else {
-            // Do smth
-          }
-        });
+      let titleForm = getFormData($("#titlos-form"));
+
+      let initFormData = {
+        'state': state,
+        'attendance': titleForm['partTime'],
+        'studiesType': titleForm['attendance'],
+        'ECTS': titleForm['ects'],
+        'dateIntro': titleForm['entryDate-year'] + '-' + titleForm['entryDate-month'] + '-' + titleForm['entryDate-day'],
+        'dateGrad': titleForm['graduationDate-year'] + '-' + titleForm['graduationDate-month'] + '-' + titleForm['graduationDate-day'],
+        'yearsOfStudy': titleForm['attendanceTime'],
+        'department': "",
+        'university': titleForm['universityAbroad'],
+        'file-id': filesUploaded[0],
+        'file-app': filesUploaded[1],
+        'file-par': filesUploaded[2]
+      };
+
+      let formData = new FormData();
+      for(let k in initFormData){
+        formData.append(k, initFormData[k]);
+      }
+      
+      $.ajax({
+        url: "/api/new_application.php",
+        type: "POST",
+        data: formData,
+        contentType: false,
+        processData: false,
+      }).done(function(data) {
+        if (data != 'success') {
+          // Display error
+          alert(data);
+        } else {
+          alert(data);
+          // Do smth
+        }
+      })
+
+
+
+
+
+
+
+
     }
+  </script>
+
+
+  <script>
+    // UPLOAD FILES
+
+    let filesUploaded = Array();
+
+    $("#del-1").hide();
+    const actualBtn1 = document.getElementById('actual-btn-1');
+    const fileChosen1 = document.getElementById('file-chosen-1');
+    actualBtn1.addEventListener('change', function() {
+      fileChosen1.textContent = this.files[0].name
+      $("#del-1").show()
+      filesUploaded[0] = this.files[0];
+    })
+
+    $("#del-2").hide();
+    const actualBtn2 = document.getElementById('actual-btn-2');
+    const fileChosen2 = document.getElementById('file-chosen-2');
+    actualBtn2.addEventListener('change', function() {
+      fileChosen2.textContent = this.files[0].name
+      $("#del-2").show()
+      filesUploaded[1] = this.files[0];
+    })
+
+    $("#del-3").hide();
+    const actualBtn3 = document.getElementById('actual-btn-3');
+    const fileChosen3 = document.getElementById('file-chosen-3');
+    actualBtn3.addEventListener('change', function() {
+      fileChosen3.textContent = this.files[0].name
+      $("#del-3").show()
+      filesUploaded[2] = this.files[0];
+    })
   </script>
 
 
