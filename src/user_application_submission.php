@@ -239,6 +239,7 @@
               );
               
               echoContentTabs($tab_sample_content,"user-tab-wrapper");
+            
           ?>
               <div class="page_btn">
                   <button data-bs-toggle="modal" data-bs-target="#redoModal" id="submit-button-redo" style="font-size:medium; color:black; background-color:#77B6EA; padding:0.5rem; margin-bottom:0rem;justify-content:center;">
@@ -257,6 +258,7 @@
     
 </div>
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/footer.php" ?>
+
 
 <script>
 
