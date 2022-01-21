@@ -20,13 +20,19 @@
         <div class="page-content-container">
         <?php 
             require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
+            echoSidebar("/announcements/mostRecent");
         ?>
         <?php
             require_once $_SERVER['DOCUMENT_ROOT'] . "/api/announcements.php";
             $announcementID = $_GET["ann_id"];
             $announcement = getAnnouncement($announcementID);
-            echo $announcement['content'];
-            echo $announcementID;
+            echo '
+            <div style="display:flex; flex-direction:column; width:30rem; margin-top:1%;">
+            <h6 style="font-weight:bold">'.$announcement['title'].'</h6>
+            <!--hr style="color:blue; width:30%; height:0.5%; background-color:blue; margin=0px;"-->
+            <p>'.$announcement['content'].'
+            </p></div>
+            ';
             ?>
 </div>
       </div>
