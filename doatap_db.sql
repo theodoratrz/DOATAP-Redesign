@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Jan 20, 2022 at 01:11 PM
+-- Generation Time: Jan 21, 2022 at 02:27 PM
 -- Server version: 8.0.27
 -- PHP Version: 7.4.27
 
@@ -52,12 +52,12 @@ INSERT INTO `announcements` (`ann_id`, `type`, `title`, `content`, `time_uploade
 
 CREATE TABLE `applications` (
   `app_id` int NOT NULL,
-  `state` enum('uploaded','pending','approved','rejected','needsSubject') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'uploaded',
+  `state` enum('uploaded','pending','approved','rejected','needsSubject','saved') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'uploaded',
   `user_id` int NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `last_modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `attendance` enum('Συμβατικός','Εξ αποστάσεως') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `studiesType` enum('Τακτική','Μερική') NOT NULL,
+  `attendance` tinyint(1) NOT NULL,
+  `studiesType` tinyint(1) NOT NULL,
   `ECTS` int NOT NULL,
   `dateIntro` date DEFAULT NULL,
   `dateGrad` date DEFAULT NULL,
@@ -74,7 +74,9 @@ CREATE TABLE `applications` (
 --
 
 INSERT INTO `applications` (`app_id`, `state`, `user_id`, `created`, `last_modified`, `attendance`, `studiesType`, `ECTS`, `dateIntro`, `dateGrad`, `yearsOfStudy`, `department`, `university`, `comment`, `basicInfoApproved`, `studiesInfoApproved`) VALUES
-(1, 'rejected', 13, '2022-01-20 11:08:54', '2022-01-20 12:25:24', 'Συμβατικός', 'Τακτική', 240, '2022-01-01', '2022-01-20', 4, 'dit', 'uoa', 'Θολά', 1, 1);
+(10, 'saved', 13, '2022-01-21 14:07:37', '2022-01-21 14:07:37', 1, 1, 123, '2000-01-01', '2020-01-01', 4, 'DIT', 'ΕΚΠΑ', NULL, 1, 1),
+(11, 'saved', 13, '2022-01-21 14:23:45', '2022-01-21 14:23:45', 0, 0, 123, '2000-01-01', '2020-01-01', 123, '', 'ΕΚΠΑ', NULL, 1, 1),
+(12, 'uploaded', 13, '2022-01-21 14:23:52', '2022-01-21 14:23:52', 0, 0, 123, '2000-01-01', '2020-01-01', 123, '', 'ΕΚΠΑ', NULL, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -201,7 +203,7 @@ INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `isAdmin`, `fir
 (10, 'admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'admin@mail.com', 1, '', '0', '0', '0', 0, '', '', 'ID', '', 'Male', '1900-01-01', '', ''),
 (11, 'admin1', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'admin1@mail.com', 1, '', '0', '0', '0', 0, '', '', 'ID', '', 'Male', '1900-01-01', '', ''),
 (12, 'nikozzzz', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'nikkk@gmail.com', 0, '', '0', '0', '0', 0, '', '', 'ID', '', 'Male', '1900-01-01', '', ''),
-(13, 'nikoz', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'nickkkk@gmail.com', 0, '', '0', '0', '0', 0, '', '', 'ID', '', 'Male', '1900-01-01', '', ''),
+(13, 'nikoz', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'nickkkk@gmail.com', 0, 'Nikos', 'Paschalitsas', 'Mama', 'Mpampas', 1, 'Athens', 'Athinas 2', 'ID', 'AM12345', 'Male', '1950-05-04', '6923487364', '2102398432'),
 (18, 'Nikos', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'nikolas@mail.com', 0, 'Nikos', 'Paschalitsas', 'Nikos', 'Nikos', 3, 'Athens', 'Athinas 2', '', 'AM123456', '', '2001-01-01', '2384723948', '234293847');
 
 --
@@ -275,7 +277,7 @@ ALTER TABLE `announcements`
 -- AUTO_INCREMENT for table `applications`
 --
 ALTER TABLE `applications`
-  MODIFY `app_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `app_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `countries`

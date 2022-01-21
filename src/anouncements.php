@@ -9,7 +9,7 @@
 
         <div class="gray-box">
             <a href="index.php" class="fas fa-arrow-circle-left" style="text-decoration:none; color:#002E69; cursor:pointer; 
-            margin-left:13rem; margin-top:1.7rem;">Αιτήσεις</a>
+            margin-left:13rem; margin-top:1.7rem;"> Αιτήσεις</a>
         </div>
         <div class="page-content-container">
         <?php 

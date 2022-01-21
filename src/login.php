@@ -22,7 +22,7 @@
         <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/navbar.php" ?>
 
         <div class="gray-box">
-            <a href="index.php" class="fas fa-arrow-circle-left" style="text-decoration:none; color:#002E69; cursor:pointer; margin-left:13rem; margin-top:1.7rem;">Σύνδεση</a>
+            <a href="index.php" class="fas fa-arrow-circle-left" style="text-decoration:none; color:#002E69; cursor:pointer; margin-left:13rem; margin-top:1.7rem;"> Σύνδεση</a>
         </div>
         <div class="login-container-wrapper">
             <div class="login-container">

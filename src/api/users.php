@@ -93,7 +93,26 @@ function userAuth($username, $password)
 
 function getUserInfo($id){
     global $conn;
-    $sql = "SELECT * FROM users WHERE `user_id`=$id;";
+
+    $sql = "SELECT 
+    user_id,
+    username,
+    email,
+    isAdmin,
+    first_name,
+    last_name,
+    mothers_name,
+    fathers_name,
+    city,
+    address,
+    docType,
+    docNumber,
+    gender,
+    birthday,
+    mobile,
+    phone,
+    countries.name as country FROM users INNER JOIN countries ON countries.coun_id = users.country WHERE `user_id`=$id;";
+
     $result = $conn->query($sql);
     if ($result->num_rows == 0){
         return null;

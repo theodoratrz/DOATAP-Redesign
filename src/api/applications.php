@@ -131,13 +131,38 @@ function rejectApplication($appID, $rejectedDocs, $comment){
 
 }
 
-// $r = array (
-//     "basic_info" => true,
-//     "studies_info" => true,
-//     "documents" => array(
-//       "id" => false,
-//       "form" => true,
-//       "title" => true
-//     )
-//     );
-// rejectApplication(1, $r, "Θολά");
+/*
+app_id
+state
+user_id
+created
+last_modified
+attendance
+studiesType
+ECTS
+dateIntro
+dateGrad
+yearsOfStudy
+department
+university
+*/
+
+function newApplication($userID, $state, $attendance, $studiesType, $ECTS, $dateIntro, $dateGrad,
+$yearsOfStudy, $department, $university){
+    global $conn;
+
+    $sql = "INSERT INTO applications(
+        `user_id`, `state`, `attendance`,`studiesType`, `ECTS`, `dateIntro`, `dateGrad`,
+        `yearsOfStudy`, `department`, `university` 
+    )
+    VALUES (
+        '$userID', '$state', '$attendance', '$studiesType', '$ECTS', '$dateIntro', '$dateGrad',
+        '$yearsOfStudy', '$department', '$university'
+    );";
+    $conn->query($sql);
+
+    echo $sql;
+
+    return true;
+    
+}

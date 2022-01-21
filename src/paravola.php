@@ -11,7 +11,7 @@
 
         <div class="gray-box">
             <a href="applications.php" class="fas fa-arrow-circle-left" style="text-decoration:none; color:#002E69; cursor:pointer; margin-left:13rem; 
-            margin-top:1.7rem;">Παράβολα</a>
+            margin-top:1.7rem;"> Παράβολα</a>
         </div>
         <div class="page-content-container">
         <?php 

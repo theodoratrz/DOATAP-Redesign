@@ -8,7 +8,7 @@
 <div class="fluid-container">
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/navbar.php" ?>
         <div class="gray-box">
-            <a href="procedure_submission.php" class="fas fa-arrow-circle-left" style="text-decoration:none; color:#002E69; cursor:pointer; margin-left:13rem; margin-top:1.7rem;">Φόρμες Αιτήσεων</a>
+            <a href="procedure_submission.php" class="fas fa-arrow-circle-left" style="text-decoration:none; color:#002E69; cursor:pointer; margin-left:13rem; margin-top:1.7rem;"> Φόρμες Αιτήσεων</a>
         </div>
 
 </div>
