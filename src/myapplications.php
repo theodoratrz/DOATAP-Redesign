@@ -76,8 +76,9 @@
             <h2>Αιτήσεις </h2>
             <div style="background-color:#20c997; width:max-content; padding:0rem; height:max-content; border-radius:5%;width:fit-content;">
                 <button style="font-size:medium; color:black; padding:0.5rem; margin-bottom:0rem;justify-content:center;" type="submit" name="submit" 
-                value="Αίτηση" data-toggle="modal"  
-                data-target="#newApplication" class="btn btn-success" ><i class="fas fa-file-alt" aria-hidden="true" ></i> Νέα Αίτηση</input>
+                value="Αίτηση" data-toggle="modal" 
+                data-target="#newApplication" class="btn btn-success" ><a href="/user_application_submission.php" class="fas fa-file-alt" 
+                style="text-decoration:none; color:inherit; font-size:inherit;" aria-hidden="true" >Νέα Αίτηση</a> 
                 </button>
             </div>                                   
           </div>

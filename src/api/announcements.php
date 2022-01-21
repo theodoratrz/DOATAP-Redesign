@@ -15,3 +15,13 @@ function getAnnouncements($type = 'all')
     $rows = $result->fetch_all(MYSQLI_ASSOC);
     return $rows;
 }
+
+function getAnnouncement($id)
+{
+    global $conn;
+    $sql = "SELECT * FROM announcements WHERE `ann_id`='$id'";    
+    $result = $conn->query($sql);
+    $rows = $result->fetch_all(MYSQLI_ASSOC);
+    return $rows[0];
+}
+?>

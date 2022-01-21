@@ -14,6 +14,7 @@
         <div class="page-content-container">
         <?php 
             require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
+            
         ?>
         <div class="anouncements-box">
         <table class="table">
@@ -24,18 +25,17 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row" style="color:#002e69ce;font-size:large;">01/01/2022</th>
-              <td><a href="#">Jacob</a></td>
-            </tr>
-            <tr>
-              <th scope="row" style="color:#002e69ce;font-size:large;">01/01/2022</th>
-              <td><a href="#">Jacob</a></td>
-            </tr>
-            <tr>
-              <th scope="row" style="color:#002e69ce;font-size:large;">01/01/2022</th>
-              <td><a href="#">Jacob</a></td>
-            </tr>
+            
+              <?php
+              require_once $_SERVER['DOCUMENT_ROOT'] . "/api/announcements.php";
+              $rows = getAnnouncements();
+              foreach($rows as $announcement)
+              {
+                echo '<tr><th scope="row" style="color:#002e69ce;font-size:large;">' .explode(" ",$announcement['time_uploaded'])[0]. '</th>
+                <td><a href="/show_announcement.php?ann_id='.$announcement['ann_id'].'">'.$announcement['title'].'</a></td></tr>';
+              }
+              ?>
+
           </tbody>
         </table>
 </div>
