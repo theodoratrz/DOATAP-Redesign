@@ -17,7 +17,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn" style="background-color:gray; color:white;" data-bs-dismiss="modal">Ακύρωση</button>
-        <button type="button" class="btn " style="background-color:red; color:white;">Διαγραφή</button>
+        <button id="delete-button" type="button" class="btn " style="background-color:red; color:white;">Διαγραφή</button>
       </div>
     </div>
   </div>
@@ -352,15 +352,13 @@
       window.location.href = "myapplications.php";
     });
 
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const app_id = urlParams.get('id')
+
     function submitForm(state) {
 
       let titleForm = getFormData($("#titlos-form"));
-
-      const queryString = window.location.search;
-      const urlParams = new URLSearchParams(queryString);
-      const app_id = urlParams.get('id')
-
-      console.log(titleForm);
 
       let initFormData = {
         'app_id': app_id,
@@ -385,7 +383,7 @@
       }
 
       $.ajax({
-        url: "/api/new_application.php",
+        url: "/api/manage_application.php",
         type: "POST",
         data: formData,
         contentType: false,
@@ -399,6 +397,7 @@
         }
       })
     }
+
   </script>
 
   <script>

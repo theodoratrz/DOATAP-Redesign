@@ -97,7 +97,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn" style="background-color:gray; color:white;" data-bs-dismiss="modal">Ακύρωση</button>
-                <button type="button" class="btn " style="background-color:red; color:white;">Διαγραφή</button>
+                <button id="delete-button" type="button" class="btn " style="background-color:red; color:white;">Διαγραφή</button>
               </div>
             </div>
           </div>
@@ -118,42 +118,6 @@
             require_once $_SERVER['DOCUMENT_ROOT'] . "/api/applications.php";
 
             // TODO: Check user rights
-
-            # $rows = getApplications($_SESSION['user_id']);
-            $rows = array(
-              array(
-                "application_id" => "12345",
-                "date_created" => "31-12-2022",
-                "date_modified" => "31-1-2023",
-                "state" => "stored"
-              ),
-              array(
-                "application_id" => "54321",
-                "date_created" => "31-12-2022",
-                "date_modified" => "31-1-2023",
-                "state" => "declined"
-              ),
-              array(
-                "application_id" => "1236",
-                "date_created" => "31-12-2022",
-                "date_modified" => "31-1-2023",
-                "state" => "submitted"
-              ),
-              array(
-                "application_id" => "66666",
-                "date_created" => "31-12-2022",
-                "date_modified" => "31-1-2023",
-                "state" => "approved"
-              ),
-              array(
-                "application_id" => "99999",
-                "date_created" => "31-12-2022",
-                "date_modified" => "31-1-2023",
-                "state" => "pending"
-              )
-            );
-
-
 
             $applications = getApplications($_SESSION['user_id']);
 
@@ -247,7 +211,7 @@
                             <i class="fas fa-edit"></i> Επεξεργασία
                           </a>
                         </div>
-                        <button type="button" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#exampleModal">
+                        <button type="button" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#exampleModal" data-app-id=' . $application["application_id"] . '>
                         </button>
                       </td>
                       ';
@@ -273,4 +237,26 @@
     var popup = document.getElementById("myPopup");
     popup.classList.toggle("show");
   }
+
+
+  $("#exampleModal").on("show.bs.modal", function(event) {
+    var button = $(event.relatedTarget);
+    var app_id = button.data("app-id");
+    var modal = $(this);
+
+    $("#delete-button").click(function() {
+
+      $.ajax({
+        url: "/api/manage_application.php?" + $.param({
+          app_id: app_id,
+          operation: "delete"
+        }),
+        type: "GET",
+      }).done(function(data) {
+        window.location.href = "/myapplications.php";
+      })
+    })
+
+
+  });
 </script>

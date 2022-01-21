@@ -189,3 +189,10 @@ function getFiles($appID){
     $rows = $result->fetch_all(MYSQLI_ASSOC);
     return $rows;
 }
+
+function deleteApplication($appID, $userID){
+    global $conn;
+
+    $sql = "DELETE FROM applications WHERE `app_id`=$appID AND `user_id`=$userID";
+    $conn->query($sql);
+}
