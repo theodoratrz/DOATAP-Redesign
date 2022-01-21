@@ -1,6 +1,6 @@
 
 <?php
-    # require $_SERVER['DOCUMENT_ROOT'] . "/api/applications.php";
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/api/applications.php";
 
     const _sample_form_values_ = array(
         "uname" => "",
