@@ -238,17 +238,8 @@
                 <div class="form-fields-group-vertical">
                 ';
                 echoTextField('uname', 'Όνομα Χρήστη', "Παρακαλώ, επιλέξτε όνομα χρήστη.", $values['uname']);
-                echo '<div class="popup" onclick="myFunction()"><i class="fas fa-question-circle"></i>
-            <span class="popuptext" id="myPopup">Popup text...</span>
-            </div>';
                 echoTextField('email', 'Διεύθυνση Ηλ. Ταχυδρομείου', "Παρακαλώ, επιλέξτε διεύθυνση email.", $values['email']);
-                echo '<div class="popup" onclick="myFunction()">Click me!
-            <span class="popuptext" id="myPopup">Popup text...</span>
-            </div>';
                 echoPwdField('pwd', 'Κωδικός', "Παρακαλώ, επιλέξτε κωδικό.", $values['pwd']);
-                echo '<div class="popup" onclick="myFunction()">Click me!
-            <span class="popuptext" id="myPopup">Popup text...</span>
-            </div>';
                 echoPwdField('pwd_dup', 'Επιβεβαίωση Κωδικού', "Παρακαλώ, επιβεβαιώστε τον κωδικό σας.", $values['pwd_dup']);
                 echoRadioField('gender', 'Φύλο', "Παρακαλώ, επιλέξτε φύλο.",
                             array("Άνδρας", "Γυναίκα", "Άλλο"), $values['gender']);
