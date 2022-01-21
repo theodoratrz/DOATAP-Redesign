@@ -90,18 +90,33 @@ form[name="application-reject-form"] .form-control::placeholder {
 }
 
 .close-doc-btn {
-    background-color: #d6d6d6;
-    color: black;
-    border-color: black;
     font-size: 19px;
     height: 2em;
     padding: .25em 1em;
 }
 
-.close-doc-btn:hover {
-    background-color: #b7b7b7;
-    color: black;
-    border-color: black;
+.close-doc-btn.verify-reject{
+    background-color: #0e7415;
+    color: white;
+    border-color: #0e7415;
+}
+
+.close-doc-btn.verify-reject:hover {
+    background-color: #13981c;
+    color: white;
+    border-color: #13981c;
+}
+
+.close-doc-btn.cancel-reject {
+    background-color: #b42727;
+    color: white;
+    border-color: #b42727;
+}
+
+.close-doc-btn.cancel-reject:hover {
+    background-color: #d91c1c;
+    color: white;
+    border-color: #d91c1c;
 }
 
 .reject-application-button {
@@ -114,8 +129,18 @@ form[name="application-reject-form"] .form-control::placeholder {
     font-size: 20px;
 }
 
+.verify-footer {
+    justify-content: space-between;
+}
+
 </style>
 <script>
+
+    var rejectFormNamespace = {
+        toggleVerificationModal: () => {
+            $("#rejectVerifyModal").modal("toggle");
+        }
+    }
 
     function openDocumentModal(documentButton) {
         const imgURL = documentButton.getAttribute('data-img-src');
@@ -132,6 +157,7 @@ form[name="application-reject-form"] .form-control::placeholder {
 
     function rejectApplication(event) {
         event.preventDefault();
+        rejectFormNamespace.toggleVerificationModal();
         $.ajax({
             type: "POST",
             url: "/reject_application.php",
@@ -141,7 +167,9 @@ form[name="application-reject-form"] .form-control::placeholder {
                 // Success Modal, reload page
             },
             error: answer => {
-                // Error Modal
+                // Show Error Modal
+                document.getElementById('modal-body-msg').innerHTML = answer;
+                $('#errorMsgModal').modal("show");
             },
             data: {
                 "basic_info": document.getElementById('basic_info_check').checked ? "1" : "0",
@@ -159,6 +187,31 @@ form[name="application-reject-form"] .form-control::placeholder {
 </script>
 
 <?php
+
+function getRejectVerificationModal() {
+    return '
+    <div class="modal fade" id="rejectVerifyModal" tabindex="-1" role="dialog" aria-labelledby="rejectVerifyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-title" id="rejectVerifyModalLabel">Επιβεβαίωση</span>
+                </div>
+                <div id="reject-verify-modal-body-msg" class="modal-body">
+                    Είστε βέβαιοι ότι θέλετε να απορρίψετε αυτή την αίτηση?
+                </div>
+                <div class="modal-footer verify-footer">
+                    <button type="button" class="btn btn-secondary close-doc-btn cancel-reject" data-dismiss="modal" onclick="rejectFormNamespace.toggleVerificationModal()">
+                        Ακύρωση
+                    </button>
+                    <button type="submit" class="btn btn-secondary close-doc-btn verify-reject" data-dismiss="modal" onclick="rejectApplication(event)">
+                        Συνέχεια
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    ';
+}
 
 function getDocumentImageModal() {
     return '
@@ -397,8 +450,9 @@ function getApplicationRejectForm(array $applicationInfo)
         <form name="application-reject-form" onsubmit="rejectApplication(event)">
             ' . getRejectFormAccordion($applicationInfo) . '
             <div class="reject-application-button">
-                <button class="btn btn-primary" type="submit">Απόρριψη Αίτησης</button>
+                <button class="btn btn-primary" type="button" onclick="rejectFormNamespace.toggleVerificationModal()">Απόρριψη Αίτησης</button>
             </div>
+            ' . getRejectVerificationModal() . '
         </form>
     </div>
     ';
