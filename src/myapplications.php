@@ -256,7 +256,5 @@
         window.location.href = "/myapplications.php";
       })
     })
-
-
   });
 </script>

@@ -95,6 +95,7 @@
 
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php" ?>
 
+
       <div style="display:flex; flex-direction:column; justify-content:center; row-gap:2rem;">
         <?php
 
@@ -155,6 +156,8 @@
           "homePhone" => "",
         );
 
+        $appInfo['state'] = "stored";
+
         if (isset($_GET['id'])) {
           $appID = $_GET['id'];
           $appInfo = getApplication($appID);
@@ -185,7 +188,6 @@
             }
           }
         }
-
 
         ob_start();
         echo "<form id='titlos-form'>";
@@ -218,8 +220,9 @@
           "<i class='fas fa-cloud-upload-alt'></i> <br>Επισυναπτόμενα" => array(
             "upload",
             '
-            <div class="table-wrapper" style="background-color:transparent">
-            <form id="file-form" method="POST" enctype="multipart/form-data">
+            <div class="table-wrapper" style="background-color:transparent">' .
+              ($appInfo['state'] != "stored" ? '<fieldset disabled="disabled">' : '')
+              . '<form id="file-form" method="POST" enctype="multipart/form-data">
               <div class="table">
                 <div class="row" style="diplay:flex; flex-direction:row; justify-content:space-evenly;">
                   <h6><i class="fas fa-info-circle"></i>Μεταφόρτωση Απαραίτητων Δικαιολογητικών </h6>
@@ -250,7 +253,7 @@
           
                     <!-- Trigger/Open The Modal -->
                     <td>
-                      <button type="button" id="del-1" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#deleteModal">
+                      <button type="button" id="del-1" class="btn fas fa-trash delete-form" data-bs-toggle="modal" style="color:red" data-bs-target="#deleteModal">
                       </button>
                     </td>
                   </tr>
@@ -269,7 +272,7 @@
           
                     <!-- Trigger/Open The Modal -->
                     <td>
-                      <button type="button" id="del-2" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#deleteModal">
+                      <button type="button" id="del-2" class="btn fas fa-trash delete-form" data-bs-toggle="modal" style="color:red" data-bs-target="#deleteModal">
                       </button>
                     </td>
                   </tr>
@@ -288,23 +291,26 @@
           
                     <!-- Trigger/Open The Modal -->
                     <td>
-                      <button type="button" id="del-3" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#deleteModal">
+                      <button type="button" id="del-3" class="btn fas fa-trash delete-form" data-bs-toggle="modal" style="color:red" data-bs-target="#deleteModal">
                       </button>
                     </td>
           
                   </tr>
                 </tbody>
               </table>
-            </form>
-          
-          </div>
-                      
-            '
+            </form>' .
+              ($appInfo['state'] != "stored" ? '</fieldset>' : '')
+              . '</div>'
           )
         );
 
         echoContentTabs($tab_sample_content, "user-tab-wrapper");
         ?>
+
+        <?php
+
+        if ($appInfo['state'] == "stored") {
+          echo '
         <div class="page_btn">
           <button data-bs-toggle="modal" data-bs-target="#redoModal" id="submit-button-redo" style="font-size:medium; color:black; background-color:#77B6EA; padding:0.5rem; margin-bottom:0rem;justify-content:center;">
             <i class="fas fa-redo" aria-hidden="true"></i>Επαναφορά
@@ -317,6 +323,12 @@
             <i class="fas fa-lock-alt" aria-hidden="true"></i> Οριστική Υποβολή
           </button>
         </div>
+        ';
+        }
+
+        ?>
+
+
       </div>
     </div>
 
@@ -397,7 +409,6 @@
         }
       })
     }
-
   </script>
 
   <script>
@@ -431,6 +442,35 @@
       $("#del-3").show()
       filesUploaded[2] = this.files[0];
     })
+
+    $("#deleteModal").on("show.bs.modal", function(event) {
+      var button = $(event.relatedTarget);
+      var form_num = button.attr('id').split("-")[1]
+      var modal = $(this);
+
+      // let form_name = form_num == 1 ? "id" :
+      //                 form_num == 2 ? "app": "par";
+
+      $("#delete-button").click(function() {
+        $("actual-btn-"+form_num).val();
+        $("#del-"+form_num).hide();
+        $("#file-chosen-"+form_num).text("Επιλέξτε αρχείο");
+        modal.modal('hide');
+      })
+    });
+
+
+    function disableUploadButtons() {
+      $(".upload-btn > label").hide();
+    }
   </script>
+
+  <?php
+
+  if ($appInfo['state'] != "stored") {
+    echo "<script>disableUploadButtons()</script>";
+  }
+
+  ?>
 
 </body>
