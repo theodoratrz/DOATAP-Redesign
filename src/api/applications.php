@@ -167,14 +167,20 @@ $yearsOfStudy, $department, $university, $file_id, $file_app, $file_par){
     foreach (array($file_id, $file_app, $file_par) as $i => $file){
         if ($file==NULL) continue;
 
+        
         $filename = $file['name'];
         $fileLocation = $_SERVER['DOCUMENT_ROOT'] . "/uploads/" . uniqid() . '_' . $filename;
         $type = $i == 0 ? "id" :
-               ($i == 1 ? "app": "par");
+        ($i == 1 ? "app": "par");
+        
+        move_uploaded_file($file["tmp_name"], $fileLocation);
 
-        $sql = "INSERT INTO documents(`app_id`, `filename`, `file_location`, `type`
+        $sql = "INSERT INTO documents(`app_id`, `filename`, `file_location`, `type`)
         VALUES('$appID', '$filename', '$fileLocation', '$type');
         ";
+        echo "$sql\n";
+
+        $conn->query($sql);
     }
 
     return true;
