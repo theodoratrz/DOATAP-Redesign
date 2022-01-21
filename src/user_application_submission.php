@@ -198,6 +198,36 @@
                                         <label for="actual-btn"><i class="fas fa-cloud-upload-alt"></i> Προσθήκη</label>
                                     </div>
                                   </th>
+                                             <!-- Trigger/Open The Modal -->
+                                  <td>
+                                  <button type="button" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#deleteModal">
+                                  </button>
+                                  </td>
+                              </tr>
+                              
+                              <tr>
+                                  <td>Αίτηση</td>
+                                  <th>
+                                    <div class="upload-btn">
+                                        <input type="file" id="actual-btn" hidden/>
+                                        <label for="actual-btn"><i class="fas fa-cloud-upload-alt"></i> Προσθήκη</label>
+                                    </div>
+                                  </th>
+                                  
+                                  <!-- Trigger/Open The Modal -->
+                                  <td>
+                                  <button type="button" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#deleteModal">
+                                  </button>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>Παράβολα</td>
+                                  <th>
+                                    <div class="upload-btn">
+                                        <input type="file" id="actual-btn" hidden/>
+                                        <label for="actual-btn"><i class="fas fa-cloud-upload-alt"></i> Προσθήκη</label>
+                                    </div>
+                                  </th>
                                   
                                   <!-- Trigger/Open The Modal -->
                                   <td>
