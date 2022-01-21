@@ -60,24 +60,28 @@
 <body>
 <div class="page-container fluid-container">
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/navbar.php" ?>
-        <div class="gray-box">
+    <div class="gray-box">
+        <a href="index.php" class="fas fa-arrow-circle-left" style="text-decoration:none; color:#002E69; cursor:pointer; 
+            margin-left:13rem;margin-top:2%;">Οι Αιτήσεις μου</a>
                 <div class="breadcrumb" style="align-items:end;">
                     <li class="breadcrumb-item"><a href="index.php" style="text-decoration:none;"><i class="fas fa-home" style="font-size:15px;"></i></a></li>
-                    <li class="breadcrumb-item"><a href="applications.php" style="text-decoration:none; font-size:15px;">Το Προφίλ μου</a></li>
                     <li class="breadcrumb-item active" aria-current="page" style="font-size:15px;">Οι Αιτήσεις μου</li>
                 </div>
         </div>
     <div class="page-content-container">
     
-      <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php"?>
+      <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
+      echoSidebar("/profile/myapplications/");
+      ?>
 
       <div class="table-wrapper">
           <div style="display:flex; flex-direction:row; justify-content:space-between;margin-bottom:1rem; width:inherit; align-items:center;">
             <h2>Αιτήσεις </h2>
             <div style="background-color:#20c997; width:max-content; padding:0rem; height:max-content; border-radius:5%;width:fit-content;">
                 <button style="font-size:medium; color:black; padding:0.5rem; margin-bottom:0rem;justify-content:center;" type="submit" name="submit" 
-                value="Αίτηση" data-toggle="modal"  
-                data-target="#newApplication" class="btn btn-success" ><i class="fas fa-file-alt" aria-hidden="true" ></i> Νέα Αίτηση</input>
+                value="Αίτηση" data-toggle="modal" 
+                data-target="#newApplication" class="btn btn-success" ><a href="/user_application_submission.php" class="fas fa-file-alt" 
+                style="text-decoration:none; color:inherit; font-size:inherit;" aria-hidden="true" >Νέα Αίτηση</a> 
                 </button>
             </div>                                   
           </div>

@@ -10,7 +10,7 @@ $nav_links = array(
 		"Παράβολα" => "paravola.php")
 	),
 	"Ανακοινώσεις" => array(
-	"anouncements.php",
+	"announcements.php",
 	array("Γενικές Πληροφορίες" => "under_construction.php",
 	"Αποφάσεις Δ.Σ" => "error404.php",
 	"Προϋπολογισμοί-Προκηρύξεις" => "under_construction.php",
@@ -146,7 +146,7 @@ function echoNavbarContent(array $content)
 					</ul>
 				</div>
 				<span style="color:white">|</span>
-				<a href="logout.php" class="login-link fas fa-sign-out-alt"> Αποσύνδεση</a>
+				<a href="logout.php" class="login-link fas fa-sign-out-alt">Αποσύνδεση</a>
 			 
 			</div>';
 			}

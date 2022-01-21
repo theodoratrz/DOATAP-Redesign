@@ -8,12 +8,13 @@
   <div class="page-container fluid-container">
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/navbar.php" ?>
     <div class="gray-box">
-      <div class="breadcrumb" style="align-items:end;">
-        <li class="breadcrumb-item"><a href="index.php" style="text-decoration:none;"><i class="fas fa-home" style="font-size:15px;"></i></a></li>
-        <li class="breadcrumb-item"><a href="applications.php" style="text-decoration:none; font-size:15px;">Το Προφίλ μου</a></li>
-        <li class="breadcrumb-item active" aria-current="page" style="font-size:15px;">Νέα Αίτηση</li>
-      </div>
-    </div>
+        <a href="index.php" class="fas fa-arrow-circle-left" style="text-decoration:none; color:#002E69; cursor:pointer; 
+            margin-left:13rem;margin-top:2%;">Νέα Αίτηση</a>
+                <div class="breadcrumb" style="align-items:end;">
+                    <li class="breadcrumb-item"><a href="index.php" style="text-decoration:none;"><i class="fas fa-home" style="font-size:15px;"></i></a></li>
+                    <li class="breadcrumb-item active" aria-current="page" style="font-size:15px;">Νέα Αίτηση</li>
+                </div>
+        </div>
     <div class="page-content-container" style="margin-bottom:2rem;">
 
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php" ?>
@@ -191,38 +192,6 @@
                               <tbody>
                               <tr>
                                   <td>Έγγραφο Ταυτοπροσωπίας</td>
-                                  <th>
-                                    <div class="upload-btn">
-                                        <input type="file" id="actual-btn" hidden/>
-                                        <label for="actual-btn"><i class="fas fa-cloud-upload-alt"></i> Προσθήκη</label>
-                                    </div>
-                                  </th>
-                                  
-                                  <!-- Trigger/Open The Modal -->
-                                  <td>
-                                  <button type="button" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#deleteModal">
-                                  </button>
-                                  </td>
-                              </tr>
-                              
-                              <tr>
-                                  <td>Αίτηση</td>
-                                  <th>
-                                    <div class="upload-btn">
-                                        <input type="file" id="actual-btn" hidden/>
-                                        <label for="actual-btn"><i class="fas fa-cloud-upload-alt"></i> Προσθήκη</label>
-                                    </div>
-                                  </th>
-                                  
-                                  <!-- Trigger/Open The Modal -->
-                                  <td>
-                                  <button type="button" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#deleteModal">
-                                  </button>
-                                  </td>
-                              </tr>
-
-                              <tr>
-                                  <td>Παράβολα</td>
                                   <th>
                                     <div class="upload-btn">
                                         <input type="file" id="actual-btn" hidden/>
