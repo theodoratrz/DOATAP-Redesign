@@ -22,7 +22,13 @@
         <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/navbar.php" ?>
 
         <div class="gray-box">
-            <a href="index.php" class="fas fa-arrow-circle-left" style="text-decoration:none; color:#002E69; cursor:pointer; margin-left:13rem; margin-top:1.7rem;"> Σύνδεση</a>
+          <a href="applications.php" class="fas fa-arrow-circle-left" style="text-decoration:none; color:#002E69; cursor:pointer; 
+            margin-left:13rem;margin-top:2%;">Σύνδεση</a>
+            <div class="breadcrumb" style="align-items:end;">
+              <li class="breadcrumb-item"><a href="index.php" style="text-decoration:none;"><i class="fas fa-home" style="font-size:15px;"></i></a></li>
+              <li class="breadcrumb-item active" aria-current="page" style="font-size:15px;">Σύνδεση</li>
+            </div>
+            
         </div>
         <div class="login-container-wrapper">
             <div class="login-container">
@@ -48,7 +54,7 @@
 
             </div>
             
-            <button id="submit-button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Σύνδεση</button>
+            <button id="submit-button" class="btn btn-primary">Σύνδεση</button>
             <div class="dropdown-divider"></div>
                 <a class="create-item" style="color:blue; text-decoration:underline; font-size:x-large; text-align:center" href="register.php">Δημιουργία Λογαριασμού</a>
         </div>
@@ -71,8 +77,6 @@
             console.log(data);
             if (data === 'login') {
                 // Redirect to home
-               
-                $('#exampleModal').modal('show'); 
                 window.location.replace('/');
             } else {
                 // display error message

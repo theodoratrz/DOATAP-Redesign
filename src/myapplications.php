@@ -71,7 +71,7 @@
     <div class="page-content-container">
     
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
-      echoSidebar("/profile/myapplications/");
+      echoSidebar("/profile/myapplications.php/");
       ?>
 
       <div class="table-wrapper">
