@@ -27,13 +27,6 @@ var CheckListItem = function (_React$Component) {
 		}, _this.toggleCheck = function () {
 			_this.props.checkCallback(_this.props.id);
 		}, _this.itemContentHTML = function (content, isChecked) {
-			var checkedStyle = {
-				textDecoration: 'line-through',
-				opacity: 0.6
-			};
-			var nonCheckedStyle = {
-				textDecoration: 'none'
-			};
 			var contentContainerStyle = {
 				display: 'flex',
 				flexDirection: 'row',
@@ -49,7 +42,6 @@ var CheckListItem = function (_React$Component) {
 				overflowWrap: 'wrap',
 				flex: '1'
 			};
-			Object.assign(spanStyle, isChecked ? checkedStyle : nonCheckedStyle);
 
 			return React.createElement(
 				'div',
@@ -71,7 +63,8 @@ var CheckListItem = function (_React$Component) {
 			var itemContainer = {
 				width: '100%',
 				display: 'flex',
-				flexDirection: 'row'
+				flexDirection: 'row',
+				alignItems: 'center'
 			};
 			var deleteButton = {
 				backgroundColor: 'transparent',

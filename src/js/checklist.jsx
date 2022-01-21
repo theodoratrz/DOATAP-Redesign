@@ -11,13 +11,6 @@ class CheckListItem extends React.Component {
 	}
 
 	itemContentHTML = (content, isChecked) => {
-		const checkedStyle = {
-			textDecoration: 'line-through',
-			opacity: 0.6
-		}
-		const nonCheckedStyle = {
-			textDecoration: 'none'
-		}
 		let contentContainerStyle = {
 			display: 'flex',
 			flexDirection: 'row',
@@ -33,7 +26,6 @@ class CheckListItem extends React.Component {
 			overflowWrap: 'wrap',
 			flex: '1'
 		}
-		Object.assign(spanStyle, isChecked ? checkedStyle : nonCheckedStyle);
 
 		return (
 			<div style={contentContainerStyle}>
@@ -46,7 +38,8 @@ class CheckListItem extends React.Component {
 		const itemContainer = {
 			width: '100%',
 			display: 'flex',
-			flexDirection: 'row'
+			flexDirection: 'row',
+			alignItems: 'center'
 		};
 		const deleteButton = {
 			backgroundColor: 'transparent',
