@@ -299,7 +299,12 @@
 ?>
 
 <link rel="stylesheet" href="/css/profile_info.css">
-
+<script>
+function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
+</script>
 <!-- Usage template: -->
 <!-- <form name="profile-info-form" class="needs-validation" method="POST" novalidate>
     <script>
