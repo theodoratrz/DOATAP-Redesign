@@ -87,14 +87,14 @@
             <label for=' . $fieldID . ' class="form-label">' . $description . '</label>
             <select class="form-select" id="' . $fieldID . '" name="' . $fieldID . '" aria-label="Επιλογή χώρας">';
                 if ($selectedValue == '') {
-                    echo '<option value="none" disabled selected>Επιλέξτε Χώρα</option>';
+                    echo '<option value="none" disabled selected="selected">Επιλέξτε Χώρα</option>';
                 }
                 
                 foreach ($countries as $country) {
                     $value = $country["coun_id"];
                     $name = $country["name"];
-                    if ($name === $selectedValue) {
-                        echo '<option value="' . $value . '" selected>' . $name . '</option>';
+                    if ($value == $selectedValue) {
+                        echo '<option value="' . $value . '" selected="selected">' . $name . '</option>';
                     } else {
                         echo '<option value="' . $value . '">' . $name . '</option>';
                     }

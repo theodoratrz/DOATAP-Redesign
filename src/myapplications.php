@@ -174,7 +174,7 @@
                       <td>' . $application["date_modified"] . '</td>
                       <td style="text-align: -moz-center;">
                       <div>
-                        <a href="/application_watch?application_id="' . $application["application_id"] . '"
+                        <a href="/user_application_submission.php?id=' . $application["application_id"] . '"
                         class="btn btn-success application-action-button">
                           <i class="fas fa-eye"></i> Προβολή
                         </a>
@@ -191,7 +191,7 @@
                       <td>' . $application["date_modified"] . '</td>
                       <td style="text-align: -moz-center;">
                       <div>
-                        <a href="/application_watch?application_id="' . $application["application_id"] . '"
+                        <a href="/user_application_submission.php?id=' . $application["application_id"] . '"
                         class="btn btn-success application-action-button">
                           <i class="fas fa-eye"></i> Προβολή
                         </a>
@@ -208,7 +208,7 @@
                       <td>' . $application["date_modified"] . '</td>
                       <td style="text-align: -moz-center;">
                       <div>
-                        <a href="/application_watch?application_id="' . $application["application_id"] . '"
+                        <a href="/user_application_submission.php?id=' . $application["application_id"] . '"
                         class="btn btn-success application-action-button">
                           <i class="fas fa-eye"></i> Προβολή
                         </a>
@@ -225,7 +225,7 @@
                       <td>' . $application["date_modified"] . '</td>
                       <td style="text-align: -moz-center;">
                       <div>
-                        <a href="/application_watch?application_id="' . $application["application_id"] . '"
+                        <a href="/user_application_submission.php?id=' . $application["application_id"] . '"
                         class="btn btn-success application-action-button">
                           <i class="fas fa-eye"></i> Προβολή
                         </a>
@@ -242,7 +242,7 @@
                       <td>' . $application["date_modified"] . '</td>
                       <td style="text-align: -moz-center;">
                         <div>
-                          <a href="/application_watch?application_id="' . $application["application_id"] . '"
+                          <a href="/user_application_submission.php?id=' . $application["application_id"] . '"
                           class="btn btn-success application-action-button">
                             <i class="fas fa-edit"></i> Επεξεργασία
                           </a>
