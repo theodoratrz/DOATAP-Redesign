@@ -16,7 +16,7 @@
         Είστε σίγουροι ότι θα θέλατε να διαγράψετε αυτό το δικαιολογητικό;
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn" style="background-color:gray; color:white;" data-bs-dismiss="modal">Ακύρωση</button>
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Ακύρωση</button>
         <button id="delete-button" type="button" class="btn " style="background-color:red; color:white;">Διαγραφή</button>
       </div>
     </div>
@@ -46,8 +46,8 @@
         Είστε σίγουροι ότι θα θέλατε να επαναφέρετε την αίτηση στην αρχική της κατάσταση;
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn" style="background-color:gray; color:white;" data-bs-dismiss="modal">Ακύρωση</button>
-        <button type="button" class="btn " style="background-color:blue; color:white;">Επαναφορά</button>
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Ακύρωση</button>
+        <button type="button" class="btn btn-secondary">Επαναφορά</button>
       </div>
     </div>
   </div>
@@ -64,8 +64,8 @@
         Μετά την οριστικοποίηση η αίτηση δεν μπορεί να επεξεργαστεί.
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn" style="background-color:gray; color:white;" data-bs-dismiss="modal">Ακύρωση</button>
-        <button id="final-submit-button" type="button" class="btn " style="background-color:#46b31e; color:white;">Υποβολή</button>
+        <button type="button" class="btn btn btn-light" data-bs-dismiss="modal">Ακύρωση</button>
+        <button id="final-submit-button" type="button" class="btn btn-success">Υποβολή</button>
       </div>
     </div>
   </div>
@@ -107,7 +107,7 @@
               Είστε σίγουροι ότι θα θέλατε να διαγράψετε αυτό το δικαιολογητικό;
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn" style="background-color:gray; color:white;" data-bs-dismiss="modal">Ακύρωση</button>
+              <button type="button" class="btn btn-light" data-bs-dismiss="modal">Ακύρωση</button>
               <button type="button" class="btn " style="background-color:red; color:white;">Διαγραφή</button>
             </div>
           </div>
@@ -137,7 +137,7 @@
               Είστε σίγουροι ότι θα θέλατε να επαναφέρετε την αίτηση στην αρχική της κατάσταση;
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn" style="background-color:gray; color:white;" data-bs-dismiss="modal">Ακύρωση</button>
+              <button type="button" class="btn btn-light" data-bs-dismiss="modal">Ακύρωση</button>
               <button type="button" class="btn " style="background-color:blue; color:white;">Επαναφορά</button>
             </div>
           </div>
@@ -155,8 +155,8 @@
               Μετά την οριστικοποίηση η αίτηση δεν μπορεί να επεξεργαστεί.
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn" style="background-color:gray; color:white;" data-bs-dismiss="modal">Ακύρωση</button>
-              <button id="final-submit-button" type="button" class="btn " style="background-color:#46b31e; color:white;">Υποβολή</button>
+              <button type="button" class="btn btn-light" data-bs-dismiss="modal">Ακύρωση</button>
+              <button id="final-submit-button" type="button" class="btn btn-success">Υποβολή</button>
             </div>
           </div>
         </div>

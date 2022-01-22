@@ -136,7 +136,7 @@
                       <td style="text-align: -moz-center;">
                       <div>
                         <a href="/user_application_submission.php?id=' . $application["application_id"] . '"
-                        class="btn btn-primary application-action-button">
+                        class="btn btn-secondary application-action-button">
                           <i class="fas fa-eye"></i> Προβολή
                         </a>
                       </div>
@@ -153,7 +153,7 @@
                       <td style="text-align: -moz-center;">
                       <div>
                         <a href="/user_application_submission.php?id=' . $application["application_id"] . '"
-                        class="btn btn-primary application-action-button">
+                        class="btn btn-secondary application-action-button">
                           <i class="fas fa-eye"></i> Προβολή
                         </a>
                       </div>
@@ -170,7 +170,7 @@
                       <td style="text-align: -moz-center;">
                       <div>
                         <a href="/user_application_submission.php?id=' . $application["application_id"] . '"
-                        class="btn btn-primary application-action-button">
+                        class="btn btn-secondary application-action-button">
                           <i class="fas fa-eye"></i> Προβολή
                         </a>
                       </div>
@@ -187,7 +187,7 @@
                       <td style="text-align: -moz-center;">
                       <div>
                         <a href="/user_application_submission.php?id=' . $application["application_id"] . '"
-                        class="btn btn-primary application-action-button">
+                        class="btn btn-secondary application-action-button">
                           <i class="fas fa-eye"></i> Προβολή
                         </a>
                       </div>
@@ -204,7 +204,7 @@
                       <td style="text-align: -moz-center;">
                         <div>
                           <a href="/user_application_submission.php?id=' . $application["application_id"] . '"
-                          class="btn btn-primary application-action-button">
+                          class="btn btn-secondary application-action-button">
                             <i class="fas fa-edit"></i> Επεξεργασία
                           </a>
                         </div>
