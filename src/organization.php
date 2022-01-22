@@ -18,21 +18,21 @@
         <div class="menu">
     <a href="under_construction.php" class="icon-text">
       <h6><div style="font-weight:bold; text-decoration:none; color:inherit"> Ταυτότητα</div></h6>
-      <span style="text-align:center"> Πληροφορίες για τη διαδικασία υποβολής των αιτήσεων, βήμα-βήμα.</span>
+      <span style="text-align:center"> Πληροφορίες για τη διοίκηση του ΔΟΑΤΑΠ.</span>
     </a>
     <a href="under_construction.php"  class="icon-text">
       <h6><div style="font-weight:bold; text-decoration:none; color:inherit"> Διοίκηση</div></h6>
-      <span style="text-align:center">Πληροφορίες για την πορεία των αιτήσεων σας, αφού τις καταθέσετε.</span>
+      <span style="text-align:center">Πληροφορίες το Διοικητικό Σύμβουλιο.</span>
     </a>
 </div>
     <div class="menu">
     <a href="under_construction.php"  class="icon-text">
       <h6><div style="font-weight:bold; color:inherit"> Ετήσιος Απολογισμός Δ.Σ</div></h6>
-      <span style="text-align:center">Πληροφορίες για όλες τις απαραίτητες αιτήσεις που θα χρειαστείτε.</span>
+      <span style="text-align:center">Ενημερωθείτε για τον ετήσιο απολογισμό του οργανισμού.</span>
     </a>
     <a href="under_construction.php" class="icon-text">
         <h6><div style="font-weight:bold; color:inherit"> Στατιστικά Στοιχεία</div></h6>
-        <span style="text-align:center">Πληροφορίες για τα παράβολα που οφείλετε να κατaβάλλετε.</span>
+        <span style="text-align:center">Στατιστικά Στοιχεία αναφορικά με την εξυπηρέτηση και τη διεκπεραίωση των αιτήσεων.</span>
     </a>
 </div>
 </div>

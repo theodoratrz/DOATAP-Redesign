@@ -37,19 +37,30 @@
 
 	if (isset($_SESSION['user_id'])) {
 		$userID = $_SESSION['user_id'];
+		
 		if (isAdmin($userID)){
 			$_sidebar_page_names_["profile"] =  array(
 				"user_profile.php" => "Οι πληροφορίες μου",
-				"admin-application.php" => "Διαχείριση Αιτήσεων",
+				"admin-application.php" => array(
+					"Διαχείριση Αιτήσεων",
+					array(
+						"submitted" => "Υποβλήθηκαν",
+						"pending" => "Σε εκκρεμότητα",
+						"approved" => "Εγκρίθηκαν",
+						"rejected" => "Απορρίφθηκαν"
+					)
+				),
 				"under_construction.php" => "Διαχείριση Λογαριασμών Χρηστών"				
 			);
 		}
 		else{
+			
 			$_sidebar_page_names_["profile"] =  array(
 				"user_profile.php" => "Οι πληροφορίες μου",
 				"user_application_submission.php" => "Νέα Αίτηση",
 				"myapplications.php" => "Οι Αιτήσεις μου"				
 			);
+			echo $userID;
 		}
 	}
 function echoSidebar(string $path)

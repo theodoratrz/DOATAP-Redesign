@@ -28,6 +28,14 @@
                               <div style="display:flex; flex-direction:column; justify-content:space-between;margin-bottom:1rem;">
                                 <div class="row1">
                                     <h5><i class="fas fa-user-circle"></i> Το προφίλ μου </h5>
+                                    <?php 
+                                        if (isset($_SESSION['user_id'])) {
+                                            $userID = $_SESSION['user_id'];
+                                            if (isAdmin($userID)){
+                                                echo '<h7 style="color:#002E69"><i class="fas fa-tools"></i> Διαχειριστής</h7>';
+                                            }
+                                        }
+                                    ?>
                                     <hr>
                                 </div>
                                 <div class="row2">
@@ -37,7 +45,6 @@
                                     require_once $_SERVER['DOCUMENT_ROOT'] . "/api/applications.php";
 
                                     $userInfo = getUserInfo($_SESSION['user_id']);
-                                    // var_dump($userInfo);
 
                                     $form_values = array(
                                     "uname" => $userInfo['username'],
