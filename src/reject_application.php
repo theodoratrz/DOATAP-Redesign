@@ -11,8 +11,6 @@ if ( (!array_key_exists('application_id', $_POST)) || (!array_key_exists('basic_
 }
 
 $application_id = $_POST["application_id"];
-$basic_info = $_POST["basic_info"];
-$studies_info = $_POST["studies_info"];
 $approvals = array(
     "basic_info" => $_POST["basic_info"],
     "studies_info" => $_POST["studies_info"],
@@ -22,6 +20,5 @@ $comments = $_POST["comments"];
 
 rejectApplication($application_id, $approvals, $comments);
 
-http_response_code(200);
-
+echo json_encode("Η αίτηση απορρίφθηκε επιτυχώς.");
 ?>

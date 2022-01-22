@@ -68,7 +68,7 @@ function approveApplication($appID, $university, $department, $comments){
                 `university` = '$university',
                 `department` = '$department',
                 `last_modified` = NOW(),
-                `comment` = $comments
+                `comment` = '$comments'
             WHERE `app_id` = $appID;";
 
     $conn->query($sql);
@@ -126,7 +126,7 @@ function rejectApplication($appID, $rejectedDocs, $comment){
     $documents = $rejectedDocs['documents'];
 
     $sql = "UPDATE `applications`
-            SET `state` = 'rejected',
+            SET `state` = 'declined',
                 `comment` = '$comment',
                 `basicInfoApproved` = '$basicApproved',
                 `studiesInfoApproved` = '$studiesApproved',
