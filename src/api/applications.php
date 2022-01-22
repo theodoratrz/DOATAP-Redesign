@@ -79,17 +79,17 @@ function setApplicationCourses($appID, $university, $department, $subjects, $com
 
     // Add subjects
     foreach($subjects as $subject){
-        $sql = "INSERT IGNORE INTO subjects(`app_id`, `title`)
+        $sql = "INSERT IGNORE INTO courses(`app_id`, `title`)
                 VALUES('$appID', '$subject');";
         $conn->query($sql);
     }
 
     $sql = "UPDATE `applications`
-    SET `state` = 'needsSubject',
+    SET `state` = 'pending',
         `university` = '$university',
         `department` = '$department',
         `last_modified` = NOW(),
-        `comment` = $comments
+        `comment` = '$comments'
     WHERE `app_id` = $appID;";
     $conn->query($sql);
 }

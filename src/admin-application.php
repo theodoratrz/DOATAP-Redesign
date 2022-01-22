@@ -1,4 +1,16 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php"; ?>
+<?php 
+
+/* if (!array_key_exists('app_id', $_GET)) {
+    header("Location: /error404.php");
+} */
+require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php";
+
+/* if (isset($_SESSION['user_id'])) {
+    if (!isAdmin($$_SESSION['user_id'])) {
+        header("Location: /error404.php");
+    }
+} */
+?>
 
 <link rel="stylesheet" href="css/index.css">
 

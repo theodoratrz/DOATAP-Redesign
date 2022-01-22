@@ -171,8 +171,8 @@ form[name="application-reject-form"] .form-control::placeholder {
             url: "/reject_application.php",
             dataType: "json",
             success: answer => {
-                console.log(answer);
-                // Success Modal, reload page
+                // Success, reload page
+                document.forms["application-reject-form"].submit();
             },
             error: answer => {
                 // Show Error Modal
@@ -245,6 +245,33 @@ function getDocumentImageModal() {
 
 function getBasicInfo(array $userInfo)
 {
+    switch ($userInfo['gender']) {
+        case 'Male':
+            $gender = 'Άνδρας';
+            break;
+        case 'Female':
+            $gender = 'Γυναίκα';
+            break;
+        case 'Other':
+            $gender = 'Άλλο';
+            break;        
+        default:
+            $gender = $userInfo['gender'];
+            break;
+    }
+
+    switch ($userInfo['docType']) {
+        case 'ID':
+            $docType = 'Ταυτότητα';
+            break;
+        case 'passport':
+            $docType = 'Διαβατήριο';
+            break;        
+        default:
+            $docType = $userInfo['docType'];
+            break;
+    }
+
     return '
     <div class="basic-info-container">
         <div class="basic-info-field-group">
@@ -260,7 +287,7 @@ function getBasicInfo(array $userInfo)
         <div class="basic-info-field-group">
             <div class="basic-info-field">
                 <div class="basic-info-field-title">Ταυτοποίηση:</div>
-                ' . $userInfo['docType'] . '
+                ' . $docType . '
             </div>
             <div class="basic-info-field">
                 <div class="basic-info-field-title">Αριθμός Εγγράφου:</div>
@@ -290,7 +317,7 @@ function getBasicInfo(array $userInfo)
             </div>
             <div class="basic-info-field">
                 <div class="basic-info-field-title">Φύλο:</div>
-                ' . $userInfo['gender'] . '
+                ' . $gender . '
             </div>
         </div>
         <div class="basic-info-field-group">
@@ -325,12 +352,20 @@ function getStudiesTitle(array $studiesInfo)
     <div class="basic-info-container">
         <div class="basic-info-field-group">
             <div class="basic-info-field">
+                <div class="basic-info-field-title">Χώρα:</div>
+                ' . $studiesInfo['country'] . '
+            </div>
+            <div class="basic-info-field">
                 <div class="basic-info-field-title">Ίδρυμα:</div>
                 ' . $studiesInfo['university'] . '
             </div>
             <div class="basic-info-field">
                 <div class="basic-info-field-title">Τμήμα:</div>
                 ' . $studiesInfo['department'] . '
+            </div>
+            <div class="basic-info-field">
+                <div class="basic-info-field-title">Τύπος Πτυχίου:</div>
+                ' . $studiesInfo['degree_type'] . '
             </div>
             <div class="basic-info-field">
                 <div class="basic-info-field-title">Έτη σπουδών:</div>
@@ -453,7 +488,8 @@ function getApplicationRejectForm(array $applicationInfo)
             Σε περίπτωση απόρριψης της αίτησης, μπορείτε να αποεπιλέξτε την επιλογή έγκρισης σε κάποια ενότητα ή δικαιολογητικό:
         </span>
         ' . getDocumentImageModal() . '
-        <form name="application-reject-form" onsubmit="rejectApplication(event)">
+        <form name="application-reject-form" method="GET" onsubmit="rejectApplication(event)">
+            <input type="hidden" name="app_id" value="'. $_GET['app_id'] .'">
             ' . getRejectFormAccordion($applicationInfo) . '
             <div class="reject-application-button">
                 <button class="btn btn-primary" type="button" onclick="rejectFormNamespace.toggleVerificationModal()">Απόρριψη Αίτησης</button>
@@ -479,16 +515,6 @@ function getFrozenDocuments(array $documentsInfo)
             </label>
         </div>
         <div class="document-field-container">
-            <button type="button" onclick="openDocumentModal(this)" class="document-file-button" data-img-src="' . $documentsInfo['application'][0] . '">
-                Αίτηση
-            </button>
-            <label class="approve-checkbox">
-                <input type="checkbox" ' . ($documentsInfo['application'][1] === "1" ? "checked" : "") . ' disabled>
-                    Εγκρίνεται
-                </input>
-            </label>
-        </div>
-        <div class="document-field-container">
             <button type="button" onclick="openDocumentModal(this)" class="document-file-button" data-img-src="' . $documentsInfo['fee'][0] . '">
                 Παράβολο
             </button>
@@ -498,7 +524,16 @@ function getFrozenDocuments(array $documentsInfo)
                 </input>
             </label>
         </div>
-        
+        <div class="document-field-container">
+            <button type="button" onclick="openDocumentModal(this)" class="document-file-button" data-img-src="' . $documentsInfo['application'][0] . '">
+                Αίτηση
+            </button>
+            <label class="approve-checkbox">
+                <input type="checkbox" ' . ($documentsInfo['application'][1] === "1" ? "checked" : "") . ' disabled>
+                    Εγκρίνεται
+                </input>
+            </label>
+        </div>        
     </div>
     ';
 }

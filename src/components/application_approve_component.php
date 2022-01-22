@@ -219,7 +219,8 @@ function getApplicationApproveForm()
         <span style="font-size: 21px">
             Για την έγκριση της αίτησης, επιλέξτε ίδρυμα & τμήμα για αντιστοίχιση τίτλου σπουδών:
         </span>
-        <form name="match-approve-form" action="index.php?application_id=148&status=accepted" method="POST" onsubmit="approveApplication(event)">
+        <form name="match-approve-form" method="GET" onsubmit="approveApplication(event)">
+            <input type="hidden" name="app_id" value="'. $_GET['app_id'] .'">
             <div class="approval-form-contents">
                 <div class="approval-form-field">
                     <label class="bold-label" for="approve-university-selection">Επιλέξτε Ίδρυμα:</label>
