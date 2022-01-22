@@ -94,6 +94,17 @@ function setApplicationCourses($appID, $university, $department, $subjects, $com
     $conn->query($sql);
 }
 
+function getApplicationCourses($appID)
+{
+    global $conn;
+    
+    $sql = "SELECT `title` from `courses`
+            WHERE `app_id` = $appID";
+    $result = $conn->query($sql);
+    $rows = $result->fetch_all(MYSQLI_ASSOC);
+    return $rows;
+}
+
 /*
 Sample $rejected
 array (

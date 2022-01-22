@@ -126,12 +126,13 @@
         require_once  $_SERVER['DOCUMENT_ROOT'] . "/components/application_approve_component.php";
         require_once  $_SERVER['DOCUMENT_ROOT'] . "/components/application_courses_component.php";
 
-        $applicationID = '12';
+        $applicationID = $_GET['app_id'];
         echo '<script>window.applicationID = '. $applicationID .'</script>';
         $applicationInfo = getApplication($applicationID);
         $userID = $applicationInfo['user_id'];
         $applicationInfo['basic_info'] = getUserInfo($userID);
         $applicationInfo['documents'] = getApplicationDocuments($applicationID);
+        $applicationInfo['courses'] = getApplicationCourses($applicationID);
 
         $tabContent = array();
         $isApplicationClosed = true;
@@ -176,14 +177,14 @@
                     "application-info",
                     getApplicationFrozenRejectForm($applicationInfo)
                 );
-                /* $tabContent["Ανάθεση Μαθημάτων"] = array(
+                $tabContent["Ανάθεση Μαθημάτων"] = array(
                     "attach-courses",
                     getApplicationCoursesFrozen(
                         $applicationInfo['university'],
                         $applicationInfo['department'],
                         $applicationInfo['courses']
                     )
-                ); */
+                );
                 break;            
             default:
                 # code...
@@ -193,7 +194,7 @@
         echoContentTabs($tabContent, "admin-tab-wrapper");
 
         if ($isApplicationClosed) {
-            echoAdminCommentsFrozenContainer($applicationInfo['comments']);
+            echoAdminCommentsFrozenContainer($applicationInfo['comment']);
         } else {
             echoAdminCommentsContainer();
         }

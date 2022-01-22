@@ -304,7 +304,7 @@ function getApplicationCoursesForm()
 function getSelectedCourses(array $courses) {
     $ret = '';
     foreach ($courses as $course) {
-        $ret = $ret . '<li>'. $course . '</li>';
+        $ret = $ret . '<li>'. $course['title'] . '</li>';
     }
     return $ret;
 }
