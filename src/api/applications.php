@@ -61,19 +61,20 @@ function getApplication($appID){
     return $row;
 }
 
-function approveApplication($appID, $university, $department){
+function approveApplication($appID, $university, $department, $comments){
     global $conn;
     $sql = "UPDATE `applications`
             SET `state` = 'approved',
                 `university` = '$university',
                 `department` = '$department',
-                `last_modified` = NOW()
+                `last_modified` = NOW(),
+                `comment` = $comments
             WHERE `app_id` = $appID;";
 
     $conn->query($sql);
 }
 
-function setApplicationCourses($appID, $university, $department, $subjects){
+function setApplicationCourses($appID, $university, $department, $subjects, $comments){
     global $conn;
 
     // Add subjects
@@ -87,7 +88,8 @@ function setApplicationCourses($appID, $university, $department, $subjects){
     SET `state` = 'needsSubject',
         `university` = '$university',
         `department` = '$department',
-        `last_modified` = NOW()
+        `last_modified` = NOW(),
+        `comment` = $comments
     WHERE `app_id` = $appID;";
     $conn->query($sql);
 }
@@ -121,7 +123,7 @@ function rejectApplication($appID, $rejectedDocs, $comment){
             WHERE `app_id` = $appID;";
     $conn->query($sql);
 
-    foreach(array('id', 'form', 'title') as $type){
+    foreach(array('id', 'app', 'par', 'title') as $type){
         $approved = $documents[$type];
         $sql = "UPDATE `documents`
                 SET `approved` = '$approved'

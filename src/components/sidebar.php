@@ -38,11 +38,8 @@ const _sidebar_page_names_ = array(
 		"paravola" => "Παράβολα"
 		)	
 		)		
-	)
-	
-	
+	)	
 );
-
 
 function echoSidebar(string $path)
 {

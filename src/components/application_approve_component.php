@@ -157,6 +157,7 @@ form[name="match-approve-form"] .form-control::placeholder {
                     errorMsgElement.style.display = 'block';
                 },
                 data: {
+                    "application_id" : window.applicationID,
                     "university": universitySelection.value,
                     "department": departmentSelection.value,
                     "comments": document.getElementById('admin-comments-textbox').value

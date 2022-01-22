@@ -117,81 +117,26 @@
             </div>
             ';
         }
-
+        
+        require_once $_SERVER['DOCUMENT_ROOT'] . "/api/applications.php";
+        require_once $_SERVER['DOCUMENT_ROOT'] . "/api/documents.php";
         require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
         require_once  $_SERVER['DOCUMENT_ROOT'] . "/components/content_tabs_old.php"; 
         require_once  $_SERVER['DOCUMENT_ROOT'] . "/components/application_reject_component.php";
         require_once  $_SERVER['DOCUMENT_ROOT'] . "/components/application_approve_component.php";
         require_once  $_SERVER['DOCUMENT_ROOT'] . "/components/application_courses_component.php";
 
-        $applicationInfo = array (
-            "status" => "submitted", #"accepted", "declined", "submitted"
-            "basic_info" => array(
-                "uname" => "kostas_44",
-                "email" => "kostas44@gmail.com",
-    
-                "fname" => "Κώστας",
-                "surname" => "Χρήστου",
-                "fathersName" => "Χρήστος",
-                "mothersName" => "Μαρία",
-                "birthDate" => "31-1-1999",
-                "gender" => "Άνδρας",
-    
-                "country" => "Ελλάδα",
-                "city" => "Αθήνα",
-                "address" => "Αθηνάς 4",
-    
-                "docSelection" => "Ταυτότητα",
-                "docID" => "14572",
-    
-                "mobilePhone" => "6969696969",
-                "homePhone" => "2106969696"
-            ),
-            "basic_info_accepted" => "1",
-            "studies_info" => array(
-                "studies_type" => "Συμβατικός",
-                "studies_duration" => "Τακτική",
-                "country" => "Η.Π.Α.",
-                "university" => "Yale",
-                "title" => "Fine Arts",
-                "ects" => "240",
-                "studyYears" => "4",
-                "dateStarted" => "31-1-1999",
-                "dateFinished" => "31-1-2003",
-            ),
-            "studies_info_accepted" => "0",
-            "documents" => array(
-                "id" => array (
-                    "/uploads/id_doc1.png",
-                    "1"
-                ),
-                "application" => array (
-                    "/uploads/application1.png",
-                    "0"
-                ),
-                "title" => array (
-                    "/uploads/title1.png",
-                    "1"
-                )
-            ),
-            "university" => "uni1",
-            "department" => "dep1",
-            "courses" => array(
-                "course1",
-                "course2",
-                "course3"
-            ),
-            "comments" => "
-            - bla1
-            - bla2
-            - bla3
-            "
-        );
+        $applicationID = '12';
+        echo '<script>window.applicationID = '. $applicationID .'</script>';
+        $applicationInfo = getApplication($applicationID);
+        $userID = $applicationInfo['user_id'];
+        $applicationInfo['basic_info'] = getUserInfo($userID);
+        $applicationInfo['documents'] = getApplicationDocuments($applicationID);
 
         $tabContent = array();
         $isApplicationClosed = true;
 
-        switch ($applicationInfo["status"]) {
+        switch ($applicationInfo["state"]) {
             case 'submitted':
                 $tabContent["Στοιχεία Αίτησης"] = array(
                     "application-info",
@@ -213,7 +158,7 @@
                     getApplicationFrozenRejectForm($applicationInfo)
                 );
                 break;                
-            case 'accepted':
+            case 'approved':
                 $tabContent["Στοιχεία Αίτησης"] = array(
                     "application-info",
                     getApplicationFrozenRejectForm($applicationInfo)
@@ -231,21 +176,14 @@
                     "application-info",
                     getApplicationFrozenRejectForm($applicationInfo)
                 );
-                $tabContent["Αντιστοίχιση & Έγκριση"] = array(
-                    "match-approve",
-                    getApplicationApproveFrozenForm(
-                        $applicationInfo['university'],
-                        $applicationInfo['department']
-                    )
-                );
-                $tabContent["Ανάθεση Μαθημάτων"] = array(
+                /* $tabContent["Ανάθεση Μαθημάτων"] = array(
                     "attach-courses",
                     getApplicationCoursesFrozen(
                         $applicationInfo['university'],
                         $applicationInfo['department'],
                         $applicationInfo['courses']
                     )
-                );
+                ); */
                 break;            
             default:
                 # code...

@@ -180,6 +180,7 @@ form[name="courses-submission-form"] .form-control::placeholder {
                     $('#errorMsgModal').modal("show");
                 },
                 data: {
+                    "application_id" : window.applicationID,
                     "university": universitySelection.value,
                     "department": departmentSelection.value,
                     "courses": selectedCourses,
