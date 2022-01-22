@@ -78,11 +78,14 @@
           <h2>Αιτήσεις </h2>
           <div style="background-color:#20c997; width:max-content; padding:0rem; height:max-content; border-radius:5%;width:fit-content;">
             <a href="/user_application_submission.php" style="text-decoration:none; color:inherit; font-size:inherit;" aria-hidden="true">
-              <button style="font-size:medium; color:black; padding:0.5rem; margin-bottom:0rem;justify-content:center;" type="submit" name="submit" value="Αίτηση" data-toggle="modal" data-target="#newApplication" class="btn btn-success">
+              <button style="font-size:medium; color:black; padding:0.5rem; margin-bottom:0rem;justify-content:center;" type="submit" name="submit" 
+               value="Αίτηση" data-toggle="modal" data-target="#newApplication" class="btn btn-success">
                 <i class="fas fa-file-alt"></i> Νέα Αίτηση
               </button>
             </a>
           </div>
+          </div>
+
            <!-- Modal -->
            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
@@ -224,7 +227,6 @@
           </tbody>
         </table>
       </div>
-    </div>
   </div>
   <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/footer.php" ?>
 </body>
