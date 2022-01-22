@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Jan 21, 2022 at 02:27 PM
+-- Generation Time: Jan 22, 2022 at 02:53 AM
 -- Server version: 8.0.27
 -- PHP Version: 7.4.27
 
@@ -52,7 +52,7 @@ INSERT INTO `announcements` (`ann_id`, `type`, `title`, `content`, `time_uploade
 
 CREATE TABLE `applications` (
   `app_id` int NOT NULL,
-  `state` enum('uploaded','pending','approved','rejected','needsSubject','saved') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'uploaded',
+  `state` enum('stored','submitted','approved','declined','pending') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'stored',
   `user_id` int NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `last_modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -74,9 +74,9 @@ CREATE TABLE `applications` (
 --
 
 INSERT INTO `applications` (`app_id`, `state`, `user_id`, `created`, `last_modified`, `attendance`, `studiesType`, `ECTS`, `dateIntro`, `dateGrad`, `yearsOfStudy`, `department`, `university`, `comment`, `basicInfoApproved`, `studiesInfoApproved`) VALUES
-(10, 'saved', 13, '2022-01-21 14:07:37', '2022-01-21 14:07:37', 1, 1, 123, '2000-01-01', '2020-01-01', 4, 'DIT', 'ΕΚΠΑ', NULL, 1, 1),
-(11, 'saved', 13, '2022-01-21 14:23:45', '2022-01-21 14:23:45', 0, 0, 123, '2000-01-01', '2020-01-01', 123, '', 'ΕΚΠΑ', NULL, 1, 1),
-(12, 'uploaded', 13, '2022-01-21 14:23:52', '2022-01-21 14:23:52', 0, 0, 123, '2000-01-01', '2020-01-01', 123, '', 'ΕΚΠΑ', NULL, 1, 1);
+(10, 'submitted', 13, '2022-01-21 14:07:37', '2022-01-21 14:07:37', 1, 1, 123, '2000-01-01', '2020-01-01', 4, 'DIT', 'ΕΚΠΑ', NULL, 1, 1),
+(11, 'pending', 13, '2022-01-21 14:23:45', '2022-01-21 14:23:45', 0, 0, 123, '2000-01-01', '2020-01-01', 123, 'RandomDep', 'ΕΚΠΑ', NULL, 1, 1),
+(12, 'pending', 13, '2022-01-21 14:23:52', '2022-01-21 14:23:52', 0, 0, 123, '2000-01-01', '2020-01-01', 123, 'RandomDep', 'ΕΚΠΑ', '- bla\r\n- ble\r\n- blue\r\nhaha', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -106,6 +106,15 @@ CREATE TABLE `courses` (
   `app_id` int NOT NULL,
   `title` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `courses`
+--
+
+INSERT INTO `courses` (`app_id`, `title`) VALUES
+(12, 'OOP'),
+(12, 'ΕΑΜ'),
+(12, 'ΤΕΔΕ');
 
 -- --------------------------------------------------------
 
@@ -138,7 +147,7 @@ CREATE TABLE `documents` (
   `filename` varchar(40) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `approved` tinyint(1) NOT NULL DEFAULT '1',
-  `type` enum('id','form','title') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+  `type` enum('id','app','title','par') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -146,7 +155,11 @@ CREATE TABLE `documents` (
 --
 
 INSERT INTO `documents` (`doc_id`, `app_id`, `filename`, `file_location`, `approved`, `type`) VALUES
-(1, 1, 'file.doc', '/tmp/file.doc', 1, 'id');
+(1, 1, 'file.doc', '/tmp/file.doc', 1, 'id'),
+(4, 12, 'gru.png', '/uploads/gru.png', 0, 'id'),
+(5, 12, 'gru.png', '/uploads/gru.png', 1, 'app'),
+(6, 12, 'gru.png', '/uploads/gru.png', 0, 'par'),
+(7, 12, 'gru.png', '/uploads/gru.png', 1, 'title');
 
 -- --------------------------------------------------------
 
@@ -295,7 +308,7 @@ ALTER TABLE `departments`
 -- AUTO_INCREMENT for table `documents`
 --
 ALTER TABLE `documents`
-  MODIFY `doc_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `doc_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `universities`
