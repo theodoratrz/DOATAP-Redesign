@@ -7,7 +7,7 @@
 <div class="table-wrapper" style="background-color:transparent">
   <form action="" method="POST" enctype="multipart/form-data">
     <div class="table">
-      <div class="row" style="diplay:flex; flex-direction:row; justify-content:space-evenly;">
+      <div class="row" style="display:flex; flex-direction:row; justify-content:space-evenly;">
         <h6><i class="fas fa-info-circle"></i>Μεταφόρτωση Απαραίτητων Δικαιολογητικών </h6>
 
       </div>

@@ -96,9 +96,9 @@ $('#no_mls_entry').popover('show').focus();
             echoRadioField('attendance', 'Τύπος Φοίτησης', "Παρακαλώ, επιλέξτε τον τύπο φοίτησης.",
             array("Συμβατικός", "Εξ Αποστάσεως"), $values['attendance']);
             echoRadioField('partTime', 'Τύπος Φοίτησης', "Παρακαλώ, επιλέξτε τον τύπο φοίτησης.",
-            array("Τακτικη", "Μερική"), $values['fullTime']);
+            array("Τακτική", "Μερική"), $values['partTime']);
             echoCountryField('country', 'Χώρα', "Παρακαλώ, επιλέξτε χώρα σπουδών.", $values['country']);
-            echoUniversityField('universityAbroad', 'Πανεπιστήμιο', "Παρακαλώ, επιλέξτε πανεπιστήμιο.", $values['universityAbroad']);            
+            echoTextField('universityAbroad', 'Πανεπιστήμιο', "Παρακαλώ, επιλέξτε πανεπιστήμιο.", $values['universityAbroad']);            
             echoTextField('ects', 'Πιστωτικές Μονάδες(credits)', "Παρακαλώ, συμπληρώστε Πιστωτικές Μονάδες.", $values['ects']);
             echoTextField('attendanceTime', 'Έτη σπουδών', "Παρακαλώ, επιλέξτε έτη σπουδών.", $values['attendanceTime']);
             echoDateField('entryDate', "Ημ. Εισαγωγής", "Παρακαλώ, επιλέξτε ημ. εγγραφής.", $values['entryDate']);

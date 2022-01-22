@@ -1,56 +1,55 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php";?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php"; ?>
 <style>
+  .application-status {
+    padding: 0rem;
+    height: max-content;
+    width: fit-content;
+    font-size: medium;
+    padding: 0.5rem;
+    margin-bottom: 0rem;
+    justify-content: center;
+    font-weight: bold;
+  }
 
-.application-status {
-  padding:0rem;
-  height:max-content;
-  width:fit-content;
-  font-size:medium;
-  padding:0.5rem;
-  margin-bottom:0rem;
-  justify-content:center;
-  font-weight:bold;
-}
+  .application-status.status-stored {
+    background-color: transparent;
+    color: #ff5400;
+  }
 
-.application-status.status-stored {
-  background-color: transparent;
-  color:#ff5400;
-}
+  .application-status.status-submit {
+    background-color: transparent;
+    color: #1b68ca;
+    ;
+  }
 
-.application-status.status-submit {
-  background-color: transparent;
-  color:#1b68ca;;
-}
+  .application-status.status-approved {
+    background-color: transparent;
+    color: #24801c;
+  }
 
-.application-status.status-approved {
-  background-color: transparent;
-  color:#24801c;
-}
+  .application-status.status-declined {
+    background-color: transparent;
+    color: red;
+  }
 
-.application-status.status-declined {
-  background-color: transparent;
-  color:red;
-}
+  .application-status.status-pending {
+    background-color: transparent;
+    color: #ff5400;
+  }
 
-.application-status.status-pending {
-  background-color: transparent;
-  color:#ff5400;
-}
-
-.application-action-button {
-  background-color:#77B6EA;
-  width:max-content;
-  padding:0rem;
-  height:max-content;
-  border-radius:5%;
-  width:fit-content;
-  font-size:medium;
-  color:#002E69;
-  padding:0.5rem;
-  margin-bottom:0rem;
-  justify-content:center;
-}
-
+  .application-action-button {
+    background-color: #77B6EA;
+    width: max-content;
+    padding: 0rem;
+    height: max-content;
+    border-radius: 5%;
+    width: fit-content;
+    font-size: medium;
+    color: #002E69;
+    padding: 0.5rem;
+    margin-bottom: 0rem;
+    justify-content: center;
+  }
 </style>
 
 <link rel="stylesheet" href="/css/index.css">
@@ -58,32 +57,31 @@
 <link rel="stylesheet" href="/css/form.css">
 
 <body>
-<div class="page-container fluid-container">
+  <div class="page-container fluid-container">
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/navbar.php" ?>
     <div class="gray-box">
-        <a href="index.php" class="fas fa-arrow-circle-left" style="text-decoration:none; color:#002E69; cursor:pointer; 
+      <a href="index.php" class="fas fa-arrow-circle-left" style="text-decoration:none; color:#002E69; cursor:pointer; 
             margin-left:13rem;margin-top:2%;">Οι Αιτήσεις μου</a>
-                <div class="breadcrumb" style="align-items:end;">
-                    <li class="breadcrumb-item"><a href="index.php" style="text-decoration:none;"><i class="fas fa-home" style="font-size:15px;"></i></a></li>
-                    <li class="breadcrumb-item active" aria-current="page" style="font-size:15px;">Οι Αιτήσεις μου</li>
-                </div>
-        </div>
+      <div class="breadcrumb" style="align-items:end;">
+        <li class="breadcrumb-item"><a href="index.php" style="text-decoration:none;"><i class="fas fa-home" style="font-size:15px;"></i></a></li>
+        <li class="breadcrumb-item active" aria-current="page" style="font-size:15px;">Οι Αιτήσεις μου</li>
+      </div>
+    </div>
     <div class="page-content-container">
-    
+
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
       echoSidebar("/profile/myapplications.php/");
       ?>
 
       <div class="table-wrapper">
-          <div style="display:flex; flex-direction:row; justify-content:space-between;margin-bottom:1rem; width:inherit; align-items:center;">
-            <h2>Αιτήσεις </h2>
-            <div style="background-color:#20c997; width:max-content; padding:0rem; height:max-content; border-radius:5%;width:fit-content;">
-                <button style="font-size:medium; color:black; padding:0.5rem; margin-bottom:0rem;justify-content:center;" type="submit" name="submit" 
-                value="Αίτηση" data-toggle="modal" 
-                data-target="#newApplication" class="btn btn-success" ><a href="/user_application_submission.php" class="fas fa-file-alt" 
-                style="text-decoration:none; color:inherit; font-size:inherit;" aria-hidden="true" >Νέα Αίτηση</a> 
-                </button>
-            </div>                                   
+        <div style="display:flex; flex-direction:row; justify-content:space-between;margin-bottom:1rem; width:inherit; align-items:center;">
+          <h2>Αιτήσεις </h2>
+          <div style="background-color:#20c997; width:max-content; padding:0rem; height:max-content; border-radius:5%;width:fit-content;">
+            <a href="/user_application_submission.php" style="text-decoration:none; color:inherit; font-size:inherit;" aria-hidden="true">
+              <button style="font-size:medium; color:black; padding:0.5rem; margin-bottom:0rem;justify-content:center;" type="submit" name="submit" value="Αίτηση" data-toggle="modal" data-target="#newApplication" class="btn btn-success">
+                <i class="fas fa-file-alt"></i> Νέα Αίτηση
+              </button>
+            </a>
           </div>
            <!-- Modal -->
            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -115,54 +113,22 @@
             </thead>
             <tbody>
 
-              <?php 
-                require_once $_SERVER['DOCUMENT_ROOT'] . "/api/applications.php";
+            <?php
+            require_once $_SERVER['DOCUMENT_ROOT'] . "/api/applications.php";
 
-                // TODO: Check user rights
+            // TODO: Check user rights
 
-                # $rows = getApplications($_SESSION['user_id']);
-                $rows = array(
-                  array(
-                    "application_id" => "12345",
-                    "date_created" => "31-12-2022",
-                    "date_modified" => "31-1-2023",
-                    "state" => "stored"
-                  ),
-                  array(
-                    "application_id" => "54321",
-                    "date_created" => "31-12-2022",
-                    "date_modified" => "31-1-2023",
-                    "state" => "declined"
-                  ),
-                  array(
-                    "application_id" => "1236",
-                    "date_created" => "31-12-2022",
-                    "date_modified" => "31-1-2023",
-                    "state" => "submitted"
-                  ),
-                  array(
-                    "application_id" => "66666",
-                    "date_created" => "31-12-2022",
-                    "date_modified" => "31-1-2023",
-                    "state" => "approved"
-                  ),
-                  array(
-                    "application_id" => "99999",
-                    "date_created" => "31-12-2022",
-                    "date_modified" => "31-1-2023",
-                    "state" => "pending"
-                  )
-                  );
-                
-                foreach($rows as $application){
-                  echo '
+            $applications = getApplications($_SESSION['user_id']);
+
+            foreach ($applications as $application) {
+              echo '
                   <tr>
                     <th><span>' . $application["application_id"] . '</span></th>
                     <td>' . $application["date_created"] . '</td>
                     ';
-                  switch ($application["state"]) {
-                    case 'approved':
-                      echo '
+              switch ($application["state"]) {
+                case 'approved':
+                  echo '
                       <td style="text-align: -moz-center;">
                         <div class="application-status status-approved">
                           <i class="fas fa-check-square"></i> Εγκρίθηκε
@@ -171,15 +137,15 @@
                       <td>' . $application["date_modified"] . '</td>
                       <td style="text-align: -moz-center;">
                       <div>
-                        <a href="/application_watch?application_id="' . $application["application_id"] . '"
+                        <a href="/user_application_submission.php?id=' . $application["application_id"] . '"
                         class="btn btn-success application-action-button">
                           <i class="fas fa-eye"></i> Προβολή
                         </a>
                       </div>
                       </td>';
-                      break;
-                    case 'pending':
-                      echo '
+                  break;
+                case 'pending':
+                  echo '
                       <td style="text-align: -moz-center;">
                         <div class="application-status status-pending">
                           <i class="fas fa-exclamation-circle"></i> Εκκρεμούν Μαθήματα
@@ -188,15 +154,15 @@
                       <td>' . $application["date_modified"] . '</td>
                       <td style="text-align: -moz-center;">
                       <div>
-                        <a href="/application_watch?application_id="' . $application["application_id"] . '"
+                        <a href="/user_application_submission.php?id=' . $application["application_id"] . '"
                         class="btn btn-success application-action-button">
                           <i class="fas fa-eye"></i> Προβολή
                         </a>
                       </div>
                       </td>';
-                      break;
-                    case 'submitted':
-                      echo '
+                  break;
+                case 'submitted':
+                  echo '
                       <td style="text-align: -moz-center;">
                         <div class="application-status status-submit">
                           <i class="fas fa-lock"></i> Οριστικοποιημένη
@@ -205,15 +171,15 @@
                       <td>' . $application["date_modified"] . '</td>
                       <td style="text-align: -moz-center;">
                       <div>
-                        <a href="/application_watch?application_id="' . $application["application_id"] . '"
+                        <a href="/user_application_submission.php?id=' . $application["application_id"] . '"
                         class="btn btn-success application-action-button">
                           <i class="fas fa-eye"></i> Προβολή
                         </a>
                       </div>
                       </td>';
-                      break;
-                    case 'declined':
-                      echo '
+                  break;
+                case 'declined':
+                  echo '
                       <td style="text-align: -moz-center;">
                         <div class="application-status status-declined">
                           <i class="fas fa-ban"></i> Απορρίφθηκε
@@ -222,53 +188,72 @@
                       <td>' . $application["date_modified"] . '</td>
                       <td style="text-align: -moz-center;">
                       <div>
-                        <a href="/application_watch?application_id="' . $application["application_id"] . '"
+                        <a href="/user_application_submission.php?id=' . $application["application_id"] . '"
                         class="btn btn-success application-action-button">
                           <i class="fas fa-eye"></i> Προβολή
                         </a>
                       </div>
                       </td>';
-                      break;
-                    case 'stored':
-                      echo '
+                  break;
+                case 'stored':
+                  echo '
                       <td style="text-align: -moz-center; text-align: center;">
                         <div class="application-status status-stored"> 
-                          <i class="fas fa-lock-open"></i>Προσωρινά Αποθηκευμένη
+                          <i class="fas fa-lock-open"></i> Προσωρινά Αποθηκευμένη
                         </div>
                       </td>
                       <td>' . $application["date_modified"] . '</td>
                       <td style="text-align: -moz-center;">
                         <div>
-                          <a href="/application_watch?application_id="' . $application["application_id"] . '"
+                          <a href="/user_application_submission.php?id=' . $application["application_id"] . '"
                           class="btn btn-success application-action-button">
-                            <i class="fas fa-edit"></i>
-                            Επεξεργασία
+                            <i class="fas fa-edit"></i> Επεξεργασία
                           </a>
                         </div>
-                        <button type="button" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#exampleModal">
+                        <button type="button" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#exampleModal" data-app-id=' . $application["application_id"] . '>
                         </button>
                       </td>
                       ';
-                      break;
-                  }
-                  echo '</tr>';
-                }
-                
-              ?>
-                              
-            </tbody>
-          </table>
+                  break;
+              }
+              echo '</tr>';
+            }
+
+            ?>
+
+          </tbody>
+        </table>
       </div>
     </div>
-</div>
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/footer.php" ?>
+  </div>
+  <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/footer.php" ?>
 </body>
 
 
 <script>
-// When the user clicks on <div>, open the popup
-function myFunction() {
-  var popup = document.getElementById("myPopup");
-  popup.classList.toggle("show");
-}
+  // When the user clicks on <div>, open the popup
+  function myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+  }
+
+
+  $("#exampleModal").on("show.bs.modal", function(event) {
+    var button = $(event.relatedTarget);
+    var app_id = button.data("app-id");
+    var modal = $(this);
+
+    $("#delete-button").click(function() {
+
+      $.ajax({
+        url: "/api/manage_application.php?" + $.param({
+          app_id: app_id,
+          operation: "delete"
+        }),
+        type: "GET",
+      }).done(function(data) {
+        window.location.href = "/myapplications.php";
+      })
+    })
+  });
 </script>

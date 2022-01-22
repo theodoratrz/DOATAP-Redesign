@@ -156,7 +156,11 @@
                     alert(data);
                 }else{
                     // Redirect to home
-                    window.location.replace('/');
+                    modal = $("#success-modal");
+                    modal.modal('show');
+                    modal.on("hidden.bs.modal", function(){
+                        window.location.replace('/');
+                    })
                 }
             });
         }
