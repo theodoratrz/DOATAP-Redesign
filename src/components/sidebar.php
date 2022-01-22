@@ -7,42 +7,64 @@
 <link rel="stylesheet" href="/css/sidebar.css">
 
 <?php
-
-const _sidebar_page_names_ = array(
-	"profile" => array(
-		"prof" => "Οι πληροφορίες μου",
-		"new" => "Νέα Αίτηση",
-		"myapplications" => "Οι Αιτήσεις μου"
-					
-	),
+	 
+	$_sidebar_page_names_ = array(
 	"announcements" => array(
 		array(
 			"Ανακοινώσεις",
 			array(
-		"generalInfo" => "Γενικές Πληροφορίες",
-		"ds" => "Αποφάσεις Δ.Σ",
-		"statistics" => "Προϋπολογισμοί-Προκηρύξεις",
-		"medInfo" => "Εξετάσεις Ιατρικής",	
-		"teethInfo" => "Εξετάσεις Οδοντιατρικής",
+				"under_construction1.php" => "Γενικές Πληροφορίες",
+				"under_construction2.php" => "Αποφάσεις Δ.Σ",
+				"under_construction3.php" => "Προϋπολογισμοί-Προκηρύξεις",
+				"under_construction4.php" => "Εξετάσεις Ιατρικής",	
+				"under_construction5.php" => "Εξετάσεις Οδοντιατρικής",
 			)
 		),				
 	),
 	
-	"applications" => array(
-		"apps" => array(
-			"Αιτήσεις",
-		array(
-		"procedure-submission" => "Διαδικασία Υποβολής",
-		"applications-evaluation" => "Η Πορεία μίας Αίτησης",
-		"applications-forms" => "Φόρμες Αιτήσεων",
-		"paravola" => "Παράβολα"
-		)	
-		)		
-	)	
-);
+		"applications" => array(
+			"apps" => array(
+				"Αιτήσεις",
+				array(
+					"procedure-submission.php" => "Διαδικασία Υποβολής",
+					"applications-evaluation.php" => "Η Πορεία μίας Αίτησης",
+					"applications-forms.php" => "Φόρμες Αιτήσεων",
+					"paravola.php" => "Παράβολα"
+				)	
+			)		
+		)
+	);
 
+	if (isset($_SESSION['user_id'])) {
+		$userID = $_SESSION['user_id'];
+		
+		if (isAdmin($userID)){
+			$_sidebar_page_names_["profile"] =  array(
+				"user_profile.php" => "Οι πληροφορίες μου",
+				"admin-application.php" => array(
+					"Διαχείριση Αιτήσεων",
+					array(
+						"submitted" => "Υποβλήθηκαν",
+						"pending" => "Σε εκκρεμότητα",
+						"approved" => "Εγκρίθηκαν",
+						"rejected" => "Απορρίφθηκαν"
+					)
+				),
+				"under_construction.php" => "Διαχείριση Λογαριασμών Χρηστών"				
+			);
+		}
+		else{
+			
+			$_sidebar_page_names_["profile"] =  array(
+				"user_profile.php" => "Οι πληροφορίες μου",
+				"user_application_submission.php" => "Νέα Αίτηση",
+				"myapplications.php" => "Οι Αιτήσεις μου"				
+			);
+		}
+	}
 function echoSidebar(string $path)
 {
+	global $_sidebar_page_names_;
 	$pathArray = array_values(array_diff(explode("/", $path), [""]));
 
 	echo "
@@ -50,7 +72,7 @@ function echoSidebar(string $path)
 	<ul class='list-group ps-0'>
 	";
 
-	foreach (_sidebar_page_names_[$pathArray[0]] as $subpage => $value) {
+	foreach ($_sidebar_page_names_[$pathArray[0]] as $subpage => $value) {
 		$type = gettype($value);
 		if ($type == 'string') {
 

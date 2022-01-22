@@ -5,14 +5,21 @@ require_once "db_connect.php";
 function getApplications($userID){
     global $conn, $db_error_message;
 
-    $sql = "SELECT a.app_id, c.name as country, d.name as department, un.name as university
-    FROM applications a, users us, countries c, departments d, universities un
-    WHERE a.user_id=$userID
-    AND a.user_id = us.user_id
-    AND a.department = d.dep_id
-    AND d.university = un.uni_id
-    AND un.country = c.coun_id
-    ";
+    // $sql = "SELECT a.app_id, c.name as country, d.name as department, un.name as university
+    // FROM applications a, users us, countries c, departments d, universities un
+    // WHERE a.user_id=$userID
+    // AND a.user_id = us.user_id
+    // AND a.department = d.dep_id
+    // AND d.university = un.uni_id
+    // AND un.country = c.coun_id
+    // ";
+
+    $sql = "SELECT 
+    `app_id` as application_id,
+    DATE_FORMAT(`created`, '%d-%m-%Y') as date_created,
+    DATE_FORMAT(`last_modified`, '%d-%m-%Y') as date_modified,
+    `state`
+    FROM applications WHERE `user_id`=$userID";
 
     $result = $conn->query($sql);
 
@@ -105,19 +112,6 @@ function getApplicationCourses($appID)
     return $rows;
 }
 
-/*
-Sample $rejected
-array (
-    "basic_info" => true,
-    "studies_info" => true,
-    "documents" => array(
-      "id" => false,
-      "form" => true,
-      "title" => true
-    )
-  )
-*/
-
 function rejectApplication($appID, $rejectedDocs, $comment){
     global $conn;
 
@@ -144,43 +138,43 @@ function rejectApplication($appID, $rejectedDocs, $comment){
 
 }
 
-/*
-app_id
-state
-user_id
-created
-last_modified
-attendance
-studiesType
-ECTS
-dateIntro
-dateGrad
-yearsOfStudy
-department
-university
-*/
-
-function newApplication($userID, $state, $attendance, $studiesType, $ECTS, $dateIntro, $dateGrad,
-$yearsOfStudy, $department, $university, $file_id, $file_app, $file_par){
+function newApplication($userID, $state, $attendance, $studiesType, $countryID, $ECTS, $dateIntro, $dateGrad,
+$yearsOfStudy, $department, $university, $file_id, $file_app, $file_par, $appID){
     global $conn;
 
-    
-    $sql = "INSERT INTO applications(
-        `user_id`, `state`, `attendance`,`studiesType`, `ECTS`, `dateIntro`, `dateGrad`,
+    if($appID == null){
+        $sql = "INSERT INTO applications(
+        `user_id`, `state`, `attendance`,`studiesType`, `country`, `ECTS`, `dateIntro`, `dateGrad`,
         `yearsOfStudy`, `department`, `university` 
     )
     VALUES (
-        '$userID', '$state', '$attendance', '$studiesType', '$ECTS', '$dateIntro', '$dateGrad',
+        '$userID', '$state', '$attendance', '$studiesType', '$countryID', '$ECTS', '$dateIntro', '$dateGrad',
         '$yearsOfStudy', '$department', '$university'
     );";
+    $appID = $conn->insert_id;
+    }
+    else{
+        // TODO Drop old files
+
+        $sql = "UPDATE applications SET
+        `state` = '$state',
+        `attendance` = '$attendance',
+        `studiesType` = '$studiesType',
+        `country` = '$countryID',
+        `ECTS` = '$ECTS',
+        `dateIntro` = '$dateIntro',
+        `dateGrad` = '$dateGrad',
+        `yearsOfStudy` = '$yearsOfStudy',
+        `department` = '$department',
+        `university` = '$university'
+        WHERE `app_id`='$appID' AND `user_id` = $userID;
+        ";
+    }
     $conn->query($sql);
 
-    $appID = $conn->insert_id;
-    
     foreach (array($file_id, $file_app, $file_par) as $i => $file){
         if ($file==NULL) continue;
 
-        
         $filename = $file['name'];
         $fileLocation = $_SERVER['DOCUMENT_ROOT'] . "/uploads/" . uniqid() . '_' . $filename;
         $type = $i == 0 ? "id" :
@@ -198,4 +192,19 @@ $yearsOfStudy, $department, $university, $file_id, $file_app, $file_par){
 
     return true;
     
+}
+
+function getFiles($appID){
+    global $conn;
+    $sql = "SELECT * FROM documents WHERE `app_id`=$appID";
+    $result = $conn->query($sql);
+    $rows = $result->fetch_all(MYSQLI_ASSOC);
+    return $rows;
+}
+
+function deleteApplication($appID, $userID){
+    global $conn;
+
+    $sql = "DELETE FROM applications WHERE `app_id`=$appID AND `user_id`=$userID";
+    $conn->query($sql);
 }
