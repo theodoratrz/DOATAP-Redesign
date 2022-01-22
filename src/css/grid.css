@@ -1,0 +1,33 @@
+.menu {
+  display: grid;
+  grid-column-gap: 50px;
+  grid-row-gap: 50px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  padding: 10px;
+  margin-top: 2rem;
+  width: 80%;
+}
+
+@media (max-width: 960px) {
+  .menu {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+  }
+}
+
+.icon-text {
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  color: #002E69;
+  background-color: white;
+  border: 2px solid #002E69;
+  align-items: center;
+  text-decoration: none;
+}
+
+.icon-text:hover {
+  background-color: #002E69;
+  color: white;
+}
