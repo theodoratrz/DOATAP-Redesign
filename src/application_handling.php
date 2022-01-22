@@ -57,8 +57,67 @@
     <div class="page-content-container">
 
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
+      require_once $_SERVER['DOCUMENT_ROOT'] . "/components/content_tabs.php";
+      require_once $_SERVER['DOCUMENT_ROOT'] . "/api/applications.php";
       echoSidebar("/profile/myapplications.php/");
+
+      foreach ($applications as $application) {
+        echo '
+            <tr>
+              <th><span>' . $application["application_id"] . '</span></th>
+              <td>' . $application["date_created"] . '</td>
+              ';
+        switch ($application["state"]) {
+          case 'approved':
+            
+            break;
+          case 'pending':
+            
+            break;
+          case 'submitted':
+            
+            break;
+          case 'declined':
+            
+            break;
+        }
+        echo '</tr>';
+      }
+
+
+
+      const tab_sample_content = array(
+        "Υποβλήθηκαν" => array(
+            "basic_info",
+            '<table class="table" style="text-align:center">
+            <thead>
+              <tr>
+                <th scope="col">Ημερομηνία</th>
+                <th scope="col">Αίτηση</th>
+              </tr>
+            </thead>
+            <tbody>',
+
+        ),
+        "Σε εκκρεμότητα"=>array(),
+        "Εγκρίθηκαν" => array(
+            "selected_deps",
+            '<p><strong>This is some placeholder content the Επιλεγμένα Τμήματα tab\'s associated content.</strong>
+            Clicking another tab will toggle the visibility of this one for the next.
+            The tab JavaScript swaps classes to control the content visibility and styling.
+            You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>'
+        ),
+        "Απορρίφθηκαν" => array(
+            "course_choices",
+            '<p><strong>This is some placeholder content the Επιλογές Αντιστοίχησης tab\'s associated content.</strong>
+            Clicking another tab will toggle the visibility of this one for the next.
+            The tab JavaScript swaps classes to control the content visibility and styling.
+            You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>'
+        ),
+    );
+    echoContentTabs(tab_sample_content, "user-table-wrapper");
       ?>
+
 
       
             
