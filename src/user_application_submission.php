@@ -385,6 +385,25 @@
       $("#del-3").show()
       filesUploaded[2] = this.files[0];
     })
+
+    $("#exampleModal").on("show.bs.modal", function(event) {
+    var button = $(event.relatedTarget);
+    var app_id = button.data("app-id");
+    var modal = $(this);
+
+    $("#delete-button").click(function() {
+
+      $.ajax({
+        url: "/api/manage_application.php?" + $.param({
+          app_id: app_id,
+          operation: "delete"
+        }),
+        type: "GET",
+      }).done(function(data) {
+        window.location.href = "/myapplications.php";
+      })
+    })
+  });
   </script>
 
 
