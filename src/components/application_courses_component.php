@@ -170,8 +170,6 @@ form[name="courses-submission-form"] .form-control::placeholder {
                 url: "/submit_application_courses.php",
                 dataType: "json",
                 success: answer => {
-                    //console.log(answer);
-                    //window.alert();
                     document.forms["courses-submission-form"].submit();
                 },
                 error: answer => {
@@ -180,6 +178,7 @@ form[name="courses-submission-form"] .form-control::placeholder {
                     $('#errorMsgModal').modal("show");
                 },
                 data: {
+                    "application_id" : window.applicationID,
                     "university": universitySelection.value,
                     "department": departmentSelection.value,
                     "courses": selectedCourses,
@@ -250,7 +249,8 @@ function getApplicationCoursesForm()
         <span style="font-size: 21px">
             Eπιλέξτε ίδρυμα & τμήμα και εισάγετε τα απαιτούμενα μαθήματα από το επιλεγμένο τμήμα:
         </span>
-        <form name="courses-submission-form" action="index.php?application_id=148&status=accepted" method="POST" onsubmit="submitApplicationCourses(event)">
+        <form name="courses-submission-form" method="GET" onsubmit="submitApplicationCourses(event)">
+            <input type="hidden" name="app_id" value="'. $_GET['app_id'] .'">
             <div class="courses-form-contents">
                 <div class="courses-form-field">
                     <label class="bold-label" for="courses-university-selection">Επιλέξτε Ίδρυμα:</label>
@@ -303,7 +303,7 @@ function getApplicationCoursesForm()
 function getSelectedCourses(array $courses) {
     $ret = '';
     foreach ($courses as $course) {
-        $ret = $ret . '<li>'. $course . '</li>';
+        $ret = $ret . '<li>'. $course['title'] . '</li>';
     }
     return $ret;
 }

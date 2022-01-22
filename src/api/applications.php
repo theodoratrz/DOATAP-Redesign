@@ -68,24 +68,25 @@ function getApplication($appID){
     return $row;
 }
 
-function approveApplication($appID, $university, $department){
+function approveApplication($appID, $university, $department, $comments){
     global $conn;
     $sql = "UPDATE `applications`
             SET `state` = 'approved',
                 `university` = '$university',
                 `department` = '$department',
-                `last_modified` = NOW()
+                `last_modified` = NOW(),
+                `comment` = '$comments'
             WHERE `app_id` = $appID;";
 
     $conn->query($sql);
 }
 
-function setApplicationCourses($appID, $university, $department, $subjects){
+function setApplicationCourses($appID, $university, $department, $subjects, $comments){
     global $conn;
 
     // Add subjects
     foreach($subjects as $subject){
-        $sql = "INSERT IGNORE INTO subjects(`app_id`, `title`)
+        $sql = "INSERT IGNORE INTO courses(`app_id`, `title`)
                 VALUES('$appID', '$subject');";
         $conn->query($sql);
     }
@@ -94,9 +95,21 @@ function setApplicationCourses($appID, $university, $department, $subjects){
     SET `state` = 'pending',
         `university` = '$university',
         `department` = '$department',
-        `last_modified` = NOW()
+        `last_modified` = NOW(),
+        `comment` = '$comments'
     WHERE `app_id` = $appID;";
     $conn->query($sql);
+}
+
+function getApplicationCourses($appID)
+{
+    global $conn;
+    
+    $sql = "SELECT `title` from `courses`
+            WHERE `app_id` = $appID";
+    $result = $conn->query($sql);
+    $rows = $result->fetch_all(MYSQLI_ASSOC);
+    return $rows;
 }
 
 function rejectApplication($appID, $rejectedDocs, $comment){
@@ -115,7 +128,7 @@ function rejectApplication($appID, $rejectedDocs, $comment){
             WHERE `app_id` = $appID;";
     $conn->query($sql);
 
-    foreach(array('id', 'form', 'title') as $type){
+    foreach(array('id', 'app', 'par', 'title') as $type){
         $approved = $documents[$type];
         $sql = "UPDATE `documents`
                 SET `approved` = '$approved'
