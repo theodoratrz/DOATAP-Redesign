@@ -326,6 +326,14 @@
         ';
         }
 
+        // if ($appInfo['state'] == "approved"){
+        echo '
+          <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#beforeSubmitModal" id="submit-button" style="font-size:medium; padding:0.5rem; margin-bottom:0rem;justify-content:center;">
+          <i class="fas fa-download"></i> Λήψη Εντύπου Αναγνώρισης
+          </button>
+          ';
+        // }
+
         ?>
 
 
@@ -452,9 +460,9 @@
       //                 form_num == 2 ? "app": "par";
 
       $("#delete-button").click(function() {
-        $("actual-btn-"+form_num).val();
-        $("#del-"+form_num).hide();
-        $("#file-chosen-"+form_num).text("Επιλέξτε αρχείο");
+        $("actual-btn-" + form_num).val();
+        $("#del-" + form_num).hide();
+        $("#file-chosen-" + form_num).text("Επιλέξτε αρχείο");
         modal.modal('hide');
       })
     });
