@@ -1,5 +1,5 @@
 :root {
-    font-size: 24px;
+    font-size: 18px;
 }
 
 * {
@@ -33,7 +33,7 @@
 .page-container {
     display: flex;
     flex-direction: column;
-    min-height: 75vh;
+    min-height: 80vh;
     align-items: center;
 }
 
@@ -45,4 +45,21 @@
     align-items: flex-start;
     justify-content: center;
     width: 80%;
+    min-height: 52vh;
 }
+
+.gray-box {
+    flex-direction: column;
+    box-shadow: none;
+    height: 4rem;
+    padding-right: 0px;
+    display: flex;
+    width:100%;
+    justify-content: left;
+    --bs-bg-opacity: 1;
+    background-color: rgba(128, 128, 128, 0.301);
+    border-bottom: 2px solid #002E69;
+    border-top: 2px solid #002E69;
+    font-weight: 600;
+    font-size: large;
+  }

@@ -378,27 +378,26 @@
         if ($appInfo['state'] == "stored") {
           echo '
         <div class="page_btn">
-          <button data-bs-toggle="modal" data-bs-target="#redoModal" id="submit-button-redo" style="font-size:medium; color:black; background-color:#77B6EA; padding:0.5rem; margin-bottom:0rem;justify-content:center;">
-            <i class="fas fa-redo" aria-hidden="true"></i>Επαναφορά
+          <button data-bs-toggle="modal" data-bs-target="#redoModal" id="submit-button-redo" class="btn btn-secondary m-2">
+            <i class="fas fa-redo" aria-hidden="true"></i> Επαναφορά
           </button>
-          <button data-bs-toggle="modal" data-bs-target="#exampleModal" id="submit-button-temporary" style="font-size:medium; color:black; background-color:orange; padding:0.5rem; margin-bottom:0rem;justify-content:center;">
+          <button data-bs-toggle="modal" data-bs-target="#exampleModal" id="submit-button-temporary" class="btn btn-warning m-2">
             <i class="fas fa-lock-open-alt" aria-hidden="true"></i> Προσωρινή Αποθήκευση
           </button>
-          <button data-bs-toggle="modal" data-bs-target="#beforeSubmitModal" id="submit-button" style="font-size:medium; 
-                  color:black; background-color:#46b31e; padding:0.5rem; margin-bottom:0rem;justify-content:center;">
+          <button data-bs-toggle="modal" data-bs-target="#beforeSubmitModal" id="submit-button" class="btn btn-success m-2">
             <i class="fas fa-lock-alt" aria-hidden="true"></i> Οριστική Υποβολή
           </button>
         </div>
         ';
         }
 
-        // if ($appInfo['state'] == "approved"){
+        if ($appInfo['state'] == "approved"){
         echo '
           <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#beforeSubmitModal" id="submit-button" style="font-size:medium; padding:0.5rem; margin-bottom:0rem;justify-content:center;">
           <i class="fas fa-download"></i> Λήψη Εντύπου Αναγνώρισης
           </button>
           ';
-        // }
+        }
 
         ?>
 
