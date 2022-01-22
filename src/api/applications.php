@@ -157,7 +157,6 @@ $yearsOfStudy, $department, $university, $file_id, $file_app, $file_par, $appID)
         WHERE `app_id`='$appID' AND `user_id` = $userID;
         ";
     }
-    echo $sql;
     $conn->query($sql);
 
     foreach (array($file_id, $file_app, $file_par) as $i => $file){
