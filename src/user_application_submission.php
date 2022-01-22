@@ -93,8 +93,74 @@
     </div>
     <div class="page-content-container" style="margin-bottom:2rem;">
 
-      <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php" ?>
-
+      <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
+            echoSidebar("/profile/user_application_submission.php/");?>
+      <!-- Modal -->
+      <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="deleteModalLabel">Διαγραφή Δικαιολογητικού</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Είστε σίγουροι ότι θα θέλατε να διαγράψετε αυτό το δικαιολογητικό;
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn" style="background-color:gray; color:white;" data-bs-dismiss="modal">Ακύρωση</button>
+              <button type="button" class="btn " style="background-color:red; color:white;">Διαγραφή</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Προσωρινή Αποθήκευση</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Η Αίτησή σας αποθηκεύτηκε επιτυχώς!
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="redoModal" tabindex="-1" aria-labelledby="redoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="redoModalLabel">Επαναφορά</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Είστε σίγουροι ότι θα θέλατε να επαναφέρετε την αίτηση στην αρχική της κατάσταση;
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn" style="background-color:gray; color:white;" data-bs-dismiss="modal">Ακύρωση</button>
+              <button type="button" class="btn " style="background-color:blue; color:white;">Επαναφορά</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="beforeSubmitModal" tabindex="-1" aria-labelledby="beforeSubmitModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="beforeSubmitModalLabel">Οριστική Υποβολή</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Είστε σίγουροι ότι θα θέλατε να οριστικοποιήσετε την αίτησή σας;
+              Μετά την οριστικοποίηση η αίτηση δεν μπορεί να επεξεργαστεί.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn" style="background-color:gray; color:white;" data-bs-dismiss="modal">Ακύρωση</button>
+              <button id="final-submit-button" type="button" class="btn " style="background-color:#46b31e; color:white;">Υποβολή</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div style="display:flex; flex-direction:column; justify-content:center; row-gap:2rem;">
         <?php
@@ -442,6 +508,7 @@
       $("#del-3").show()
       filesUploaded[2] = this.files[0];
     })
+
 
     $("#deleteModal").on("show.bs.modal", function(event) {
       var button = $(event.relatedTarget);

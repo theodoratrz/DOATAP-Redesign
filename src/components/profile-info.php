@@ -269,6 +269,7 @@
         
         echo '</div>';
     }
+
 ?>
 
 <link rel="stylesheet" href="/css/profile_info.css">

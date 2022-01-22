@@ -70,7 +70,7 @@
     <div class="page-content-container">
 
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
-      echoSidebar("/profile/myapplications/");
+      echoSidebar("/profile/myapplications.php/");
       ?>
 
       <div class="table-wrapper">
@@ -83,36 +83,35 @@
               </button>
             </a>
           </div>
-        </div>
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Διαγραφή Αίτησης</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                Είστε σίγουροι ότι θα θέλατε να διαγράψετε αυτή την αίτηση;
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn" style="background-color:gray; color:white;" data-bs-dismiss="modal">Ακύρωση</button>
-                <button id="delete-button" type="button" class="btn " style="background-color:red; color:white;">Διαγραφή</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <table class="table" style="text-align:center">
-          <thead>
-            <tr>
-              <th scope="col">Αίτηση</th>
-              <th scope="col">Ημ/νία Δημιουργίας</th>
-              <th scope="col">Κατάσταση</th>
-              <th scope="col">Τελ. Ενημέρωση</th>
-              <th scope="col">Ενέργειες</th>
-            </tr>
-          </thead>
-          <tbody>
+           <!-- Modal -->
+           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Διαγραφή Αίτησης</h5>
+                        <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        Είστε σίγουροι ότι θα θέλατε να διαγράψετε αυτή την αίτηση;
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn" style="background-color:gray; color:white;" data-bs-dismiss="modal">Ακύρωση</button>
+                        <button type="button" class="btn btn-danger" style=" color:white;" >Διαγραφή</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          <table class="table" style="text-align:center">
+            <thead>
+              <tr>
+                <th scope="col">Αίτηση</th>
+                <th scope="col">Ημ/νία Δημιουργίας</th>
+                <th scope="col">Κατάσταση</th>
+                <th scope="col">Τελ. Ενημέρωση</th>
+                <th scope="col">Ενέργειες</th>
+              </tr>
+            </thead>
+            <tbody>
 
             <?php
             require_once $_SERVER['DOCUMENT_ROOT'] . "/api/applications.php";
