@@ -295,11 +295,11 @@
     let submitbtn = $("#final-submit-button");
 
     savebtn.click(function() {
-      submitForm('saved');
+      submitForm('stored');
     });
 
     submitbtn.click(function() {
-      submitForm('uploaded');
+      submitForm('submitted');
     });
 
     function submitForm(state) {
