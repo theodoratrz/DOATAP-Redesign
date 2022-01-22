@@ -18,7 +18,7 @@ $nav_links = array(
 	"Εξετάσεις Ιατρικής" => "under_construction.php")
 	),
 	"Ενημέρωση" => array(
-	"demo.php",
+	"under_construction.php",
 	array("Ανώτατα Εκπαιδευτικά Ιδρύματα" => "under_construction.php",
 	"Εκπαιδευτικά Ιδρύματα Αλλοδαπής" => "under_construction.php",
 	"Το Ελληνικό Σύστημα Εκπαίδευσης" => "error404.php",
