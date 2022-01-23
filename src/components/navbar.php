@@ -12,7 +12,7 @@ $nav_links = array(
 	"Ανακοινώσεις" => array(
 	"/announcements",
 	array("Γενικές Πληροφορίες" => "/under_construction.php",
-	"Αποφάσεις Δ.Σ" => "error404.php",
+	"Αποφάσεις Δ.Σ" => "under_construction.php",
 	"Προϋπολογισμοί-Προκηρύξεις" => "/under_construction.php",
 	"Εξετάσεις Οδοντιατρικής" => "/under_construction.php",
 	"Εξετάσεις Ιατρικής" => "/under_construction.php")
@@ -21,15 +21,15 @@ $nav_links = array(
 	"/under_construction.php",
 	array("Ανώτατα Εκπαιδευτικά Ιδρύματα" => "/under_construction.php",
 	"Εκπαιδευτικά Ιδρύματα Αλλοδαπής" => "/under_construction.php",
-	"Το Ελληνικό Σύστημα Εκπαίδευσης" => "/error404.php",
+	"Το Ελληνικό Σύστημα Εκπαίδευσης" => "/under_construction.php",
 	"Δι@υγεια" => "https://et.diavgeia.gov.gr/f/doatap")
 	),
 	"Οργανισμός" => array(
 	"/organization",
-	array("Ταυτότητα" => "/error404.php",
-	"Διοίκηση" => "/error404.php",
-	"Ετήσιος Απολογισμός ΔΣ" => "/error404.php",
-	"Στατιστικά Στοιχεία" => "/error404.php")
+	array("Ταυτότητα" => "/under_construction.php",
+	"Διοίκηση" => "/under_construction.php",
+	"Ετήσιος Απολογισμός ΔΣ" => "/under_construction.php",
+	"Στατιστικά Στοιχεία" => "/under_construction.php")
 	),
 	"Επικοινωνία" => "/contact.php"
 
