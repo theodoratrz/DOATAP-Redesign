@@ -20,16 +20,16 @@
 
 <!-- Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="deleteModalLabel">Διαγραφή Δικαιολογητικού</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Είστε σίγουροι ότι θα θέλατε να διαγράψετε αυτό το δικαιολογητικό;
+        Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το δικαιολογητικό;
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer" style="justify-content: space-between;">
         <button type="button" class="btn btn-light" data-bs-dismiss="modal">Ακύρωση</button>
         <button id="delete-button" type="button" class="btn " style="background-color:red; color:white;">Διαγραφή</button>
       </div>
@@ -37,7 +37,7 @@
   </div>
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Προσωρινή Αποθήκευση</h5>
@@ -50,16 +50,16 @@
   </div>
 </div>
 <div class="modal fade" id="redoModal" tabindex="-1" aria-labelledby="redoModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="redoModalLabel">Επαναφορά</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Είστε σίγουροι ότι θα θέλατε να επαναφέρετε την αίτηση στην αρχική της κατάσταση;
+        Είστε βέβαιοι ότι θέλετε να επαναφέρετε την αίτηση στην αρχική της κατάσταση;
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer style="justify-content: space-between;">
         <button type="button" class="btn btn-light" data-bs-dismiss="modal">Ακύρωση</button>
         <button type="button" class="btn btn-secondary">Επαναφορά</button>
       </div>
@@ -67,17 +67,17 @@
   </div>
 </div>
 <div class="modal fade" id="beforeSubmitModal" tabindex="-1" aria-labelledby="beforeSubmitModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="beforeSubmitModalLabel">Οριστική Υποβολή</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Είστε σίγουροι ότι θα θέλατε να οριστικοποιήσετε την αίτησή σας;
+        Είστε βέβαιοι ότι θέλετε να οριστικοποιήσετε την αίτησή σας;
         Μετά την οριστικοποίηση η αίτηση δεν μπορεί να επεξεργαστεί.
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer style="justify-content: space-between;">
         <button type="button" class="btn btn btn-light" data-bs-dismiss="modal">Ακύρωση</button>
         <button id="final-submit-button" type="button" class="btn btn-success">Υποβολή</button>
       </div>
@@ -120,7 +120,7 @@
             <div class="modal-body">
               Είστε σίγουροι ότι θα θέλατε να διαγράψετε αυτό το δικαιολογητικό;
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer style="justify-content: space-between;">
               <button type="button" class="btn btn-light" data-bs-dismiss="modal">Ακύρωση</button>
               <button type="button" class="btn " style="background-color:red; color:white;">Διαγραφή</button>
             </div>
@@ -150,7 +150,7 @@
             <div class="modal-body">
               Είστε σίγουροι ότι θα θέλατε να επαναφέρετε την αίτηση στην αρχική της κατάσταση;
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer style="justify-content: space-between;">
               <button type="button" class="btn btn-light" data-bs-dismiss="modal">Ακύρωση</button>
               <button type="button" class="btn " style="background-color:blue; color:white;">Επαναφορά</button>
             </div>
