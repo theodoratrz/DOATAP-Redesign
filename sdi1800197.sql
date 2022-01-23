@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Jan 23, 2022 at 03:45 PM
+-- Generation Time: Jan 23, 2022 at 07:51 PM
 -- Server version: 8.0.27
 -- PHP Version: 7.4.27
 
@@ -18,10 +18,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `doatap`
+-- Database: `sdi1800197`
 --
-CREATE DATABASE IF NOT EXISTS `doatap` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
-USE `doatap`;
 
 -- --------------------------------------------------------
 
@@ -79,16 +77,6 @@ CREATE TABLE `applications` (
   `degree_type` tinyint NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
---
--- Dumping data for table `applications`
---
-
-INSERT INTO `applications` (`app_id`, `state`, `user_id`, `created`, `last_modified`, `attendance`, `studiesType`, `country`, `ECTS`, `dateIntro`, `dateGrad`, `yearsOfStudy`, `department`, `university`, `comment`, `basicInfoApproved`, `studiesInfoApproved`, `degree_type`) VALUES
-(15, 'submitted', 13, '2022-01-21 18:56:22', '2022-01-21 18:56:22', 0, 1, 1, 12, '2000-10-10', '2000-10-10', 12, '', 'ΠΑΠΕΙ', NULL, 1, 1, 0),
-(23, 'submitted', 13, '2022-01-23 15:08:47', '2022-01-23 15:08:47', 1, 1, 5, 12, '2000-10-10', '2000-10-10', 12, '', 'Universitat Politecnica de Valencia', NULL, 1, 1, 0),
-(24, 'submitted', 13, '2022-01-23 15:38:29', '2022-01-23 15:38:29', 0, 1, 1, 12, '2000-01-01', '2000-01-01', 12, '', 'University of West Attica  (UNIWA)', NULL, 1, 1, 0),
-(25, 'submitted', 13, '2022-01-23 15:39:00', '2022-01-23 15:39:00', 0, 1, 1, 12, '2000-01-01', '2000-01-01', 12, '', 'University of West Attica  (UNIWA)', NULL, 1, 1, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -144,7 +132,8 @@ CREATE TABLE `departments` (
 --
 
 INSERT INTO `departments` (`dep_id`, `name`, `university`) VALUES
-(1, 'Infomatics and Telecommunications', 1);
+(1, 'Infomatics and Telecommunications', 1),
+(2, 'Ιστορίας & Αρχαιολογίας', 3);
 
 -- --------------------------------------------------------
 
@@ -160,15 +149,6 @@ CREATE TABLE `documents` (
   `approved` tinyint(1) NOT NULL DEFAULT '1',
   `type` enum('id','app','par') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `documents`
---
-
-INSERT INTO `documents` (`doc_id`, `app_id`, `filename`, `file_location`, `approved`, `type`) VALUES
-(3, 15, 'testfile.txt', '/var/www/html/uploads/61eaef2cf14e1_testfile.txt', 1, 'id'),
-(4, 14, 'testfile.txt', '/var/www/html/uploads/61eaef449bc1d_testfile.txt', 1, 'id'),
-(5, 0, 'testfile.txt', '/var/www/html/uploads/61eaf4864146e_testfile.txt', 1, 'id');
 
 -- --------------------------------------------------------
 
@@ -270,13 +250,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `isAdmin`, `first_name`, `last_name`, `mothers_name`, `fathers_name`, `country`, `city`, `address`, `docType`, `docNumber`, `gender`, `birthday`, `mobile`, `phone`) VALUES
-(9, 'nikk', 'd74ff0ee8da3b9806b18c877dbf29bbde50b5bd8e4dad7a3a725000feb82e8f1', 'nick@mailll.com', 0, '', '0', '0', '0', 0, '', '', 'ID', '', 'Male', '1900-01-01', '', ''),
-(10, 'admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'admin@mail.com', 1, '', '0', '0', '0', 0, '', '', 'ID', '', 'Male', '1900-01-01', '', ''),
-(11, 'admin1', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'admin1@mail.com', 1, '', '0', '0', '0', 0, '', '', 'ID', '', 'Male', '1900-01-01', '', ''),
-(12, 'nikozzzz', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'nikkk@gmail.com', 0, '', '0', '0', '0', 0, '', '', 'ID', '', 'Male', '1900-01-01', '', ''),
-(13, 'nikoz', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'nickkkk@gmail.com', 0, 'Nikos', 'Paschalitsas', 'Mama', 'Mpampas', 1, 'Athens', 'Athinas 2', 'ID', 'AM12345', 'Male', '1950-05-04', '6923487364', '2102398432'),
-(18, 'Nikos', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'nikolas@mail.com', 0, 'Nikos', 'Paschalitsas', 'Nikos', 'Nikos', 3, 'Athens', 'Athinas 2', '', 'AM123456', '', '2001-01-01', '2384723948', '234293847'),
-(21, 'Nikoss', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'nikolas@gmail.com', 1, 'Nikos', 'Paschalitsas', 'Nikos', 'Nikos', 1, 'Athens', 'Athinas 2', 'ID', 'AM123456', 'Male', '2001-01-01', '2384723948', '234293847');
+(1, 'ADMIN', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'admin@doatap.gr', 1, 'ΜΑΡΙΑ', 'ΛΑΙΟΥ', 'ΕΛΕΝΗ', 'ΑΡΗΣ', 1, 'ΑΘΗΝΑ', 'ΑΘΗΝΑΣ 2', 'ID', 'AM123456', 'Female', '1990-05-23', '6924681357', '2101234567'),
+(2, 'USER1', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'user1@mail.com', 0, 'Λάκης', 'Λαλάκης', 'Κατερίνα', 'Ερμής', 1, 'ΘΕΣΣΑΛΟΝΙΚΗ', 'ΤΣΙΜΙΣΚΗ 12, ΘΕΣΣΑΛΟΝΙΚΗ', 'ID', 'ΚΜ96423', 'Male', '1998-09-05', '6912345678', '2101357924'),
+(3, 'USER2', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'user2@mail.com', 0, 'Sofia', 'Hernandez', 'Valentina', 'Juan', 2, 'Barcelona', 'Carrer de Manso, 13,Barcelona', 'Passport', 'ΑΑ8990076', 'Female', '2000-02-14', '6913579246', '2102467942');
 
 --
 -- Indexes for dumped tables
@@ -349,7 +325,7 @@ ALTER TABLE `announcements`
 -- AUTO_INCREMENT for table `applications`
 --
 ALTER TABLE `applications`
-  MODIFY `app_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `app_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `countries`
@@ -361,13 +337,13 @@ ALTER TABLE `countries`
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
-  MODIFY `dep_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `dep_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `documents`
 --
 ALTER TABLE `documents`
-  MODIFY `doc_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `doc_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `universities`
