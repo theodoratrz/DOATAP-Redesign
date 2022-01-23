@@ -59,7 +59,7 @@
       <div class="modal-body">
         Είστε βέβαιοι ότι θέλετε να επαναφέρετε την αίτηση στην αρχική της κατάσταση;
       </div>
-      <div class="modal-footer style="justify-content: space-between;">
+      <div class="modal-footer" style="justify-content: space-between;">
         <button type="button" class="btn btn-light" data-bs-dismiss="modal">Ακύρωση</button>
         <button type="button" class="btn btn-secondary">Επαναφορά</button>
       </div>
@@ -77,7 +77,7 @@
         Είστε βέβαιοι ότι θέλετε να οριστικοποιήσετε την αίτησή σας;
         Μετά την οριστικοποίηση η αίτηση δεν μπορεί να επεξεργαστεί.
       </div>
-      <div class="modal-footer style="justify-content: space-between;">
+      <div class="modal-footer" style="justify-content: space-between;">
         <button type="button" class="btn btn btn-light" data-bs-dismiss="modal">Ακύρωση</button>
         <button id="final-submit-button" type="button" class="btn btn-success">Υποβολή</button>
       </div>
@@ -120,7 +120,7 @@
             <div class="modal-body">
               Είστε σίγουροι ότι θα θέλατε να διαγράψετε αυτό το δικαιολογητικό;
             </div>
-            <div class="modal-footer style="justify-content: space-between;">
+            <div class="modal-footer" style="justify-content: space-between;">
               <button type="button" class="btn btn-light" data-bs-dismiss="modal">Ακύρωση</button>
               <button type="button" class="btn " style="background-color:red; color:white;">Διαγραφή</button>
             </div>
@@ -150,7 +150,7 @@
             <div class="modal-body">
               Είστε σίγουροι ότι θα θέλατε να επαναφέρετε την αίτηση στην αρχική της κατάσταση;
             </div>
-            <div class="modal-footer style="justify-content: space-between;">
+            <div class="modal-footer" style="justify-content: space-between;">
               <button type="button" class="btn btn-light" data-bs-dismiss="modal">Ακύρωση</button>
               <button type="button" class="btn " style="background-color:blue; color:white;">Επαναφορά</button>
             </div>
@@ -168,7 +168,7 @@
               Είστε σίγουροι ότι θα θέλατε να οριστικοποιήσετε την αίτησή σας;
               Μετά την οριστικοποίηση η αίτηση δεν μπορεί να επεξεργαστεί.
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer" style="justify-content: space-between;">
               <button type="button" class="btn btn-light" data-bs-dismiss="modal">Ακύρωση</button>
               <button id="final-submit-button" type="button" class="btn btn-success">Υποβολή</button>
             </div>

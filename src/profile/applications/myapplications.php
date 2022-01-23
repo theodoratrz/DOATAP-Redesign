@@ -93,7 +93,7 @@
               <div class="modal-body">
                 Είστε σίγουροι ότι θα θέλατε να διαγράψετε αυτή την αίτηση;
               </div>
-              <div class="modal-footer style="justify-content: space-between;">
+              <div class="modal-footer" style="justify-content: space-between;">
                 <button type="button" class="btn btn-light" data-bs-dismiss="modal">Ακύρωση</button>
                 <button id="delete-button" type="button" class="btn btn-danger">Διαγραφή</button>
               </div>
