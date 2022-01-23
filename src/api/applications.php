@@ -56,7 +56,7 @@ function getCountryName($countryID)
     global $conn;
     $sql = "SELECT `name` FROM countries
             WHERE `coun_id` = '$countryID';";
-    
+
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
     return $row['name'];
@@ -93,7 +93,7 @@ function setApplicationCourses($appID, $university, $department, $subjects, $com
     global $conn;
 
     // Add subjects
-    foreach($subjects as $subject){
+    foreach ($subjects as $subject) {
         $sql = "INSERT IGNORE INTO courses(`app_id`, `title`)
                 VALUES('$appID', '$subject');";
         $conn->query($sql);
@@ -112,7 +112,7 @@ function setApplicationCourses($appID, $university, $department, $subjects, $com
 function getApplicationCourses($appID)
 {
     global $conn;
-    
+
     $sql = "SELECT `title` from `courses`
             WHERE `app_id` = $appID";
     $result = $conn->query($sql);
@@ -136,7 +136,7 @@ function rejectApplication($appID, $rejectedDocs, $comment)
                 `last_modified` = NOW()
             WHERE `app_id` = $appID;";
     $conn->query($sql);
-    foreach(array('id', 'app', 'par', 'title') as $type){
+    foreach (array('id', 'app', 'par', 'title') as $type) {
         $approved = $documents[$type];
         $sql = "UPDATE `documents`
                 SET `approved` = '$approved'
@@ -148,6 +148,7 @@ function rejectApplication($appID, $rejectedDocs, $comment)
 function newApplication(
     $userID,
     $state,
+    $degree,
     $attendance,
     $studiesType,
     $countryID,
@@ -167,11 +168,11 @@ function newApplication(
     if ($appID == "null") {
         $sql = "INSERT INTO applications(
         `user_id`, `state`, `attendance`,`studiesType`, `country`, `ECTS`, `dateIntro`, `dateGrad`,
-        `yearsOfStudy`, `department`, `university` 
+        `yearsOfStudy`, `department`, `university`, `degree_type`
     )
     VALUES (
         '$userID', '$state', '$attendance', '$studiesType', '$countryID', '$ECTS', '$dateIntro', '$dateGrad',
-        '$yearsOfStudy', '$department', '$university'
+        '$yearsOfStudy', '$department', '$university', $degree
     );";
         $appID = $conn->insert_id;
     } else {
@@ -179,6 +180,7 @@ function newApplication(
 
         $sql = "UPDATE applications SET
         `state` = '$state',
+        `degree_type` = $degree,
         `attendance` = '$attendance',
         `studiesType` = '$studiesType',
         `country` = '$countryID',
@@ -191,8 +193,9 @@ function newApplication(
         WHERE `app_id`='$appID' AND `user_id` = $userID;
         ";
     }
+
     $res = $conn->query($sql);
-    
+
     if ($res == FALSE) return "Something went wrong!";
 
 
@@ -208,7 +211,6 @@ function newApplication(
         $sql = "INSERT INTO documents(`app_id`, `filename`, `file_location`, `type`)
         VALUES('$appID', '$filename', '$fileLocation', '$type');
         ";
-        echo "$sql\n";
 
         $conn->query($sql);
     }
@@ -234,10 +236,11 @@ function deleteApplication($appID, $userID)
 }
 
 # dateOrder: "ASC" or "DESC"
-function getAllApplications($state, $page, $pageCapacity, $dateOrder = "ASC"){
+function getAllApplications($state, $page, $pageCapacity, $dateOrder = "ASC")
+{
     global $conn;
 
-    $limitStart = ($page - 1)*$pageCapacity;
+    $limitStart = ($page - 1) * $pageCapacity;
     $offset = $pageCapacity + 1;
 
     $sql = "SELECT * FROM applications 
