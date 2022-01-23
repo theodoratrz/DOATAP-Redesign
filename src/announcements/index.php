@@ -33,7 +33,11 @@
               
                 <?php
                 require_once $_SERVER['DOCUMENT_ROOT'] . "/api/announcements.php";
-                $rows = getAnnouncements();
+                if(isset($_GET['type'])){
+                  $rows = getAnnouncements($_GET['type']);
+                }else{
+                  $rows = getAnnouncements();
+                }
                 foreach($rows as $announcement)
                 {
                   echo '<tr><th scope="row" style="color:#002e69ce;font-size:large;">' .explode(" ",$announcement['time_uploaded'])[0]. '</th>
