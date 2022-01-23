@@ -132,14 +132,14 @@ function echoNavbarContent(array $content)
 				<div class="login-signup-navbar-container d-flex justify-content-end">
 				<div class="dropdown">
 					<a class="btn dropdown-toggle fas fa-user-circle " style="color:white; font-weight:100; font-size:20px; 
-					padding:0rem; align-items:center;" href="/user_profile.php" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" 
+					padding:0rem; align-items:center;" href="/profile" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" 
 					aria-expanded="false"> '
 					. getUserInfo($userID)['username'] .
 					'</a>
 
 					<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-						<li><a class="dropdown-item" href="/user_profile.php">Το Προφίλ μου</a></li>
-						<li><a class="dropdown-item" href="/applications_handling.php">Διαχείριση Αιτήσεων</a></li>
+						<li><a class="dropdown-item" href="/profile">Το Προφίλ μου</a></li>
+						<li><a class="dropdown-item" href="/profile/applications">Διαχείριση Αιτήσεων</a></li>
 						<li><a class="dropdown-item" href="/under_construction.php">Διαχείριση Λογαριασμών Χρηστών</a></li>
 					</ul>
 				</div>
@@ -158,9 +158,9 @@ function echoNavbarContent(array $content)
 					'</a>
 
 					<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-						<li><a class="dropdown-item" href="/user_profile.php">Το Προφίλ μου</a></li>
-						<li><a class="dropdown-item" href="/user_application_submission.php">Νέα Αίτηση</a></li>
-						<li><a class="dropdown-item" href="/myapplications.php">Οι Αιτήσεις μου</a></li>
+						<li><a class="dropdown-item" href="/profile">Το Προφίλ μου</a></li>
+						<li><a class="dropdown-item" href="/profile/new_application.php">Νέα Αίτηση</a></li>
+						<li><a class="dropdown-item" href="/profile/applications.php">Οι Αιτήσεις μου</a></li>
 					</ul>
 				</div>
 				<span style="color:white">|</span>
