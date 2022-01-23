@@ -10,11 +10,11 @@
 	 
 	 $_sidebar_page_names_ = array(
 		"announcements" => array(
-			"under_construction1.php" => "Γενικές Πληροφορίες",
-			"under_construction2.php" => "Αποφάσεις Δ.Σ",
-			"under_construction3.php" => "Προϋπολογισμοί-Προκηρύξεις",
-			"under_construction4.php" => "Εξετάσεις Ιατρικής",	
-			"under_construction5.php" => "Εξετάσεις Οδοντιατρικής",
+			"under_construction.php?ann_type=1" => "Γενικές Πληροφορίες",
+			"under_construction.php?ann_type=2" => "Αποφάσεις Δ.Σ",
+			"under_construction.php?ann_type=3" => "Προϋπολογισμοί-Προκηρύξεις",
+			"under_construction.php?ann_type=4" => "Εξετάσεις Ιατρικής",	
+			"under_construction.php?ann_type=5" => "Εξετάσεις Οδοντιατρικής",
 		),
 		"applications" => array(
 			"procedure_submission.php" => "Διαδικασία Υποβολής",
