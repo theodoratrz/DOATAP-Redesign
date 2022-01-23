@@ -422,7 +422,7 @@ function getDocuments(array $documentsInfo)
         </div>
         <div class="document-field-container">
             <button type="button" onclick="openDocumentModal(this)" class="document-file-button"  data-img-src="' . $documentsInfo['application'][0] . '">
-                Αίτηση
+                Τίτλος Σπουδών
             </button>
             <label class="approve-checkbox">
                 <input id="application_check" type="checkbox" checked>
@@ -525,7 +525,7 @@ function getFrozenDocuments(array $documentsInfo)
         </div>
         <div class="document-field-container">
             <button type="button" onclick="openDocumentModal(this)" class="document-file-button" data-img-src="' . $documentsInfo['application'][0] . '">
-                Αίτηση
+                Τίτλος Σπουδών
             </button>
             <label class="approve-checkbox">
                 <input type="checkbox" ' . ($documentsInfo['application'][1] === "1" ? "checked" : "") . ' disabled>
