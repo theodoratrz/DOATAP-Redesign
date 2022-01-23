@@ -37,8 +37,8 @@
 		else{			
 			$_sidebar_page_names_["profile"] =  array(
 				"index.php" => "Οι πληροφορίες μου",
-				"new_application" => "Νέα Αίτηση",
-				"applications/my_applications.php" => "Οι Αιτήσεις μου"				
+				"new_application.php" => "Νέα Αίτηση",
+				"applications/myapplications.php" => "Οι Αιτήσεις μου"				
 			);
 		}
 	}
