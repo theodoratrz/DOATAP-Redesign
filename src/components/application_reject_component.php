@@ -29,7 +29,6 @@ form[name="application-reject-form"] .form-control::placeholder {
 
 .basic-info-container {
     display: flex;
-    width: min(max(50%, 25em), 100%);
     flex-direction: row;
     flex-wrap: wrap;
     column-gap: 1em;
@@ -347,6 +346,21 @@ function getBasicInfo(array $userInfo)
 
 function getStudiesTitle(array $studiesInfo)
 {
+    switch ($studiesInfo['degree_type']) {
+        case '0':
+            $degType = "Βασικό Πτυχίο";
+            break;
+        case '0':
+            $degType = "Μεταπτυχιακό";
+            break;
+        case '0':
+            $degType = "Διδακτορικό";
+            break;
+        default:
+            $degType = $studiesInfo['degree_type'];
+            break;
+    }
+
     return '
     <div class="basic-info-container">
         <div class="basic-info-field-group">
@@ -364,7 +378,7 @@ function getStudiesTitle(array $studiesInfo)
             </div>
             <div class="basic-info-field">
                 <div class="basic-info-field-title">Τύπος Πτυχίου:</div>
-                ' . $studiesInfo['degree_type'] . '
+                ' . $degType . '
             </div>
             <div class="basic-info-field">
                 <div class="basic-info-field-title">Έτη σπουδών:</div>
@@ -421,7 +435,7 @@ function getDocuments(array $documentsInfo)
             </label>
         </div>
         <div class="document-field-container">
-            <button type="button" onclick="openDocumentModal(this)" class="document-file-button"  data-img-src="' . $documentsInfo['application'][0] . '">
+            <button type="button" onclick="openDocumentModal(this)" class="document-file-button"  data-img-src="' . $documentsInfo['title'][0] . '">
                 Τίτλος Σπουδών
             </button>
             <label class="approve-checkbox">
@@ -528,7 +542,7 @@ function getFrozenDocuments(array $documentsInfo)
                 Τίτλος Σπουδών
             </button>
             <label class="approve-checkbox">
-                <input type="checkbox" ' . ($documentsInfo['application'][1] === "1" ? "checked" : "") . ' disabled>
+                <input type="checkbox" ' . ($documentsInfo['title'][1] === "1" ? "checked" : "") . ' disabled>
                     Εγκρίθηκε
                 </input>
             </label>

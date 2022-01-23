@@ -14,7 +14,7 @@ function getApplicationDocuments($applicationID)
             $id['file_location'],
             $id['approved']
         ),
-        "application" => array(
+        "title" => array(
             $app['file_location'],
             $app['approved']
         ),
