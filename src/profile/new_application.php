@@ -244,7 +244,7 @@
           $appInfo = getApplication($appID);
 
           if ($_SESSION['user_id'] != $appInfo['user_id']) {
-            redirect("/myapplications.php");
+            redirect("/profile/applications/myapplications.php");
             exit();
           }
 
@@ -259,7 +259,8 @@
             "country" => $appInfo['country'],
             "universityAbroad" => $appInfo['university'],
             "attendanceTime" => $appInfo['yearsOfStudy'],
-            "degree" => $appInfo['degree_type']
+            "degree" => $appInfo['degree_type'] == 0 ? "Βασικό Πτυχίο" : 
+                       ($appInfo['degree_type'] == 1 ? "Μεταπτυχιακό" : "Διδακτορικό")
           );
 
           $files1 = (getFiles($appID));
@@ -465,7 +466,7 @@
       $("#exampleModal").modal("show");
       submitForm('stored');
       $("#exampleModal").on("hidden.bs.modal", function() {
-        window.location.href = "myapplications.php";
+        window.location.href = "/profile/applications/myapplications.php";
       })
 
     });
@@ -474,7 +475,6 @@
       $("#beforeSubmitModal").modal('hide');
       if (!validateForm()) return;
       submitForm('submitted');
-      window.location.href = "myapplications.php";
     });
 
     const queryString = window.location.search;
@@ -488,6 +488,7 @@
       let initFormData = {
         'app_id': app_id,
         'state': state,
+        'degree': titleForm['degree'],
         'attendance': titleForm['partTime'],
         'studiesType': titleForm['attendance'],
         'ECTS': titleForm['ects'],
@@ -518,7 +519,9 @@
           // Display error
           alert(data);
         } else {
-          // Do smth
+          if (state === "submitted"){
+            window.location.href = "/profile/applications/myapplications.php";
+          }
         }
       })
     }

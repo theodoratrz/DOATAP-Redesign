@@ -69,7 +69,7 @@
     <div class="page-content-container">
 
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
-      echoSidebar("/profile/myapplications.php/");
+      echoSidebar("/profile/applications/myapplications.php/");
       ?>
 
       <div class="table-wrapper">
@@ -251,7 +251,7 @@
         }),
         type: "GET",
       }).done(function(data) {
-        window.location.href = "/myapplications.php";
+        window.location.href = "/profile/applications/myapplications.php";
       })
     })
   });
