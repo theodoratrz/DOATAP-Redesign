@@ -19,7 +19,7 @@
       <div class="page-content-container">
         <?php 
             require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
-            echoSidebar("/announcements/mostRecent");
+            echoSidebar("/announcements");
         ?>
         <div class="anouncements-box">
           <table class="table">
