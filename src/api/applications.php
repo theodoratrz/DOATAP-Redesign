@@ -121,6 +121,7 @@ function getApplicationCourses($appID)
 }
 
 function rejectApplication($appID, $rejectedDocs, $comment)
+{
     global $conn;
 
     $basicApproved = $rejectedDocs['basic_info'];
