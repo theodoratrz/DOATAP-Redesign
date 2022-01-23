@@ -87,7 +87,7 @@
       <a href="index.php" class="fas fa-arrow-circle-left" style="text-decoration:none; color:#002E69; cursor:pointer; 
             margin-left:13rem;margin-top:2%;"> <?php echo $page_title ?></a>
       <div class="breadcrumb" style="align-items:end;">
-        <li class="breadcrumb-item"><a href="index.php" style="text-decoration:none;"><i class="fas fa-home" style="font-size:15px;"></i></a></li>
+        <li class="breadcrumb-item"><a href="/index.php" style="text-decoration:none;"><i class="fas fa-home" style="font-size:15px;"></i></a></li>
         <li class="breadcrumb-item active" aria-current="page" style="font-size:15px;"><?php echo $page_title ?></li>
       </div>
     </div>
@@ -176,7 +176,7 @@
 
 
         require_once $_SERVER['DOCUMENT_ROOT'] . "/components/content_tabs.php";
-        require_once $_SERVER['DOCUMENT_ROOT'] . "/titlos_spoudon.php";
+        require_once $_SERVER['DOCUMENT_ROOT'] . "/components/titlos_spoudon.php";
         require_once $_SERVER['DOCUMENT_ROOT'] . "/components/profile-info.php";
 
         require_once $_SERVER['DOCUMENT_ROOT'] . "/api/applications.php";

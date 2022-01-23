@@ -11,7 +11,7 @@
         <a href="index.php" class="fas fa-arrow-circle-left" style="text-decoration:none; color:#002E69; cursor:pointer; 
             margin-left:13rem;margin-top:2%;">Προφίλ</a>
                 <div class="breadcrumb" style="align-items:end;">
-                    <li class="breadcrumb-item"><a href="index.php" style="text-decoration:none;"><i class="fas fa-home" style="font-size:15px;"></i></a></li>
+                    <li class="breadcrumb-item"><a href="/index.php" style="text-decoration:none;"><i class="fas fa-home" style="font-size:15px;"></i></a></li>
                     <li class="breadcrumb-item active" aria-current="page" style="font-size:15px;">Οι Πληροφορίες μου</li>
                 </div>
         </div>
@@ -104,7 +104,7 @@
 
                                         $.ajax({
                                             type: "POST",
-                                            url: "/edit_profile.php",
+                                            url: "/requests_api/edit_profile.php",
                                             dataType: "json",
                                             success: answer => {
                                                 // Display success modal
@@ -146,7 +146,7 @@
         }),
         type: "GET",
       }).done(function(data) {
-        window.location.href = "/myapplications.php";
+        window.location.href = "/applications/myapplications.php";
       })
     })
   });

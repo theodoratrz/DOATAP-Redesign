@@ -26,9 +26,9 @@
 			"apps" => array(
 				"Αιτήσεις",
 				array(
-					"procedure-submission.php" => "Διαδικασία Υποβολής",
-					"applications-evaluation.php" => "Η Πορεία μίας Αίτησης",
-					"applications-forms.php" => "Φόρμες Αιτήσεων",
+					"procedure_submission.php" => "Διαδικασία Υποβολής",
+					"applications_evaluation.php" => "Η Πορεία μίας Αίτησης",
+					"applications_forms.php" => "Φόρμες Αιτήσεων",
 					"paravola.php" => "Παράβολα"
 				)	
 			)		
@@ -40,14 +40,14 @@
 		
 		if (isAdmin($userID)){
 			$_sidebar_page_names_["profile"] =  array(
-				"user_profile.php" => "Οι πληροφορίες μου",
-				"application_handling" => array(
+				"index.php" => "Οι πληροφορίες μου",
+				"applications" => array(
 					"Διαχείριση Αιτήσεων",
 					array(
 						"submitted_applications.php" => "Υποβλήθηκαν",
 						"pending_applications.php" => "Σε εκκρεμότητα",
-						"accepted_applications.php" => "Εγκρίθηκαν",
-						"rejected_applications.php" => "Απορρίφθηκαν"
+						"approved_applications.php" => "Εγκρίθηκαν",
+						"declined_applications.php" => "Απορρίφθηκαν"
 					)
 				),
 				"under_construction.php" => "Διαχείριση Λογαριασμών Χρηστών"				

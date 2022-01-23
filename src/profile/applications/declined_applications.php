@@ -10,7 +10,7 @@ function echoPagination()
     $currentPage = 1;
   }
   $hasPrevious = ($currentPage !== 1);
-  $temp = getAllApplications('pending', $currentPage, '5', 'DESC');
+  $temp = getAllApplications('declined', $currentPage, '5', 'DESC');
   
   $applications = $temp[0];
   $hasNext = $temp[1];
@@ -32,7 +32,7 @@ function echoPagination()
                   <td>' . explode(" ",$application["last_modified"])[0] . '</td>
                   <td>
                     <div>
-                      <a href="/admin-application.php?app_id=' . $application["app_id"] . '"
+                      <a href="show_applications.php?app_id=' . $application["app_id"] . '"
                       class="btn btn-primary application-action-button">
                         <i class="fas fa-edit"></i> Επεξεργασία
                       </a>
@@ -48,7 +48,7 @@ function echoPagination()
         <nav aria-label="...">
           <ul class="pagination">
               <li class="page-item '. ($hasPrevious ? '' : 'disabled') .'">
-              <a class="page-link" '. ($hasPrevious ? 'href="/pending_applications.php?page='. ($currentPage - 1) .'"' : '') .'>
+              <a class="page-link" '. ($hasPrevious ? 'href="declined_applications.php?page='. ($currentPage - 1) .'"' : '') .'>
                 Previous
               </a>
               </li>
@@ -56,7 +56,7 @@ function echoPagination()
               <a class="page-link" href="#">'. $currentPage .'</a>
               </li>
               <li class="page-item '. ($hasNext ? '' : 'disabled') .'">
-              <a class="page-link" '. ($hasNext ? 'href="/pending_applications.php?page='. ($currentPage + 1) .'"' : '') .'>
+              <a class="page-link" '. ($hasNext ? 'href="declined_applications.php?page='. ($currentPage + 1) .'"' : '') .'>
                 Next
               </a>
               </li>
@@ -114,17 +114,19 @@ function echoPagination()
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/navbar.php" ?>
     <div class="gray-box">
       <a href="index.php" class="fas fa-arrow-circle-left" style="text-decoration:none; color:#002E69; cursor:pointer; 
-            margin-left:13rem;margin-top:2%;"> Αιτήσεις που είναι Εκκρεμείς</a>
+            margin-left:13rem;margin-top:2%;"> Αιτήσεις που έχουν Απορριφθεί</a>
       <div class="breadcrumb" style="align-items:end;">
-        <li class="breadcrumb-item"><a href="index.php" style="text-decoration:none;"><i class="fas fa-home" style="font-size:15px;"></i></a></li>
-        <li class="breadcrumb-item"><a href="applications_handling.php" style="text-decoration:none;">Διαχείριση Αιτήσεων</a></li>
-        <li class="breadcrumb-item active" aria-current="page" style="font-size:15px;">Αιτήσεις που είναι Εκκρεμείς</li>
+        <li class="breadcrumb-item"><a href="/index.php" style="text-decoration:none;"><i class="fas fa-home" style="font-size:15px;"></i></a></li>
+        <li class="breadcrumb-item"><a href="/index.php" style="text-decoration:none;">Αρχική</a></li>
+        <li class="breadcrumb-item"><a href="/profile" style="text-decoration:none;">Το Προφίλ μου></a></li>
+        <li class="breadcrumb-item"><a href="index.php" style="text-decoration:none;">Διαχείριση Αιτήσεων</a></li>
+        <li class="breadcrumb-item active" aria-current="page" style="font-size:15px;">Αιτήσεις που έχουν Απορριφθεί</li>
       </div>
     </div>
     <div class="page-content-container">
 
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
-      echoSidebar("/profile/application_handling/pending_applications.php/");
+      echoSidebar("/profile/application_handling/declined_applications.php/");
       ?>
 
       <div style="display:flex; flex-direction:column; row-gap:1rem; align-items:center;">

@@ -6,7 +6,7 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php";
 
 /* if (isset($_SESSION['user_id'])) {
-    if (!isAdmin($$_SESSION['user_id'])) {
+    if (!isAdmin($_SESSION['user_id'])) {
         header("Location: /error404.php");
     }
 } */
@@ -84,6 +84,18 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php";
     }
 
     </style>
+
+<div class="gray-box">
+      <a href="index.php" class="fas fa-arrow-circle-left" style="text-decoration:none; color:#002E69; cursor:pointer; 
+            margin-left:13rem;margin-top:2%;">Αίτηση <?php echo $_GET['app_id']; ?></a>
+      <div class="breadcrumb" style="align-items:end;">
+        <li class="breadcrumb-item"><a href="/index.php" style="text-decoration:none;"><i class="fas fa-home" style="font-size:15px;"></i></a></li>
+        <li class="breadcrumb-item"><a href="/index.php" style="text-decoration:none;">Αρχική</a></li>
+        <li class="breadcrumb-item"><a href="/profile" style="text-decoration:none;">Το Προφίλ μου></a></li>
+        <li class="breadcrumb-item"><a href="index.php" style="text-decoration:none;">Διαχείριση Αιτήσεων</a></li>
+        <li class="breadcrumb-item active" aria-current="page" style="font-size:15px;">Αίτηση <?php echo $_GET['app_id']; ?></li>
+      </div>
+    </div>
 
     <div class="central-container">
         <?php
@@ -203,6 +215,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php";
                 break;
         }
         echoErrorMsgModal();
+        echoSidebar('/profile/applications/show_application.php');
         echoContentTabs($tabContent, "admin-tab-wrapper");
 
         if ($isApplicationClosed) {

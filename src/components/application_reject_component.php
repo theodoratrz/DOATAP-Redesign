@@ -167,7 +167,7 @@ form[name="application-reject-form"] .form-control::placeholder {
         rejectFormNamespace.toggleVerificationModal();
         $.ajax({
             type: "POST",
-            url: "/reject_application.php",
+            url: "/requests_api/reject_application.php",
             dataType: "json",
             success: answer => {
                 // Success, reload page

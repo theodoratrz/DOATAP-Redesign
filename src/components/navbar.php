@@ -3,35 +3,35 @@
 <?php
 $nav_links = array(
 	"Αιτήσεις" => array(
-		"applications.php",
-		array("Διαδικασία Υποβολής" => "procedure_submission.php",
-		"Η Πορεία μίας Αίτησης" => "applications-evaluation.php",
-		"Φόρμες Αιτήσεων" => "applications-forms.php",
-		"Παράβολα" => "paravola.php")
+		"/applications.php",
+		array("Διαδικασία Υποβολής" => "/applications/procedure_submission.php",
+		"Η Πορεία μίας Αίτησης" => "/applications/applications-evaluation.php",
+		"Φόρμες Αιτήσεων" => "/applications/applications-forms.php",
+		"Παράβολα" => "/applications/paravola.php")
 	),
 	"Ανακοινώσεις" => array(
-	"announcements.php",
-	array("Γενικές Πληροφορίες" => "under_construction.php",
+	"/announcements.php",
+	array("Γενικές Πληροφορίες" => "/under_construction.php",
 	"Αποφάσεις Δ.Σ" => "error404.php",
-	"Προϋπολογισμοί-Προκηρύξεις" => "under_construction.php",
-	"Εξετάσεις Οδοντιατρικής" => "under_construction.php",
-	"Εξετάσεις Ιατρικής" => "under_construction.php")
+	"Προϋπολογισμοί-Προκηρύξεις" => "/under_construction.php",
+	"Εξετάσεις Οδοντιατρικής" => "/under_construction.php",
+	"Εξετάσεις Ιατρικής" => "/under_construction.php")
 	),
 	"Ενημέρωση" => array(
-	"under_construction.php",
-	array("Ανώτατα Εκπαιδευτικά Ιδρύματα" => "under_construction.php",
-	"Εκπαιδευτικά Ιδρύματα Αλλοδαπής" => "under_construction.php",
-	"Το Ελληνικό Σύστημα Εκπαίδευσης" => "error404.php",
+	"/under_construction.php",
+	array("Ανώτατα Εκπαιδευτικά Ιδρύματα" => "/under_construction.php",
+	"Εκπαιδευτικά Ιδρύματα Αλλοδαπής" => "/under_construction.php",
+	"Το Ελληνικό Σύστημα Εκπαίδευσης" => "/error404.php",
 	"Δι@υγεια" => "https://et.diavgeia.gov.gr/f/doatap")
 	),
 	"Οργανισμός" => array(
-	"organization.php",
-	array("Ταυτότητα" => "error404.php",
-	"Διοίκηση" => "error404.php",
-	"Ετήσιος Απολογισμός ΔΣ" => "error404.php",
-	"Στατιστικά Στοιχεία" => "error404.php")
+	"/organization.php",
+	array("Ταυτότητα" => "/error404.php",
+	"Διοίκηση" => "/error404.php",
+	"Ετήσιος Απολογισμός ΔΣ" => "/error404.php",
+	"Στατιστικά Στοιχεία" => "/error404.php")
 	),
-	"Επικοινωνία" => "contact.php"
+	"Επικοινωνία" => "/contact.php"
 
 );
 

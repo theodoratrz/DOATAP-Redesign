@@ -61,7 +61,9 @@
       <a href="index.php" class="fas fa-arrow-circle-left" style="text-decoration:none; color:#002E69; cursor:pointer; 
             margin-left:13rem;margin-top:2%;"> Οι Αιτήσεις μου</a>
       <div class="breadcrumb" style="align-items:end;">
-        <li class="breadcrumb-item"><a href="index.php" style="text-decoration:none;"><i class="fas fa-home" style="font-size:15px;"></i></a></li>
+      <li class="breadcrumb-item"><a href="/index.php" style="text-decoration:none;"><i class="fas fa-home" style="font-size:15px;"></i></a></li>
+        <li class="breadcrumb-item"><a href="/index.php" style="text-decoration:none;">Αρχική</a></li>
+        <li class="breadcrumb-item"><a href="/profile" style="text-decoration:none;">Το Προφίλ μου></a></li>
         <li class="breadcrumb-item active" aria-current="page" style="font-size:15px;">Οι Αιτήσεις μου</li>
       </div>
     </div>

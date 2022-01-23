@@ -129,7 +129,7 @@ form[name="courses-submission-form"] .form-control::placeholder {
                         }
                         $.ajax({
                             type: "GET",
-                            url: "/get_university_departments.php",
+                            url: "/requests_api//get_university_departments.php",
                             dataType: "json",
                             success: answer => {
                                 storeDepartments(answer);
@@ -167,7 +167,7 @@ form[name="courses-submission-form"] .form-control::placeholder {
         else {
             $.ajax({
                 type: "POST",
-                url: "/submit_application_courses.php",
+                url: "/requests_api/submit_application_courses.php",
                 dataType: "json",
                 success: answer => {
                     document.forms["courses-submission-form"].submit();
