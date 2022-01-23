@@ -213,8 +213,6 @@ function newApplication(
         VALUES('$appID', '$filename', '$fileLocation', '$type');
         ";
 
-        echo $sql;
-
         $conn->query($sql);
     }
 
