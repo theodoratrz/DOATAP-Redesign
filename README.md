@@ -3,9 +3,18 @@
 ### Fall 2021-2022
 
 Redesigned the website of Hellenic National Academic Recognition and Information Center, focusing on UX Design. 
-Tools: PHP, SQL, HTML, CSS (Bootstrap), JAVASCRIPT (Bootstrap, jQuery), React.
+Tools: PHP, MySQL, HTML, CSS, JavaScript, Bootstrap, React.
 
-## Docker Usage
+## Build Website
+**NOTE:** Before uploading any application files, run `sudo chmod 777 uploads`.
+- Build & Start Docker container
+    - `docker-compose up -d`
+    - `docker-compose start`
+- Create DB
+    - Create DB `'sdi1800197'` with `sdi1800197.sql`, using either PHPMyAdmin or from inside the container `bash`. (username: "root", pwd: "12344321")
+- Visit `localhost` from your browser.
+
+## Docker usage
 ```
 # create and start (the first run takes time to build the image)
 docker-compose up -d
@@ -35,7 +44,7 @@ Name of a user-admin: ADMIN <br>
 Name of a user 1: USER1 <br>
 Name of a user 2: USER2 <br>
 
-Password for all of them:1234 <br>
+Password (for all of them): **1234** <br>
 
 
 ## Implemented by:
@@ -45,7 +54,3 @@ Theodora Troizi (111520181800197)
 Nikolaos Passakos Chatzioridis (11152018156)
 
 Pavlos Spanoudakis (11152018184)
-
-
-
-
