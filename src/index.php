@@ -17,7 +17,8 @@
             <h5 class="card-title">Δελτίο Τύπου – Συνοπτικός απολογισμός έτους 2021</h5>
             <p class="card-text">Στα πλαίσια της αρχής της διαφάνειας και του σεβασμού του πολίτη, 
                 ανακοινώνονται συνοπτικά στοιχεία απολογισμού του έτους 2021</p>
-            <a href="#" class="btn btn-primary fas fa-book-open" style="font-weight:normal;">Διαβάστε Περισσότερα</a>
+            <a href="/announcements/show_announcement.php?ann_id=2" class="btn btn-primary fas fa-book-open" 
+            style="font-weight:normal;">Διαβάστε Περισσότερα</a>
         </div>
     </div>
     <div class="card" style="width: 18rem;">
@@ -25,7 +26,7 @@
         <div class="card-body">
             <h5 class="card-title">Αποτελέσματα Εξετάσεων Οδοντιατρικής — Ιανουάριος 2022</h5>
             <p class="card-text">Ενημερωθείτε για τα αποτελέσματα της έκτακτης εξεταστικής περιόδου.</p>
-            <a href="#" class="btn btn-primary fas fa-book-open" style="font-weight:normal;">Διαβάστε Περισσότερα</a>
+            <a href="/announcements/show_announcement.php?ann_id=8" class="btn btn-primary fas fa-book-open" style="font-weight:normal;">Διαβάστε Περισσότερα</a>
         </div>
     </div>
     <div class="card" style="width: 18rem;">
@@ -34,7 +35,8 @@
             <h5 class="card-title">Επίσκεψη στον ΔΟΑΤΑΠ</h5>
             <p class="card-text">
             Όλα όσα πρέπει να ξέρετε για τη διαδικασία προσέλευσης κοινού στον οργανισμό.</p>
-            <a href="#" class="btn btn-primary fas fa-book-open" style="font-weight:normal; margin-bottom:0.5rem;">Διαβάστε Περισσότερα</a>
+            <a href="/announcements/show_announcement.php?ann_id=4" class="btn btn-primary fas fa-book-open" style="font-weight:normal; 
+            margin-bottom:0.5rem;">Διαβάστε Περισσότερα</a>
         </div>
     </div>
     <div>
