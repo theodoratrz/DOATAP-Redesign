@@ -110,7 +110,7 @@ function echoNavbarContent(array $content)
 <nav class="primary-custom-navbar custom-navbar-expand-lg bg-primary custom-navbar-dark">
 	<div class="navbar-container d-flex">
 
-	<a class="custom-navbar-brand" href="/index.php"> <img src="/images/doatap-logo.png" alt="" width="250px"> </a>
+	<a class="custom-navbar-brand" href="/index.php"> <img src="/images/doatap-logo.png" alt="logo" width="250px"> </a>
 
 	<!-- LANGUAGE -->
 		<!--a class="search_button"><i class="fas fa-globe-americas"></i></a>
