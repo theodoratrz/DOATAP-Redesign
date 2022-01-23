@@ -2,7 +2,7 @@
   .mainbox {
     background-color: white;
     margin: auto;
-    height: 600px;
+    min-height: 70vh;
     width: 600px;
     position: relative;
   }
@@ -17,11 +17,14 @@
     }
   
   .far {
-    position: absolute;
-    font-size: 8.5rem;
-    left: 42%;
-    top: 15%;
+    font-size: 8.5rem; 
     color: #95c2de;
+  }
+  
+  .spin-container{
+    position: absolute;
+    transform: translate(250px, 120px);
+
   }
   
    .err2 {

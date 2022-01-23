@@ -40,7 +40,7 @@
 </script>
 
 <body>
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/navbar.php" ?>
+  <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/navbar.php" ?>
   <div class="mainbox">
 
     <i class="err fas fa-cog fa-spin"></i>
@@ -53,7 +53,7 @@
       <p class="rounded-circle" style="background-color:rgb(0, 140, 255); " id="demo2"></p>
       <p class="rounded-circle" style="background-color:rgb(0, 174, 255);" id="demo3"></p>
     </div>
-    <div class="msg">Σύντομα κοντά σας!
+    <div class="msg">Σύντομα κοντά σας!</div>
   </div>
   <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/footer.php" ?>
 </body>
