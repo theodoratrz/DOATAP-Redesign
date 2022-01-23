@@ -3,6 +3,13 @@ if (!isset($_SESSION)) {
     session_start();
 }
 $webDir = "/var/www/html/";
+
+$url = $_SERVER['REQUEST_URI'];
+
+if (strpos($url, "/profile/") !== FALSE && !isset($_SESSION['user_id'])){
+    header("Location: /login.php");
+}
+
 ?>
 
 <!DOCTYPE html>
