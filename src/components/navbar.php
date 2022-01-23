@@ -5,8 +5,8 @@ $nav_links = array(
 	"Αιτήσεις" => array(
 		"/applications",
 		array("Διαδικασία Υποβολής" => "/applications/procedure_submission.php",
-		"Η Πορεία μίας Αίτησης" => "/applications/applications-evaluation.php",
-		"Φόρμες Αιτήσεων" => "/applications/applications-forms.php",
+		"Η Πορεία μίας Αίτησης" => "/applications/applications_evaluation.php",
+		"Φόρμες Αιτήσεων" => "/applications/applications_forms.php",
 		"Παράβολα" => "/applications/paravola.php")
 	),
 	"Ανακοινώσεις" => array(
@@ -110,7 +110,7 @@ function echoNavbarContent(array $content)
 <nav class="primary-custom-navbar custom-navbar-expand-lg bg-primary custom-navbar-dark">
 	<div class="navbar-container d-flex">
 
-	<a class="custom-navbar-brand" href="index.php"> <img src="/images/doatap-logo.png" alt="" width="250px"> </a>
+	<a class="custom-navbar-brand" href="/index.php"> <img src="/images/doatap-logo.png" alt="" width="250px"> </a>
 
 	<!-- LANGUAGE -->
 		<!--a class="search_button"><i class="fas fa-globe-americas"></i></a>

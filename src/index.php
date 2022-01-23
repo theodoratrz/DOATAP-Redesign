@@ -56,20 +56,20 @@
 </div>
 <div class="menu-icons">
     <div class="icon-text">
-      <h6><a href="applications-forms.php" class="fas fa-file-alt" style="text-decoration:none; color:inherit"> Χρήσιμα Έγγραφα</a></h6>
+      <h6><a href="applications/applications_forms.php" class="fas fa-file-alt" style="text-decoration:none; color:inherit"> Χρήσιμα Έγγραφα</a></h6>
       <span> Βρείτε χρήσιμα έγγραφα και αιτήσεις που θα χρειαστεί να συμπληρώσετε, ταξινομημένα και σε ηλεκτρονική μορφή.</span>
     </div>
     <div class="icon-text">
-      <h6><a href="procedure_submission.php" class="fas fa-pen-alt" style="text-decoration:none; color:inherit"> Νέα Αίτηση</a></h6>
+      <h6><a href="applications/procedure_submission.php" class="fas fa-pen-alt" style="text-decoration:none; color:inherit"> Νέα Αίτηση</a></h6>
       <span>Βρείτε όλα όσα χρειάζονται για να φτιάξετε μία νέα αίτηση.</span>
     </div>
 
     <div class="icon-text">
-      <h6><a href="myapplications.php" class="fas fa-bell" style="text-decoration:none; color:inherit"> Παρακολούθηση Αίτησης</a></h6>
+      <h6><a href="profile/applications/myapplications.php" class="fas fa-bell" style="text-decoration:none; color:inherit"> Παρακολούθηση Αίτησης</a></h6>
       <span>Παρακολουθήστε την κατάσταση όλων των αιτήσεων σας.</span>
     </div>
     <div class="icon-text">
-        <h6><a href="applications-forms.php" class="fas fa-book" style="text-decoration:none; color:inherit"> Ο ΔΟΑΤΑΠ</a></h6>
+        <h6><a href="/organization" class="fas fa-book" style="text-decoration:none; color:inherit"> Ο ΔΟΑΤΑΠ</a></h6>
         <span>Ενημερωθείτε για όλες τις δράσεις του οργανισμού.</span>
     </div>
 </div>
