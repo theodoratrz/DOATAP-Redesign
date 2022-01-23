@@ -3,7 +3,7 @@
   .mainbox {
     background-color: white;
     margin: auto;
-    height: 100%;
+    min-height: 70vh;
     width: 100%;
     position: relative;
     
