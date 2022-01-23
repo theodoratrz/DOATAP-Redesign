@@ -582,4 +582,27 @@
 
   ?>
 
+  <!-- AUTOCOMPLETE -->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+  <script>
+    $("#titlos-form #country").on('change', function() {
+      getUniversities(this.value)
+    });
+
+    function getUniversities(id) {
+      $.get("/api/universities.php?id=" + id, function(data) {
+        let unis = data.split("\n");
+        $("#universityAbroad").autocomplete({
+          source: unis,
+          minLength: 0
+        }).on('focus', function() {
+          $(this).keydown();
+        });
+      });
+    }
+
+    getUniversities();
+  </script>
+
 </body>
