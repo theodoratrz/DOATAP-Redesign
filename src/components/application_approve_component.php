@@ -178,13 +178,17 @@ form[name="match-approve-form"] .form-control::placeholder {
 
 function getUniversityOptions()
 {
-    return '
-    <option id="uni_1" data-uni-id="1" value="ΕΚΠΑ">
-    <option id="uni_2" data-uni-id="2" value="ΕΜΠ">
-    <option id="uni_3" data-uni-id="3" value="ΟΠΑ">
-    <option id="uni_4" data-uni-id="4" value="ΑΠΘ">
-    <option id="uni_5" data-uni-id="5" value="Παν. Μακεδονίας">
-    ';
+    $universities = getUniversities("1");
+
+    $ret = '';
+
+    foreach ($universities as $uni) {
+        $id = $uni['uni_id'];
+        $name = $uni['name'];
+        $ret = $ret . '<option id="course_uni_'. $id .'" data-uni-id="'. $id .'" value="'. $name .'">';  
+    }
+
+    return $ret;
 }
 
 function getApproveVerificationModal() {
