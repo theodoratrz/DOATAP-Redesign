@@ -41,7 +41,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php";
     .admin-tab-wrapper {
         display: flex;
         flex-direction: column;
-        width: 50%;
+        width: 100%;
         min-width: 15rem;
     }
 
@@ -81,6 +81,21 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php";
         font-size: 16px;
         width: 20em;
         height: 20em;
+    }
+
+    .application-info-container {
+        display: flex;
+        flex-direction: column;
+        row-gap: .25em;
+    }
+
+    .header-content-wrapper {
+        width: 50%;
+    }
+
+    .application-state-span {
+        font-weight: bold;
+        font-size: .85rem;
     }
 
     </style>
@@ -136,6 +151,44 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php";
                         <button type="button" class="btn btn-secondary close-message-btn" data-dismiss="modal" onclick="hideModal()">Κλείσιμο</button>
                     </div>
                     </div>
+                </div>
+            </div>
+            ';
+        }
+
+        function echoApplicationInfo($applicationInfo)
+        {
+            $id = $applicationInfo['app_id'];
+            
+            switch ($applicationInfo['state']) {
+                case 'approved':
+                    $state = 'Εγκρίθηκε';
+                    $color = 'green';
+                    break;
+                case 'declined':
+                    $state = 'Απορρίφθηκε';
+                    $color = 'red';
+                    break;
+                case 'pending':
+                    $state = 'Ανατέθησαν Μαθήματα';
+                    $color = '#aa3f0b';
+                    break;
+                case 'submitted':
+                    $state = 'Υποβλήθηκε';
+                    $color = '#002e69';
+                    break;
+                default:
+                    $state = $applicationInfo['state'];
+                    $color = 'black';
+                    break;
+            }
+
+            echo '
+            <div class="application-info-container">
+                <h5 style="font-weight: bold; margin: 0px;">Αίτηση '. $id .'</h5>
+                <div>
+                    <span class="application-state-span">Κατάσταση: </span>
+                    <span class="application-state-span" style="color: '. $color .';">'. $state .'</span>
                 </div>
             </div>
             ';
@@ -210,12 +263,18 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php";
                 );
                 break;            
             default:
-                # code...
                 break;
         }
         echoErrorMsgModal();
         echoSidebar('/profile/applications/show_application.php');
+        echo '
+        <div class="header-content-wrapper">
+        ';
+        echoApplicationInfo($applicationInfo);
         echoContentTabs($tabContent, "admin-tab-wrapper");
+        echo '
+        </div>
+        ';
 
         if ($isApplicationClosed) {
             echoAdminCommentsFrozenContainer($applicationInfo['comment']);
