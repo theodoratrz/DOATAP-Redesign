@@ -174,10 +174,11 @@ function newApplication(
         '$userID', '$state', '$attendance', '$studiesType', '$countryID', '$ECTS', '$dateIntro', '$dateGrad',
         '$yearsOfStudy', '$department', '$university', $degree
     );";
+        $res = $conn->query($sql);
         $appID = $conn->insert_id;
     } else {
         // TODO Drop old files
-
+        
         $sql = "UPDATE applications SET
         `state` = '$state',
         `degree_type` = $degree,
@@ -192,9 +193,9 @@ function newApplication(
         `university` = '$university'
         WHERE `app_id`='$appID' AND `user_id` = $userID;
         ";
+        $res = $conn->query($sql);
     }
-
-    $res = $conn->query($sql);
+    
 
     if ($res == FALSE) return "Something went wrong!";
 
@@ -211,6 +212,8 @@ function newApplication(
         $sql = "INSERT INTO documents(`app_id`, `filename`, `file_location`, `type`)
         VALUES('$appID', '$filename', '$fileLocation', '$type');
         ";
+
+        echo $sql;
 
         $conn->query($sql);
     }
