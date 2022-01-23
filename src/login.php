@@ -36,8 +36,6 @@
                 <hr>
                 <h7 style="text-align:center;">Συμπληρώστε το όνομα χρήστη και τον κωδικό πρόσβασης</h7>
                 <h7 style="text-align:center;"> για να συνδεθείτε στην πλατφόρματου ΔΟΑΤΑΠ.</h7>
-                <br>
-                <h7 style="text-align:center;">Εναλλακτικά μπορείτε να συνδεθείτε μέσω <a href="https://www1.gsis.gr/oauth2server/login.jsp"">TaxisNet</a></h7>
                 <hr>
                 <div id="error-message">
             </div>
@@ -56,7 +54,8 @@
             
             <button id="submit-button" class="btn btn-primary">Σύνδεση</button>
             <div class="dropdown-divider"></div>
-                <a class="create-item" style="color:blue; text-decoration:underline; font-size:x-large; text-align:center" href="register.php">Δημιουργία Λογαριασμού</a>
+                <a class="create-item" style="color:blue; text-decoration:underline; font-size:medium; text-align:center" href="register.php">
+                Δημιουργία Λογαριασμού</a>
         </div>
     </div>
 

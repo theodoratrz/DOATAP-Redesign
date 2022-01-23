@@ -26,6 +26,7 @@ $('#no_mls_entry').popover('show').focus();
         "country" => "",
         "universityAbroad" => "",
         "attendanceTime" => "",
+        "degree" => ""
 
     );
 
@@ -93,6 +94,8 @@ $('#no_mls_entry').popover('show').focus();
         </div>
         <div class="form-fields-container">';
         
+            echoRadioField('degree', 'Βαθμός Πτυχίου', "Παρακαλώ, επιλέξτε βαθμό πτυχίου.",
+            array("Βασικό Πτυχίο", "Μεταπτυχιακό", "Διδακτορικό"), $values['degree']);
             echoRadioField('attendance', 'Τύπος Φοίτησης', "Παρακαλώ, επιλέξτε τον τύπο φοίτησης.",
             array("Συμβατικός", "Εξ Αποστάσεως"), $values['attendance']);
             echoRadioField('partTime', 'Τύπος Φοίτησης', "Παρακαλώ, επιλέξτε τον τύπο φοίτησης.",

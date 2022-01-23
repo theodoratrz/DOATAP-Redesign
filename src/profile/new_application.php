@@ -234,6 +234,7 @@
 
           "mobilePhone" => "",
           "homePhone" => "",
+          "degree" => "",
         );
 
         $appInfo['state'] = "stored";
@@ -258,6 +259,7 @@
             "country" => $appInfo['country'],
             "universityAbroad" => $appInfo['university'],
             "attendanceTime" => $appInfo['yearsOfStudy'],
+            "degree" => $appInfo['degree_type']
           );
 
           $files1 = (getFiles($appID));
