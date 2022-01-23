@@ -9,10 +9,32 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/navbar.php" ?>
     
 <div class="container_photo">
-  <img src="/images/im.png" alt="Snow" style="width:100%; opacity:0.5">
-  <div class="centered">
-      
-  </div>
+  <!--img src="/images/im.png" alt="Snow" style="width:100%; opacity:0.5"-->
+    <div class="card" style="width: 18rem;">
+        <img src="/images/statistics.png" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Δελτίο Τύπου – Συνοπτικός απολογισμός έτους 2021</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary fas fa-book-open" style="font-weight:normal;">Διαβάστε Περισσότερα</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img src="/images/exams.png" class="card-img-top" style="height:11.6rem;">
+        <div class="card-body">
+            <h5 class="card-title">Αποτελέσματα Εξετάσεων Οδοντιατρικής — Ιανουάριος 2022-Έκτακτη Εξεταστική Περίοδος</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img src="/images/menoymeasfaleis.png" class="card-img-top" style="height:11.6rem;">
+        <div class="card-body">
+            <h5 class="card-title">Επίσκεψη στον ΔΟΑΤΑΠ</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+
 </div> 
 
 <div class="text-box">
