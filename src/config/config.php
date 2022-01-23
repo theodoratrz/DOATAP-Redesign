@@ -1,7 +1,8 @@
 <?php
 
-$webDir="/var/www/html";
-$mysqlUser = "root";
-$mysqlPassword = 12344321;
+$MYSQL_HOST = "db";
+$MYSQL_USER = "root";
+$MYSQL_PASSWORD = "1234";
+$MYSQL_DB = "doatap";
 
 ?>
