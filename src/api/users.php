@@ -9,6 +9,11 @@ $docType, $docNumber, $gender, $birthday, $mobile, $phone, $isAdmin)
     global $conn;
     global $db_error_message;
 
+    $gender = $gender == 0 ? "Male" :
+             ($gender == 1 ? "Female" : "Other");
+
+    $docType = $docType == 0 ? "ID" : "Passport";
+
     # Escape sql characters
     $username = e($username);
     $email = e($email);
