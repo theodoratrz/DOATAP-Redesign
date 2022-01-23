@@ -144,7 +144,7 @@ function echoNavbarContent(array $content)
 					</ul>
 				</div>
 				<span style="color:white">|</span>
-				<a href="logout.php" class="login-link fas fa-sign-out-alt">Αποσύνδεση</a>
+				<a href="/logout.php" class="login-link fas fa-sign-out-alt">Αποσύνδεση</a>
 			 
 			</div>';
 			} else {
@@ -164,7 +164,7 @@ function echoNavbarContent(array $content)
 					</ul>
 				</div>
 				<span style="color:white">|</span>
-				<a href="logout.php" class="login-link fas fa-sign-out-alt">Αποσύνδεση</a>
+				<a href="/logout.php" class="login-link fas fa-sign-out-alt">Αποσύνδεση</a>
 			 
 			</div>';
 			}
@@ -172,9 +172,9 @@ function echoNavbarContent(array $content)
 			echo '
 			<div class="login-signup-navbar-container d-flex justify-content-end">
 				
-				<a href="login.php" class="login-link">Σύνδεση</a>
+				<a href="/login.php" class="login-link">Σύνδεση</a>
 				<span style="color:white">|</span>
-				<a href="register.php" class="login-link">Εγγραφή</a>
+				<a href="/register.php" class="login-link">Εγγραφή</a>
 			 
 			</div>';
 		}
