@@ -32,7 +32,7 @@ function echoPagination()
                   <td>' . explode(" ",$application["last_modified"])[0] . '</td>
                   <td>
                     <div>
-                      <a href="show_applications.php?app_id=' . $application["app_id"] . '"
+                      <a href="/profile/applications/show_application.php?app_id=' . $application["app_id"] . '"
                       class="btn btn-primary application-action-button">
                         <i class="fas fa-edit"></i> Επεξεργασία
                       </a>
