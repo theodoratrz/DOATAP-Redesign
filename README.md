@@ -31,6 +31,13 @@ can see the admin's comments about his decission.
 
 ## Log in 
 
+Name of a user-admin: ADMIN <br>
+Name of a user 1: USER1 <br>
+Name of a user 2: USER2 <br>
+
+Password for all of them:1234 <br>
+
+
 Implemented by:
 
 Theodora Troizi (111520181800197)
