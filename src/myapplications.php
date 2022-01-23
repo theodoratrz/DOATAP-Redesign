@@ -93,8 +93,8 @@
                 Είστε σίγουροι ότι θα θέλατε να διαγράψετε αυτή την αίτηση;
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn" style="background-color:gray; color:white;" data-bs-dismiss="modal">Ακύρωση</button>
-                <button type="button" class="btn btn-danger" style=" color:white;">Διαγραφή</button>
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Ακύρωση</button>
+                <button id="delete-button" type="button" class="btn btn-danger">Διαγραφή</button>
               </div>
             </div>
           </div>
