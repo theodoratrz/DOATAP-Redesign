@@ -10,7 +10,7 @@ function echoPagination()
     $currentPage = 1;
   }
   $hasPrevious = ($currentPage !== 1);
-  $temp = getAllApplications('accepted', $currentPage, '5', 'DESC');
+  $temp = getAllApplications('approved', $currentPage, '5', 'DESC');
   
   $applications = $temp[0];
   $hasNext = $temp[1];
