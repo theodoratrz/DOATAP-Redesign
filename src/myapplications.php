@@ -1,4 +1,12 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php"; ?>
+
+<?php
+if (!isset($_SESSION['user_id'])){
+  echo "<script>window.location.href = '/'</script>";
+  exit();
+}
+?>
+
 <style>
   .application-status {
     padding: 0rem;

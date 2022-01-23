@@ -12,6 +12,11 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php";
 } */
 ?>
 
+if (!isset($_SESSION['user_id'])){
+  echo "<script>window.location.href = '/'</script>";
+  exit();
+}
+
 <link rel="stylesheet" href="css/index.css">
 
 <body>

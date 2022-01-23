@@ -1,8 +1,29 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php" ?>
 
+<?php
+if (!isset($_SESSION['user_id'])){
+  echo "<script>window.location.href = '/'</script>";
+  exit();
+}
+?>
+
 <link rel="stylesheet" href="/css/index.css">
 <link rel="stylesheet" href="/css/user.css">
 <link rel="stylesheet" href="/css/form.css">
+
+<!-- Toast -->
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div id="invalid-form-toast" class="toast align-items-center bg-danger text-white" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body">
+        Παρακαλώ συμπληρώστε όλα τα στοιχεία της αίτησης
+      </div>
+      <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+
 
 <!-- Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
@@ -52,6 +73,7 @@
     </div>
   </div>
 </div>
+
 <div class="modal fade" id="beforeSubmitModal" tabindex="-1" aria-labelledby="beforeSubmitModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -94,7 +116,7 @@
     <div class="page-content-container" style="margin-bottom:2rem;">
 
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
-            echoSidebar("/profile/user_application_submission.php/");?>
+      echoSidebar("/profile/user_application_submission.php/"); ?>
       <!-- Modal -->
       <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -381,7 +403,7 @@
           <button data-bs-toggle="modal" data-bs-target="#redoModal" id="submit-button-redo" class="btn btn-secondary m-2">
             <i class="fas fa-redo" aria-hidden="true"></i> Επαναφορά
           </button>
-          <button data-bs-toggle="modal" data-bs-target="#exampleModal" id="submit-button-temporary" class="btn btn-warning m-2">
+          <button id="submit-button-temporary" class="btn btn-warning m-2">
             <i class="fas fa-lock-open-alt" aria-hidden="true"></i> Προσωρινή Αποθήκευση
           </button>
           <button data-bs-toggle="modal" data-bs-target="#beforeSubmitModal" id="submit-button" class="btn btn-success m-2">
@@ -391,8 +413,8 @@
         ';
         }
 
-        if ($appInfo['state'] == "approved"){
-        echo '
+        if ($appInfo['state'] == "approved") {
+          echo '
           <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#beforeSubmitModal" id="submit-button" style="font-size:medium; padding:0.5rem; margin-bottom:0rem;justify-content:center;">
           <i class="fas fa-download"></i> Λήψη Εντύπου Αναγνώρισης
           </button>
@@ -422,17 +444,41 @@
       return indexed_array;
     }
 
+    function validateForm() {
+      var isValid = true;
+      $("#titlos-form :input").each(function() {
+        var element = $(this);
+        if (element.val() == "") {
+          isValid = false;
+        }
+      });
+      if (!isValid) {
+        $("#invalid-form-toast").show()
+        var toast = new bootstrap.Toast($("#invalid-form-toast"))
+        toast.show()
+        return false;
+      }
+      return true;
+    }
+
     let savebtn = $("#submit-button-temporary");
     let submitbtn = $("#final-submit-button");
 
     savebtn.click(function() {
+
+      if (!validateForm()) return;
+
+      $("#exampleModal").modal("show");
       submitForm('stored');
       $("#exampleModal").on("hidden.bs.modal", function() {
         window.location.href = "myapplications.php";
       })
+
     });
 
     submitbtn.click(function() {
+      $("#beforeSubmitModal").modal('hide');  
+      if (!validateForm()) return;
       submitForm('submitted');
       window.location.href = "myapplications.php";
     });

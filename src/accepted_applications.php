@@ -2,6 +2,11 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/api/applications.php";
 
+if (!isset($_SESSION['user_id'])){
+  echo "<script>window.location.href = '/'</script>";
+  exit();
+}
+
 function echoPagination()
 {
   if (array_key_exists("page", $_GET)) {
