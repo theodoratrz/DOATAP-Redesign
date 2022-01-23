@@ -65,6 +65,7 @@
 	}
 function echoSidebar(string $path)
 {
+	global $_sidebar_page_names_;
 	$pathArray = array_values(array_diff(explode("/", $path), [""]));
 
 	echo "

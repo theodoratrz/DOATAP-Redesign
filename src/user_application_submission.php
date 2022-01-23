@@ -522,9 +522,6 @@
       var form_num = button.attr('id').split("-")[1]
       var modal = $(this);
 
-      // let form_name = form_num == 1 ? "id" :
-      //                 form_num == 2 ? "app": "par";
-
       $("#delete-button").click(function() {
         $("actual-btn-" + form_num).val();
         $("#del-" + form_num).hide();
