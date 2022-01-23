@@ -216,7 +216,7 @@ function getApplicationApproveForm()
 {
     return '
     <div class="admin-approve-container">
-        <span style="font-size: 21px">
+        <span>
             Για την έγκριση της αίτησης, επιλέξτε ίδρυμα & τμήμα για αντιστοίχιση τίτλου σπουδών:
         </span>
         <form name="match-approve-form" method="GET" onsubmit="approveApplication(event)">
@@ -258,7 +258,7 @@ function getApplicationApproveFrozenForm(string $university, string $department)
 {
     return '
     <div class="admin-approve-container">
-        <span style="font-size: 21px">
+        <span>
             Έχει επιλεγεί το ακόλουθο ίδρυμα & τμήμα για αντιστοίχιση τίτλου σπουδών:
         </span>
         <form name="match-approve-form">

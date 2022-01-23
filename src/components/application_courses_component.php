@@ -77,7 +77,7 @@ form[name="courses-submission-form"] .form-control::placeholder {
 }
 
 .checklist-container {
-    width: 20rem;
+    width: 25rem;
     max-width: 85vw;
 }
 
@@ -246,7 +246,7 @@ function getApplicationCoursesForm()
 {
     return '
     <div class="admin-courses-container">
-        <span style="font-size: 21px">
+        <span>
             Eπιλέξτε ίδρυμα & τμήμα και εισάγετε τα απαιτούμενα μαθήματα από το επιλεγμένο τμήμα:
         </span>
         <form name="courses-submission-form" method="GET" onsubmit="submitApplicationCourses(event)">
@@ -312,7 +312,7 @@ function getApplicationCoursesFrozen(string $university, string $department, arr
 {
     return '
     <div class="admin-courses-container">
-        <span style="font-size: 21px">
+        <span>
             Εχουν ανατεθεί τα ακόλουθα μαθήματα για την πραγματοποίηση αντιστοίχισης:
         </span>
         <div class="courses-form-contents">

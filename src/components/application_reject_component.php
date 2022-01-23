@@ -15,7 +15,6 @@ form[name="application-reject-form"] .form-control::placeholder {
 }
 
 .accordion-header-title {
-    font-size: 22px;
     font-weight: bold;
 }
 
@@ -484,7 +483,7 @@ function getApplicationRejectForm(array $applicationInfo)
 {
     return '
     <div class="admin-reject-container">
-        <span style="font-size: 21px;">
+        <span>
             Σε περίπτωση απόρριψης της αίτησης, μπορείτε να αποεπιλέξτε την επιλογή έγκρισης σε κάποια ενότητα ή δικαιολογητικό:
         </span>
         ' . getDocumentImageModal() . '
@@ -510,7 +509,7 @@ function getFrozenDocuments(array $documentsInfo)
             </button>
             <label class="approve-checkbox">
                 <input type="checkbox" ' . ($documentsInfo['id'][1] === "1" ? 'checked' : "") . ' disabled>
-                    Εγκρίνεται
+                    Εγκρίθηκε
                 </input>
             </label>
         </div>
@@ -520,7 +519,7 @@ function getFrozenDocuments(array $documentsInfo)
             </button>
             <label class="approve-checkbox">
                 <input type="checkbox" ' . ($documentsInfo['fee'][1] === "1" ? "checked" : "") . ' disabled>
-                    Εγκρίνεται
+                    Εγκρίθηκε
                 </input>
             </label>
         </div>
@@ -530,7 +529,7 @@ function getFrozenDocuments(array $documentsInfo)
             </button>
             <label class="approve-checkbox">
                 <input type="checkbox" ' . ($documentsInfo['application'][1] === "1" ? "checked" : "") . ' disabled>
-                    Εγκρίνεται
+                    Εγκρίθηκε
                 </input>
             </label>
         </div>        
@@ -586,7 +585,7 @@ function getApplicationFrozenRejectForm(array $applicationInfo)
 {
     return '
     <div class="admin-reject-container">
-        <span style="font-size: 21px;">
+        <span>
             Παρακάτω εμφανίζονται οι πληροφορίες έγκρισης πεδίων και δικαιολογητικών:
         </span>
         ' . getDocumentImageModal() . '
