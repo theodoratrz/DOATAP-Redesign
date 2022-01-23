@@ -2,7 +2,6 @@
 if (!isset($_SESSION)) {
     session_start();
 }
-$webDir = "/var/www/html/";
 
 $url = $_SERVER['REQUEST_URI'];
 
