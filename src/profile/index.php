@@ -146,7 +146,7 @@
         }),
         type: "GET",
       }).done(function(data) {
-        window.location.href = "/applications/myapplications.php";
+        window.location.href = "/profile/applications/myapplications.php";
       })
     })
   });
