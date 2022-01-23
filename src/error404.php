@@ -9,9 +9,9 @@
 <body>
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/navbar.php" ?>
 
-  <div class="mainbox">
+  <div class="mainbox" style="z-index:-2;">
     <div class="err">4</div>
-    <i style="top:20%; right:1rem; left:1rem;" class="far fa-question-circle fa-spin"></i>
+    <i style="top:20%; right:1rem; left:1rem; z-index:-1;" class="far fa-question-circle fa-spin"></i>
     <div class="err2">4</div>
     <div class="msg">Μήπως η σελίδα μετακόμισε; Διαγράφτηκε; Είναι σε καραντίνα; Ποτέ δεν υπήρξε;<p>Ας πάμε στην <a href="index.php">αρχική</a> και βλέπουμε.</p></div>
 </div>
