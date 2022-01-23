@@ -7,17 +7,17 @@
 <link rel="stylesheet" href="/css/sidebar.css">
 
 <?php
-	global $_sidebar_page_names_; 
+	 
 	$_sidebar_page_names_ = array(
 	"announcements" => array(
 		array(
 			"Ανακοινώσεις",
 			array(
-				"under_construction.php" => "Γενικές Πληροφορίες",
-				"under_construction.php" => "Αποφάσεις Δ.Σ",
-				"under_construction.php" => "Προϋπολογισμοί-Προκηρύξεις",
-				"under_construction.php" => "Εξετάσεις Ιατρικής",	
-				"under_construction.php" => "Εξετάσεις Οδοντιατρικής",
+				"under_construction1.php" => "Γενικές Πληροφορίες",
+				"under_construction2.php" => "Αποφάσεις Δ.Σ",
+				"under_construction3.php" => "Προϋπολογισμοί-Προκηρύξεις",
+				"under_construction4.php" => "Εξετάσεις Ιατρικής",	
+				"under_construction5.php" => "Εξετάσεις Οδοντιατρικής",
 			)
 		),				
 	),
@@ -41,13 +41,13 @@
 		if (isAdmin($userID)){
 			$_sidebar_page_names_["profile"] =  array(
 				"user_profile.php" => "Οι πληροφορίες μου",
-				"admin-application.php" => array(
+				"application_handling" => array(
 					"Διαχείριση Αιτήσεων",
 					array(
-						"submitted" => "Υποβλήθηκαν",
-						"pending" => "Σε εκκρεμότητα",
-						"approved" => "Εγκρίθηκαν",
-						"rejected" => "Απορρίφθηκαν"
+						"submitted_applications.php" => "Υποβλήθηκαν",
+						"pending_applications.php" => "Σε εκκρεμότητα",
+						"accepted_applications.php" => "Εγκρίθηκαν",
+						"rejected_applications.php" => "Απορρίφθηκαν"
 					)
 				),
 				"under_construction.php" => "Διαχείριση Λογαριασμών Χρηστών"				
@@ -60,7 +60,6 @@
 				"user_application_submission.php" => "Νέα Αίτηση",
 				"myapplications.php" => "Οι Αιτήσεις μου"				
 			);
-			echo $userID;
 		}
 	}
 function echoSidebar(string $path)

@@ -91,6 +91,46 @@ function userAuth($username, $password)
     }
 }
 
+function setUserInfo($user_id, $firstName, $lastName, 
+$mothersName, $fathersName, $country, $city, $address,
+$docType, $docNumber, $birthday, $mobile, $phone)
+{
+    global $conn;
+    global $db_error_message;
+
+    # Escape sql characters
+    $firstName = e($firstName);
+    $lastName = e($lastName);
+    $mothersName = e($mothersName);
+    $fathersName = e($fathersName);
+    $country = e($country);
+    $city = e($city);
+    $address = e($address);
+    $docType = e($docType);
+    $docNumber = e($docNumber);
+    $birthday = e($birthday);
+    $mobile = e($mobile);
+    $phone = e($phone);
+
+    # Make query
+    $sql = "UPDATE `users`
+            SET `first_name`='$firstName',
+            `last_name`= '$lastName',
+            `mothers_name`='$mothersName',
+            `fathers_name`='$fathersName',
+            `country`=$country,
+            `city`='$city',
+            `address`='$address',
+            `docType`='$docType',
+            `docNumber`='$docNumber',
+            `birthday`= '$birthday',
+            `mobile`='$mobile',
+            `phone`='$phone'
+            WHERE `user_id` = $user_id;";
+
+    $conn->query($sql);
+}
+
 function getUserInfo($id){
     global $conn;
 

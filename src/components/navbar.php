@@ -139,7 +139,7 @@ function echoNavbarContent(array $content)
 
 					<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 						<li><a class="dropdown-item" href="/user_profile.php">Το Προφίλ μου</a></li>
-						<li><a class="dropdown-item" href="/admin-application.php">Διαχείριση Αιτήσεων</a></li>
+						<li><a class="dropdown-item" href="/applications_handling.php">Διαχείριση Αιτήσεων</a></li>
 						<li><a class="dropdown-item" href="/under_construction.php">Διαχείριση Λογαριασμών Χρηστών</a></li>
 					</ul>
 				</div>

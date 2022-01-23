@@ -63,19 +63,25 @@ function getApplication($appID)
     return $row;
 }
 
+<<<<<<< HEAD
 function approveApplication($appID, $university, $department)
 {
+=======
+function approveApplication($appID, $university, $department, $comments){
+>>>>>>> c2202dd35a8ecf75e50d2be9bbec53a94181db29
     global $conn;
     $sql = "UPDATE `applications`
             SET `state` = 'approved',
                 `university` = '$university',
                 `department` = '$department',
-                `last_modified` = NOW()
+                `last_modified` = NOW(),
+                `comment` = '$comments'
             WHERE `app_id` = $appID;";
 
     $conn->query($sql);
 }
 
+<<<<<<< HEAD
 function setApplicationCourses($appID, $university, $department, $subjects)
 {
     global $conn;
@@ -83,6 +89,14 @@ function setApplicationCourses($appID, $university, $department, $subjects)
     // Add subjects
     foreach ($subjects as $subject) {
         $sql = "INSERT IGNORE INTO subjects(`app_id`, `title`)
+=======
+function setApplicationCourses($appID, $university, $department, $subjects, $comments){
+    global $conn;
+
+    // Add subjects
+    foreach($subjects as $subject){
+        $sql = "INSERT IGNORE INTO courses(`app_id`, `title`)
+>>>>>>> c2202dd35a8ecf75e50d2be9bbec53a94181db29
                 VALUES('$appID', '$subject');";
         $conn->query($sql);
     }
@@ -91,13 +105,29 @@ function setApplicationCourses($appID, $university, $department, $subjects)
     SET `state` = 'pending',
         `university` = '$university',
         `department` = '$department',
-        `last_modified` = NOW()
+        `last_modified` = NOW(),
+        `comment` = '$comments'
     WHERE `app_id` = $appID;";
     $conn->query($sql);
 }
 
+<<<<<<< HEAD
 function rejectApplication($appID, $rejectedDocs, $comment)
 {
+=======
+function getApplicationCourses($appID)
+{
+    global $conn;
+    
+    $sql = "SELECT `title` from `courses`
+            WHERE `app_id` = $appID";
+    $result = $conn->query($sql);
+    $rows = $result->fetch_all(MYSQLI_ASSOC);
+    return $rows;
+}
+
+function rejectApplication($appID, $rejectedDocs, $comment){
+>>>>>>> c2202dd35a8ecf75e50d2be9bbec53a94181db29
     global $conn;
 
     $basicApproved = $rejectedDocs['basic_info'];
@@ -113,7 +143,11 @@ function rejectApplication($appID, $rejectedDocs, $comment)
             WHERE `app_id` = $appID;";
     $conn->query($sql);
 
+<<<<<<< HEAD
     foreach (array('id', 'form', 'title') as $type) {
+=======
+    foreach(array('id', 'app', 'par', 'title') as $type){
+>>>>>>> c2202dd35a8ecf75e50d2be9bbec53a94181db29
         $approved = $documents[$type];
         $sql = "UPDATE `documents`
                 SET `approved` = '$approved'
@@ -209,3 +243,30 @@ function deleteApplication($appID, $userID)
     $sql = "DELETE FROM applications WHERE `app_id`=$appID AND `user_id`=$userID";
     $conn->query($sql);
 }
+<<<<<<< HEAD
+=======
+
+# dateOrder: "ASC" or "DESC"
+function getAllApplications($state, $page, $pageCapacity, $dateOrder = "ASC"){
+    global $conn;
+
+    $limitStart = ($page - 1)*$pageCapacity;
+    $offset = $pageCapacity + 1;
+
+    $sql = "SELECT * FROM applications 
+            WHERE `state`= '$state'
+            ORDER BY `last_modified` $dateOrder
+            LIMIT $limitStart, $offset;";
+    $result = $conn->query($sql);
+    $rows = $result->fetch_all(MYSQLI_ASSOC);
+
+    if (count($rows) > $pageCapacity) {
+        $hasNextPage = true;
+        array_pop($rows);
+    } else {
+        $hasNextPage = false;
+    }
+
+    return array($rows, $hasNextPage);
+}
+>>>>>>> c2202dd35a8ecf75e50d2be9bbec53a94181db29

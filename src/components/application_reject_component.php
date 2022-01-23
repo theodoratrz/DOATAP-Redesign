@@ -133,6 +133,14 @@ form[name="application-reject-form"] .form-control::placeholder {
     justify-content: space-between;
 }
 
+#docImgModal .modal-content {
+    width: max-content;
+}
+
+.document-image {
+    width: 25rem;
+}
+
 </style>
 <script>
 
@@ -144,7 +152,7 @@ form[name="application-reject-form"] .form-control::placeholder {
 
     function openDocumentModal(documentButton) {
         const imgURL = documentButton.getAttribute('data-img-src');
-        const modalMainContent = `<img alt="Document Image (${imgURL})" src="${imgURL}">`;
+        const modalMainContent = `<img class="document-image" alt="Document Image (${imgURL})" src="${imgURL}">`;
         document.getElementById('docImgModalLabel').innerHTML = `Έγγραφο: ${documentButton.innerHTML}`;
         document.getElementById('document-modal-body-msg').innerHTML = modalMainContent;
         $('#docImgModal').modal("show");
@@ -163,8 +171,8 @@ form[name="application-reject-form"] .form-control::placeholder {
             url: "/reject_application.php",
             dataType: "json",
             success: answer => {
-                console.log(answer);
-                // Success Modal, reload page
+                // Success, reload page
+                document.forms["application-reject-form"].submit();
             },
             error: answer => {
                 // Show Error Modal
@@ -172,13 +180,14 @@ form[name="application-reject-form"] .form-control::placeholder {
                 $('#errorMsgModal').modal("show");
             },
             data: {
+                "application_id" : window.applicationID,
                 "basic_info": document.getElementById('basic_info_check').checked ? "1" : "0",
                 "studies_info": document.getElementById('studies_info_check').checked ? "1" : "0",
                 "documents": {
                     'id': document.getElementById('id_check').checked ? "1" : "0",
-                    'form': document.getElementById('application_check').checked ? "1" : "0",
-                    'title': document.getElementById('title_check').checked ? "1" : "0",
-                    'fee': ""
+                    'app': document.getElementById('application_check').checked ? "1" : "0",
+                    'par': document.getElementById('fee_check').checked ? "1" : "0",
+                    'title': "1"
                 },
                 "comments": document.getElementById('admin-comments-textbox').value
             }
@@ -236,12 +245,39 @@ function getDocumentImageModal() {
 
 function getBasicInfo(array $userInfo)
 {
+    switch ($userInfo['gender']) {
+        case 'Male':
+            $gender = 'Άνδρας';
+            break;
+        case 'Female':
+            $gender = 'Γυναίκα';
+            break;
+        case 'Other':
+            $gender = 'Άλλο';
+            break;        
+        default:
+            $gender = $userInfo['gender'];
+            break;
+    }
+
+    switch ($userInfo['docType']) {
+        case 'ID':
+            $docType = 'Ταυτότητα';
+            break;
+        case 'passport':
+            $docType = 'Διαβατήριο';
+            break;        
+        default:
+            $docType = $userInfo['docType'];
+            break;
+    }
+
     return '
     <div class="basic-info-container">
         <div class="basic-info-field-group">
             <div class="basic-info-field">
                 <div class="basic-info-field-title">Χρήστης:</div>
-                ' . $userInfo['uname'] . '
+                ' . $userInfo['username'] . '
             </div>
             <div class="basic-info-field">
                 <div class="basic-info-field-title">Email:</div>
@@ -251,37 +287,37 @@ function getBasicInfo(array $userInfo)
         <div class="basic-info-field-group">
             <div class="basic-info-field">
                 <div class="basic-info-field-title">Ταυτοποίηση:</div>
-                ' . $userInfo['docSelection'] . '
+                ' . $docType . '
             </div>
             <div class="basic-info-field">
                 <div class="basic-info-field-title">Αριθμός Εγγράφου:</div>
-                ' . $userInfo['docID'] . '
+                ' . $userInfo['docNumber'] . '
             </div>
         </div>
         <div class="basic-info-field-group">
             <div class="basic-info-field">
                 <div class="basic-info-field-title">Όνομα:</div>
-                ' . $userInfo['fname'] . '
+                ' . $userInfo['first_name'] . '
             </div>
             <div class="basic-info-field">
                 <div class="basic-info-field-title">Επώνυμο:</div>
-                ' . $userInfo['surname'] . '
+                ' . $userInfo['last_name'] . '
             </div>
             <div class="basic-info-field">
                 <div class="basic-info-field-title">Πατρώνυμο:</div>
-                ' . $userInfo['fathersName'] . '
+                ' . $userInfo['fathers_name'] . '
             </div>
             <div class="basic-info-field">
                 <div class="basic-info-field-title">Μητρώνυμο:</div>
-                ' . $userInfo['mothersName'] . '
+                ' . $userInfo['mothers_name'] . '
             </div>
             <div class="basic-info-field">
                 <div class="basic-info-field-title">Ημ. γέννησης:</div>
-                ' . $userInfo['birthDate'] . '
+                ' . $userInfo['birthday'] . '
             </div>
             <div class="basic-info-field">
                 <div class="basic-info-field-title">Φύλο:</div>
-                ' . $userInfo['gender'] . '
+                ' . $gender . '
             </div>
         </div>
         <div class="basic-info-field-group">
@@ -299,11 +335,11 @@ function getBasicInfo(array $userInfo)
             </div>
             <div class="basic-info-field">
                 <div class="basic-info-field-title">Κινητό Τηλέφωνο:</div>
-                ' . $userInfo['mobilePhone'] . '
+                ' . $userInfo['mobile'] . '
             </div>
             <div class="basic-info-field">
                 <div class="basic-info-field-title">Σταθ. Τηλέφωνο:</div>
-                ' . $userInfo['homePhone'] . '
+                ' . $userInfo['phone'] . '
             </div>
         </div>
     </div>
@@ -324,34 +360,38 @@ function getStudiesTitle(array $studiesInfo)
                 ' . $studiesInfo['university'] . '
             </div>
             <div class="basic-info-field">
-                <div class="basic-info-field-title">Τίτλος Σπουδών:</div>
-                ' . $studiesInfo['title'] . '
+                <div class="basic-info-field-title">Τμήμα:</div>
+                ' . $studiesInfo['department'] . '
+            </div>
+            <div class="basic-info-field">
+                <div class="basic-info-field-title">Τύπος Πτυχίου:</div>
+                ' . $studiesInfo['degree_type'] . '
             </div>
             <div class="basic-info-field">
                 <div class="basic-info-field-title">Έτη σπουδών:</div>
-                ' . $studiesInfo['studyYears'] . '
+                ' . $studiesInfo['yearsOfStudy'] . '
             </div>
             <div class="basic-info-field">
                 <div class="basic-info-field-title">Πιστωτικές Μονάδες:</div>
-                ' . $studiesInfo['ects'] . '
+                ' . $studiesInfo['ECTS'] . '
             </div>
         </div>
         <div class="basic-info-field-group">
             <div class="basic-info-field">
                 <div class="basic-info-field-title">Τύπος Φοίτησης:</div>
-                ' . $studiesInfo['studies_type'] . '
+                ' . ($studiesInfo['studiesType'] === "1" ? "Συμβατικός" : "Εξ αποστάσεως") . '
             </div>
             <div class="basic-info-field">
                 <div class="basic-info-field-title">Προγρ. Φοίτησης:</div>
-                ' . $studiesInfo['studies_duration'] . '
+                ' . ($studiesInfo['attendance']  === "1" ? "Τακτική" : "Μερική"). '
             </div>
             <div class="basic-info-field">
                 <div class="basic-info-field-title">Ημ. εκκίνησης:</div>
-                ' . $studiesInfo['dateStarted'] . '
+                ' . $studiesInfo['dateIntro'] . '
             </div>
             <div class="basic-info-field">
                 <div class="basic-info-field-title">Ημ. ολοκλήρωσης:</div>
-                ' . $studiesInfo['dateFinished'] . '
+                ' . $studiesInfo['dateGrad'] . '
             </div>
         </div>
     </div>';
@@ -372,11 +412,11 @@ function getDocuments(array $documentsInfo)
             </label>
         </div>
         <div class="document-field-container">
-            <button type="button" onclick="openDocumentModal(this)" class="document-file-button"  data-img-src="' . $documentsInfo['title'][0] . '">
-                Τίτλος Σπουδών
+            <button type="button" onclick="openDocumentModal(this)" class="document-file-button"  data-img-src="' . $documentsInfo['fee'][0] . '">
+                Παράβολο
             </button>
             <label class="approve-checkbox">
-                <input id="title_check" type="checkbox" checked>
+                <input id="fee_check" type="checkbox" checked>
                     Εγκρίνεται
                 </input>
             </label>
@@ -419,7 +459,7 @@ function getRejectFormAccordion(array $applicationInfo)
                 <label class="approve-checkbox">
                     <input id="studies_info_check" type="checkbox" checked>Έγκριση Τίτλου Σπουδών</input>
                 </label>'
-                . getStudiesTitle($applicationInfo['studies_info']) . '
+                . getStudiesTitle($applicationInfo) . '
             </div>
             '
         ),
@@ -448,7 +488,8 @@ function getApplicationRejectForm(array $applicationInfo)
             Σε περίπτωση απόρριψης της αίτησης, μπορείτε να αποεπιλέξτε την επιλογή έγκρισης σε κάποια ενότητα ή δικαιολογητικό:
         </span>
         ' . getDocumentImageModal() . '
-        <form name="application-reject-form" onsubmit="rejectApplication(event)">
+        <form name="application-reject-form" method="GET" onsubmit="rejectApplication(event)">
+            <input type="hidden" name="app_id" value="'. $_GET['app_id'] .'">
             ' . getRejectFormAccordion($applicationInfo) . '
             <div class="reject-application-button">
                 <button class="btn btn-primary" type="button" onclick="rejectFormNamespace.toggleVerificationModal()">Απόρριψη Αίτησης</button>
@@ -474,26 +515,25 @@ function getFrozenDocuments(array $documentsInfo)
             </label>
         </div>
         <div class="document-field-container">
+            <button type="button" onclick="openDocumentModal(this)" class="document-file-button" data-img-src="' . $documentsInfo['fee'][0] . '">
+                Παράβολο
+            </button>
+            <label class="approve-checkbox">
+                <input type="checkbox" ' . ($documentsInfo['fee'][1] === "1" ? "checked" : "") . ' disabled>
+                    Εγκρίνεται
+                </input>
+            </label>
+        </div>
+        <div class="document-field-container">
             <button type="button" onclick="openDocumentModal(this)" class="document-file-button" data-img-src="' . $documentsInfo['application'][0] . '">
-                Τίτλος Σπουδών
+                Αίτηση
             </button>
             <label class="approve-checkbox">
                 <input type="checkbox" ' . ($documentsInfo['application'][1] === "1" ? "checked" : "") . ' disabled>
                     Εγκρίνεται
                 </input>
             </label>
-        </div>
-        <div class="document-field-container">
-            <button type="button" onclick="openDocumentModal(this)" class="document-file-button" data-img-src="' . $documentsInfo['title'][0] . '">
-                Αίτηση
-            </button>
-            <label class="approve-checkbox">
-                <input type="checkbox" ' . ($documentsInfo['title'][1] === "1" ? "checked" : "") . ' disabled>
-                    Εγκρίνεται
-                </input>
-            </label>
-        </div>
-        
+        </div>        
     </div>
     ';
 }
@@ -508,7 +548,7 @@ function getFrozenRejectFormAccordion(array $applicationInfo)
             '
             <div style="display: flex; flex-direction: column; row-gap: .8em;">
                 <label class="approve-checkbox">
-                    <input type="checkbox" ' . ($applicationInfo["basic_info_accepted"] === "1" ? "checked" : "") . ' disabled>Έγκριση Προσωπικών Στοιχείων</input>
+                    <input type="checkbox" ' . ($applicationInfo["basicInfoApproved"] === "1" ? "checked" : "") . ' disabled>Έγκριση Προσωπικών Στοιχείων</input>
                 </label>'
                 . getBasicInfo($applicationInfo["basic_info"]) . '
             </div>
@@ -519,9 +559,9 @@ function getFrozenRejectFormAccordion(array $applicationInfo)
             '
             <div style="display: flex; flex-direction: column; row-gap: .8em;">
                 <label class="approve-checkbox">
-                    <input type="checkbox" ' . ($applicationInfo["studies_info_accepted"] === "1" ? "checked" : "") . ' disabled>Έγκριση Τίτλου Σπουδών</input>
+                    <input type="checkbox" ' . ($applicationInfo["studiesInfoApproved"] === "1" ? "checked" : "") . ' disabled>Έγκριση Τίτλου Σπουδών</input>
                 </label>'
-                . getStudiesTitle($applicationInfo["studies_info"]) . '
+                . getStudiesTitle($applicationInfo) . '
             </div>
             '
         ),
