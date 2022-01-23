@@ -1,8 +1,8 @@
 <?php 
 
-/* if (!array_key_exists('app_id', $_GET)) {
+if (!array_key_exists('app_id', $_GET)) {
     header("Location: /error404.php");
-} */
+} 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php";
 
 /* if (isset($_SESSION['user_id'])) {
@@ -86,7 +86,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/components/template.php";
     </style>
 
 <div class="gray-box">
-      <a href="/profile/index.php" class="fas fa-arrow-circle-left" style="text-decoration:none; color:#002E69; cursor:pointer; 
+      <a href="/profile/applications" class="fas fa-arrow-circle-left" style="text-decoration:none; color:#002E69; cursor:pointer; 
             margin-left:13rem;margin-top:2%;">Αίτηση <?php echo $_GET['app_id']; ?></a>
       <div class="breadcrumb" style="align-items:end;">
         <li class="breadcrumb-item"><a href="/index.php" style="text-decoration:none;"><i class="fas fa-home" style="font-size:15px;"></i></a></li>

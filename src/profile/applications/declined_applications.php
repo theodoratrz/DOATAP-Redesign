@@ -125,7 +125,7 @@ function echoPagination()
     <div class="page-content-container">
 
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
-      echoSidebar("/profile/application_handling/declined_applications.php/");
+      echoSidebar("/profile/applications/declined_applications.php/");
       ?>
 
       <div style="display:flex; flex-direction:column; row-gap:1rem; align-items:center;">
