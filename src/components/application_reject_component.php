@@ -352,7 +352,7 @@ function getStudiesTitle(array $studiesInfo)
         <div class="basic-info-field-group">
             <div class="basic-info-field">
                 <div class="basic-info-field-title">Χώρα:</div>
-                ' . $studiesInfo['country'] . '
+                ' . getCountryName($studiesInfo['country']) . '
             </div>
             <div class="basic-info-field">
                 <div class="basic-info-field-title">Ίδρυμα:</div>
