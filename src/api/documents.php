@@ -4,7 +4,7 @@ function getApplicationDocuments($applicationID)
 {
     global $conn;
     $sql = "SELECT * FROM documents WHERE `app_id` = $applicationID AND `type` = 'id'";
-    $id = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
+    $id = $conn->query($sql)->fetch_all(MYSQLI_ASSOC)[0];
     $sql = "SELECT * FROM documents WHERE `app_id` = $applicationID AND `type` = 'par'";
     $par = $conn->query($sql)->fetch_all(MYSQLI_ASSOC)[0];
     $sql = "SELECT * FROM documents WHERE `app_id` = $applicationID AND `type` = 'app'";
