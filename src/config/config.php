@@ -2,7 +2,7 @@
 
 $MYSQL_HOST = "db";
 $MYSQL_USER = "root";
-$MYSQL_PASSWORD = "1234";
-$MYSQL_DB = "doatap";
+$MYSQL_PASSWORD = "12344321";
+$MYSQL_DB = "sdi1800197";
 
 ?>
