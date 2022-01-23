@@ -3,17 +3,32 @@
 <link rel="stylesheet" href="/css/index.css">
 <link rel="stylesheet" href="/css/forms.css">
 
+<div class="modal fade" id="success-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Εγγραφή</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Εγγραφήκατε επιτυχώς!
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <body>
 
     <div class="page-container fluid-container">
         <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/navbar.php" ?>
 
         <div class="gray-box">
-          <a href="/index.php" class="fas fa-arrow-circle-left" style="text-decoration:none; color:#002E69; cursor:pointer; 
+            <a href="/index.php" class="fas fa-arrow-circle-left" style="text-decoration:none; color:#002E69; cursor:pointer; 
             margin-left:13rem;margin-top:2%;">Εγγραφή</a>
             <div class="breadcrumb" style="align-items:end;">
-              <li class="breadcrumb-item"><a href="/index.php" style="text-decoration:none;"><i class="fas fa-home" style="font-size:15px;"></i></a></li>
-              <li class="breadcrumb-item active" aria-current="page" style="font-size:15px;">Εγγραφή</li>
+                <li class="breadcrumb-item"><a href="/index.php" style="text-decoration:none;"><i class="fas fa-home" style="font-size:15px;"></i></a></li>
+                <li class="breadcrumb-item active" aria-current="page" style="font-size:15px;">Εγγραφή</li>
             </div>
         </div>
         <div class="login-container-wrapper">
@@ -147,22 +162,22 @@
 <script>
     $("#registerbtn").click(function() {
         let form = document.forms["profile-info-form"]
-        if (validateForm(form)){
+        if (validateForm(form)) {
             let form_data = $('#registration-form').serializeArray();
             $.post('/api/register.php', form_data)
-            .done(function(data){
-                if(data != 'success'){
-                    // Display error
-                    alert(data);
-                }else{
-                    // Redirect to home
-                    modal = $("#success-modal");
-                    modal.modal('show');
-                    modal.on("hidden.bs.modal", function(){
-                        window.location.replace('/');
-                    })
-                }
-            });
+                .done(function(data) {
+                    if (data != 'success') {
+                        // Display error
+                        alert(data);
+                    } else {
+                        // Redirect to home
+                        modal = $("#success-modal");
+                        modal.modal('show');
+                        modal.on("hidden.bs.modal", function() {
+                            window.location.replace('/');
+                        })
+                    }
+                });
         }
         form.classList.add('was-validated')
     })
