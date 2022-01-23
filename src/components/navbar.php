@@ -113,12 +113,14 @@ function echoNavbarContent(array $content)
 	<a class="custom-navbar-brand" href="/index.php"> <img src="/images/doatap-logo.png" alt="logo" width="250px"> </a>
 
 	<!-- LANGUAGE -->
-		<!--a class="search_button"><i class="fas fa-globe-americas"></i></a>
+	<div style="display:flex; flex-direction:column; align-items:baseline;">
+	<div class="fas fa-globe-americas" style="color:white;">
+		<a class="search_button "></a>
 		<select class="language_picker" data-width="fit">
-		<option><span class="flag-icon flag-icon-gr"></span>Greek</option>
+		<option><span class="flag-icon flag-icon-gr"></span>Ελληνικά</option>
 		<option><span class="flag-icon flag-icon-mx"></span>English</option>
-		</select-->
-
+		</select>
+		</div>
 		<!-- login--> 
 		<?php
 
@@ -180,7 +182,7 @@ function echoNavbarContent(array $content)
 		}
 
 	?>
-	
+	</div>
 	</div>
 </nav>
 
