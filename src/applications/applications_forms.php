@@ -22,7 +22,7 @@
     <div class="page-content-container">
         <?php 
             require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
-            echoSidebar("/applications/apps/applications_forms/");
+            echoSidebar("/applications/applications_forms/");
         ?>
         <?php
 

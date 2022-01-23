@@ -22,7 +22,7 @@
         <div class="page-content-container">
         <?php 
             require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
-            echoSidebar("/applications/apps/paravola/");
+            echoSidebar("/applications/paravola/");
         ?>
         <div style="display:flex; flex-direction:row; justify-content:center;">
         <?php
