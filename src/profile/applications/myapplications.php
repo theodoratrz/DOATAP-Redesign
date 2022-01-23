@@ -118,106 +118,108 @@
             // TODO: Check user rights
 
             $applications = getApplications($_SESSION['user_id']);
-
-            foreach ($applications as $application) {
-              echo '
-                  <tr>
-                    <th><span>' . $application["application_id"] . '</span></th>
-                    <td>' . $application["date_created"] . '</td>
-                    ';
-              switch ($application["state"]) {
-                case 'approved':
-                  echo '
-                      <td style="text-align: -moz-center;">
-                        <div class="application-status status-approved">
-                          <i class="fas fa-check-square"></i> Εγκρίθηκε
+            if($applications != NULL){
+              foreach ($applications as $application) {
+                echo '
+                    <tr>
+                      <th><span>' . $application["application_id"] . '</span></th>
+                      <td>' . $application["date_created"] . '</td>
+                      ';
+                switch ($application["state"]) {
+                  case 'approved':
+                    echo '
+                        <td style="text-align: -moz-center;">
+                          <div class="application-status status-approved">
+                            <i class="fas fa-check-square"></i> Εγκρίθηκε
+                          </div>
+                        </td>
+                        <td>' . $application["date_modified"] . '</td>
+                        <td style="text-align: -moz-center;">
+                        <div>
+                          <a href="/profile/applications/show_application.php?app_id=' . $application["application_id"] . '"
+                          class="btn btn-secondary application-action-button">
+                            <i class="fas fa-eye"></i> Προβολή
+                          </a>
                         </div>
-                      </td>
-                      <td>' . $application["date_modified"] . '</td>
-                      <td style="text-align: -moz-center;">
-                      <div>
-                        <a href="/profile/applications/show_application.php?app_id=' . $application["application_id"] . '"
-                        class="btn btn-secondary application-action-button">
-                          <i class="fas fa-eye"></i> Προβολή
-                        </a>
-                      </div>
-                      </td>';
-                  break;
-                case 'pending':
-                  echo '
-                      <td style="text-align: -moz-center;">
-                        <div class="application-status status-pending">
-                          <i class="fas fa-exclamation-circle"></i> Εκκρεμούν Μαθήματα
+                        </td>';
+                    break;
+                  case 'pending':
+                    echo '
+                        <td style="text-align: -moz-center;">
+                          <div class="application-status status-pending">
+                            <i class="fas fa-exclamation-circle"></i> Εκκρεμούν Μαθήματα
+                          </div>
+                        </td>
+                        <td>' . $application["date_modified"] . '</td>
+                        <td style="text-align: -moz-center;">
+                        <div>
+                          <a href="/profile/applications/show_application.php?app_id=' . $application["application_id"] . '"
+                          class="btn btn-secondary application-action-button">
+                            <i class="fas fa-eye"></i> Προβολή
+                          </a>
                         </div>
-                      </td>
-                      <td>' . $application["date_modified"] . '</td>
-                      <td style="text-align: -moz-center;">
-                      <div>
-                        <a href="/profile/applications/show_application.php?app_id=' . $application["application_id"] . '"
-                        class="btn btn-secondary application-action-button">
-                          <i class="fas fa-eye"></i> Προβολή
-                        </a>
-                      </div>
-                      </td>';
-                  break;
-                case 'submitted':
-                  echo '
-                      <td style="text-align: -moz-center;">
-                        <div class="application-status status-submit">
-                          <i class="fas fa-lock"></i> Οριστικοποιημένη
-                        </div>
-                      </td>
-                      <td>' . $application["date_modified"] . '</td>
-                      <td style="text-align: -moz-center;">
-                      <div>
-                        <a href="/profile/new_application.php?id=' . $application["application_id"] . '"
-                        class="btn btn-secondary application-action-button">
-                          <i class="fas fa-eye"></i> Προβολή
-                        </a>
-                      </div>
-                      </td>';
-                  break;
-                case 'declined':
-                  echo '
-                      <td style="text-align: -moz-center;">
-                        <div class="application-status status-declined">
-                          <i class="fas fa-ban"></i> Απορρίφθηκε
-                        </div>
-                      </td>
-                      <td>' . $application["date_modified"] . '</td>
-                      <td style="text-align: -moz-center;">
-                      <div>
-                        <a href="/profile/applications/show_application.php?app_id=' . $application["application_id"] . '"
-                        class="btn btn-secondary application-action-button">
-                          <i class="fas fa-eye"></i> Προβολή
-                        </a>
-                      </div>
-
-                      </td>';
-                  break;
-                case 'stored':
-                  echo '
-                      <td style="text-align: -moz-center; text-align: center;">
-                        <div class="application-status status-stored"> 
-                          <i class="fas fa-lock-open"></i> Προσωρινά Αποθηκευμένη
-                        </div>
-                      </td>
-                      <td>' . $application["date_modified"] . '</td>
-                      <td style="text-align: -moz-center;">
+                        </td>';
+                    break;
+                  case 'submitted':
+                    echo '
+                        <td style="text-align: -moz-center;">
+                          <div class="application-status status-submit">
+                            <i class="fas fa-lock"></i> Οριστικοποιημένη
+                          </div>
+                        </td>
+                        <td>' . $application["date_modified"] . '</td>
+                        <td style="text-align: -moz-center;">
                         <div>
                           <a href="/profile/new_application.php?id=' . $application["application_id"] . '"
                           class="btn btn-secondary application-action-button">
-                            <i class="fas fa-edit"></i> Επεξεργασία
+                            <i class="fas fa-eye"></i> Προβολή
                           </a>
                         </div>
-                        <button type="button" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#exampleModal" data-app-id=' . $application["application_id"] . '>
-                        </button>
-                      </td>
-                      ';
-                  break;
+                        </td>';
+                    break;
+                  case 'declined':
+                    echo '
+                        <td style="text-align: -moz-center;">
+                          <div class="application-status status-declined">
+                            <i class="fas fa-ban"></i> Απορρίφθηκε
+                          </div>
+                        </td>
+                        <td>' . $application["date_modified"] . '</td>
+                        <td style="text-align: -moz-center;">
+                        <div>
+                          <a href="/profile/applications/show_application.php?app_id=' . $application["application_id"] . '"
+                          class="btn btn-secondary application-action-button">
+                            <i class="fas fa-eye"></i> Προβολή
+                          </a>
+                        </div>
+  
+                        </td>';
+                    break;
+                  case 'stored':
+                    echo '
+                        <td style="text-align: -moz-center; text-align: center;">
+                          <div class="application-status status-stored"> 
+                            <i class="fas fa-lock-open"></i> Προσωρινά Αποθηκευμένη
+                          </div>
+                        </td>
+                        <td>' . $application["date_modified"] . '</td>
+                        <td style="text-align: -moz-center;">
+                          <div>
+                            <a href="/profile/new_application.php?id=' . $application["application_id"] . '"
+                            class="btn btn-secondary application-action-button">
+                              <i class="fas fa-edit"></i> Επεξεργασία
+                            </a>
+                          </div>
+                          <button type="button" class="btn fas fa-trash" data-bs-toggle="modal" style="color:red" data-bs-target="#exampleModal" data-app-id=' . $application["application_id"] . '>
+                          </button>
+                        </td>
+                        ';
+                    break;
+                }
+                echo '</tr>';
               }
-              echo '</tr>';
             }
+            
 
             ?>
 
