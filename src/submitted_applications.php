@@ -19,7 +19,7 @@ function echoPagination()
           <thead>
             <tr>
               <th scope="col">Αίτηση</th>
-              <th scope="col">Ημ/νία Δημιουργίας</th>
+              <th scope="col">Τελ. Ενημέρωση</th>
               <th scope="col">Ενέργειες</th>
             </tr>
           </thead>
