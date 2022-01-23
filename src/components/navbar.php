@@ -3,14 +3,14 @@
 <?php
 $nav_links = array(
 	"Αιτήσεις" => array(
-		"/applications.php",
+		"/applications",
 		array("Διαδικασία Υποβολής" => "/applications/procedure_submission.php",
 		"Η Πορεία μίας Αίτησης" => "/applications/applications-evaluation.php",
 		"Φόρμες Αιτήσεων" => "/applications/applications-forms.php",
 		"Παράβολα" => "/applications/paravola.php")
 	),
 	"Ανακοινώσεις" => array(
-	"/announcements.php",
+	"/announcements",
 	array("Γενικές Πληροφορίες" => "/under_construction.php",
 	"Αποφάσεις Δ.Σ" => "error404.php",
 	"Προϋπολογισμοί-Προκηρύξεις" => "/under_construction.php",
@@ -25,7 +25,7 @@ $nav_links = array(
 	"Δι@υγεια" => "https://et.diavgeia.gov.gr/f/doatap")
 	),
 	"Οργανισμός" => array(
-	"/organization.php",
+	"/organization",
 	array("Ταυτότητα" => "/error404.php",
 	"Διοίκηση" => "/error404.php",
 	"Ετήσιος Απολογισμός ΔΣ" => "/error404.php",
