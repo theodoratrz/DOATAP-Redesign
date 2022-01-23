@@ -7,6 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $res = newApplication(
         $_SESSION['user_id'],
         $_POST['state'],
+        $_POST['degree'],
         $_POST['attendance'],
         $_POST['studiesType'],
         $_POST['country'],
