@@ -196,3 +196,27 @@ function deleteApplication($appID, $userID){
     $sql = "DELETE FROM applications WHERE `app_id`=$appID AND `user_id`=$userID";
     $conn->query($sql);
 }
+
+# dateOrder: "ASC" or "DESC"
+function getAllApplications($state, $page, $pageCapacity, $dateOrder = "ASC"){
+    global $conn;
+
+    $limitStart = ($page - 1)*$pageCapacity;
+    $offset = $pageCapacity + 1;
+
+    $sql = "SELECT * FROM applications 
+            WHERE `state`= '$state'
+            ORDER BY `last_modified` $dateOrder
+            LIMIT $limitStart, $offset;";
+    $result = $conn->query($sql);
+    $rows = $result->fetch_all(MYSQLI_ASSOC);
+
+    if (count($rows) > $pageCapacity) {
+        $hasNextPage = true;
+        array_pop($rows);
+    } else {
+        $hasNextPage = false;
+    }
+
+    return array($rows, $hasNextPage);
+}

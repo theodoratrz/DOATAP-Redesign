@@ -41,13 +41,13 @@
 		if (isAdmin($userID)){
 			$_sidebar_page_names_["profile"] =  array(
 				"user_profile.php" => "Οι πληροφορίες μου",
-				"admin-application.php" => array(
+				"application_handling" => array(
 					"Διαχείριση Αιτήσεων",
 					array(
-						"submitted" => "Υποβλήθηκαν",
-						"pending" => "Σε εκκρεμότητα",
-						"approved" => "Εγκρίθηκαν",
-						"rejected" => "Απορρίφθηκαν"
+						"submitted_applications.php" => "Υποβλήθηκαν",
+						"pending_applications.php" => "Σε εκκρεμότητα",
+						"accepted_applications.php" => "Εγκρίθηκαν",
+						"rejected_applications.php" => "Απορρίφθηκαν"
 					)
 				),
 				"under_construction.php" => "Διαχείριση Λογαριασμών Χρηστών"				
