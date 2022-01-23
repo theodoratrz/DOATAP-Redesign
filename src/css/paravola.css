@@ -5,7 +5,7 @@
   /* Create three columns of equal width */
   .columns {
     float: center;
-    width: 21%;
+    width: 30%;
     padding: 8px;
   }
   .columns-one {

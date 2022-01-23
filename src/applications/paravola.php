@@ -40,24 +40,24 @@
                     <ul class='price'>
                       <li class='header'>Βασικός Τίτλος</li>
                       <li class='grey'>230,40&#128</li>
-                      <li>Τιμή Παραβόλου: 225&#128</li>
-                      <li>Χαρτόσημο(2%) & ΟΓΑ ΧΑΡΤ(20%): 5,40&#128</li>
+                      <li style='font-size:small;'>Τιμή Παραβόλου: 225&#128</li>
+                      <li style='font-size:small;'>Χαρτόσημο (2%) & ΟΓΑ ΧΑΡΤ(20%): 5,40&#128</li>
                     </ul>
                   </div>
                   <div class='columns'>
                     <ul class='price'>
-                      <li class='header'>Μεταπτυχιακός Τίτλος</li>
+                      <li class='header' >Μεταπτυχιακός Τίτλος</li>
                       <li class='grey'>229,32&#128</li>
-                      <li>Τιμή Παραβόλου: 225&#128</li>
-                      <li>Χαρτόσημο(2%) & ΟΓΑ ΧΑΡΤ(20%): 4,32&#128</li>
+                      <li style='font-size:small;'>Τιμή Παραβόλου: 225&#128</li>
+                      <li style='font-size:small;'>Χαρτόσημο (2%) & ΟΓΑ ΧΑΡΤ(20%): 4,32&#128</li>
                     </ul>
                   </div>
                   <div class='columns'>
                     <ul class='price'>
                       <li class='header'>Διδακτορικό Δίπλωμα</li>
                       <li class='grey'>229,32&#128</li>
-                      <li>Τιμή Παραβόλου: 225&#128</li>
-                      <li>Χαρτόσημο(2%) & ΟΓΑ ΧΑΡΤ(20%): 4,32&#128</li>
+                      <li style='font-size:small;'>Τιμή Παραβόλου: 225&#128</li>
+                      <li style='font-size:small;'>Χαρτόσημο (2%) & ΟΓΑ ΧΑΡΤ(20%): 4,32&#128</li>
                     </ul>
                   </div>
                   <div class='columns'>
@@ -65,8 +65,8 @@
                       <li class='header'>Μεταπτυχιακός τίτλος και Διδακτορικό
                       δίπλωμα</li>
                       <li class='grey'>368,64&#128</li>
-                      <li>Τιμή Παραβόλου: 360&#128</li>
-                      <li>Χαρτόσημο(2%) & ΟΓΑ ΧΑΡΤ(20%): 8,64&#128</li>
+                      <li style='font-size:small;'>Τιμή Παραβόλου: 360&#128</li>
+                      <li style='font-size:small;'>Χαρτόσημο (2%) & ΟΓΑ ΧΑΡΤ(20%): 8,64&#128</li>
                     </ul>
                   </div>
                     </div>"
@@ -83,8 +83,8 @@
                       <li class='header'>Βασικός
                       και Μεταπτυχιακός τίτλος</li>
                       <li class='grey'>414,72&#128</li>
-                      <li>Τιμή Παραβόλου: 405&#128</li>
-                      <li>Χαρτόσημο(2%) & ΟΓΑ ΧΑΡΤ(20%): 9,72&#128</li>
+                      <li style='font-size:small;'>Τιμή Παραβόλου: 405&#128</li>
+                      <li style='font-size:small;'>Χαρτόσημο (2%) & ΟΓΑ ΧΑΡΤ(20%): 9,72&#128</li>
                     </ul>
                   </div>
                     </div>"
@@ -100,8 +100,8 @@
                             <li class='header'>Επανεξέταση
                             αιτήματος αναγνώρισης τίτλου σπουδών</li>
                             <li class='grey'>230,40&#128</li>
-                            <li>Τιμή Παραβόλου: 225&#128</li>
-                            <li>Χαρτόσημο(2%) & ΟΓΑ ΧΑΡΤ(20%): 5,40&#128</li>
+                            <li style='font-size:small;'>Τιμή Παραβόλου: 225&#128</li>
+                            <li style='font-size:small;'>Χαρτόσημο (2%) & ΟΓΑ ΧΑΡΤ(20%): 5,40&#128</li>
                           </ul>
                         </div>
                           </div>"
