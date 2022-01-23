@@ -5,19 +5,26 @@
 <link rel="stylesheet" href="/css/forms.css">
 
 <body>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+        <div class="modal fade" id="approveVerifyModal" tabindex="-1" role="dialog" aria-labelledby="approveVerifyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Προσωρινή Αποθήκευση</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <span class="modal-title" id="approveVerifyModalLabel">Επιβεβαίωση</span>
                 </div>
-                <div class="modal-body">
-                Η εγγραφή σας ολοκληρώθηκε επιτυχώς!
+                <div id="approve-verify-modal-body-msg" class="modal-body">
+                    Είστε βέβαιοι ότι θέλετε να εγκρίνετε αυτή την αίτηση?
+                </div>
+                <div class="modal-footer verify-footer">
+                    <button type="button" class="btn btn-secondary close-doc-btn cancel-reject" data-dismiss="modal" onclick="approveFormNamespace.toggleVerificationModal()">
+                        Ακύρωση
+                    </button>
+                    <button type="submit" class="btn btn-secondary close-doc-btn verify-reject" data-dismiss="modal" onclick="approveApplication(event)">
+                        Συνέχεια
+                    </button>
                 </div>
             </div>
-            </div>
-        </div>  
+        </div>
+    </div>
     <div class="page-container fluid-container">
         <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/components/navbar.php" ?>
 
