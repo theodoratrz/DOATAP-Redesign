@@ -21,13 +21,13 @@
             require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
             echoSidebar("/applications/apps/procedure_submission/");
         ?>
-        <div class="fluid-container" style="width:30rem; margin-top:1%;">
+        <div class="fluid-container" style="width:30rem;  margin-bottom:2rem;">
         <h6 style="font-weight:bold">1. Σύνδεση ή Δημιουργία Λογαριασμού</h6>
         <!--hr style="color:blue; width:30%; height:0.5%; background-color:blue; margin=0px;"-->
         <p>Για τη δημιουργία και την υποβολή αιτήσεων στον ΔΟΑΤΑΠ απαιτείται η 
-            <a href="register.php">Δημιουργία Λογαριασμού</a> στο doatap.gr. 
+            <a href="/register.php">Δημιουργία Λογαριασμού</a> στο doatap.gr. 
             Αν διαθέτετε ήδη λογαριασμό, πραγματοποιήστε
-            <a href="login.php">Σύνδεση</a>.
+            <a href="/login.php">Σύνδεση</a>.
         </p>
 
         <h6 style="font-weight:bold">2. Δημιουργία Νέας Αίτησης</h6>

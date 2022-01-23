@@ -19,7 +19,7 @@
     
         <?php 
             require_once $_SERVER['DOCUMENT_ROOT'] . "/components/sidebar.php";
-            echoSidebar("/profile/user_profile.php/");
+            echoSidebar("/profile");
             ?>
                         <div class="table-wrapper" style="width:60%">
                             <form> 

@@ -8,30 +8,19 @@
 
 <?php
 	 
-	$_sidebar_page_names_ = array(
-	"announcements" => array(
-		array(
-			"Ανακοινώσεις",
-			array(
-				"under_construction1.php" => "Γενικές Πληροφορίες",
-				"under_construction2.php" => "Αποφάσεις Δ.Σ",
-				"under_construction3.php" => "Προϋπολογισμοί-Προκηρύξεις",
-				"under_construction4.php" => "Εξετάσεις Ιατρικής",	
-				"under_construction5.php" => "Εξετάσεις Οδοντιατρικής",
-			)
-		),				
-	),
-	
+	 $_sidebar_page_names_ = array(
+		"announcements" => array(
+			"under_construction1.php" => "Γενικές Πληροφορίες",
+			"under_construction2.php" => "Αποφάσεις Δ.Σ",
+			"under_construction3.php" => "Προϋπολογισμοί-Προκηρύξεις",
+			"under_construction4.php" => "Εξετάσεις Ιατρικής",	
+			"under_construction5.php" => "Εξετάσεις Οδοντιατρικής",
+		),
 		"applications" => array(
-			"apps" => array(
-				"Αιτήσεις",
-				array(
-					"procedure_submission.php" => "Διαδικασία Υποβολής",
-					"applications_evaluation.php" => "Η Πορεία μίας Αίτησης",
-					"applications_forms.php" => "Φόρμες Αιτήσεων",
-					"paravola.php" => "Παράβολα"
-				)	
-			)		
+			"procedure_submission.php" => "Διαδικασία Υποβολής",
+			"applications_evaluation.php" => "Η Πορεία μίας Αίτησης",
+			"applications_forms.php" => "Φόρμες Αιτήσεων",
+			"paravola.php" => "Παράβολα"	
 		)
 	);
 
@@ -62,11 +51,12 @@
 			);
 		}
 	}
+
 function echoSidebar(string $path)
 {
 	global $_sidebar_page_names_;
 	$pathArray = array_values(array_diff(explode("/", $path), [""]));
-
+	
 	echo "
 	<div class='flex-shrink-0 bg-white' style='width: auto; padding: 0%'>
 	<ul class='list-group ps-0'>
@@ -76,7 +66,7 @@ function echoSidebar(string $path)
 		$type = gettype($value);
 		if ($type == 'string') {
 
-			echoSidebarItem("$value", "$pathArray[0]/$subpage", $subpage == $pathArray[1]);
+			echoSidebarItem("$value", "$subpage", $subpage == $pathArray[1]);
 
 		} else if ($type == 'array') {
 			if ($subpage != $pathArray[1]) {
