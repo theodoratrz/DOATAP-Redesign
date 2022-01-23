@@ -160,7 +160,7 @@ function echoNavbarContent(array $content)
 					<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 						<li><a class="dropdown-item" href="/profile">Το Προφίλ μου</a></li>
 						<li><a class="dropdown-item" href="/profile/new_application.php">Νέα Αίτηση</a></li>
-						<li><a class="dropdown-item" href="/profile/applications">Οι Αιτήσεις μου</a></li>
+						<li><a class="dropdown-item" href="/profile/applications/myapplications.php">Οι Αιτήσεις μου</a></li>
 					</ul>
 				</div>
 				<span style="color:white">|</span>

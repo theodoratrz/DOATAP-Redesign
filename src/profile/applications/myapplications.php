@@ -75,7 +75,7 @@
       <div class="table-wrapper">
         <div style="display:flex; flex-direction:row; justify-content:space-between;margin-bottom:1rem; width:inherit; align-items:center;">
           <h2>Αιτήσεις </h2>
-            <a href="/user_application_submission.php" style="text-decoration:none; color:inherit; font-size:inherit;" aria-hidden="true">
+            <a href="/profile/new_application.php" style="text-decoration:none; color:inherit; font-size:inherit;" aria-hidden="true">
               <button type="submit" name="submit" value="Αίτηση" data-toggle="modal" data-target="#newApplication" class="btn btn-primary">
                 <i class="fas fa-file-alt"></i> Νέα Αίτηση
               </button>
@@ -136,7 +136,7 @@
                       <td>' . $application["date_modified"] . '</td>
                       <td style="text-align: -moz-center;">
                       <div>
-                        <a href="/user_application_submission.php?id=' . $application["application_id"] . '"
+                        <a href="/profile/new_application.php?id=' . $application["application_id"] . '"
                         class="btn btn-secondary application-action-button">
                           <i class="fas fa-eye"></i> Προβολή
                         </a>
@@ -153,7 +153,7 @@
                       <td>' . $application["date_modified"] . '</td>
                       <td style="text-align: -moz-center;">
                       <div>
-                        <a href="/user_application_submission.php?id=' . $application["application_id"] . '"
+                        <a href="/profile/new_application.php?id=' . $application["application_id"] . '"
                         class="btn btn-secondary application-action-button">
                           <i class="fas fa-eye"></i> Προβολή
                         </a>
@@ -170,7 +170,7 @@
                       <td>' . $application["date_modified"] . '</td>
                       <td style="text-align: -moz-center;">
                       <div>
-                        <a href="/user_application_submission.php?id=' . $application["application_id"] . '"
+                        <a href="/profile/new_application.php?id=' . $application["application_id"] . '"
                         class="btn btn-secondary application-action-button">
                           <i class="fas fa-eye"></i> Προβολή
                         </a>
@@ -187,11 +187,12 @@
                       <td>' . $application["date_modified"] . '</td>
                       <td style="text-align: -moz-center;">
                       <div>
-                        <a href="/user_application_submission.php?id=' . $application["application_id"] . '"
+                        <a href="/profile/new_application.php?id=' . $application["application_id"] . '"
                         class="btn btn-secondary application-action-button">
                           <i class="fas fa-eye"></i> Προβολή
                         </a>
                       </div>
+
                       </td>';
                   break;
                 case 'stored':
@@ -204,7 +205,7 @@
                       <td>' . $application["date_modified"] . '</td>
                       <td style="text-align: -moz-center;">
                         <div>
-                          <a href="/user_application_submission.php?id=' . $application["application_id"] . '"
+                          <a href="/profile/new_application.php?id=' . $application["application_id"] . '"
                           class="btn btn-secondary application-action-button">
                             <i class="fas fa-edit"></i> Επεξεργασία
                           </a>
