@@ -11,11 +11,11 @@ $nav_links = array(
 	),
 	"Ανακοινώσεις" => array(
 	"/announcements",
-	array("Γενικές Πληροφορίες" => "/under_construction.php",
-	"Αποφάσεις Δ.Σ" => "under_construction.php",
-	"Προϋπολογισμοί-Προκηρύξεις" => "/under_construction.php",
-	"Εξετάσεις Οδοντιατρικής" => "/under_construction.php",
-	"Εξετάσεις Ιατρικής" => "/under_construction.php")
+	array("Γενικές Πληροφορίες" => "/announcements/?type=1",
+	"Αποφάσεις Δ.Σ" => "/announcements/?type=2",
+	"Προϋπολογισμοί-Προκηρύξεις" => "/announcements/?type=3",
+	"Εξετάσεις Οδοντιατρικής" => "/announcements/?type=4",
+	"Εξετάσεις Ιατρικής" => "/announcements/?type=5")
 	),
 	"Ενημέρωση" => array(
 	"/under_construction.php",

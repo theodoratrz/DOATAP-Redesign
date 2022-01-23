@@ -342,7 +342,7 @@
                   </tr>
           
                   <tr>
-                    <td>Αίτηση</td>
+                    <td>Τίτλος Σπουδών</td>
                     <td>
                       <div class="upload-btn">
                         <input type="file" id="actual-btn-2" name="file-2" hidden />
