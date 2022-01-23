@@ -51,6 +51,17 @@ function getCountries()
     return $rows;
 }
 
+function getCountryName($countryID)
+{
+    global $conn;
+    $sql = "SELECT `name` FROM countries
+            WHERE `coun_id` = '$countryID';";
+    
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    return $row['name'];
+}
+
 function getApplication($appID)
 {
     global $conn;
