@@ -38,7 +38,7 @@ Name of a user 2: USER2 <br>
 Password for all of them:1234 <br>
 
 
-Implemented by:
+## Implemented by:
 
 Theodora Troizi (111520181800197)
 
