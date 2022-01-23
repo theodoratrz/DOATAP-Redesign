@@ -46,15 +46,15 @@
         <div class="field-container">
             <label for="' . $dateID . '" class="form-label">' . $description . '</label>
             <div class="date-container">
-                <div class="date-field-container" style="width: 3rem;">
+                <div class="date-field-container" style="width: 3.5em;">
                     <label for="' . $dateID . '-day">Ημέρα</label>
                     <input type="number" class="form-control" id="' . $dateID . '-day" name="' . $dateID . '-day" value="' . $dateValues["day"] . '">
                 </div>
-                <div class="date-field-container" style="width: 3rem;">
+                <div class="date-field-container" style="width: 3.5em;">
                     <label for="' . $dateID . '-month">Μήνας</label>
                     <input type="number" class="form-control" id="' . $dateID . '-month" name="' . $dateID . '-month" min="1" max="12" value="' . $dateValues["month"] . '">
                 </div>
-                <div class="date-field-container" style="width: 4rem;">
+                <div class="date-field-container" style="width: 5em;">
                     <label for="' . $dateID . '-year">Έτος</label>
                     <input type="number" class="form-control" id="' . $dateID . '-year" name="' . $dateID . '-year" min="1900" value="' . $dateValues["year"] . '">
                 </div>
