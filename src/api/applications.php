@@ -63,12 +63,8 @@ function getApplication($appID)
     return $row;
 }
 
-<<<<<<< HEAD
-function approveApplication($appID, $university, $department)
+function approveApplication($appID, $university, $department, $comments)
 {
-=======
-function approveApplication($appID, $university, $department, $comments){
->>>>>>> c2202dd35a8ecf75e50d2be9bbec53a94181db29
     global $conn;
     $sql = "UPDATE `applications`
             SET `state` = 'approved',
