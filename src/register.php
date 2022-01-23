@@ -125,22 +125,6 @@
                             return valid;
                         }
 
-                        // (function() {
-                        //     'use strict'
-
-                        //     window.addEventListener('load', function() {
-
-                        //         let form = document.forms["profile-info-form"]
-
-                        //         form.addEventListener('submit', function(event) {
-                        //             if (!validateForm(form)) {
-                        //                 event.preventDefault()
-                        //                 event.stopPropagation()
-                        //             }
-                        //             form.classList.add('was-validated')
-                        //         }, false);
-                        //     });
-                        // })();
                     </script>
                     <?php echoProfileInfoForm(formValues, true); ?>
                     <div class="form-submit-button">
