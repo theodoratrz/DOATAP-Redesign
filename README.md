@@ -49,8 +49,9 @@ Password (for all of them): **1234** <br>
 
 ## Implemented by:
 
-Theodora Troizi (1115201800197)
+Theodora Troizi
 
-Nikolaos Passakos Chatzioridis (1115201800156)
+Nikolaos Passakos Chatzioridis
 
-Pavlos Spanoudakis (1115201800184)
+Pavlos Spanoudakis
+
